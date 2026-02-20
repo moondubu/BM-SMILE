@@ -49,7 +49,7 @@ export default function Hero({
             muted
             playsInline
             poster={prefixedPoster}
-            preload="metadata"
+            preload="none"
             className="Hero-media"
           >
             <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />

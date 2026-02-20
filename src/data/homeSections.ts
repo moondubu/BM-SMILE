@@ -139,20 +139,20 @@ export type HomeSection =
 export const HOME_SECTIONS: HomeSection[] = [
   {
     type: "hero",
-    poster: `${BASE_VIDEO}/vedeo_main_hero_thumbnail_1770856563260.jpg`,
-    hvc: `${BASE_VIDEO}/vedeo_main_hero_hevc_1770859569663.mp4`,
-    h264: `${BASE_VIDEO}/vedeo_main_hero_h264_1770859569663.mp4`,
+    poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_thumbnail_1771563641863.jpg",
+    hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_hevc_1771563641863.mp4",
+    h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_h264_1771563641863.mp4",
   },
   { type: "slogan" },
   {
     type: "mediaSlide",
     id: "environment",
-    videoPoster: `${BASE_VIDEO}/vedeo_main_environment_thumbnail_1770861507851.jpg`,
-    videoSrcHvc: `${BASE_VIDEO}/vedeo_main_environment_hevc_1770861507851.mp4`,
-    videoSrcH264: `${BASE_VIDEO}/vedeo_main_environment_h264_1770861507851.mp4`,
+    videoPoster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_thumbnail_1771563771574.jpg",
+    videoSrcHvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_hevc_1771563771574.mp4",
+    videoSrcH264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_h264_1771563771574.mp4",
     number: "01",
     title: { line1: "No.1", line2: "Environment" },
-    mediaAspectRatio: "3 / 1",
+    mediaAspectRatio: "2560 / 720",
     slide: { type: "slideRow", textPanel: ENVIRONMENT_SLIDE.textPanel, items: ENVIRONMENT_SLIDE.items },
   },
   {

@@ -13,10 +13,10 @@ const PET_DATA = [
     { src: prefixPath('/images/contribution/img_contribution_adoption_06.png'), name: '올리버' },
     { src: prefixPath('/images/contribution/img_contribution_adoption_07.png'), name: '초코' },
     { src: prefixPath('/images/contribution/img_contribution_adoption_08.png'), name: '파인' },
-    { src: prefixPath('/images/contribution/img_contribution_adoption_09.png'), name: '??' },
-    { src: prefixPath('/images/contribution/img_contribution_adoption_10.png'), name: '??' },
-    { src: prefixPath('/images/contribution/img_contribution_adoption_11.png'), name: '??' },
-    { src: prefixPath('/images/contribution/img_contribution_adoption_12.png'), name: '??' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_09.png'), name: '아공' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_10.png'), name: '조아' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_11.png'), name: '제리' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_12.png'), name: '미르' },
 ]
 
 export default function AdoptionConnection() {

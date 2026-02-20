@@ -5,6 +5,7 @@ import Contribution1004 from "@/components/Contribution1004/Contribution1004"
 import AdoptionConnection from "@/components/AdoptionConnection/AdoptionConnection"
 import ContributionPrinciples from "@/components/ContributionPrinciples/ContributionPrinciples"
 import ContributionImpact from "@/components/ContributionImpact/ContributionImpact"
+import ContributionConnectProject from "@/components/ContributionConnectProject/ContributionConnectProject"
 
 export default function ContributionPage() {
     return (
@@ -22,6 +23,7 @@ export default function ContributionPage() {
             <AdoptionConnection />
             <ContributionPrinciples />
             <ContributionImpact />
+            <ContributionConnectProject />
         </div>
     )
 }
