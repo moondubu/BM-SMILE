@@ -1,3 +1,4 @@
+import { prefixPath } from "@/utils/path"
 import "./Hero.css"
 
 type HeroProps = {
@@ -32,28 +33,33 @@ export default function Hero({
 }: HeroProps) {
   const containerClass = isLight ? "Hero Hero--light" : "Hero"
 
+  const prefixedPoster = videoPoster ? prefixPath(videoPoster) : undefined
+  const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
+  const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
+  const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
+
   return (
     <section className={containerClass}>
-      {type === "video" && videoPoster && videoSrcHvc && videoSrcH264 ? (
+      {type === "video" && prefixedPoster && prefixedHvc && prefixedH264 ? (
         <>
-          <link rel="preload" as="image" href={videoPoster} fetchPriority="high" />
+          <link rel="preload" as="image" href={prefixedPoster} fetchPriority="high" />
           <video
             autoPlay
             loop
             muted
             playsInline
-            poster={videoPoster}
+            poster={prefixedPoster}
             preload="metadata"
             className="Hero-media"
           >
-            <source src={videoSrcHvc} type="video/mp4; codecs=hvc1" />
-            <source src={videoSrcH264} type="video/mp4" />
+            <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />
+            <source src={prefixedH264} type="video/mp4" />
           </video>
         </>
       ) : (
-        imageSrc && (
+        prefixedImage && (
           <img
-            src={imageSrc}
+            src={prefixedImage}
             alt={imageAlt}
             className="Hero-media"
             fetchPriority="high"

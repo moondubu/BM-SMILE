@@ -1,5 +1,4 @@
-'use client'
-
+import { prefixPath } from '@/utils/path'
 import './Contribution1004.css'
 
 export default function Contribution1004() {
@@ -7,7 +6,7 @@ export default function Contribution1004() {
         <section className="Contribution1004">
             <div className="Contribution1004-bg">
                 <img
-                    src="/images/contribution/img_contribution_1004_01.png"
+                    src={prefixPath("/images/contribution/img_contribution_1004_01.png")}
                     alt="PETHROOM 1004 Project Background"
                 />
             </div>

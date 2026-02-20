@@ -1,21 +1,20 @@
-'use client'
-
 import { useRef, useEffect, useState, useCallback } from 'react'
+import { prefixPath } from '@/utils/path'
 import './AdoptionConnection.css'
 
 const PET_DATA = [
-    { src: '/images/contribution/img_contribution_adoption_01.png', name: '감자' },
-    { src: '/images/contribution/img_contribution_adoption_02.png', name: '두유' },
-    { src: '/images/contribution/img_contribution_adoption_03.png', name: '또봉' },
-    { src: '/images/contribution/img_contribution_adoption_04.png', name: '로니' },
-    { src: '/images/contribution/img_contribution_adoption_05.png', name: '생강' },
-    { src: '/images/contribution/img_contribution_adoption_06.png', name: '올리버' },
-    { src: '/images/contribution/img_contribution_adoption_07.png', name: '초코' },
-    { src: '/images/contribution/img_contribution_adoption_08.png', name: '파인' },
-    { src: '/images/contribution/img_contribution_adoption_09.png', name: '??' },
-    { src: '/images/contribution/img_contribution_adoption_10.png', name: '??' },
-    { src: '/images/contribution/img_contribution_adoption_11.png', name: '??' },
-    { src: '/images/contribution/img_contribution_adoption_12.png', name: '??' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_01.png'), name: '감자' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_02.png'), name: '두유' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_03.png'), name: '또봉' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_04.png'), name: '로니' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_05.png'), name: '생강' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_06.png'), name: '올리버' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_07.png'), name: '초코' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_08.png'), name: '파인' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_09.png'), name: '??' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_10.png'), name: '??' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_11.png'), name: '??' },
+    { src: prefixPath('/images/contribution/img_contribution_adoption_12.png'), name: '??' },
 ]
 
 export default function AdoptionConnection() {
