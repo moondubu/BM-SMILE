@@ -1,3 +1,5 @@
+'use client'
+
 import { useRef, useEffect, useState, useCallback } from 'react'
 import { prefixPath } from '@/utils/path'
 import './AdoptionConnection.css'

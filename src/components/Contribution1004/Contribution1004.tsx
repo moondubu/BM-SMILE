@@ -1,3 +1,5 @@
+'use client'
+
 import { prefixPath } from '@/utils/path'
 import './Contribution1004.css'
 
