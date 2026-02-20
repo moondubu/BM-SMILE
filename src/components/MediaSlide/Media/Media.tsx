@@ -1,3 +1,4 @@
+import { prefixPath } from "@/utils/path"
 import "./Media.css"
 
 type MediaProps = {
@@ -25,11 +26,16 @@ export default function Media({
   const isImage = imageSrc != null && imageSrc !== ""
   const style = { display: "block" as const, width: "100%", ...(aspectRatio != null && aspectRatio !== "" ? { aspectRatio } : {}) }
 
-  if (isImage) {
+  const prefixedPoster = videoPoster ? prefixPath(videoPoster) : undefined
+  const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
+  const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
+  const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
+
+  if (isImage && prefixedImage) {
     return (
       <div className="Media">
         <img
-          src={imageSrc}
+          src={prefixedImage}
           alt={imageAlt}
           loading="lazy"
           decoding="async"
@@ -46,7 +52,7 @@ export default function Media({
   }
 
   const hasVideo =
-    videoPoster != null && videoSrcHvc != null && videoSrcH264 != null
+    prefixedPoster != null && prefixedHvc != null && prefixedH264 != null
   if (!hasVideo) return null
 
   return (
@@ -56,12 +62,12 @@ export default function Media({
         loop
         muted
         playsInline
-        poster={videoPoster}
+        poster={prefixedPoster}
         preload="none"
         style={style}
       >
-        <source src={videoSrcHvc} type="video/mp4; codecs=hvc1" />
-        <source src={videoSrcH264} type="video/mp4" />
+        <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />
+        <source src={prefixedH264} type="video/mp4" />
       </video>
       <div className="Media-text-overlay SectionHead">
         {number != null && number !== "" && (
