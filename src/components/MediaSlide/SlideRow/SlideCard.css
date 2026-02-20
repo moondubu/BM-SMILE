@@ -1,0 +1,47 @@
+/* Figma: 슬라이드 카드. 캡션(흰색 볼드) 오버레이, radius-lg. 루트 변수 + 네스팅 */
+
+.SlideCard {
+  position: relative;
+  flex-shrink: 0;
+  /* width·height 모두 안에 이미지 크기에 따라 결정 */
+  display: inline-block;
+  border-radius: 32px; /* Radius/radius-lg */
+  overflow: hidden;
+  background: var(--color-grey-900);
+  box-sizing: border-box;
+
+  .SlideCard-img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .SlideCard-overlay {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: var(--spacing-24) var(--spacing-20);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+  }
+
+  .SlideCard-number {
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-24);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-white);
+  }
+
+  .SlideCard-caption {
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-24);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-white);
+  }
+}

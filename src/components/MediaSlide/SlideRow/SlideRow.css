@@ -1,0 +1,50 @@
+/* Figma 4411-851: 슬라이드 행. 타이포·간격 시안 반영. 루트 변수 + 네스팅 */
+
+.SlideRow {
+  width: 100%;
+  background: var(--color-black);
+  color: var(--color-white);
+
+  .SlideRow-inner {
+    width: 100%;
+  }
+
+  .SlideRow-swiper {
+    padding: var(--spacing-16) 0 var(--spacing-128);
+    width: 100%;
+    overflow: hidden;
+    /* Swiper 초기화 전에도 높이 확보해 CLS 완화 */
+    min-height: 360px;
+  }
+
+  /* Swiper JS 로드 전 첫 페인트에서도 가로 배치·간격·여백 유지 → 가로 CLS 방지 */
+  .SlideRow-swiper .swiper-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .SlideRow-slide {
+    height: auto;
+    box-sizing: border-box;
+    flex-shrink: 0;
+  }
+
+  .SlideRow-slide--pad {
+    /* 중앙 1280px 기준 여백. 100vw 대신 100%를 사용하여 컨테이너 내에서 정렬 */
+    width: max(0px, calc((100% - 1280px) / 2));
+    min-width: 0;
+    pointer-events: none;
+  }
+
+  .SlideRow-slide--text {
+    width: 380px;
+    display: flex;
+    align-items: center;
+    padding-right: var(--spacing-96);
+    box-sizing: content-box;
+  }
+
+  .SlideRow-slide--card {
+    width: auto;
+  }
+}

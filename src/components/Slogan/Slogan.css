@@ -1,0 +1,10 @@
+/* 슬로건 (히어로 내 슬로건 영역) - 네스팅 */
+
+.Slogan {
+  padding: var(--spacing-128) var(--spacing-48);
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}

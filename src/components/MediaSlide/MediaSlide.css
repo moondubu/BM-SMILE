@@ -1,0 +1,58 @@
+/* 상단 미디어 + 하단 슬라이드 영역 (같이 쓰거나 따로 사용) - 네스팅 */
+
+.MediaSlide {
+  width: 100%;
+
+  .MediaSlide-inner {
+    position: relative;
+    max-width: 3840px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .MediaSlide-slide {
+    width: 100%;
+    min-width: 0;
+  }
+
+  /* 미디어 위에 텍스트 오버레이 (mediaSection + textPanel, IP 등) - 시안 4411-822 */
+  .MediaSlide-overlay {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+
+  .MediaSlide-overlayInner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 1280px;
+    margin: 0 auto;
+    height: 100%;
+    max-height: 720px;
+  }
+
+  /* IP(4411-822): 왼쪽 반투명 다크 패널 하나로 통합 */
+  &.MediaSlide--ip .MediaSlide-overlay {
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+  }
+
+}
+
+.MediaSlide--contribution {
+
+  .SlideRow {
+    .SlideRow-slide--text {
+      width: 470px;
+    }
+  }
+}

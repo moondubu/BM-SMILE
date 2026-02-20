@@ -1,0 +1,246 @@
+.Growth {
+    position: relative;
+    width: 100%;
+    color: var(--color-grey-900);
+    background-color: var(--color-white);
+    overflow: hidden;
+
+    .Growth-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: var(--spacing-256) 0 var(--spacing-128);
+        box-sizing: border-box;
+    }
+
+    /* Header */
+    .Growth-head {
+        gap: var(--spacing-48);
+        margin-bottom: var(--spacing-128);
+
+        .SectionNumber {
+            color: var(--color-grey-300);
+        }
+    }
+
+
+
+    .SectionTitle {
+        color: var(--color-grey-900);
+        font-size: var(--font-size-80);
+        line-height: 1.1;
+    }
+
+    /* Local Growth */
+    .Growth-local {
+        position: relative;
+        min-height: 674px;
+        margin-top: var(--spacing-128);
+
+        .Growth-localVisual {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            width: 969px;
+            height: 674px;
+            border-radius: 0 0 32px 0;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 0 0 32px 0;
+            }
+        }
+
+        .Growth-localContent {
+            position: relative;
+            z-index: 1;
+            width: 50%;
+        }
+    }
+
+    .Growth-textContent {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-20);
+
+        .Growth-subTitle {
+            display: block;
+            color: var(--color-primary-blue);
+            font-family: var(--font-nanumSquareNeo);
+            font-size: var(--font-size-16);
+            font-weight: 600;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .Growth-title {
+            font-family: var(--font-nanumSquareNeo);
+            font-size: var(--font-size-48);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: var(--spacing-20);
+        }
+
+        .Growth-desc {
+            font-family: var(--font-sans);
+            font-size: var(--font-size-16);
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    }
+
+    .Growth-cta {
+        display: flex;
+        width: fit-content;
+        align-items: center;
+        gap: var(--spacing-8);
+        padding: var(--spacing-12) var(--spacing-24);
+        font-family: var(--font-nanumSquareNeo);
+        font-size: var(--font-size-16);
+        font-weight: 600;
+        line-height: 1.5;
+        color: var(--color-white);
+        background: var(--color-primary-blue);
+        border-radius: 9999px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        margin-top: var(--spacing-20);
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    .Growth-stats {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-24);
+        margin-top: var(--spacing-96);
+
+        .Growth-statItem {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .Growth-statLabel {
+            font-size: var(--font-size-16);
+            color: var(--color-grey-400);
+            font-weight: 600;
+        }
+
+        .Growth-statValue {
+            font-size: var(--font-size-40);
+            color: var(--color-grey-900);
+            font-weight: 700;
+            line-height: 1.2;
+        }
+    }
+
+    /* Global Expansion */
+    .Growth-global {
+        position: relative;
+        border-radius: 32px;
+        overflow: hidden;
+        color: var(--color-white);
+        padding: var(--spacing-48);
+        margin-top: var(--spacing-48);
+
+        .Growth-globalBg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.4);
+            }
+        }
+
+        .Growth-globalInner {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .Growth-globalHeader {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: var(--spacing-16);
+            margin-bottom: 96px;
+            text-align: left;
+        }
+
+        .Growth-globalTitle {
+            font-family: var(--font-nanumSquareNeo);
+            font-size: var(--font-size-24);
+            font-weight: 700;
+        }
+
+        .Growth-globalDesc {
+            font-family: var(--font-sans);
+            font-size: var(--font-size-16);
+            font-weight: 500;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .Growth-globalDate {
+            font-size: var(--font-size-13);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .Growth-globalStats {
+            display: flex;
+            gap: 96px;
+            text-align: left;
+        }
+
+        .Growth-globalStatItem {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-8);
+        }
+
+        .Growth-globalStatTop {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-4);
+        }
+
+        .Growth-globalStatLabel {
+            font-size: var(--font-size-16);
+            color: rgba(255, 255, 255, 0.7);
+            font-weight: 600;
+        }
+
+        .Growth-globalStatValue {
+            font-size: var(--font-size-40);
+            color: var(--color-white);
+            font-weight: 700;
+        }
+
+        .Growth-globalStatList {
+            font-size: var(--font-size-14);
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.7;
+        }
+    }
+}

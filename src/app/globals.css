@@ -1,26 +1,159 @@
-@import "tailwindcss";
+/* ===== BMSmile 전역 스타일 ===== */
+/* 리셋 + 변수 + 레이아웃 뼈대. 네스팅 적용 */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Primary */
+  --color-primary-blue: #1D4FFF;
+  --color-primary-yellow: #FFFC2E;
+  /* Basic */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  /* Grey Scale */
+  --color-grey-100: #F5F5F5;
+  --color-grey-200: #EDEDED;
+  --color-grey-300: #E5E5E5;
+  --color-grey-400: #999999;
+  --color-grey-600: #666666;
+  --color-grey-900: #191919;
+  /* 폰트 (--font-header는 layout에서 next/font/local로 주입) */
+  --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-nanumSquareNeo: "NanumSquareNeo", sans-serif;
+  --blur-12: 12px;
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-20: 20px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-60: 60px;
+  --spacing-64: 64px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-160: 160px;
+  --spacing-256: 256px;
+  /* Font size (12 ~ 128) */
+  --font-size-12: 12px;
+  --font-size-13: 13px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+  --font-size-18: 18px;
+  --font-size-20: 20px;
+  --font-size-24: 24px;
+  --font-size-28: 28px;
+  --font-size-32: 32px;
+  --font-size-40: 40px;
+  --font-size-48: 48px;
+  --font-size-56: 56px;
+  --font-size-64: 64px;
+  --font-size-72: 72px;
+  --font-size-80: 80px;
+  --font-size-96: 96px;
+  --font-size-128: 128px;
+  --font-size-256: 256px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* 리셋 */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  box-sizing: border-box;
+  color: inherit;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+html,
+body {
+  font-family: var(--font-sans);
+  width: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-white);
+  color: var(--color-grey-900);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  border: 0;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+select {
+  appearance: none;
+
+  option {
+    color: #9B9B9B;
+  }
+}
+
+button,
+select,
+input,
+textarea {
+  font-family: var(--font-sans);
+  border: none;
+  outline: none;
+}
+
+button {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+
+  &:hover {
+    background: var(--color-primary-yellow);
+    color: var(--color-primary-blue);
+  }
+}
+
+input[type="number"] {
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+}
+
+em {
+  font-style: normal;
+}
+
+.root-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+}
+
+section {
+  width: 100%;
+  max-width: 3840px;
+  margin: 0 auto;
+}
+
+@media all and (min-width: 3840px) {
+  body {
+    zoom: 1.5;
+  }
 }
