@@ -1,5 +1,4 @@
-'use client'
-
+import { prefixPath } from '@/utils/path'
 import './ContributionWay.css'
 
 export default function ContributionWay() {
@@ -19,7 +18,7 @@ export default function ContributionWay() {
                 </div>
                 <div className="ContributionWay-image">
                     <img
-                        src="/images/contribution/img_contribution_csr_01.png"
+                        src={prefixPath("/images/contribution/img_contribution_csr_01.png")}
                         alt="구조동물들과 함께하는 활동 모습"
                     />
                 </div>

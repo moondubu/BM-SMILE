@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { prefixPath } from "@/utils/path"
 import "./Header.css"
 
 const NAV_ITEMS = [
@@ -38,7 +39,7 @@ export default function Header() {
     <header className="Header">
       <div className="Header-inner">
         <Link href="/" className="Header-logo">
-          <img src="/images/common/img_logo.png" alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
+          <img src={prefixPath("/images/common/img_logo.png")} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
         </Link>
 
         <nav className="Header-nav">

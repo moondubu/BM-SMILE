@@ -1,3 +1,4 @@
+import { prefixPath } from '@/utils/path'
 import './ContributionImpact.css'
 
 const IMPACT_DATA = [
@@ -11,7 +12,7 @@ export default function ContributionImpact() {
         <section className="ContributionImpact">
             <div className="ContributionImpact-bg">
                 <img
-                    src="/images/contribution/img_contribution_csr_01.png"
+                    src={prefixPath("/images/contribution/img_contribution_csr_01.png")}
                     alt=""
                     aria-hidden="true"
                 />

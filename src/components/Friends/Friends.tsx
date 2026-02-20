@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { prefixPath } from "@/utils/path"
 import "./Friends.css"
 
 const CTA_ICON = (
@@ -32,7 +33,7 @@ export default function Friends() {
         </div>
         <div className="Friends-visual">
           <img
-            src="/images/main/img_main_friends_logo.png"
+            src={prefixPath("/images/main/img_main_friends_logo.png")}
             alt="페스룸 프렌즈"
             className="Friends-visualImage"
           />
@@ -40,7 +41,7 @@ export default function Friends() {
       </div>
       <div className="Friends-bg">
         <img
-          src="/images/main/img_main_friends_bg.png"
+          src={prefixPath("/images/main/img_main_friends_bg.png")}
           alt="페스룸 프렌즈"
           className="Friends-bgImage"
         />

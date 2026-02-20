@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { prefixPath } from "@/utils/path"
 import "./Strategy.css"
 
 export default function Strategy() {
@@ -6,7 +7,7 @@ export default function Strategy() {
     <section className="Strategy">
       <div className="Strategy-bg">
         <img
-          src="/images/main/img_main_strategy_bg.png"
+          src={prefixPath("/images/main/img_main_strategy_bg.png")}
           alt=""
           className="Strategy-bgImg"
           aria-hidden

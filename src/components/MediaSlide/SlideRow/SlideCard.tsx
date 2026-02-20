@@ -1,3 +1,4 @@
+import { prefixPath } from "@/utils/path"
 import { Fragment } from "react"
 import "./SlideCard.css"
 
@@ -23,7 +24,7 @@ export default function SlideCard({
 
   return (
     <div className="SlideCard">
-      <img src={imageSrc} alt={imageAlt} className="SlideCard-img" loading="lazy" decoding="async" />
+      <img src={prefixPath(imageSrc)} alt={imageAlt} className="SlideCard-img" loading="lazy" decoding="async" />
       {hasOverlay && (
         <div className="SlideCard-overlay">
           {number != null && number !== "" && (

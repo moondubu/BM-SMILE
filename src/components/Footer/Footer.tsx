@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { prefixPath } from "@/utils/path"
 import "./Footer.css"
 
 const COMPANY = {
@@ -14,7 +15,7 @@ export default function Footer() {
     <footer className="Footer">
       <div className="Footer-inner">
         <Link href="/" className="Footer-logo">
-          <img src="/images/common/img_footer_logo.png" alt="Business Makes the earth Smile" className="Footer-logoImg" loading="lazy" decoding="async" />
+          <img src={prefixPath("/images/common/img_footer_logo.png")} alt="Business Makes the earth Smile" className="Footer-logoImg" loading="lazy" decoding="async" />
         </Link>
         <div className="Footer-info">
           <p>Corporate Name / {COMPANY.name}</p>
