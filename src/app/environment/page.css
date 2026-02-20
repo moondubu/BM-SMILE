@@ -70,4 +70,16 @@
   .EnvironmentImpact .ImpactSection-header {
     gap: var(--spacing-20);
   }
+
+  .EnvironmentWorkLife .SectionCardGrid-inner {
+    gap: var(--spacing-32);
+  }
+
+  .EnvironmentWorkLife .SectionCardGrid-grid {
+    gap: var(--spacing-20);
+  }
+
+  .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardText {
+    width: 100%;
+  }
 }

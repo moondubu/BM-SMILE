@@ -1,0 +1,96 @@
+.GrowthOverview {
+  padding: var(--spacing-128) 0;
+  background: var(--color-white);
+}
+
+.GrowthOverview .GrowthOverview-inner {
+  width: 100%;
+  max-width: calc(var(--spacing-160) * 8);
+  margin: 0 auto;
+}
+
+.GrowthOverview .GrowthOverview-header {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-96);
+  align-items: end;
+}
+
+.GrowthOverview .GrowthOverview-heading {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.GrowthOverview .GrowthOverview-label {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-grey-400);
+}
+
+.GrowthOverview .GrowthOverview-title {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-48);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-grey-900);
+}
+
+.GrowthOverview .GrowthOverview-body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-grey-900);
+}
+
+.GrowthOverview .GrowthOverview-content {
+  margin-top: var(--spacing-32);
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  gap: var(--spacing-32);
+  align-items: end;
+}
+
+.GrowthOverview .GrowthOverview-statList {
+  padding-bottom: var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.GrowthOverview .GrowthOverview-statItem {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-4);
+}
+
+.GrowthOverview .GrowthOverview-statLabel {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-grey-400);
+}
+
+.GrowthOverview .GrowthOverview-statValue {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-40);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-grey-900);
+}
+
+.GrowthOverview .GrowthOverview-visual img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 0 0 var(--spacing-32) 0;
+}

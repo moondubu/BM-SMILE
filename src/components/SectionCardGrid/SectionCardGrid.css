@@ -1,0 +1,136 @@
+.SectionCardGrid {
+  background: var(--color-white);
+  padding: var(--spacing-128) 0 0;
+}
+
+.SectionCardGrid .SectionCardGrid-inner {
+  width: 100%;
+  max-width: calc(var(--spacing-160) * 8);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-64);
+}
+
+.SectionCardGrid .SectionCardGrid-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-16);
+}
+
+.SectionCardGrid .SectionCardGrid-label {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-grey-400);
+}
+
+.SectionCardGrid .SectionCardGrid-title {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-48);
+  font-weight: 700;
+  line-height: 1.3;
+  color: var(--color-grey-900);
+}
+
+.SectionCardGrid .SectionCardGrid-description {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-grey-900);
+}
+
+.SectionCardGrid .SectionCardGrid-caption {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-13);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-grey-400);
+}
+
+.SectionCardGrid .SectionCardGrid-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--spacing-64);
+}
+
+.SectionCardGrid .SectionCardGrid-card {
+  position: relative;
+}
+
+.SectionCardGrid .SectionCardGrid-cardImage {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.SectionCardGrid .SectionCardGrid-cardText {
+  display: flex;
+  flex-direction: column;
+}
+
+.SectionCardGrid .SectionCardGrid-cardLabel {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.SectionCardGrid .SectionCardGrid-cardTitle {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-32);
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.SectionCardGrid .SectionCardGrid-cardDescription {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.SectionCardGrid .SectionCardGrid-card--overlay {
+  border-radius: var(--spacing-32);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  display: flex;
+  align-items: flex-end;
+  padding: var(--spacing-48) var(--spacing-32);
+}
+
+.SectionCardGrid .SectionCardGrid-card--overlay .SectionCardGrid-cardImage {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  object-fit: cover;
+}
+
+.SectionCardGrid .SectionCardGrid-card--overlay .SectionCardGrid-cardText {
+  position: relative;
+  z-index: 1;
+  gap: var(--spacing-12);
+  color: var(--color-white);
+  text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+}
+
+.SectionCardGrid .SectionCardGrid-card--plain {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-12);
+}
+
+.SectionCardGrid .SectionCardGrid-card--plain .SectionCardGrid-cardText {
+  align-items: center;
+}

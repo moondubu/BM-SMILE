@@ -1,3 +1,26 @@
-/* 홈 페이지 공통 (inner 등) */
+/* 메인 공통 */
 
+.SectionNumber {
+  font-family: var(--font-nanumSquareNeo);
+  font-size: 190px;
+  font-weight: 200;
+  line-height: 1;
+  color: var(--color-white);
+  opacity: 0.6;
+}
+
+.SectionHead {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+
+.SectionTitle {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-80);
+  font-weight: 900;
+  color: var(--color-white);
+  line-height: 1.1;
+}
 
