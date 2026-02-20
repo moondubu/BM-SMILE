@@ -4,29 +4,35 @@
   color: var(--color-white);
 
   .Contact-inner {
-    max-width: 1280px;
+    max-width: calc(var(--spacing-160) * 8);
     margin: 0 auto;
-    padding: var(--spacing-64) var(--spacing-48);
+    padding: var(--spacing-96) 0;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     gap: var(--spacing-48);
+  }
+
+  .Contact-content {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-96);
   }
 
   .Contact-title {
     flex-shrink: 0;
     font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-56);
+    font-size: var(--font-size-80);
     font-weight: 900;
     line-height: 1.15;
   }
 
   .Contact-body {
-    flex: 1;
     font-family: var(--font-sans);
-    font-size: var(--font-size-14);
+    font-size: var(--font-size-16);
     font-weight: 500;
     line-height: 1.8;
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-white);
   }
 
   .Contact-cta {
@@ -37,10 +43,10 @@
     padding: var(--spacing-16) var(--spacing-32);
     border-radius: 9999px;
     background: var(--color-white);
-    color: var(--color-grey-900);
+    color: var(--color-primary-blue);
     font-family: var(--font-nanumSquareNeo);
     font-size: var(--font-size-16);
-    font-weight: 700;
+    font-weight: 600;
     transition: opacity 0.2s ease;
 
     &:hover {

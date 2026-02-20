@@ -1,0 +1,73 @@
+.EnvironmentPage {
+  background: var(--color-white);
+
+  .SubHero-title {
+    line-height: 1.1;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .SubHero-subtext {
+    line-height: 1.6;
+    text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+  }
+
+  .MediaSlide--environment-office {
+    .SlideRow {
+      background: var(--color-white);
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow .SlideRow-swiper {
+      padding: var(--spacing-128) 0 0;
+    }
+
+    .SlideRow .SlideRow-slide--text {
+      padding-right: var(--spacing-128);
+    }
+
+    .SlideRow .SectionTextPanel {
+      gap: var(--spacing-16);
+      padding: var(--spacing-48) 0;
+    }
+
+    .SlideRow .SectionTextPanel-label {
+      font-size: var(--font-size-16);
+      font-weight: 600;
+      color: var(--color-grey-400);
+    }
+
+    .SlideRow .SectionTextPanel-title {
+      font-size: var(--font-size-48);
+      font-weight: 700;
+      line-height: 1.3;
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow .SectionTextPanel-body {
+      font-size: var(--font-size-16);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow .SlideCard-overlay {
+      padding: var(--spacing-32);
+    }
+
+    .SlideRow .SlideCard-caption {
+      font-size: var(--font-size-18);
+      font-weight: 600;
+      line-height: 1.5;
+      text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .EnvironmentImpact .ImpactSection-inner {
+    justify-content: start;
+    gap: var(--spacing-20);
+  }
+
+  .EnvironmentImpact .ImpactSection-header {
+    gap: var(--spacing-20);
+  }
+}

@@ -1,0 +1,101 @@
+.EnvironmentCulture {
+  background: var(--color-white);
+}
+
+.EnvironmentCulture .EnvironmentCulture-inner {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: var(--spacing-128) 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
+}
+
+.EnvironmentCulture .EnvironmentCulture-header {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  text-align: center;
+}
+
+.EnvironmentCulture .EnvironmentCulture-label {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-grey-400);
+}
+
+.EnvironmentCulture .EnvironmentCulture-title {
+  margin: 0;
+  width: 100%;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-48);
+  font-weight: 800;
+  line-height: 1.3;
+  color: var(--color-grey-900);
+}
+
+.EnvironmentCulture .EnvironmentCulture-description {
+  width: 100%;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-grey-900);
+}
+
+.EnvironmentCulture .EnvironmentCulture-description p {
+  margin: 0;
+}
+
+.EnvironmentCulture .EnvironmentCulture-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--spacing-20);
+}
+
+.EnvironmentCulture .EnvironmentCulture-card {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+
+.EnvironmentCulture .EnvironmentCulture-cardImage {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--spacing-24);
+}
+
+.EnvironmentCulture .EnvironmentCulture-cardText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-8);
+}
+
+.EnvironmentCulture .EnvironmentCulture-cardTitle {
+  margin: 0;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-18);
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--color-grey-900);
+}
+
+.EnvironmentCulture .EnvironmentCulture-cardDescription {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--color-grey-600);
+}

@@ -18,6 +18,20 @@ export type SlideRowTextPanelData = {
 
 const BASE_VIDEO = "https://d13u09gq3bwcu4.cloudfront.net/products/704"
 
+export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [
+  { imageSrc: "/images/main/img_evm_lounge_01.png", imageAlt: "Lounge", caption: "Lounge" },
+  { imageSrc: "/images/main/img_evm_lounge_02.png", imageAlt: "Lounge", caption: "Lounge" },
+  { imageSrc: "/images/main/img_evm_lounge_03.png", imageAlt: "Lounge", caption: "Lounge" },
+  { imageSrc: "/images/main/img_evm_meeting_room_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
+  { imageSrc: "/images/main/img_evm_meeting_room_02.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
+  { imageSrc: "/images/main/img_evm_office_01.png", imageAlt: "Office", caption: "Office" },
+  { imageSrc: "/images/main/img_evm_lobby_01.png", imageAlt: "Lobby", caption: "Lobby" },
+  { imageSrc: "/images/main/img_evm_lobby_02.png", imageAlt: "Lobby", caption: "Lobby" },
+  { imageSrc: "/images/main/img_evm_conference_01.png", imageAlt: "Conference", caption: "Conference" },
+  { imageSrc: "/images/main/img_evm_conference_02.png", imageAlt: "Conference", caption: "Conference" },
+  { imageSrc: "/images/main/img_evm_toliet_01.png", imageAlt: "Toilet", caption: "Toilet" },
+]
+
 const ENVIRONMENT_SLIDE: { textPanel: SlideRowTextPanelData; items: SlideRowItem[] } = {
   textPanel: {
     label: "Workspace",
@@ -26,19 +40,7 @@ const ENVIRONMENT_SLIDE: { textPanel: SlideRowTextPanelData; items: SlideRowItem
     ctaLabel: "업무 환경 자세히 보기",
     ctaHref: "/environment",
   },
-  items: [
-    { imageSrc: "/images/main/img_evm_lounge_01.png", imageAlt: "Lounge", caption: "Lounge" },
-    { imageSrc: "/images/main/img_evm_lounge_02.png", imageAlt: "Lounge", caption: "Lounge" },
-    { imageSrc: "/images/main/img_evm_lounge_03.png", imageAlt: "Lounge", caption: "Lounge" },
-    { imageSrc: "/images/main/img_evm_meeting_room_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
-    { imageSrc: "/images/main/img_evm_meeting_room_02.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
-    { imageSrc: "/images/main/img_evm_office_01.png", imageAlt: "Office", caption: "Office" },
-    { imageSrc: "/images/main/img_evm_lobby_01.png", imageAlt: "Lobby", caption: "Lobby" },
-    { imageSrc: "/images/main/img_evm_lobby_02.png", imageAlt: "Lobby", caption: "Lobby" },
-    { imageSrc: "/images/main/img_evm_conference_01.png", imageAlt: "Conference", caption: "Conference" },
-    { imageSrc: "/images/main/img_evm_conference_02.png", imageAlt: "Conference", caption: "Conference" },
-    { imageSrc: "/images/main/img_evm_toliet_01.png", imageAlt: "Toilet", caption: "Toilet" },
-  ],
+  items: ENVIRONMENT_SLIDE_ITEMS,
 }
 
 /** People 슬라이드 - 시안 4411-851: 좌측 텍스트 패널 + 우측 3장 카드 */
