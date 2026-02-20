@@ -12,7 +12,7 @@ export default function ContributionImpact() {
         <section className="ContributionImpact">
             <div className="ContributionImpact-bg">
                 <img
-                    src={prefixPath("/images/contribution/img_contribution_csr_01.png")}
+                    src={prefixPath("/images/contribution/img_contribution_impact_01.png")}
                     alt=""
                     aria-hidden="true"
                 />
