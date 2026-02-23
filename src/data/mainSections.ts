@@ -22,9 +22,9 @@ export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [
 
 export const MAIN_ENVIRONMENT_SECTION = {
   id: "environment",
-  videoPoster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_thumbnail_1771563771574.jpg",
-  videoSrcHvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_hevc_1771563771574.mp4",
-  videoSrcH264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_h264_1771563771574.mp4",
+  videoPoster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_thumbnail_1771843930604.jpg",
+  videoSrcHvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_hevc_1771843930604.mp4",
+  videoSrcH264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_environment_h264_1771843930604.mp4",
   number: "01",
   titleLine1: "No.1",
   titleLine2: "Environment",

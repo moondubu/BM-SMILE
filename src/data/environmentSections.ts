@@ -1,9 +1,9 @@
 import type { SectionCardGridItem } from "@/components/SectionCardGrid/SectionCardGrid"
 
 export const ENVIRONMENT_HERO_VIDEO = {
-  poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_thumbnail_1771566174712.jpg",
-  hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_hevc_1771566174712.mp4",
-  h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_h264_1771566174712.mp4",
+  poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_thumbnail_1771844226788.jpg",
+  hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_hevc_1771844226788.mp4",
+  h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_env_hero_h264_1771844226788.mp4",
 } as const
 
 export const ENVIRONMENT_OFFICE_PANEL = {
