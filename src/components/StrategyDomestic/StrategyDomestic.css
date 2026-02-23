@@ -1,0 +1,73 @@
+.StrategyDomestic {
+  background: var(--color-black);
+
+  .StrategyDomestic-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .StrategyDomestic-darkBlock {
+    position: relative;
+    overflow: hidden;
+    padding: var(--spacing-128) 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    background: var(--color-black);
+  }
+
+  .StrategyDomestic-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.5;
+    }
+  }
+
+  .StrategyDomestic-inner {
+    position: relative;
+    z-index: 1;
+  }
+
+  .StrategyDomestic-roadmapSection {
+    background: var(--color-grey-100);
+
+    .RoadmapSection-label {
+      text-transform: none;
+    }
+
+    .RoadmapSection-title {
+      font-size: var(--font-size-56);
+    }
+
+    .RoadmapSection-itemTitle {
+      font-size: var(--font-size-18);
+      font-weight: 700;
+    }
+
+    .RoadmapSection-itemDescription {
+      color: var(--color-grey-600);
+    }
+  }
+
+  .StrategyDomestic-impactSection {
+    .ImpactSection-header {
+      gap: var(--spacing-20);
+    }
+
+    .ImpactSection-title {
+      font-size: var(--font-size-56);
+      line-height: 1.2;
+      white-space: pre-line;
+    }
+
+    .ImpactSection-metricValue {
+      font-size: var(--font-size-56);
+      line-height: 1.2;
+    }
+  }
+}

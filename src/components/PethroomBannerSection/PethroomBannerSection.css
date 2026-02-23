@@ -1,0 +1,63 @@
+.PethroomBannerSection {
+  width: 100%;
+  padding: var(--spacing-48) var(--spacing-48) 0;
+
+  .PethroomBannerSection-inner {
+    position: relative;
+    width: 100%;
+    height: 720px;
+    border-radius: var(--spacing-32);
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .PethroomBannerSection-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .PethroomBannerSection-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s ease;
+  }
+
+  .PethroomBannerSection-inner:hover .PethroomBannerSection-overlay {
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  .PethroomBannerSection-text {
+    position: relative;
+    z-index: 1;
+    color: var(--color-white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-16);
+    text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+  }
+
+  .PethroomBannerSection-title {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-64);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  .PethroomBannerSection-description {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+}

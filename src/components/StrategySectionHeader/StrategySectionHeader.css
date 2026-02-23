@@ -1,0 +1,70 @@
+.StrategySectionHeader {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-128);
+
+  .StrategySectionHeader-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--spacing-16);
+  }
+
+  .StrategySectionHeader-label {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.4;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .StrategySectionHeader-title {
+    color: var(--color-white);
+    font-size: var(--font-size-80);
+    font-weight: 800;
+    line-height: 1.1;
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .StrategySectionHeader-description {
+    color: rgba(255, 255, 255, 0.84);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  .StrategySectionHeader-pillarGrid {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--spacing-48);
+  }
+
+  .StrategySectionHeader-pillarCard {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+
+  .StrategySectionHeader-pillarTitle {
+    color: var(--color-white);
+    font-size: var(--font-size-18);
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .StrategySectionHeader-pillarDescription {
+    color: rgba(255, 255, 255, 0.72);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+  }
+}

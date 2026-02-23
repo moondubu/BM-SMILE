@@ -1,0 +1,130 @@
+.PethroomScaleSection {
+  padding: var(--spacing-128) 0 var(--spacing-96);
+
+  .PethroomScaleSection-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-12);
+  }
+
+  .PethroomScaleSection-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+    margin-bottom: var(--spacing-20);
+  }
+
+  .PethroomScaleSection-label {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-16);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-grey-400);
+  }
+
+  .PethroomScaleSection-title {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-48);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-grey-900);
+  }
+
+  .PethroomScaleSection-description {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-grey-900);
+    white-space: pre-line;
+  }
+
+  .PethroomScaleSection-statGrid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--spacing-12);
+  }
+
+  .PethroomScaleSection-statCard {
+    background: var(--color-grey-100);
+    border-radius: var(--spacing-16);
+    padding: var(--spacing-24);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+  }
+
+  .PethroomScaleSection-statLabel {
+    margin: 0;
+    color: var(--color-grey-400);
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-16);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .PethroomScaleSection-statValue {
+    margin: 0;
+    color: var(--color-grey-900);
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-40);
+    font-weight: 700;
+    line-height: 1.5;
+  }
+
+  .PethroomScaleSection-strengthGrid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: var(--spacing-12);
+  }
+
+  .PethroomScaleSection-strengthCard {
+    background: var(--color-grey-100);
+    border-radius: var(--spacing-16);
+    padding: var(--spacing-24);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-20);
+  }
+
+  .PethroomScaleSection-strengthIcon {
+    width: var(--spacing-32);
+    height: var(--spacing-32);
+    object-fit: contain;
+  }
+
+  .PethroomScaleSection-strengthText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-8);
+  }
+
+  .PethroomScaleSection-strengthTitle {
+    margin: 0;
+    color: var(--color-grey-900);
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-18);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .PethroomScaleSection-strengthDescription {
+    margin: 0;
+    color: var(--color-grey-600);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    white-space: pre-line;
+  }
+}

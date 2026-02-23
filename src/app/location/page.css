@@ -1,0 +1,120 @@
+.LocationPage {
+  background: var(--color-grey-200);
+  padding: 176px 0 var(--spacing-128);
+
+  .LocationPage-inner {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+  }
+
+  .LocationPage-title {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-48);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-grey-900);
+  }
+
+  .LocationPage-content {
+    margin-top: var(--spacing-16);
+    display: flex;
+    gap: var(--spacing-20);
+  }
+
+  .LocationPage-mapCard,
+  .LocationPage-infoCard {
+    width: 100%;
+    max-width: 630px;
+    aspect-ratio: 630 / 630;
+    border-radius: var(--spacing-32);
+    overflow: hidden;
+  }
+
+  .LocationPage-mapCard {
+    background: var(--color-grey-300);
+  }
+
+  .LocationPage-mapFrame {
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .LocationPage-infoCard {
+    background: var(--color-grey-100);
+    padding: var(--spacing-32);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LocationPage-officeTitle {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-24);
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--color-grey-900);
+  }
+
+  .LocationPage-description {
+    margin-top: var(--spacing-24);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .LocationPage-descriptionLine {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--color-grey-900);
+  }
+
+  .LocationPage-address {
+    margin: var(--spacing-24) 0 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-13);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--color-grey-600);
+  }
+
+  .LocationPage-tabs {
+    margin-top: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-4);
+  }
+
+  .LocationPage-tab {
+    border: 0;
+    border-radius: 999px;
+    background: var(--color-grey-200);
+    color: var(--color-grey-400);
+    font-family: var(--font-sans);
+    font-size: var(--font-size-14);
+    font-weight: 500;
+    line-height: 1.6;
+    padding: var(--spacing-8) var(--spacing-16);
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+
+  .LocationPage-tab:hover {
+    background: var(--color-grey-300);
+    color: var(--color-grey-900);
+  }
+
+  .LocationPage-tab--active {
+    background: var(--color-primary-blue);
+    color: var(--color-white);
+  }
+
+  .LocationPage-tab--active:hover {
+    background: var(--color-primary-blue);
+    color: var(--color-white);
+  }
+}

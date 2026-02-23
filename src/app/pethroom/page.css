@@ -1,0 +1,238 @@
+.PethroomPage {
+  background: var(--color-white);
+
+  .PethroomHero {
+    .Hero {
+      aspect-ratio: 1920 / 960;
+    }
+
+    .SubHero-title {
+      font-size: var(--font-size-128);
+      line-height: 1.1;
+      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+    }
+
+    .SubHero-subtext {
+      margin-top: var(--spacing-24);
+      font-size: var(--font-size-18);
+      line-height: 1.6;
+      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .PethroomOverview {
+    .SplitIntroSection-title {
+      white-space: nowrap;
+    }
+  }
+
+  .PethroomImpact {
+    margin-top: var(--spacing-48);
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.36);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .ImpactSection-bg {
+      min-height: 960px;
+    }
+
+    .ImpactSection-bg img {
+      width: 100%;
+      height: 960px;
+      object-fit: cover;
+    }
+
+    .ImpactSection-header {
+      max-width: 470px;
+      gap: var(--spacing-20);
+    }
+
+    .ImpactSection-label {
+      display: none;
+    }
+
+    .ImpactSection-title {
+      font-size: var(--font-size-72);
+      line-height: 1.05;
+    }
+
+    .ImpactSection-subText {
+      font-size: var(--font-size-14);
+      line-height: 1.7;
+    }
+
+    .ImpactSection-metrics {
+      gap: var(--spacing-48);
+    }
+
+    .ImpactSection-metricsCaption {
+      font-family: var(--font-nanumSquareNeo);
+      font-size: var(--font-size-18);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--color-white);
+      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+    }
+
+    .ImpactSection-metricsCaption::before {
+      content: "\"";
+      font-weight: 600;
+    }
+
+    .ImpactSection-metricsCaption::after {
+      content: "\"";
+      font-weight: 600;
+    }
+
+    .ImpactSection-metricsGrid {
+      gap: 0;
+    }
+
+    .ImpactSection-metric {
+      flex: 1 1 0;
+      min-width: 0;
+      gap: 0;
+      padding: 0 var(--spacing-20);
+    }
+
+    .ImpactSection-metricLogo {
+      height: 60px;
+      margin-bottom: var(--spacing-16);
+    }
+
+    .ImpactSection-metricLabel,
+    .ImpactSection-metricSubText {
+      margin-top: 0;
+      font-family: var(--font-sans);
+      font-size: var(--font-size-14);
+      line-height: 1.5;
+      color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  .MediaSlide--pethroom-best-seller {
+    .SlideRow {
+      background: var(--color-white);
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow-swiper {
+      padding: var(--spacing-128) 0 0;
+    }
+
+    .SlideRow-slide--text {
+      width: 380px;
+      padding-right: var(--spacing-96);
+    }
+
+    .SectionTextPanel {
+      gap: var(--spacing-16);
+      padding: var(--spacing-48) 0;
+    }
+
+    .SectionTextPanel-label {
+      font-weight: 900;
+    }
+
+    .SectionTextPanel-title {
+      color: var(--color-grey-900);
+    }
+
+    .SectionTextPanel-body {
+      font-size: var(--font-size-16);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--color-grey-900);
+    }
+
+    .SlideCard .SlideCard-overlay {
+      top: 0;
+      bottom: auto;
+      justify-content: flex-start;
+      background: none;
+      padding: var(--spacing-32) 0 0 var(--spacing-32);
+    }
+
+    .SlideCard .SlideCard-caption {
+      color: var(--color-grey-900);
+      font-size: var(--font-size-24);
+      line-height: 1.5;
+      text-shadow: 0 0 var(--spacing-8) rgba(255, 255, 255, 0.35);
+    }
+
+    .SlideCard .SlideCard-actionIcon {
+      right: var(--spacing-20);
+      bottom: var(--spacing-20);
+      width: auto;
+      height: var(--spacing-48);
+      border-radius: 9999;
+      padding: 0 var(--spacing-24);
+      gap: var(--spacing-8);
+      font-size: var(--font-size-16);
+      font-weight: 500;
+      line-height: 1.2;
+    }
+
+    .SlideCard .SlideCard-actionIcon::before {
+      content: "View more";
+    }
+  }
+
+  .PethroomArchive {
+    .SectionCardGrid-inner {
+      max-width: 1280px;
+      gap: var(--spacing-32);
+    }
+
+    .SectionCardGrid-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--spacing-20);
+    }
+
+    .SectionCardGrid-card--overlay {
+      border-radius: var(--spacing-24);
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .SectionCardGrid-card:nth-child(1).SectionCardGrid-card--overlay {
+      width: 460px;
+      height: 600px;
+    }
+
+    .SectionCardGrid-card:nth-child(2).SectionCardGrid-card--overlay {
+      width: 800px;
+      height: 600px;
+    }
+
+    .SectionCardGrid-card:nth-child(3).SectionCardGrid-card--overlay {
+      width: 760px;
+      height: 380px;
+    }
+
+    .SectionCardGrid-card:nth-child(4).SectionCardGrid-card--overlay {
+      width: 500px;
+      height: 380px;
+    }
+
+    .SectionCardGrid-cardText {
+      display: none;
+    }
+
+    .SectionCardGrid-cardImage {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .PethroomUniverse {
+    padding-bottom: var(--spacing-128) 0 0;
+  }
+}

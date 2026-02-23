@@ -12,7 +12,7 @@
 .SectionTextPanel-label {
   margin: 0;
   font-family: var(--font-nanumSquareNeo);
-  font-size: var(--font-size-14);
+  font-size: var(--font-size-16);
   font-weight: 500;
   line-height: 1.5;
   color: var(--color-grey-400);

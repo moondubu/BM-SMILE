@@ -15,50 +15,50 @@
     .SlideRow {
       background: var(--color-white);
       color: var(--color-grey-900);
-    }
 
-    .SlideRow .SlideRow-swiper {
-      padding: var(--spacing-128) 0 0;
-    }
+      .SlideRow-swiper {
+        padding: var(--spacing-128) 0 0;
+      }
 
-    .SlideRow .SlideRow-slide--text {
-      padding-right: var(--spacing-128);
-    }
+      .SlideRow-slide--text {
+        padding-right: var(--spacing-128);
+      }
 
-    .SlideRow .SectionTextPanel {
-      gap: var(--spacing-16);
-      padding: var(--spacing-48) 0;
-    }
+      .SectionTextPanel {
+        gap: var(--spacing-16);
+        padding: var(--spacing-48) 0;
+      }
 
-    .SlideRow .SectionTextPanel-label {
-      font-size: var(--font-size-16);
-      font-weight: 600;
-      color: var(--color-grey-400);
-    }
+      .SectionTextPanel-label {
+        font-size: var(--font-size-16);
+        font-weight: 600;
+        color: var(--color-grey-400);
+      }
 
-    .SlideRow .SectionTextPanel-title {
-      font-size: var(--font-size-48);
-      font-weight: 700;
-      line-height: 1.3;
-      color: var(--color-grey-900);
-    }
+      .SectionTextPanel-title {
+        font-size: var(--font-size-48);
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--color-grey-900);
+      }
 
-    .SlideRow .SectionTextPanel-body {
-      font-size: var(--font-size-16);
-      font-weight: 500;
-      line-height: 1.6;
-      color: var(--color-grey-900);
-    }
+      .SectionTextPanel-body {
+        font-size: var(--font-size-16);
+        font-weight: 500;
+        line-height: 1.6;
+        color: var(--color-grey-900);
+      }
 
-    .SlideRow .SlideCard-overlay {
-      padding: var(--spacing-32);
-    }
+      .SlideCard-overlay {
+        padding: var(--spacing-32);
+      }
 
-    .SlideRow .SlideCard-caption {
-      font-size: var(--font-size-18);
-      font-weight: 600;
-      line-height: 1.5;
-      text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+      .SlideCard-caption {
+        font-size: var(--font-size-18);
+        font-weight: 600;
+        line-height: 1.5;
+        text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
+      }
     }
   }
 

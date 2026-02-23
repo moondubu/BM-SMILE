@@ -1,105 +1,13 @@
 .ContributionWay {
-    padding: 160px 0;
-    background: var(--color-white);
+  padding-top: var(--spacing-160);
+  padding-bottom: var(--spacing-160);
 
-    .ContributionWay-inner {
-        max-width: 1280px;
-        margin: 0 auto;
-    }
+  .SplitIntroSection-header {
+    margin-bottom: var(--spacing-32);
+  }
 
-    .ContributionWay-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-end;
-        margin-bottom: var(--spacing-32);
-        gap: var(--spacing-96);
-
-        div,
-        p {
-            flex: 0 1 auto;
-            width: 100%;
-        }
-    }
-
-    .ContributionWay-label {
-        display: block;
-        font-size: var(--font-size-16);
-        font-weight: 500;
-        color: var(--color-grey-400);
-        margin-bottom: var(--spacing-16);
-        text-transform: uppercase;
-    }
-
-    .ContributionWay-title {
-        font-size: var(--font-size-48);
-        font-weight: 800;
-        font-family: var(--font-nanumSquareNeo);
-        color: var(--color-grey-900);
-        line-height: 1.2;
-        margin: 0;
-    }
-
-    .ContributionWay-description {
-        font-size: var(--font-size-18);
-        font-weight: 500;
-        line-height: 1.6;
-        color: var(--color-grey-900);
-        margin: 0;
-        word-break: keep-all;
-    }
-
-    .ContributionWay-image {
-        width: 100%;
-        aspect-ratio: 1280 / 640;
-        border-radius: 40px;
-        overflow: hidden;
-
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-    }
-}
-
-/* Responsive */
-@media (max-width: 1280px) {
-    .ContributionWay {
-        padding: 100px 0;
-
-        .ContributionWay-header {
-            flex-direction: column;
-            align-items: flex-start;
-            gap: var(--spacing-32);
-        }
-
-        .ContributionWay-title {
-            font-size: 36px;
-        }
-
-        .ContributionWay-description {
-            max-width: 100%;
-            font-size: 16px;
-        }
-
-        .ContributionWay-image {
-            border-radius: 24px;
-        }
-    }
-}
-
-@media (max-width: 768px) {
-    .ContributionWay {
-        padding: 60px 0;
-
-        .ContributionWay-title {
-            font-size: 28px;
-        }
-
-        .ContributionWay-image {
-            border-radius: 16px;
-            aspect-ratio: 1 / 1;
-        }
-    }
+  .SplitIntroSection-imageWrap {
+    aspect-ratio: 1280 / 640;
+    height: auto;
+  }
 }

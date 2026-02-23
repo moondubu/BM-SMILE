@@ -32,15 +32,15 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: var(--spacing-16);
   text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
 }
 
-.ImpactSection .ImpactSection-header.ImpactSection-header--left {
-  align-items: flex-start;
-  text-align: left;
+.ImpactSection .ImpactSection-header.ImpactSection-header--center {
+  align-items: center;
+  text-align: center;
 }
 
 .ImpactSection .ImpactSection-label {
@@ -80,20 +80,65 @@
   gap: var(--spacing-16);
 }
 
+.ImpactSection .ImpactSection-metricsText {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+
+.ImpactSection .ImpactSection-metricsCaption {
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-24);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--color-white);
+}
+
+.ImpactSection .ImpactSection-metricsDescription {
+  width: 100%;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.ImpactSection .ImpactSection-metricsDescription p {
+  margin: 0;
+}
+
 .ImpactSection .ImpactSection-metricsGrid {
   width: 100%;
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: var(--spacing-16);
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-32);
 }
 
 .ImpactSection .ImpactSection-metric {
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
+  align-items: flex-start;
+  text-align: left;
   gap: var(--spacing-8);
   text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+}
+
+.ImpactSection .ImpactSection-metricLogo {
+  width: auto;
+  height: var(--spacing-32);
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.ImpactSection .ImpactSection-metric.ImpactSection-metric--center {
+  align-items: center;
+  text-align: center;
 }
 
 .ImpactSection .ImpactSection-metricLabel {
@@ -121,12 +166,13 @@
   font-weight: 500;
   line-height: 1.7;
   color: rgba(255, 255, 255, 0.7);
+  white-space: pre-line;
 }
 
 .ImpactSection .ImpactSection-footer {
   width: 100%;
   margin: 0;
-  text-align: center;
+  text-align: left;
   font-family: var(--font-sans);
   font-size: var(--font-size-14);
   font-weight: 500;
@@ -135,6 +181,6 @@
   text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
 }
 
-.ImpactSection .ImpactSection-footer.ImpactSection-footer--left {
-  text-align: left;
+.ImpactSection .ImpactSection-footer.ImpactSection-footer--center {
+  text-align: center;
 }

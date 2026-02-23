@@ -25,7 +25,7 @@ const NAV_ITEMS = [
     ],
   },
   { label: "SUBSIDIARY", href: "/subsidiary" },
-  { label: "CAREER", href: "/career" },
+  { label: "CAREER", href: "https://bmsmile.career.greetinghr.com/ko/apply", external: true },
   { label: "CONTACT", href: "/contact" },
 ] as const
 
@@ -65,9 +65,15 @@ export default function Header() {
                     </ul>
                   </>
                 ) : (
-                  <Link href={item.href} className="Header-navLink">
-                    {item.label}
-                  </Link>
+                  "external" in item && item.external ? (
+                    <a href={item.href} className="Header-navLink" target="_blank" rel="noopener noreferrer">
+                      {item.label}
+                    </a>
+                  ) : (
+                    <Link href={item.href} className="Header-navLink">
+                      {item.label}
+                    </Link>
+                  )
                 )}
               </li>
             ))}

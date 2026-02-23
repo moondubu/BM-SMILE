@@ -1,0 +1,155 @@
+.RoadmapSection {
+  background: var(--color-white);
+
+  .RoadmapSection-inner {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--spacing-160) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-64);
+  }
+
+  .RoadmapSection-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+
+  .RoadmapSection-label {
+    color: var(--color-grey-400);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: var(--font-nanumSquareNeo);
+    text-transform: uppercase;
+  }
+
+  .RoadmapSection-title {
+    color: var(--color-black);
+    font-size: var(--font-size-48);
+    font-weight: 800;
+    line-height: 1.3;
+    margin: 0;
+    white-space: pre-line;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .RoadmapSection-description {
+    color: var(--color-grey-900);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+  }
+
+  .RoadmapSection-list {
+    width: 100%;
+    display: flex;
+  }
+
+  .RoadmapSection-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-32);
+
+    &:last-child .RoadmapSection-line {
+      background: none;
+      height: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+
+      &::after {
+        content: "";
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 0;
+        height: 0;
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+        border-left: 8px solid var(--color-grey-900);
+      }
+
+      &::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 6px;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 1px;
+        background: var(--color-grey-900);
+      }
+    }
+  }
+
+  .RoadmapSection-numBox {
+    height: 48px;
+    display: flex;
+    align-items: center;
+  }
+
+  .RoadmapSection-num {
+    color: var(--color-grey-300);
+    font-size: var(--font-size-48);
+    font-weight: 100;
+    line-height: 1;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .RoadmapSection-markerBox {
+    position: relative;
+    height: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .RoadmapSection-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-grey-900);
+    flex-shrink: 0;
+    z-index: 2;
+  }
+
+  .RoadmapSection-line {
+    position: absolute;
+    left: 12px;
+    right: 0;
+    height: 1px;
+    background: var(--color-grey-900);
+  }
+
+  .RoadmapSection-textBox {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+    padding-right: var(--spacing-48);
+  }
+
+  .RoadmapSection-itemTitle {
+    color: var(--color-black);
+    font-size: var(--font-size-18);
+    font-weight: 800;
+    line-height: 1.5;
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+  }
+
+  .RoadmapSection-itemDescription {
+    color: var(--color-grey-600);
+    font-size: var(--font-size-16);
+    font-weight: 500;
+    line-height: 1.6;
+    margin: 0;
+    white-space: pre-line;
+    font-family: var(--font-sans);
+    word-break: keep-all;
+  }
+}

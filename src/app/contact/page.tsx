@@ -1,15 +1,66 @@
+import { prefixPath } from "@/utils/path"
+import "./page.css"
+
 export const metadata = {
-    title: "BMSmile | 문의",
-    description: "BMSmile 문의 페이지",
-  }
-  
-  export default function ContactPage() {
-    return (
-      <section>
-        <h1>문의하기</h1>
-        <p>문의는 아래 이메일로 부탁드립니다.</p>
-        <p>contact@bmsmile.com</p>
-      </section>
-    )
-  }
-  
+  title: "BMSmile | Contact",
+  description: "BMSmile Contact 페이지",
+}
+
+const PRIVACY_POLICY = [
+  "■ 개인정보의 수집·이용 목적",
+  "서비스 제공 및 계약의 이행, 구매 및 대금결제, 물품배송 또는 청구지 발송, 회원관리 등을 위한 목적",
+  "",
+  "■ 수집하려는 개인정보의 항목",
+  "이름, 주소, 연락처, 이메일 등",
+  "",
+  "■ 개인정보의 보유 및 이용 기간",
+  "회사는 개인정보 수집 및 이용목적이 달성된 후에는 예외없이 해당정보를 파기합니다.",
+].join("\n")
+
+export default function ContactPage() {
+  return (
+    <section className="ContactPage">
+      <div className="ContactPage-inner">
+        <h1 className="ContactPage-title">Contact</h1>
+
+        <div className="ContactPage-content">
+          <article className="ContactPage-visualCard">
+            <img
+              src={prefixPath("/images/subsidiary/img_subsidiaries_keypoint_01.png")}
+              alt=""
+              className="ContactPage-visualImage"
+              loading="lazy"
+              decoding="async"
+            />
+            <p className="ContactPage-visualText">
+              IP 제안 / 협업 / B2B 사업 문의 등,
+              <br />
+              소중한 문의에 정성을 다해 답변드리겠습니다.
+            </p>
+          </article>
+
+          <form className="ContactPage-form" action="#">
+            <input type="text" className="ContactPage-input" placeholder="제목을 입력해주세요." />
+            <textarea className="ContactPage-textarea" placeholder="내용을 입력해주세요." />
+
+            <div className="ContactPage-policyBox" role="region" aria-label="개인정보처리방침">
+              <pre className="ContactPage-policyText">{PRIVACY_POLICY}</pre>
+            </div>
+
+            <div className="ContactPage-submitRow">
+              <label className="ContactPage-consent">
+                <input type="checkbox" />
+                <span className="ContactPage-consentTitle">개인정보처리방침 동의</span>
+                <span className="ContactPage-consentDescription">개인정보 수집 및 이용에 동의합니다.</span>
+              </label>
+
+              <button type="submit" className="ContactPage-submitButton">
+                작성하기
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  )
+}

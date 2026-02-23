@@ -24,6 +24,8 @@ export type SlideRowItem = {
   label?: string
   /** People 슬라이드 등: 카드 오버레이 상단 번호 (01, 02, 03) */
   number?: string
+  showActionIcon?: boolean
+  actionHref?: string
 }
 
 type SlideRowProps = {
@@ -68,6 +70,8 @@ export default function SlideRow({ textPanel, items }: SlideRowProps) {
                 caption={item.caption}
                 label={item.label}
                 number={item.number}
+                showActionIcon={item.showActionIcon}
+                actionHref={item.actionHref}
               />
             </SwiperSlide>
           ))}

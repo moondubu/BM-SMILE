@@ -6,6 +6,8 @@ export type ImpactSectionMetric = {
   label: string
   value: string
   subText?: string
+  logoSrc?: string
+  logoAlt?: string
 }
 
 type ImpactSectionProps = {
@@ -17,6 +19,8 @@ type ImpactSectionProps = {
   subTextLines?: readonly string[]
   headerAlign?: "left" | "center"
   metrics?: ImpactSectionMetric[]
+  metricsCaption?: string
+  metricsDescriptionLines?: readonly string[]
   footerText?: string
 }
 
@@ -27,8 +31,10 @@ export default function ImpactSection({
   label,
   title,
   subTextLines,
-  headerAlign = "center",
+  headerAlign = "left",
   metrics,
+  metricsCaption,
+  metricsDescriptionLines,
   footerText,
 }: ImpactSectionProps) {
   const sectionClassName = ["ImpactSection", className].filter(Boolean).join(" ")
@@ -37,10 +43,16 @@ export default function ImpactSection({
   const hasMetricSubText = Boolean(metrics?.some((item) => item.subText && item.subText.trim() !== ""))
   const metricSubTextLines = footerText?.split("\n").map((line) => line.trim()).filter(Boolean) ?? []
   const showMetricSubText = hasMetrics && (hasMetricSubText || metricSubTextLines.length > 0)
-  const headerClassName = ["ImpactSection-header", headerAlign === "left" ? "ImpactSection-header--left" : ""]
+  const headerClassName = [
+    "ImpactSection-header",
+    headerAlign === "center" ? "ImpactSection-header--center" : "",
+  ]
     .filter(Boolean)
     .join(" ")
-  const footerClassName = ["ImpactSection-footer", headerAlign === "left" ? "ImpactSection-footer--left" : ""]
+  const footerClassName = [
+    "ImpactSection-footer",
+    headerAlign === "center" ? "ImpactSection-footer--center" : "",
+  ]
     .filter(Boolean)
     .join(" ")
 
@@ -65,11 +77,40 @@ export default function ImpactSection({
 
         {hasMetrics ? (
           <div className="ImpactSection-metrics">
+            {metricsCaption || metricsDescriptionLines?.length ? (
+              <div className="ImpactSection-metricsText">
+                {metricsCaption ? <p className="ImpactSection-metricsCaption">{metricsCaption}</p> : null}
+                {metricsDescriptionLines?.length ? (
+                  <div className="ImpactSection-metricsDescription">
+                    {metricsDescriptionLines.map((line) => (
+                      <p key={line}>{line}</p>
+                    ))}
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
             <div className="ImpactSection-metricsGrid">
               {metrics?.map((item, index) => (
-                <div key={item.label} className="ImpactSection-metric">
+                <div
+                  key={item.label}
+                  className={[
+                    "ImpactSection-metric",
+                    headerAlign === "center" ? "ImpactSection-metric--center" : "",
+                  ]
+                    .filter(Boolean)
+                    .join(" ")}
+                >
+                  {item.logoSrc ? (
+                    <img
+                      src={prefixPath(item.logoSrc)}
+                      alt={item.logoAlt ?? item.label}
+                      className="ImpactSection-metricLogo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : null}
                   <p className="ImpactSection-metricLabel">{item.label}</p>
-                  <p className="ImpactSection-metricValue">{item.value}</p>
+                  {item.value.trim() ? <p className="ImpactSection-metricValue">{item.value}</p> : null}
                   {showMetricSubText ? (
                     <span className="ImpactSection-metricSubText">
                       {item.subText

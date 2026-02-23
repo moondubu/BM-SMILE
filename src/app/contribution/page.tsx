@@ -2,10 +2,15 @@ import SubHero from "@/components/SubHero/SubHero"
 import ContributionWay from "@/components/ContributionWay/ContributionWay"
 import Contribution1004 from "@/components/Contribution1004/Contribution1004"
 import AdoptionConnection from "@/components/AdoptionConnection/AdoptionConnection"
-import ContributionPrinciples from "@/components/ContributionPrinciples/ContributionPrinciples"
+import RoadmapSection from "@/components/RoadmapSection/RoadmapSection"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import ContributionConnectProject from "@/components/ContributionConnectProject/ContributionConnectProject"
-import { CONTRIBUTION_HERO, CONTRIBUTION_IMPACT, CONTRIBUTION_IMPACT_DATA } from "@/data/contributionSections"
+import {
+    CONTRIBUTION_HERO,
+    CONTRIBUTION_IMPACT,
+    CONTRIBUTION_IMPACT_DATA,
+    CONTRIBUTION_PRINCIPLES,
+} from "@/data/contributionSections"
 import "./page.css"
 
 export default function ContributionPage() {
@@ -22,13 +27,18 @@ export default function ContributionPage() {
             <ContributionWay />
             <Contribution1004 />
             <AdoptionConnection />
-            <ContributionPrinciples />
+            <RoadmapSection
+                label={CONTRIBUTION_PRINCIPLES.label}
+                title={CONTRIBUTION_PRINCIPLES.title}
+                items={CONTRIBUTION_PRINCIPLES.items}
+            />
             <ImpactSection
                 className="ContributionImpact"
                 backgroundSrc={CONTRIBUTION_IMPACT.backgroundSrc}
                 label={CONTRIBUTION_IMPACT.label}
                 title={CONTRIBUTION_IMPACT.title}
                 subTextLines={[...CONTRIBUTION_IMPACT.subTextLines]}
+                headerAlign="center"
                 metrics={CONTRIBUTION_IMPACT_DATA}
             />
             <ContributionConnectProject />

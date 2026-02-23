@@ -1,67 +1,65 @@
 .GrowthPage {
   background: var(--color-white);
-}
 
-.GrowthPage .SubHero .Hero {
-  aspect-ratio: 1920 / 960;
-}
-
-.GrowthPage .SubHero-title {
-  line-height: 1.1;
-  text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
-}
-
-.GrowthPage .SubHero-subtext {
-  line-height: 1.6;
-  text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
-}
-
-.GrowthPage .GrowthImpact .ImpactSection-inner {
-  padding: var(--spacing-96) 0;
-  gap: var(--spacing-16);
-}
-
-.GrowthPage .GrowthImpact .ImpactSection-header {
-  gap: var(--spacing-16);
-}
-
-.GrowthPage .GrowthImpact .ImpactSection-metricsGrid {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: var(--spacing-96);
-}
-
-.GrowthPage .GrowthImpact .ImpactSection-metric {
-  align-items: flex-start;
-  text-align: left;
-}
-
-.GrowthPage .GrowthImpact .ImpactSection-footer {
-  text-align: left;
-  white-space: pre-line;
-}
-
-.GrowthPage .GrowthGoals {
-  padding: var(--spacing-128) 0;
-
-  .SectionCardGrid-grid {
-    align-items: end;
+  .SubHero {
+    .Hero {
+      aspect-ratio: 1920 / 960;
+    }
   }
-}
 
-.GrowthPage .GrowthGoals .SectionCardGrid-cardTitle {
-  font-family: var(--font-nanumSquareNeo);
-  font-size: var(--font-size-24);
-  font-weight: 700;
-  line-height: 1.5;
-  color: var(--color-grey-900);
-}
+  .SubHero-title {
+    line-height: 1.1;
+    text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+  }
 
-.GrowthPage .GrowthGoals .SectionCardGrid-card--plain {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
+  .SubHero-subtext {
+    line-height: 1.6;
+    text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+  }
 
-.GrowthPage .GrowthGoals .SectionCardGrid-card--plain .SectionCardGrid-cardText {
-  order: -1;
+  .GrowthImpact {
+    .ImpactSection-inner {
+      padding: var(--spacing-96) 0;
+      gap: var(--spacing-16);
+    }
+
+    .ImpactSection-header {
+      gap: var(--spacing-16);
+    }
+
+    .ImpactSection-metricsGrid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--spacing-96);
+    }
+
+    .ImpactSection-footer {
+      white-space: pre-line;
+    }
+  }
+
+  .GrowthGoals {
+    padding: var(--spacing-128) 0;
+
+    .SectionCardGrid-grid {
+      align-items: end;
+    }
+
+    .SectionCardGrid-cardTitle {
+      font-family: var(--font-nanumSquareNeo);
+      font-size: var(--font-size-24);
+      font-weight: 700;
+      line-height: 1.5;
+      color: var(--color-grey-900);
+    }
+
+    .SectionCardGrid-card--plain {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+
+      .SectionCardGrid-cardText {
+        order: -1;
+      }
+    }
+  }
 }
