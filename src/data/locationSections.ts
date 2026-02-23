@@ -20,7 +20,7 @@ export const LOCATION_OFFICES: LocationOffice[] = [
       "IP의 일관성과 확장성을 이끌어갑니다.",
     ],
     address: "서울특별시 영등포구 여의대로 108, 파크원 타워1 47층",
-    mapQuery: "서울특별시 영등포구 여의대로 108 파크원타워 1 47층",
+    mapQuery: "비엠스마일, 서울특별시 영등포구 여의대로 108 파크원타워 1 47층",
   },
   {
     key: "china",
@@ -32,8 +32,8 @@ export const LOCATION_OFFICES: LocationOffice[] = [
       "현지 시장에 대한 풍부한 이해를 바탕으로",
       "중국 진출의 교두보 역할을 수행합니다.",
     ],
-    address: "500 Van An Xi Lu, Chang Ning Qu, Shang Hai Shi, China 200031",
-    mapQuery: "500 Van An Xi Lu, Chang Ning Qu, Shang Hai Shi, China 200031",
+    address: "500 Yan An Xi Lu, Chang Ning Qu, Shang Hai Shi, 중국 200031",
+    mapQuery: "500 Yan An Xi Lu, Chang Ning Qu, Shang Hai Shi, 중국 200031",
   },
   {
     key: "japan",
@@ -45,8 +45,8 @@ export const LOCATION_OFFICES: LocationOffice[] = [
       "현지 IP 및 기업과의 긴밀한 협업을 통해",
       "브랜드 확장을 이끌고 있습니다.",
     ],
-    address: "Japan 〒150-0001 Tokyo, Shibuya, Jingumae, 1 Chome−8−1 Daisy原宿",
-    mapQuery: "Japan 〒150-0001 Tokyo, Shibuya, Jingumae, 1 Chome−8−1 Daisy原宿",
+    address: "일본 〒150-0001 Tokyo, Shibuya, Jingumae, 1 Chome−8−1 Daisy原宿",
+    mapQuery: "WIGGLE WIGGLE HARAJUKU, 1 Chome-8-1 Jingumae, Shibuya City, Tokyo 150-0001, Japan",
   },
   {
     key: "singapore",

@@ -19,10 +19,10 @@ export default function LocationPageClient() {
     }
 
     if (googleMapApiKey) {
-      return `https://www.google.com/maps/embed/v1/place?key=${googleMapApiKey}&q=${encodeURIComponent(activeOffice.mapQuery)}&zoom=15`
+      return `https://www.google.com/maps/embed/v1/place?key=${googleMapApiKey}&q=${encodeURIComponent(activeOffice.mapQuery)}&zoom=17`
     }
 
-    return `https://maps.google.com/maps?q=${encodeURIComponent(activeOffice.mapQuery)}&z=15&output=embed`
+    return `https://maps.google.com/maps?q=${encodeURIComponent(activeOffice.mapQuery)}&z=17&output=embed`
   }, [activeOffice.mapLink, activeOffice.mapQuery, googleMapApiKey])
 
   return (
