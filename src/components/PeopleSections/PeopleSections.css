@@ -186,9 +186,20 @@
 .PeopleRecruit-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("/images/people/img_people_process_01.png");
-  background-size: cover;
-  background-position: center;
+  overflow: hidden;
+}
+
+.PeopleRecruit-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2));
+}
+
+.PeopleRecruit-bgImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .PeopleRecruit-inner {

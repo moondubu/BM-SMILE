@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { prefixPath } from "@/utils/path"
 import "./PeopleSections.css"
 
 export function PeopleCultureSection() {
@@ -175,7 +176,14 @@ export function PeopleSupportSection() {
 export function PeopleRecruitSection() {
   return (
     <section className="PeopleRecruit">
-      <div className="PeopleRecruit-bg" aria-hidden />
+      <div className="PeopleRecruit-bg" aria-hidden>
+        <img
+          className="PeopleRecruit-bgImage"
+          src={prefixPath("/images/people/img_people_process_01.png")}
+          alt=""
+          aria-hidden
+        />
+      </div>
 
       <div className="PeopleSection-inner PeopleRecruit-inner">
         <header className="PeopleSection-header">
@@ -215,7 +223,12 @@ export function PeopleRecruitSection() {
 
           <article className="PeopleRecruit-location">
             <div className="PeopleRecruit-locationImage">
-              <img className="PeopleRecruit-locationImageImg" src="/images/people/img_people_process_02.png" alt="" aria-hidden />
+              <img
+                className="PeopleRecruit-locationImageImg"
+                src={prefixPath("/images/people/img_people_process_02.png")}
+                alt=""
+                aria-hidden
+              />
             </div>
             <div className="PeopleRecruit-locationText">
               <h3 className="PeopleRecruit-locationTitle">인터뷰 장소</h3>
