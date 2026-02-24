@@ -31,11 +31,12 @@ export type SlideRowItem = {
 type SlideRowProps = {
   textPanel: SlideRowTextPanel
   items: SlideRowItem[]
+  linkWholeCard?: boolean
 }
 
 const SPACE_BETWEEN = 24
 
-export default function SlideRow({ textPanel, items }: SlideRowProps) {
+export default function SlideRow({ textPanel, items, linkWholeCard = false }: SlideRowProps) {
   const { label, title, body, ctaLabel, ctaHref } = textPanel
 
   return (
@@ -72,6 +73,7 @@ export default function SlideRow({ textPanel, items }: SlideRowProps) {
                 number={item.number}
                 showActionIcon={item.showActionIcon}
                 actionHref={item.actionHref}
+                linkWholeCard={linkWholeCard}
               />
             </SwiperSlide>
           ))}

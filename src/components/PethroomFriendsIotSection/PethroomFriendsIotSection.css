@@ -84,9 +84,8 @@
   }
 
   .PethroomFriendsIot-dashboardImage {
-    width: 464px;
-    height: auto;
     border-radius: var(--spacing-24);
+    box-shadow: 0 var(--spacing-4) var(--spacing-8) rgba(0, 0, 0, 0.1);
     display: block;
   }
 
@@ -100,16 +99,16 @@
   .PethroomFriendsIot-dashboardTitle {
     margin: 0;
     font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-24);
-    font-weight: 700;
+    font-size: var(--font-size-16);
+    font-weight: 400;
     line-height: 1.5;
-    color: var(--color-grey-900);
+    color: var(--color-grey-600);
   }
 
   .PethroomFriendsIot-dashboardDescription {
     margin: 0;
     font-family: var(--font-sans);
-    font-size: var(--font-size-24);
+    font-size: var(--font-size-32);
     font-weight: 700;
     line-height: 1.5;
     color: var(--color-grey-900);
@@ -117,6 +116,7 @@
   }
 
   .PethroomFriendsIot-report {
+    position: relative;
     width: 100%;
     max-width: 1024px;
     margin: 0 auto;
@@ -129,5 +129,31 @@
     border-radius: var(--spacing-32);
     display: block;
   }
-}
 
+  .PethroomFriendsIot-reportText {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+
+  .PethroomFriendsIot-reportLabel {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-16);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-grey-400);
+  }
+
+  .PethroomFriendsIot-reportTitle {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-32);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-grey-900);
+  }
+}

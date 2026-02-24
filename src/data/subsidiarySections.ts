@@ -22,6 +22,7 @@ export const SUBSIDIARY_CORE = {
       number: "국내 1위 펫 IP, PETHROOM",
       caption:
         "비엠스마일은 1위 반려동물 IP 페스룸을 기반으로 그룹 전반의\n사업 구조와 방향성을 설계하는 핵심 조직입니다.",
+      actionHref: "https://pethroom.com/",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_keypoint_02.png",
@@ -88,6 +89,7 @@ export const SUBSIDIARY_VIRTUAL_IP = {
       number: "Wiggle Wiggle / 위글위글",
       caption:
         "국내 회원 수 900K+ · 카카오 64K+\n대한민국 최대 규모의 IP OSMU 브랜드입니다.",
+      actionHref: "https://wiggle-wiggle.com/",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_virtual_ip_02.png",
@@ -95,6 +97,7 @@ export const SUBSIDIARY_VIRTUAL_IP = {
       number: "MUMUKI / 무무키",
       caption:
         "일상적인 피부 고민을 중심으로 기본에 충실한 포뮬러와\n사용 경험을 설계하는 프리미엄 스킨케어 브랜드입니다.",
+      actionHref: "https://mumuki.kr/",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_virtual_ip_03.png",
@@ -102,6 +105,7 @@ export const SUBSIDIARY_VIRTUAL_IP = {
       number: "DERMAGENCY / 더마젼시",
       caption:
         "피부 과학과 임상 기준을 바탕으로 전문적인 더마 코스메틱 솔루션을\n제안하는 글로벌 더마 코스메틱 브랜드입니다.",
+      actionHref: "https://dermagency.kr/",
     },
   ] satisfies SlideRowItem[],
 } as const
@@ -118,6 +122,7 @@ export const SUBSIDIARY_HUMAN_IP = {
       number: "Aori / 김민영",
       caption:
         "Youtube 780K+ · Instagram 608K+\n패션·뷰티·라이프스타일 전반으로 확장된 플랫폼형 크리에이터 IP입니다.",
+      actionHref: "https://www.instagram.com/minyoung_aori/?utm_source=ig_web_button_share_sheet",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_human_ip_02.png",
@@ -125,6 +130,7 @@ export const SUBSIDIARY_HUMAN_IP = {
       number: "Imvely / 임지현",
       caption:
         "Instagram 673K+\n패션과 뷰티를 기반으로 비즈니스를 확장해온 사업가형 인플루언서입니다.",
+      actionHref: "https://www.instagram.com/imvely_jihyun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
     },
   ] satisfies SlideRowItem[],
 } as const

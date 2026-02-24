@@ -97,6 +97,7 @@ export default function PethroomPage() {
 
       <MediaSlide id={PETHROOM_BESTSELLER_SECTION.id}>
         <SlideRow
+          linkWholeCard
           textPanel={PETHROOM_BESTSELLER_TEXT_PANEL}
           items={PETHROOM_BESTSELLER_PRODUCTS.map((item) => ({
             imageSrc: item.imageSrc,

@@ -71,4 +71,17 @@
       color: var(--color-primary-blue);
     }
   }
+
+  .SlideCard-linkOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: block;
+  }
+
+  &.SlideCard--linked:hover .SlideCard-actionIcon {
+    background: var(--color-white);
+    border-color: var(--color-primary-blue);
+    color: var(--color-primary-blue);
+  }
 }

@@ -79,6 +79,16 @@ export default function PethroomFriendsIotSection() {
           alt="반려동물 케어 리포트 예시"
           className="PethroomFriendsIot-reportImage"
         />
+        <div className="PethroomFriendsIot-reportText">
+          <p className="PethroomFriendsIot-reportLabel">주차별&월별 케어 그래프</p>
+          <p className="PethroomFriendsIot-reportTitle">
+            주차별&월별로 변하는
+            <br />
+            건강 패턴을 한눈에,
+            <br />
+            변화를 통해 더 꼼꼼한 케어
+          </p>
+        </div>
       </div>
     </section>
   )
