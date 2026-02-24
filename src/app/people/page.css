@@ -28,7 +28,13 @@
     }
 
     .SlideRow-slide--text {
+      width: 342px;
       padding-right: var(--spacing-128);
+      box-sizing: content-box;
+    }
+
+    .SlideRow-slide--card {
+      width: 375px;
     }
 
     .SectionTextPanel {
@@ -58,10 +64,25 @@
 
     .SlideCard {
       border-radius: var(--spacing-32);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      width: 375px;
+      height: 500px;
+    }
+
+    .SlideCard-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .SlideCard-overlay {
       padding: var(--spacing-32);
+      gap: var(--spacing-16);
+      background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
+    }
+
+    .SlideCard-number {
+      font-size: var(--font-size-32);
     }
 
     .SlideCard-caption {
