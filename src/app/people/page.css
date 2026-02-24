@@ -42,28 +42,16 @@
       padding: var(--spacing-48) 0;
     }
 
-    .SectionTextPanel-label {
-      font-size: var(--font-size-16);
-      font-weight: 600;
-      color: var(--color-grey-400);
-    }
-
     .SectionTextPanel-title {
-      font-size: var(--font-size-48);
-      font-weight: 700;
-      line-height: 1.3;
       color: var(--color-grey-900);
     }
 
     .SectionTextPanel-body {
-      font-size: var(--font-size-16);
-      font-weight: 500;
       line-height: 1.6;
       color: var(--color-grey-900);
     }
 
     .SlideCard {
-      border-radius: var(--spacing-32);
       width: 375px;
       height: 500px;
     }
@@ -84,11 +72,6 @@
       font-size: var(--font-size-32);
     }
 
-    .SlideCard-caption {
-      font-size: var(--font-size-24);
-      font-weight: 700;
-      line-height: 1.5;
-    }
   }
 }
 
@@ -138,6 +121,5 @@
     margin-top: 0;
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.2);
-    color: var(--color-white);
   }
 }
