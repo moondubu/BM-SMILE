@@ -2,9 +2,10 @@ import SubHero from "@/components/SubHero/SubHero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import Contact from "@/components/Contact/Contact"
+import CareerBanner from "@/components/CareerBanner/CareerBanner"
 import {
-  PeopleCareersSection,
   PeopleCultureSection,
+  PeoplePagerSection,
   PeopleRecruitSection,
   PeopleSupportSection,
 } from "@/components/PeopleSections/PeopleSections"
@@ -64,7 +65,8 @@ export default function PeoplePage() {
       <PeopleCultureSection />
       <PeopleSupportSection />
       <PeopleRecruitSection />
-      <PeopleCareersSection />
+      <CareerBanner />
+      <PeoplePagerSection />
       <Contact />
     </div>
   )
