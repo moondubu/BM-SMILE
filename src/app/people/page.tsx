@@ -1,11 +1,10 @@
 import SubHero from "@/components/SubHero/SubHero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
-import Contact from "@/components/Contact/Contact"
 import CareerBanner from "@/components/CareerBanner/CareerBanner"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import {
   PeopleCultureSection,
-  PeoplePagerSection,
   PeopleRecruitSection,
   PeopleSupportSection,
 } from "@/components/PeopleSections/PeopleSections"
@@ -49,13 +48,7 @@ export default function PeoplePage() {
         className="PeopleVision-impact"
         backgroundSrc={PEOPLE_VISION.backgroundSrc}
         label={PEOPLE_VISION.label}
-        title={
-          <>
-            {PEOPLE_VISION.titleLine1}
-            <br />
-            {PEOPLE_VISION.titleLine2}
-          </>
-        }
+        title={`${PEOPLE_VISION.titleLine1} ${PEOPLE_VISION.titleLine2}`}
         subTextLines={PEOPLE_VISION.description}
         ctaLabel={PEOPLE_VISION.ctaLabel}
         ctaHref={PEOPLE_VISION.ctaHref}
@@ -66,8 +59,10 @@ export default function PeoplePage() {
       <PeopleSupportSection />
       <PeopleRecruitSection />
       <CareerBanner />
-      <PeoplePagerSection />
-      <Contact />
+      <PageNavigation
+        prev={{ label: "< Prev", href: "/pethroom-friends", chipLabel: "No.1 Platform", chipHref: "/pethroom-friends" }}
+        next={{ label: "Next >", href: "/strategy", chipLabel: "No.1 Strategy", chipHref: "/strategy" }}
+      />
     </div>
   )
 }

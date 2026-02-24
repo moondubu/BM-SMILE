@@ -123,26 +123,31 @@ export const PETHROOM_BESTSELLER_PRODUCTS = [
     imageSrc: "/images/pethroom/img_pethroom_prod_01.png",
     imageAlt: "더스트 프리 벤토나이트",
     title: "더스트 프리 벤토나이트",
+    productNo: 18,
   },
   {
     imageSrc: "/images/pethroom/img_pethroom_prod_02.png",
     imageAlt: "이지 페이셜 콤",
     title: "이지 페이셜 콤",
+    productNo: 260,
   },
   {
     imageSrc: "/images/pethroom/img_pethroom_prod_03.png",
     imageAlt: "이지 탱글 커터",
     title: "이지 탱글 커터",
+    productNo: 709,
   },
   {
     imageSrc: "/images/pethroom/img_pethroom_prod_04.png",
     imageAlt: "스마트 네일 클리퍼",
     title: "스마트 네일 클리퍼",
+    productNo: 141,
   },
   {
     imageSrc: "/images/pethroom/img_pethroom_prod_05.png",
     imageAlt: "덴탈 클린 딥 포인트 칫솔",
     title: "덴탈 클린 & 딥 포인트 칫솔",
+    productNo: 152,
   },
 ] as const
 

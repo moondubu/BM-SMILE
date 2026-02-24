@@ -79,7 +79,7 @@ export default function ImpactSection({
             </div>
           ) : null}
           {ctaLabel && ctaHref ? (
-            <Link href={ctaHref} className="ImpactSection-cta">
+            <Link href={ctaHref} className="ImpactSection-cta CtaButton CtaButton--onDark">
               {ctaLabel}
             </Link>
           ) : null}

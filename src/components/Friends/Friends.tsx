@@ -25,7 +25,7 @@ export default function Friends() {
             국내 수직계열화 전략의 핵심 인프라로 확장하고 있습니다.
           </p>
           <div className="Friends-ctaGroup">
-            <Link href="/friends" className="Friends-ctaButton">
+            <Link href="/pethroom-friends" className="Friends-ctaButton CtaButton CtaButton--onLight">
               플랫폼 자세히 보기
               {CTA_ICON}
             </Link>

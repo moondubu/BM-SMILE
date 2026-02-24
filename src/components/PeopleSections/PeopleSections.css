@@ -1,6 +1,6 @@
 .PeopleSection-inner {
   width: 100%;
-  max-width: calc(var(--spacing-160) * 8);
+  max-width: 1280px;
   margin: 0 auto;
 }
 
@@ -65,20 +65,26 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
+  gap: var(--spacing-32);
+}
+
+.PeopleCulture-textBox {
+  display: flex;
+  flex-direction: column;
   gap: var(--spacing-16);
 }
 
 .PeopleCulture-number {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-64);
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-96);
   font-weight: 200;
-  line-height: 1.2;
-  color: rgba(255, 255, 255, 0.55);
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .PeopleCulture-cardTitle {
   font-family: var(--font-nanumSquareNeo);
-  font-size: var(--font-size-40);
+  font-size: var(--font-size-24);
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-white);
@@ -172,6 +178,7 @@
 
 .PeopleRecruit {
   position: relative;
+  min-height: 960px;
   padding: var(--spacing-96) 0;
   overflow: hidden;
 }
@@ -187,29 +194,41 @@
 .PeopleRecruit-inner {
   position: relative;
   z-index: 1;
+  min-height: 768px;
+  display: flex;
+  flex-direction: column;
+}
+
+.PeopleRecruit .PeopleSection-label {
+  color: rgba(0, 0, 0, 0.7);
 }
 
 .PeopleRecruit-content {
   margin-top: var(--spacing-48);
+  flex: 1 0 0;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-48);
 }
 
 .PeopleRecruit-stepWrap {
-  max-width: calc(var(--spacing-256) * 4);
+  max-width: 1024px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-32);
 }
 
 .PeopleRecruit-steps {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: var(--spacing-16);
 }
 
 .PeopleRecruit-step {
   display: inline-flex;
   align-items: center;
-  gap: var(--spacing-8);
+  gap: var(--spacing-16);
 }
 
 .PeopleRecruit-stepBadge {
@@ -248,17 +267,35 @@
 }
 
 .PeopleRecruit-arrow {
-  color: var(--color-primary-blue);
-  font-size: var(--font-size-12);
+  width: var(--spacing-12);
+  height: var(--font-size-14);
+  background: var(--color-primary-blue);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
 .PeopleRecruit-divider {
-  margin-top: var(--spacing-16);
+  position: relative;
   border-top: 1px dashed var(--color-primary-blue);
 }
 
+.PeopleRecruit-divider::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: -4px;
+  width: var(--spacing-8);
+  height: var(--spacing-8);
+  background: var(--color-primary-blue);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+.PeopleRecruit-noteList {
+  list-style: disc;
+  padding-left: var(--spacing-24);
+}
+
 .PeopleRecruit-note {
-  margin-top: var(--spacing-16);
+  list-style: disc;
   font-family: var(--font-sans);
   font-size: var(--font-size-16);
   font-weight: 500;
@@ -267,6 +304,7 @@
 }
 
 .PeopleRecruit-location {
+  min-height: 266px;
   backdrop-filter: blur(var(--blur-12));
   border-radius: 9999px;
   background: rgba(255, 255, 255, 0.8);
@@ -277,12 +315,16 @@
 }
 
 .PeopleRecruit-locationImage {
-  width: 190px;
-  height: 127px;
-  border-radius: 99px;
-  background-image: url("/images/people/img_people_process_02.png");
-  background-size: cover;
-  background-position: center;
+  width: 340px;
+  border-radius: 9999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.PeopleRecruit-locationImageImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   flex-shrink: 0;
 }
 
@@ -311,56 +353,9 @@
 
 .PeopleRecruit-locationCta {
   flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-8);
   padding: var(--spacing-16) var(--spacing-24);
-  border-radius: 99px;
-  background: var(--color-primary-blue);
-  color: var(--color-white);
   font-family: var(--font-nanumSquareNeo);
   font-size: var(--font-size-16);
   font-weight: 600;
   line-height: 1.5;
-}
-
-.PeoplePager {
-  background: var(--color-grey-900);
-}
-
-.PeoplePager-inner {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-.PeoplePager-link {
-  min-height: 140px;
-  padding: var(--spacing-32);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: var(--spacing-8);
-  color: rgba(255, 255, 255, 0.8);
-}
-
-.PeoplePager-link--next {
-  border-left: 1px solid rgba(255, 255, 255, 0.16);
-  align-items: flex-end;
-  text-align: right;
-}
-
-.PeoplePager-label {
-  font-family: var(--font-sans);
-  font-size: var(--font-size-13);
-  font-weight: 500;
-  line-height: 1.5;
-}
-
-.PeoplePager-title {
-  font-family: var(--font-nanumSquareNeo);
-  font-size: var(--font-size-32);
-  font-weight: 700;
-  line-height: 1.4;
-  color: var(--color-white);
 }

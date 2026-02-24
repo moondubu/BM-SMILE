@@ -1,4 +1,5 @@
-import Contact from "@/components/Contact/Contact"
+import ContactBanner from "@/components/ContactBanner/ContactBanner"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import StrategyDomestic from "@/components/StrategyDomestic/StrategyDomestic"
 import StrategyGlobal from "@/components/StrategyGlobal/StrategyGlobal"
 import StrategyPetPlatform from "@/components/StrategyPetPlatform/StrategyPetPlatform"
@@ -24,7 +25,11 @@ export default function StrategyPage() {
       <StrategyGlobal />
       <StrategyDomestic />
       <StrategyPetPlatform />
-      <Contact />
+      <ContactBanner />
+      <PageNavigation
+        prev={{ label: "< Prev", href: "/people", chipLabel: "No.1 People", chipHref: "/people" }}
+        next={{ label: "Next >", href: "/growth", chipLabel: "No.1 Growth", chipHref: "/growth" }}
+      />
     </div>
   )
 }

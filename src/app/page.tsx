@@ -7,7 +7,7 @@ import SectionTextPanel from "@/components/MediaSlide/SectionTextPanel/SectionTe
 import Friends from "@/components/Friends/Friends"
 import Strategy from "@/components/Strategy/Strategy"
 import Growth from "@/components/Growth/Growth"
-import Contact from "@/components/Contact/Contact"
+import ContactBanner from "@/components/ContactBanner/ContactBanner"
 import {
   ENVIRONMENT_SLIDE_ITEMS,
   MAIN_CONTRIBUTION_SECTION,
@@ -74,6 +74,7 @@ export default function Home() {
             {MAIN_IP_SECTION.titleLine2}
           </>
         }
+        mediaAspectRatio={MAIN_IP_SECTION.mediaAspectRatio}
         overlay
       >
         <div className="MediaSlide-overlayInner">
@@ -115,6 +116,7 @@ export default function Home() {
             {MAIN_PEOPLE_SECTION.titleLine2}
           </>
         }
+        mediaAspectRatio={MAIN_PEOPLE_SECTION.mediaAspectRatio}
       >
         <SlideRow
           textPanel={{
@@ -149,6 +151,7 @@ export default function Home() {
             {MAIN_CONTRIBUTION_SECTION.titleLine2}
           </>
         }
+        mediaAspectRatio={MAIN_CONTRIBUTION_SECTION.mediaAspectRatio}
       >
         <SlideRow
           textPanel={{
@@ -168,7 +171,7 @@ export default function Home() {
         />
       </MediaSlide>
 
-      <Contact />
+      <ContactBanner />
     </>
   )
 }

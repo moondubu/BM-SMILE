@@ -46,7 +46,7 @@ export default function SplitIntroSection({
           {ctaLabel ? (
             <a
               href={ctaHref ?? "#"}
-              className="SplitIntroSection-cta"
+              className="SplitIntroSection-cta CtaButton CtaButton--onDark"
               target={ctaHref?.startsWith("http") ? "_blank" : undefined}
               rel={ctaHref?.startsWith("http") ? "noopener noreferrer" : undefined}
             >

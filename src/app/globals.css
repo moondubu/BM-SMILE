@@ -26,6 +26,7 @@
   --spacing-20: 20px;
   --spacing-24: 24px;
   --spacing-32: 32px;
+  --spacing-40: 40px;
   --spacing-48: 48px;
   --spacing-60: 60px;
   --spacing-64: 64px;
@@ -150,6 +151,52 @@ section {
   width: 100%;
   max-width: 3840px;
   margin: 0 auto;
+}
+
+.CtaButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-8);
+  border-radius: 9999px;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.CtaButton--onBlue {
+  background: var(--color-white);
+  color: var(--color-primary-blue);
+  border-color: var(--color-white);
+}
+
+.CtaButton--onBlue:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.CtaButton--onDark {
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.CtaButton--onDark:hover {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+  border-color: var(--color-primary-blue);
+}
+
+.CtaButton--onLight {
+  background: var(--color-primary-blue);
+  color: var(--color-white);
+  border-color: var(--color-primary-blue);
+}
+
+.CtaButton--onLight:hover {
+  background: transparent;
+  color: var(--color-primary-blue);
+  border-color: var(--color-primary-blue);
 }
 
 @media all and (min-width: 3840px) {

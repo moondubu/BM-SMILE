@@ -5,6 +5,7 @@ import AdoptionConnection from "@/components/AdoptionConnection/AdoptionConnecti
 import RoadmapSection from "@/components/RoadmapSection/RoadmapSection"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import ContributionConnectProject from "@/components/ContributionConnectProject/ContributionConnectProject"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import {
     CONTRIBUTION_HERO,
     CONTRIBUTION_IMPACT,
@@ -42,6 +43,10 @@ export default function ContributionPage() {
                 metrics={CONTRIBUTION_IMPACT_DATA}
             />
             <ContributionConnectProject />
+            <PageNavigation
+                prev={{ label: "< Prev", href: "/growth", chipLabel: "No.1 Growth", chipHref: "/growth" }}
+                next={{ label: "Next >", href: "/environment", chipLabel: "No.1 Environment", chipHref: "/environment" }}
+            />
         </div>
     )
 }

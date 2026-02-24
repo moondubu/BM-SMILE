@@ -73,14 +73,7 @@
     right: var(--spacing-32);
     bottom: var(--spacing-32);
     z-index: 1;
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-8);
     padding: var(--spacing-16) var(--spacing-24);
-    border-radius: 999px;
-    background: rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    color: var(--color-white);
     font-family: var(--font-nanumSquareNeo);
     font-size: var(--font-size-16);
     font-weight: 600;

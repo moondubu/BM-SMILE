@@ -1,6 +1,7 @@
 import SubHero from "@/components/SubHero/SubHero"
-import Contact from "@/components/Contact/Contact"
+import ContactBanner from "@/components/ContactBanner/ContactBanner"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import GrowthOverview from "@/components/GrowthOverview/GrowthOverview"
 import {
@@ -59,7 +60,11 @@ export default function GrowthPage() {
         items={GROWTH_GOAL_ITEMS}
       />
 
-      <Contact />
+      <ContactBanner />
+      <PageNavigation
+        prev={{ label: "< Prev", href: "/strategy", chipLabel: "No.1 Strategy", chipHref: "/strategy" }}
+        next={{ label: "Next >", href: "/contribution", chipLabel: "No.1 Contribution", chipHref: "/contribution" }}
+      />
     </div>
   )
 }

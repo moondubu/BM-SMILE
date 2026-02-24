@@ -42,7 +42,7 @@ export default function Strategy() {
           </div>
         </div>
         <div className="Strategy-ctaWrap">
-          <Link href="/strategy" className="Strategy-cta">
+          <Link href="/strategy" className="Strategy-cta CtaButton CtaButton--onBlue">
             Strategy 자세히 보기
             <svg className="Strategy-ctaIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
               <path d="M5 15L15 5M15 5H6M15 5V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

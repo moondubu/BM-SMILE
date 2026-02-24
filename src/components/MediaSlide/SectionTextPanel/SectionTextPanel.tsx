@@ -40,7 +40,7 @@ export default function SectionTextPanel({
         </p>
       )}
       {ctaLabel != null && ctaHref != null && (
-        <Link href={ctaHref} className="SectionTextPanel-cta">
+        <Link href={ctaHref} className="SectionTextPanel-cta CtaButton CtaButton--onDark">
           {ctaLabel}
           {CTA_ICON}
         </Link>

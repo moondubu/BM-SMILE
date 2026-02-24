@@ -1,14 +1,14 @@
-import ContactBannerShell from "@/components/ContactBanner/ContactBannerShell"
+import SplitCtaBanner from "@/components/SplitCtaBanner/SplitCtaBanner"
 
-export default function Contact() {
+export default function ContactBanner() {
   return (
-    <ContactBannerShell
+    <SplitCtaBanner
       id="contact"
       title={
         <>
-          Contact
-          <br />
           BM Smile
+          <br />
+          Contact
         </>
       }
       body={

@@ -3,7 +3,8 @@ import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/Media
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import EnvironmentCulture from "@/components/EnvironmentCulture/EnvironmentCulture"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
-import Contact from "@/components/Contact/Contact"
+import CareerBanner from "@/components/CareerBanner/CareerBanner"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import { ENVIRONMENT_SLIDE_ITEMS } from "@/data/mainSections"
 import {
   ENVIRONMENT_HERO_VIDEO,
@@ -79,7 +80,11 @@ export default function EnvironmentPage() {
         headerAlign="left"
       />
 
-      <Contact />
+      <CareerBanner />
+      <PageNavigation
+        prev={{ label: "< Prev", href: "/contribution", chipLabel: "No.1 Contribution", chipHref: "/contribution" }}
+        next={{ label: "Next >", href: "/pethroom", chipLabel: "No.1 Pet IP", chipHref: "/pethroom" }}
+      />
     </div>
   )
 }

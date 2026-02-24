@@ -53,24 +53,14 @@
 }
 
 .Friends-ctaButton {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-8);
   padding: var(--spacing-12) var(--spacing-24);
   font-family: var(--font-sans);
   font-size: var(--font-size-16);
   font-weight: 600;
   line-height: 1.5;
-  color: var(--color-white);
-  background: var(--color-primary-blue);
-  border-radius: 9999px;
   text-decoration: none;
   width: fit-content;
   cursor: pointer;
-}
-
-.Friends-ctaButton:hover {
-  opacity: 0.9;
 }
 
 .Friends-ctaIcon {

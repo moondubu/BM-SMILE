@@ -93,26 +93,15 @@
     }
 
     .Growth-cta {
-        display: flex;
         width: fit-content;
-        align-items: center;
-        gap: var(--spacing-8);
         padding: var(--spacing-12) var(--spacing-24);
         font-family: var(--font-nanumSquareNeo);
         font-size: var(--font-size-16);
         font-weight: 600;
         line-height: 1.5;
-        color: var(--color-white);
-        background: var(--color-primary-blue);
-        border-radius: 9999px;
         text-decoration: none;
         cursor: pointer;
-        transition: all 0.2s ease;
         margin-top: var(--spacing-20);
-
-        &:hover {
-            opacity: 0.9;
-        }
     }
 
     .Growth-stats {

@@ -31,7 +31,7 @@ export default function Growth() {
                                 산업 평균을 상회하는 성장 속도를 기록하고 있습니다.
                             </p>
 
-                            <Link href="/growth" className="Growth-cta">
+                            <Link href="/growth" className="Growth-cta CtaButton CtaButton--onLight">
                                 성장 자세히 보기
                                 <svg className="Growth-ctaIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
                                     <path d="M5 15L15 5M15 5H6M15 5V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

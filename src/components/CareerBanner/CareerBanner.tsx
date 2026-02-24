@@ -1,9 +1,9 @@
-import ContactBannerShell from "@/components/ContactBanner/ContactBannerShell"
+import SplitCtaBanner from "@/components/SplitCtaBanner/SplitCtaBanner"
 
 export default function CareerBanner() {
   return (
-    <ContactBannerShell
-      className="ContactBanner--career"
+    <SplitCtaBanner
+      className="SplitCtaBanner--career"
       title={
         <>
           BM Smile
@@ -19,7 +19,7 @@ export default function CareerBanner() {
         </>
       }
       ctaLabel="Career"
-      ctaHref="/contact"
+      ctaHref="https://bmsmile.career.greetinghr.com/ko/apply"
     />
   )
 }

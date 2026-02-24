@@ -1,6 +1,6 @@
-import Contact from "@/components/Contact/Contact"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
+import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import PethroomBannerSection from "@/components/PethroomBannerSection/PethroomBannerSection"
 import PethroomScaleSection from "@/components/PethroomScaleSection/PethroomScaleSection"
 import PethroomUniverseSection from "@/components/PethroomUniverseSection/PethroomUniverseSection"
@@ -37,6 +37,9 @@ const PETHROOM_BESTSELLER_TEXT_PANEL: SlideRowTextPanel = {
   )),
   body: PETHROOM_BESTSELLER_SECTION.description,
 }
+
+const buildPethroomProductLink = (productNo: number) =>
+  `https://pethroom.com/product/detail.html?product_no=${productNo}&cate_no=111&display_group=1`
 
 export default function PethroomPage() {
   return (
@@ -100,7 +103,7 @@ export default function PethroomPage() {
             imageAlt: item.imageAlt,
             caption: item.title,
             showActionIcon: true,
-            actionHref: "https://pethroom.com",
+            actionHref: buildPethroomProductLink(item.productNo),
           }))}
         />
       </MediaSlide>
@@ -122,7 +125,10 @@ export default function PethroomPage() {
         items={PETHROOM_UNIVERSE.items}
       />
 
-      <Contact />
+      <PageNavigation
+        prev={{ label: "< Prev", href: "/environment", chipLabel: "No.1 Environment", chipHref: "/environment" }}
+        next={{ label: "Next >", href: "/pethroom-friends", chipLabel: "No.1 Platform", chipHref: "/pethroom-friends" }}
+      />
     </div>
   )
 }

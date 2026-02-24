@@ -92,9 +92,7 @@
     justify-content: flex-start;
     gap: var(--spacing-40);
     min-height: 720px;
-    position: relative;
-    z-index: 1;
-    padding: var(--spacing-96) 0;
+    padding: var(--spacing-128) 0;
   }
 
   .ImpactSection-label {
@@ -103,9 +101,11 @@
 
   .ImpactSection-title {
     color: var(--color-grey-900);
+    margin-top: var(--spacing-16);
   }
 
   .ImpactSection-header {
+    gap: 0;
     text-shadow: none;
   }
 
@@ -114,11 +114,11 @@
   }
 
   .ImpactSection-subText {
-    margin-top: var(--spacing-96);
+    margin-top: var(--spacing-128);
   }
 
   .ImpactSection-cta {
-    margin-top: 0;
+    margin-top: var(--spacing-40);
     border-color: rgba(255, 255, 255, 0.2);
     background: rgba(0, 0, 0, 0.2);
   }

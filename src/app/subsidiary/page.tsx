@@ -1,4 +1,4 @@
-import Contact from "@/components/Contact/Contact"
+import ContactBanner from "@/components/ContactBanner/ContactBanner"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import SubsidiarySlideSection from "@/components/SubsidiarySlideSection/SubsidiarySlideSection"
 import SubHero from "@/components/SubHero/SubHero"
@@ -58,7 +58,7 @@ export default function SubsidiaryPage() {
         items={SUBSIDIARY_HUMAN_IP.items}
       />
 
-      <Contact />
+      <ContactBanner />
     </div>
   )
 }

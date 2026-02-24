@@ -116,25 +116,13 @@
 }
 
 .Strategy-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-8);
   padding: var(--spacing-12) var(--spacing-24);
   font-family: var(--font-nanumSquareNeo);
   font-size: var(--font-size-16);
   font-weight: 600;
   line-height: 1.5;
-  color: var(--color-primary-blue);
-  background: var(--color-white);
-  border: 1px solid var(--color-white);
-  border-radius: 9999px;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.Strategy-cta:hover {
-  background: rgba(255, 255, 255, 0.1);
 }
 
 .Strategy-ctaIcon {
