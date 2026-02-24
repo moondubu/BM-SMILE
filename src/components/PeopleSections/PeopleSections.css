@@ -179,7 +179,7 @@
 .PeopleRecruit-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("/images/people/img_people_Process.png");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("/images/people/img_people_process_01.png");
   background-size: cover;
   background-position: center;
 }
@@ -280,7 +280,7 @@
   width: 190px;
   height: 127px;
   border-radius: 99px;
-  background-image: url("/images/main/img_evm_office_01.png");
+  background-image: url("/images/people/img_people_process_02.png");
   background-size: cover;
   background-position: center;
   flex-shrink: 0;
