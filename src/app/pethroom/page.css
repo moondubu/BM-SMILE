@@ -122,6 +122,11 @@
       color: var(--color-grey-900);
     }
 
+    .SlideCard {
+      background: transparent;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+    }
+
     .SlideRow-swiper {
       padding: var(--spacing-128) 0 0;
     }
