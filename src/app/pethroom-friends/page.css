@@ -1,0 +1,101 @@
+.PethroomFriendsPage {
+  background: var(--color-white);
+
+  .PethroomFriendsHero {
+    .Hero {
+      aspect-ratio: 1920 / 960;
+    }
+
+    .Hero-title {
+      line-height: 1.1;
+      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+    }
+
+    .Hero-subtext {
+      margin-top: var(--spacing-24);
+      line-height: 1.6;
+      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+    }
+  }
+
+  .PethroomFriendsOverview {
+    padding-top: var(--spacing-128);
+
+    .SplitIntroSection-inner {
+      max-width: 1280px;
+    }
+
+    .SplitIntroSection-header {
+      align-items: flex-start;
+    }
+
+    .SplitIntroSection-imageWrap {
+      border-radius: var(--spacing-32);
+    }
+  }
+
+  .PethroomFriendsFlow {
+    padding: var(--spacing-128) 0 var(--spacing-16);
+
+    .SectionCardGrid-inner {
+      max-width: 1280px;
+      gap: var(--spacing-64);
+    }
+
+    .SectionCardGrid-header {
+      align-items: center;
+      text-align: center;
+    }
+
+    .SectionCardGrid-title,
+    .SectionCardGrid-description {
+      white-space: pre-line;
+    }
+
+    .SectionCardGrid-grid {
+      grid-template-columns: repeat(5, 240px);
+      justify-content: center;
+      gap: var(--spacing-20);
+    }
+
+    .SectionCardGrid-card--plain {
+      align-items: flex-start;
+      gap: var(--spacing-16);
+
+      .SectionCardGrid-cardText {
+        order: -1;
+      }
+    }
+
+    .SectionCardGrid-cardImage {
+      width: 240px;
+      height: 520px;
+      object-fit: cover;
+      border-radius: var(--spacing-24);
+      box-shadow: 0 var(--spacing-4) var(--spacing-16) rgba(0, 0, 0, 0.25);
+    }
+
+    .SectionCardGrid-cardText {
+      align-items: flex-start;
+      gap: var(--spacing-8);
+    }
+
+    .SectionCardGrid-cardTitle {
+      font-size: var(--font-size-18);
+      font-weight: 600;
+      line-height: 1.5;
+    }
+
+    .SectionCardGrid-cardDescription {
+      font-size: var(--font-size-14);
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--color-grey-600);
+      white-space: pre-line;
+    }
+  }
+
+  .PethroomFriendsExpansion {
+    padding-top: var(--spacing-128);
+  }
+}

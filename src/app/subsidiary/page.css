@@ -17,13 +17,13 @@
       text-align: center;
     }
 
-    .SubHero-title {
+    .Hero-title {
       font-size: var(--font-size-72);
       line-height: 1.3;
       text-transform: none;
     }
 
-    .SubHero-subtext {
+    .Hero-subtext {
       margin-top: var(--spacing-24);
       font-size: var(--font-size-18);
       line-height: 1.6;

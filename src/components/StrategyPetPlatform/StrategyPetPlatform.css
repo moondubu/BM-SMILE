@@ -51,116 +51,21 @@
   }
 
   .StrategyPetPlatform-bottom {
-    padding: 0 0 var(--spacing-128) 0;
+    padding: 0 0 var(--spacing-128);
+    background: var(--color-grey-100);
   }
 
-  .StrategyPetPlatform-bottomInner {
+  .StrategyPetPlatform-bottom .PetPlatformExpansionSection-inner {
     max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     gap: var(--spacing-64);
   }
 
-  .StrategyPetPlatform-bottomHeader {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-12);
-  }
-
-  .StrategyPetPlatform-bottomTitle {
-    margin: 0;
-    color: var(--color-grey-900);
-    font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-24);
-    font-weight: 700;
-    line-height: 1.5;
-  }
-
-  .StrategyPetPlatform-bottomDescription {
-    margin: 0;
-    color: var(--color-grey-900);
-    font-size: var(--font-size-16);
-    font-weight: 500;
-    line-height: 1.6;
-  }
-
-  .StrategyPetPlatform-bottomContents {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: var(--spacing-96);
-  }
-
-  .StrategyPetPlatform-diagram {
+  .StrategyPetPlatform-bottom .PetPlatformExpansionSection-visual {
     width: 660px;
-
-    img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
   }
 
-  .StrategyPetPlatform-featureList {
-    width: 400px;
-    display: flex;
-    flex-direction: column;
-    gap: var(--spacing-64);
-    position: relative;
-    padding-left: var(--spacing-32);
-  }
-
-  .StrategyPetPlatform-featureItem {
-    min-height: 152px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: var(--spacing-12);
-    position: relative;
-
-    &::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 50%;
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--color-grey-900);
-      transform: translateY(-50%);
-    }
-
-    &:not(:last-child)::after {
-      content: "";
-      position: absolute;
-      left: -28px;
-      top: 50%;
-      width: 1px;
-      height: calc(100% + var(--spacing-64));
-      background: var(--color-grey-900);
-    }
-  }
-
-  .StrategyPetPlatform-featureTitle {
-    margin: 0;
-    color: var(--color-grey-900);
-    font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-18);
-    font-weight: 600;
+  .StrategyPetPlatform-bottom .PetPlatformExpansionSection-title {
+    font-size: var(--font-size-24);
     line-height: 1.5;
-    white-space: pre-line;
-  }
-
-  .StrategyPetPlatform-featureDescription {
-    margin: 0;
-    color: var(--color-grey-900);
-    font-size: var(--font-size-16);
-    font-weight: 500;
-    line-height: 1.6;
-    white-space: pre-line;
   }
 }

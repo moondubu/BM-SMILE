@@ -2,21 +2,16 @@ import { prefixPath } from "@/utils/path"
 import "./Hero.css"
 
 type HeroProps = {
-  /** 'video' (기본값) 또는 'image' */
   type?: "video" | "image"
-  /** 비디오 타입일 때 필수 */
   videoPoster?: string
   videoSrcHvc?: string
   videoSrcH264?: string
-  /** 이미지 타입일 때 필수 */
   imageSrc?: string
   imageAlt?: string
-  /** 라이트 테마 (검은색 텍스트, 서브페이지용) */
-  isLight?: boolean
-  /** 텍스트 오버레이 영역 */
   title?: React.ReactNode
   subtext?: React.ReactNode
-  children?: React.ReactNode
+  tone?: "light" | "dark"
+  className?: string
 }
 
 export default function Hero({
@@ -26,20 +21,19 @@ export default function Hero({
   videoSrcH264,
   imageSrc,
   imageAlt = "",
-  isLight = false,
   title,
   subtext,
-  children,
+  tone = "light",
+  className,
 }: HeroProps) {
-  const containerClass = isLight ? "Hero Hero--light" : "Hero"
-
   const prefixedPoster = videoPoster ? prefixPath(videoPoster) : undefined
   const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
   const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
   const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
+  const rootClass = ["Hero", tone === "dark" ? "Hero--dark" : "Hero--light", className].filter(Boolean).join(" ")
 
   return (
-    <section className={containerClass}>
+    <section className={rootClass}>
       {type === "video" && prefixedPoster && prefixedHvc && prefixedH264 ? (
         <>
           <link rel="preload" as="image" href={prefixedPoster} fetchPriority="high" />
@@ -57,25 +51,17 @@ export default function Hero({
           </video>
         </>
       ) : (
-        prefixedImage && (
-          <img
-            src={prefixedImage}
-            alt={imageAlt}
-            className="Hero-media"
-            fetchPriority="high"
-          />
-        )
+        prefixedImage ? <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" /> : null
       )}
 
-      {(title || subtext || children) && (
+      {(title || subtext) ? (
         <div className="Hero-overlay">
           <div className="Hero-content">
-            {title && <h1 className="Hero-title">{title}</h1>}
-            {subtext && <p className="Hero-subtext">{subtext}</p>}
-            {children}
+            <h1 className="Hero-title">{title}</h1>
+            {subtext ? <p className="Hero-subtext">{subtext}</p> : null}
           </div>
         </div>
-      )}
+      ) : null}
     </section>
   )
 }

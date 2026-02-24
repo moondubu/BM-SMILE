@@ -1,4 +1,4 @@
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import ContactBanner from "@/components/ContactBanner/ContactBanner"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import PageNavigation from "@/components/PageNavigation/PageNavigation"
@@ -21,7 +21,7 @@ export const metadata = {
 export default function GrowthPage() {
   return (
     <div className="GrowthPage">
-      <SubHero
+      <Hero
         type="image"
         imageSrc={GROWTH_HERO.imageSrc}
         tone="dark"

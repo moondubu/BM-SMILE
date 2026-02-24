@@ -1,4 +1,4 @@
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import EnvironmentCulture from "@/components/EnvironmentCulture/EnvironmentCulture"
@@ -34,7 +34,7 @@ export const metadata = {
 export default function EnvironmentPage() {
   return (
     <div className="EnvironmentPage">
-      <SubHero
+      <Hero
         type="video"
         videoPoster={ENVIRONMENT_HERO_VIDEO.poster}
         videoSrcHvc={ENVIRONMENT_HERO_VIDEO.hvc}

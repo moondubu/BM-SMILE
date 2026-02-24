@@ -6,7 +6,7 @@ import PethroomScaleSection from "@/components/PethroomScaleSection/PethroomScal
 import PethroomUniverseSection from "@/components/PethroomUniverseSection/PethroomUniverseSection"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import SplitIntroSection from "@/components/SplitIntroSection/SplitIntroSection"
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import {
   PETHROOM_ARCHIVE_ITEMS,
   PETHROOM_BANNERS,
@@ -44,7 +44,7 @@ const buildPethroomProductLink = (productNo: number) =>
 export default function PethroomPage() {
   return (
     <div className="PethroomPage">
-      <SubHero
+      <Hero
         className="PethroomHero"
         type="image"
         imageSrc={PETHROOM_HERO.imageSrc}

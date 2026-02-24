@@ -1,7 +1,7 @@
 import ContactBanner from "@/components/ContactBanner/ContactBanner"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import SubsidiarySlideSection from "@/components/SubsidiarySlideSection/SubsidiarySlideSection"
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import {
   SUBSIDIARY_CORE,
   SUBSIDIARY_HERO,
@@ -19,7 +19,7 @@ export const metadata = {
 export default function SubsidiaryPage() {
   return (
     <div className="SubsidiaryPage">
-      <SubHero
+      <Hero
         className="SubsidiaryHero"
         type="image"
         imageSrc={SUBSIDIARY_HERO.imageSrc}

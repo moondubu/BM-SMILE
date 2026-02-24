@@ -1,12 +1,12 @@
 .EnvironmentPage {
   background: var(--color-white);
 
-  .SubHero-title {
+  .Hero-title {
     line-height: 1.1;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   }
 
-  .SubHero-subtext {
+  .Hero-subtext {
     line-height: 1.6;
     text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   }
@@ -18,10 +18,6 @@
 
       .SlideRow-swiper {
         padding: var(--spacing-128) 0 0;
-      }
-
-      .SlideRow-slide--text {
-        padding-right: var(--spacing-128);
       }
 
       .SectionTextPanel {

@@ -6,13 +6,13 @@
       aspect-ratio: 1920 / 960;
     }
 
-    .SubHero-title {
+    .Hero-title {
       font-size: var(--font-size-128);
       line-height: 1.1;
       text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
     }
 
-    .SubHero-subtext {
+    .Hero-subtext {
       margin-top: var(--spacing-24);
       font-size: var(--font-size-18);
       line-height: 1.6;
@@ -128,7 +128,6 @@
 
     .SlideRow-slide--text {
       width: 380px;
-      padding-right: var(--spacing-96);
     }
 
     .SectionTextPanel {

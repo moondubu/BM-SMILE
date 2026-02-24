@@ -3,7 +3,7 @@ import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import StrategyDomestic from "@/components/StrategyDomestic/StrategyDomestic"
 import StrategyGlobal from "@/components/StrategyGlobal/StrategyGlobal"
 import StrategyPetPlatform from "@/components/StrategyPetPlatform/StrategyPetPlatform"
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import { STRATEGY_HERO } from "@/data/strategySections"
 import "./page.css"
 
@@ -15,7 +15,7 @@ export const metadata = {
 export default function StrategyPage() {
   return (
     <div className="StrategyPage">
-      <SubHero
+      <Hero
         type="image"
         imageSrc={STRATEGY_HERO.imageSrc}
         tone="dark"

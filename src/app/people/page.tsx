@@ -1,4 +1,4 @@
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import CareerBanner from "@/components/CareerBanner/CareerBanner"
@@ -32,7 +32,7 @@ export const metadata = {
 export default function PeoplePage() {
   return (
     <div className="PeoplePage">
-      <SubHero
+      <Hero
         type="image"
         imageSrc={PEOPLE_HERO.imageSrc}
         tone="dark"

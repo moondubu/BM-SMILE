@@ -1,4 +1,4 @@
-import SubHero from "@/components/SubHero/SubHero"
+import Hero from "@/components/Hero/Hero"
 import ContributionWay from "@/components/ContributionWay/ContributionWay"
 import Contribution1004 from "@/components/Contribution1004/Contribution1004"
 import AdoptionConnection from "@/components/AdoptionConnection/AdoptionConnection"
@@ -17,7 +17,7 @@ import "./page.css"
 export default function ContributionPage() {
     return (
         <div className="ContributionPage">
-            <SubHero
+            <Hero
                 type="image"
                 imageSrc={CONTRIBUTION_HERO.imageSrc}
                 tone="light"

@@ -1,0 +1,133 @@
+.PethroomFriendsIot {
+  background: var(--color-white);
+
+  .MediaSlide--pethroom-friends-iot {
+    .SlideRow {
+      background: var(--color-white);
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow-swiper {
+      padding: var(--spacing-128) 0 0;
+    }
+
+    .SectionTextPanel {
+      gap: var(--spacing-16);
+      padding: var(--spacing-48) 0;
+    }
+
+    .SectionTextPanel-label {
+      font-size: var(--font-size-16);
+      font-weight: 600;
+      color: var(--color-grey-400);
+    }
+
+    .SectionTextPanel-title {
+      font-size: var(--font-size-48);
+      line-height: 1.3;
+      color: var(--color-grey-900);
+    }
+
+    .SectionTextPanel-body {
+      font-size: var(--font-size-16);
+      line-height: 1.6;
+      color: var(--color-grey-900);
+    }
+
+    .SlideRow-slide--card {
+      width: 420px;
+    }
+
+    .SlideCard {
+      background: transparent;
+    }
+
+    .SlideCard-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .SlideCard-overlay {
+      top: auto;
+      bottom: 0;
+      padding: var(--spacing-32);
+      gap: var(--spacing-8);
+      background: none;
+    }
+
+    .SlideCard-number {
+      font-size: var(--font-size-18);
+      font-weight: 600;
+      line-height: 1.5;
+      color: var(--color-grey-900);
+    }
+
+    .SlideCard-caption {
+      font-size: var(--font-size-14);
+      font-weight: 500;
+      line-height: 1.7;
+      color: var(--color-grey-600);
+      text-shadow: none;
+      white-space: pre-line;
+    }
+  }
+
+  .PethroomFriendsIot-dashboard {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: var(--spacing-128);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-96);
+  }
+
+  .PethroomFriendsIot-dashboardImage {
+    width: 464px;
+    height: auto;
+    border-radius: var(--spacing-24);
+    display: block;
+  }
+
+  .PethroomFriendsIot-dashboardText {
+    width: 464px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
+  }
+
+  .PethroomFriendsIot-dashboardTitle {
+    margin: 0;
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-24);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-grey-900);
+  }
+
+  .PethroomFriendsIot-dashboardDescription {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: var(--font-size-24);
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--color-grey-900);
+    white-space: pre-line;
+  }
+
+  .PethroomFriendsIot-report {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding-top: var(--spacing-128);
+  }
+
+  .PethroomFriendsIot-reportImage {
+    width: 100%;
+    height: auto;
+    border-radius: var(--spacing-32);
+    display: block;
+  }
+}
+

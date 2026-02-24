@@ -4,8 +4,6 @@
   aspect-ratio: 1920 / 960;
   background: var(--color-black);
   overflow: hidden;
-  display: flex;
-  align-items: center;
 
   .Hero-media {
     position: absolute;
@@ -29,12 +27,13 @@
   }
 
   .Hero-content {
+    width: 100%;
     padding: 0 var(--spacing-48);
-    color: var(--color-black);
   }
 
   .Hero-title {
     margin: 0;
+    font-family: var(--font-nanumSquareNeo);
     font-size: var(--font-size-128);
     font-weight: 800;
     line-height: 1;
@@ -44,33 +43,28 @@
 
   .Hero-subtext {
     margin-top: var(--spacing-16);
+    font-family: var(--font-sans);
     font-size: var(--font-size-18);
     font-weight: 500;
     line-height: 1;
-    opacity: 0.9;
     white-space: pre-line;
   }
 
-  /* Light Theme (Subpages) */
-  &--light {
-    background: var(--color-white);
-
+  &.Hero--light {
     .Hero-content {
       color: var(--color-black);
     }
+  }
 
-    .Hero-subtext {
-      opacity: 1;
+  &.Hero--dark {
+    .Hero-content {
+      color: var(--color-white);
     }
   }
 }
 
 @media (max-width: 1280px) {
   .Hero {
-    .Hero-content {
-      width: 100%;
-    }
-
     .Hero-title {
       font-size: 60px;
     }
