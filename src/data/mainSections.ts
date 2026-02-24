@@ -49,7 +49,7 @@ export const MAIN_IP_SECTION = {
   panelTitleLine2: "",
   panelBody:
     "페스룸은 국내에서 가장 빠르고 안정적으로 성장해 온 반려동물 중심 IP입니다.\n\n연 매출 500억 원을 돌파하며, 자사몰·오픈마켓·글로벌 커머스 전 채널에서 \n제품 경쟁력과 콘텐츠 브랜딩 역량을 확장하고 있습니다.\n\n제품 개발, 콘텐츠, 커머스를 연결하는 통합 구조를 기반으로 \n지속 가능한 성장을 이어가고 있습니다.",
-  panelCtaLabel: "No.1 Pet IP",
+  panelCtaLabel: "페스룸 IP 자세히 보기",
   panelCtaHref: "/pethroom",
 } as const
 
