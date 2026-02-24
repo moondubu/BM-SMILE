@@ -1,5 +1,5 @@
 export const PEOPLE_HERO = {
-  imageSrc: "/images/main/img_main_people.png",
+  imageSrc: "/images/people/img_people_hero.png",
   title: "NO.1\nPeople",
   subtext: "최고의 인재들과 함께하다",
 } as const
@@ -28,7 +28,7 @@ export const PEOPLE_VISION = {
   ],
   ctaLabel: "페스룸 자세히 보기",
   ctaHref: "/pethroom",
-  backgroundSrc: "/images/main/img_main_ip.png",
+  backgroundSrc: "/images/people/img_people_impact.png",
 } as const
 
 export const PEOPLE_CULTURE = {

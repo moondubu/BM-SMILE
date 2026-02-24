@@ -179,7 +179,7 @@
 .PeopleRecruit-bg {
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("/images/main/img_evm_lounge_03.png");
+  background-image: linear-gradient(rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.2)), url("/images/people/img_people_Process.png");
   background-size: cover;
   background-position: center;
 }
