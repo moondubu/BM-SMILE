@@ -64,7 +64,6 @@
 
     .SlideCard {
       border-radius: var(--spacing-32);
-      border: 1px solid rgba(255, 255, 255, 0.2);
       width: 375px;
       height: 500px;
     }
@@ -98,7 +97,7 @@
     content: "";
     position: absolute;
     inset: 0;
-    background: linear-gradient(90deg, rgba(0, 0, 0, 0.52) 0%, rgba(0, 0, 0, 0.2) 100%);
+    background: rgba(255, 255, 255, 0.3);
   }
 
   .ImpactSection-bg img {
@@ -107,28 +106,38 @@
   }
 
   .ImpactSection-inner {
-    justify-content: center;
-    gap: var(--spacing-20);
+    justify-content: flex-start;
+    gap: var(--spacing-40);
     min-height: 720px;
     position: relative;
     z-index: 1;
+    padding: var(--spacing-96) 0;
   }
 
   .ImpactSection-label {
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(0, 0, 0, 0.7);
   }
 
   .ImpactSection-title {
-    color: var(--color-white);
+    color: var(--color-grey-900);
+  }
+
+  .ImpactSection-header {
+    text-shadow: none;
   }
 
   .ImpactSection-subText p {
-    color: rgba(255, 255, 255, 0.88);
+    color: var(--color-grey-900);
+  }
+
+  .ImpactSection-subText {
+    margin-top: var(--spacing-96);
   }
 
   .ImpactSection-cta {
-    margin-top: var(--spacing-20);
-    border-color: rgba(255, 255, 255, 0.5);
-    background: rgba(0, 0, 0, 0.3);
+    margin-top: 0;
+    border-color: rgba(255, 255, 255, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+    color: var(--color-white);
   }
 }
