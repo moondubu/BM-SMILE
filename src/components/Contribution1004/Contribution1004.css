@@ -43,7 +43,6 @@
         font-size: var(--font-size-18);
         font-weight: 500;
         line-height: 1.8;
-        word-break: keep-all;
     }
 }
 

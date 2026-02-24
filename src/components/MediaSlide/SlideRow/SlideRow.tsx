@@ -12,7 +12,7 @@ import SectionTextPanel from "../SectionTextPanel/SectionTextPanel"
 export type SlideRowTextPanel = {
   label?: string
   title: ReactNode
-  body?: string
+  body?: ReactNode
   ctaLabel?: string
   ctaHref?: string
 }

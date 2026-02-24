@@ -39,7 +39,25 @@ const IOT_TEXT_PANEL: SlideRowTextPanel = {
       연동 케어 리포트
     </>
   ),
-  body: "페스룸 IoT 디바이스를 통해 수집되는 급식량·급수량·체중·배변 패턴 등 다양한 데이터를 하나의 케어 리포트로 통합해 제공합니다.\n반려동물의 일상 변화를 지속적으로 확인할 수 있는 데이터 기반 건강 관리 경험을 제공합니다.\n\n※ 본 자료의 IoT 디바이스 이미지는 제품 개발 단계의 콘셉트 시안으로, 최종 출시 제품의 사양 및 디자인은 변경될 수 있습니다.",
+  body: (
+    <div className="PethroomFriendsIot-panelBody">
+      <p className="PethroomFriendsIot-panelBodyMain">
+        페스룸 IoT 디바이스를 통해 수집되는
+        <br />
+        급식량·급수량·체중·배변 패턴 등 다양한 데이터를
+        <br />
+        하나의 케어 리포트로 통합해 제공합니다.
+        <br />
+        반려동물의 일상 변화를 지속적으로 확인할 수 있는
+        <br />
+        데이터 기반 건강 관리 경험을 제공합니다.
+      </p>
+      <p className="PethroomFriendsIot-panelBodyNote">
+        ※ 본 자료의 IoT 디바이스 이미지는 제품 개발 단계의 콘셉트 시안으로, 최종 출시 제품의 사양 및 디자인은
+        변경될 수 있습니다.
+      </p>
+    </div>
+  ),
 }
 
 export default function PethroomFriendsIotSection() {

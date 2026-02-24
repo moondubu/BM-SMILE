@@ -5,7 +5,7 @@ import "./SectionTextPanel.css"
 export type SectionTextPanelProps = {
   label?: string
   title: ReactNode
-  body?: string
+  body?: ReactNode
   ctaLabel?: string
   ctaHref?: string
 }
@@ -30,14 +30,18 @@ export default function SectionTextPanel({
       )}
       <h2 className="SectionTextPanel-title">{title}</h2>
       {body != null && body !== "" && (
-        <p className="SectionTextPanel-body">
-          {body.split("\n").map((line, i, lines) => (
-            <Fragment key={i}>
-              {line}
-              {i < lines.length - 1 && <br />}
-            </Fragment>
-          ))}
-        </p>
+        typeof body === "string" ? (
+          <p className="SectionTextPanel-body">
+            {body.split("\n").map((line, i, lines) => (
+              <Fragment key={i}>
+                {line}
+                {i < lines.length - 1 && <br />}
+              </Fragment>
+            ))}
+          </p>
+        ) : (
+          body
+        )
       )}
       {ctaLabel != null && ctaHref != null && (
         <Link href={ctaHref} className="SectionTextPanel-cta CtaButton CtaButton--onDark">
