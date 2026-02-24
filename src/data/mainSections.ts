@@ -44,7 +44,6 @@ export const MAIN_IP_SECTION = {
   number: "02",
   titleLine1: "No.1",
   titleLine2: "Pet IP",
-  mediaAspectRatio: "2560 / 720",
   panelLabel: "Korea No.1 Pet IP",
   panelTitleLine1: "최고의 IP, 페스룸으로",
   panelTitleLine2: "",

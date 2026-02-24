@@ -74,7 +74,6 @@ export default function Home() {
             {MAIN_IP_SECTION.titleLine2}
           </>
         }
-        mediaAspectRatio={MAIN_IP_SECTION.mediaAspectRatio}
         overlay
       >
         <div className="MediaSlide-overlayInner">
