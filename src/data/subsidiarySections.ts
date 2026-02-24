@@ -30,6 +30,7 @@ export const SUBSIDIARY_CORE = {
       number: "Infinishow",
       caption:
         "다양한 서비스에서 축적되는 데이터를 분석해 AI 기반 인사이트를 제공하며,\n반려동물 산업 전반을 연결하는 핵심 데이터 엔진입니다.",
+      actionHref: "https://infini.show/",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_keypoint_03.png",
@@ -37,6 +38,7 @@ export const SUBSIDIARY_CORE = {
       number: "JL C&T",
       caption:
         "반려동물 제품의 제조 및 공급망을 담당하며,\n제품 기획·생산·공급의 전 과정을 유기적으로 연결합니다.",
+      actionHref: "https://jlcnt.net/default/",
     },
   ] satisfies SlideRowItem[],
 } as const
