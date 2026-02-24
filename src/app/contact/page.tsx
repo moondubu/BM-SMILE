@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import ContactForm from "./ContactForm"
 import "./page.css"
 
 export const metadata = {
@@ -39,26 +40,7 @@ export default function ContactPage() {
             </p>
           </article>
 
-          <form className="ContactPage-form" action="#">
-            <input type="text" className="ContactPage-input" placeholder="제목을 입력해주세요." />
-            <textarea className="ContactPage-textarea" placeholder="내용을 입력해주세요." />
-
-            <div className="ContactPage-policyBox" role="region" aria-label="개인정보처리방침">
-              <pre className="ContactPage-policyText">{PRIVACY_POLICY}</pre>
-            </div>
-
-            <div className="ContactPage-submitRow">
-              <label className="ContactPage-consent">
-                <input type="checkbox" />
-                <span className="ContactPage-consentTitle">개인정보처리방침 동의</span>
-                <span className="ContactPage-consentDescription">개인정보 수집 및 이용에 동의합니다.</span>
-              </label>
-
-              <button type="submit" className="ContactPage-submitButton">
-                작성하기
-              </button>
-            </div>
-          </form>
+          <ContactForm privacyPolicy={PRIVACY_POLICY} />
         </div>
       </div>
     </section>
