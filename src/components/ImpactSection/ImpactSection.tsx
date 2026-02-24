@@ -1,5 +1,6 @@
 import type { ReactNode } from "react"
 import { prefixPath } from "@/utils/path"
+import Link from "next/link"
 import "./ImpactSection.css"
 
 export type ImpactSectionMetric = {
@@ -21,6 +22,8 @@ type ImpactSectionProps = {
   metrics?: ImpactSectionMetric[]
   metricsCaption?: string
   metricsDescriptionLines?: readonly string[]
+  ctaLabel?: string
+  ctaHref?: string
   footerText?: string
 }
 
@@ -35,6 +38,8 @@ export default function ImpactSection({
   metrics,
   metricsCaption,
   metricsDescriptionLines,
+  ctaLabel,
+  ctaHref,
   footerText,
 }: ImpactSectionProps) {
   const sectionClassName = ["ImpactSection", className].filter(Boolean).join(" ")
@@ -72,6 +77,11 @@ export default function ImpactSection({
                 <p key={line}>{line}</p>
               ))}
             </div>
+          ) : null}
+          {ctaLabel && ctaHref ? (
+            <Link href={ctaHref} className="ImpactSection-cta">
+              {ctaLabel}
+            </Link>
           ) : null}
         </header>
 

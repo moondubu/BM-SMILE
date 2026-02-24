@@ -73,6 +73,22 @@
   margin: 0;
 }
 
+.ImpactSection .ImpactSection-cta {
+  margin-top: var(--spacing-12);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-12) var(--spacing-24);
+  border-radius: 9999px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  background: rgba(0, 0, 0, 0.24);
+  color: var(--color-white);
+  font-family: var(--font-nanumSquareNeo);
+  font-size: var(--font-size-16);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
 .ImpactSection .ImpactSection-metrics {
   width: 100%;
   display: flex;

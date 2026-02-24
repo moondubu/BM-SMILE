@@ -10,7 +10,6 @@ import {
 } from "@/components/PeopleSections/PeopleSections"
 import { MAIN_PEOPLE_SECTION } from "@/data/mainSections"
 import { PEOPLE_HERO, PEOPLE_TEAM_PANEL, PEOPLE_VISION } from "@/data/peopleSections"
-import Link from "next/link"
 import "./page.css"
 
 const PEOPLE_TEAM_TEXT_PANEL: SlideRowTextPanel = {
@@ -45,27 +44,22 @@ export default function PeoplePage() {
         <SlideRow textPanel={PEOPLE_TEAM_TEXT_PANEL} items={MAIN_PEOPLE_SECTION.items} />
       </MediaSlide>
 
-      <div className="PeopleVision">
-        <ImpactSection
-          className="PeopleVision-impact"
-          backgroundSrc={PEOPLE_VISION.backgroundSrc}
-          label={PEOPLE_VISION.label}
-          title={
-            <>
-              {PEOPLE_VISION.titleLine1}
-              <br />
-              {PEOPLE_VISION.titleLine2}
-            </>
-          }
-          subTextLines={PEOPLE_VISION.description}
-          headerAlign="left"
-        />
-        <div className="PeopleVision-ctaWrap">
-          <Link href={PEOPLE_VISION.ctaHref} className="PeopleVision-cta">
-            {PEOPLE_VISION.ctaLabel}
-          </Link>
-        </div>
-      </div>
+      <ImpactSection
+        className="PeopleVision-impact"
+        backgroundSrc={PEOPLE_VISION.backgroundSrc}
+        label={PEOPLE_VISION.label}
+        title={
+          <>
+            {PEOPLE_VISION.titleLine1}
+            <br />
+            {PEOPLE_VISION.titleLine2}
+          </>
+        }
+        subTextLines={PEOPLE_VISION.description}
+        ctaLabel={PEOPLE_VISION.ctaLabel}
+        ctaHref={PEOPLE_VISION.ctaHref}
+        headerAlign="left"
+      />
 
       <PeopleCultureSection />
       <PeopleSupportSection />
