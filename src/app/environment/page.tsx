@@ -50,15 +50,19 @@ export default function EnvironmentPage() {
 
       <SectionCardGrid
         className="EnvironmentWorkLife"
-        label="Work-Life Balance"
+        label="Traffic & Location"
         title={
           <>
-            휴식과 즐거움이
-            <br />
-            함께하는 공간
+            최고의 접근성&입지
           </>
         }
-        description="트렌드의 중심지에서 누리는 여유"
+        description={
+          <>
+            지하철 5·9호선 여의도역 3번 출구에서 5분, 여의나루역 1번 출구에서 3분, 아침 출근길의 피로를 최소화합니다.
+            <br />
+            수도권 전역을 잇는 광역 버스 및 시내 버스 정류장이 오피스 바로 앞에 위치해 있습니다.
+          </>
+        }
         variant="overlay"
         items={ENVIRONMENT_WORK_LIFE_ITEMS}
       />

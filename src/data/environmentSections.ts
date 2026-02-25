@@ -15,8 +15,13 @@ export const ENVIRONMENT_OFFICE_PANEL = {
 
 export const ENVIRONMENT_WORK_LIFE_ITEMS: SectionCardGridItem[] = [
   {
-    key: "the-hyundai-seoul",
+    key: "yeouido-location-map",
     imageSrc: "/images/environment/img_environment_work_life_01.png",
+    imageAlt: "여의도 주요 동선 지도",
+  },
+  {
+    key: "the-hyundai-seoul",
+    imageSrc: "/images/environment/img_environment_work_life_02.png",
     imageAlt: "더현대 서울 외관",
     label: "도보 1분",
     title: "The Hyundai Seoul",
@@ -25,11 +30,11 @@ export const ENVIRONMENT_WORK_LIFE_ITEMS: SectionCardGridItem[] = [
   },
   {
     key: "yeouido-hangang-park",
-    imageSrc: "/images/environment/img_environment_work_life_02.png",
+    imageSrc: "/images/environment/img_environment_work_life_03.png",
     imageAlt: "여의도 한강공원 풍경",
     label: "도보 5분",
     title: "Yeouido Hangang Park",
-    description: "업무 중 휴식이 필요할 땐 5분 거리의 한강공원을 산책하며 에너지를 충전합니다.",
+    description: "업무 중 휴식이 필요할 때 5분 거리의 한강공원을 산책하며 에너지를 충전합니다.",
   },
 ]
 

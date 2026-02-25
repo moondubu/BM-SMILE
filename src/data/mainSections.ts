@@ -1,23 +1,22 @@
 import type { SlideRowItem } from "@/components/MediaSlide"
 
 export const MAIN_HERO_VIDEO = {
-  poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_thumbnail_1771563641863.jpg",
-  hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_hevc_1771563641863.mp4",
-  h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_h264_1771563641863.mp4",
+  poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_thumbnail_1771996429202.jpg",
+  hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_hevc_1771996429202.mp4",
+  h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_h264_1771996429202.mp4",
 } as const
 
 export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [
+  { imageSrc: "/images/main/img_evm_lobby_01.png", imageAlt: "Lobby", caption: "Lobby" },
   { imageSrc: "/images/main/img_evm_lounge_01.png", imageAlt: "Lounge", caption: "Lounge" },
   { imageSrc: "/images/main/img_evm_lounge_02.png", imageAlt: "Lounge", caption: "Lounge" },
   { imageSrc: "/images/main/img_evm_lounge_03.png", imageAlt: "Lounge", caption: "Lounge" },
-  { imageSrc: "/images/main/img_evm_meeting_room_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
-  { imageSrc: "/images/main/img_evm_meeting_room_02.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
   { imageSrc: "/images/main/img_evm_office_01.png", imageAlt: "Office", caption: "Office" },
-  { imageSrc: "/images/main/img_evm_lobby_01.png", imageAlt: "Lobby", caption: "Lobby" },
-  { imageSrc: "/images/main/img_evm_lobby_02.png", imageAlt: "Lobby", caption: "Lobby" },
+  { imageSrc: "/images/main/img_evm_toilet_01.png", imageAlt: "Toilet", caption: "Toilet" },
   { imageSrc: "/images/main/img_evm_conference_01.png", imageAlt: "Conference", caption: "Conference" },
   { imageSrc: "/images/main/img_evm_conference_02.png", imageAlt: "Conference", caption: "Conference" },
-  { imageSrc: "/images/main/img_evm_toliet_01.png", imageAlt: "Toilet", caption: "Toilet" },
+  { imageSrc: "/images/main/img_evm_mettingroom_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
+  { imageSrc: "/images/main/img_evm_mettingroom_02.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
 ]
 
 export const MAIN_ENVIRONMENT_SECTION = {
