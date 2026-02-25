@@ -81,11 +81,9 @@ export default function SlideCard({
           className="SlideCard-actionIcon"
           href={href}
           aria-label={text !== "" ? `${text} 상세 보기` : "상세 보기"}
-          onClick={actionHref == null || linkWholeCard ? (event) => event.preventDefault() : undefined}
+          onClick={actionHref == null ? (event) => event.preventDefault() : undefined}
           target={isExternal ? "_blank" : undefined}
           rel={isExternal ? "noopener noreferrer" : undefined}
-          tabIndex={linkWholeCard && actionHref != null ? -1 : undefined}
-          aria-hidden={linkWholeCard && actionHref != null ? true : undefined}
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
             <path d="M7 17L17 7M17 7H9M17 7V15" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
