@@ -72,24 +72,32 @@ export const MAIN_PEOPLE_SECTION = {
       imageAlt: "반려동물을 깊이 이해하는 관점",
       number: "01",
       label: "반려동물을 깊이 \n이해하는 관점",
+      hoverText:
+        "반려동물을 사랑하는 사람들이\n같은 마음으로 모였습니다.\n\n반려동물과 함께 출근하며,\n함께하는 경험을 일에 담아냅니다.",
     },
     {
       imageSrc: "/images/main/img_main_people_02.png",
       imageAlt: "콘텐츠와 SNS를 성장 전략으로",
       number: "02",
       label: "콘텐츠와 SNS를 \n성장 전략으로",
+      hoverText:
+        "UGC·숏폼 기반 확산 전략은\n우리의 핵심 역량입니다.\n\n브랜드의 성장은\n콘텐츠에서 시작됩니다.",
     },
     {
       imageSrc: "/images/main/img_main_people_03.png",
       imageAlt: "변화를 기회로 전환하는 실행력",
       number: "03",
       label: "변화를 기회로 \n전환하는 실행력",
+      hoverText:
+        "새로운 흐름을\n두려워하지 않고,\n데이터와 실행으로\n빠르게 전환합니다.",
     },
     {
       imageSrc: "/images/main/img_main_people_04.png",
       imageAlt: "변화를 기회로 전환하는 실행력",
       number: "04",
       label: "빠른 실행과 \n데이터 기반의 지속적 개선",
+      hoverText:
+        "빠르게 만들고, 개선하며,\n완성도를 높입니다.\n\n속도는 경쟁력이고,\n품질은 신뢰입니다.",
     },
   ] satisfies SlideRowItem[],
 } as const

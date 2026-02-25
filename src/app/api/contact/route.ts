@@ -14,7 +14,6 @@ type ContactPayload = {
 export async function POST(request: Request) {
   try {
     const { email, subject, content } = (await request.json()) as ContactPayload
-
     const senderEmail = email?.trim() ?? ""
     const senderSubject = subject?.trim() ?? ""
     const senderContent = content?.trim() ?? ""

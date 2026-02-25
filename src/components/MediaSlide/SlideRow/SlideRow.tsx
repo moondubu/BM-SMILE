@@ -22,6 +22,7 @@ export type SlideRowItem = {
   imageAlt?: string
   caption?: string
   label?: string
+  hoverText?: string
   /** People 슬라이드 등: 카드 오버레이 상단 번호 (01, 02, 03) */
   number?: string
   showActionIcon?: boolean
@@ -70,6 +71,7 @@ export default function SlideRow({ textPanel, items, linkWholeCard = false }: Sl
                 imageAlt={item.imageAlt}
                 caption={item.caption}
                 label={item.label}
+                hoverText={item.hoverText}
                 number={item.number}
                 showActionIcon={item.showActionIcon}
                 actionHref={item.actionHref}

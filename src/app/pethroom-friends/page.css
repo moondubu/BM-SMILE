@@ -25,10 +25,6 @@
       max-width: 1280px;
     }
 
-    .SplitIntroSection-header {
-      align-items: flex-start;
-    }
-
     .SplitIntroSection-imageWrap {
       border-radius: var(--spacing-32);
     }

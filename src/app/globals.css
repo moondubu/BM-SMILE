@@ -30,6 +30,7 @@
   --spacing-48: 48px;
   --spacing-60: 60px;
   --spacing-64: 64px;
+  --spacing-80: 80px;
   --spacing-96: 96px;
   --spacing-128: 128px;
   --spacing-160: 160px;
@@ -53,6 +54,10 @@
   --font-size-96: 96px;
   --font-size-128: 128px;
   --font-size-256: 256px;
+  --career-header-height: 80px;
+  --career-footer-height: 0px;
+  --career-embed-crop-top: 72px;
+  --career-embed-crop-bottom: 234px;
 }
 
 /* 리셋 */

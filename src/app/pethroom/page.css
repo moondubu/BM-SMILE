@@ -29,15 +29,6 @@
   .PethroomImpact {
     margin-top: var(--spacing-48);
 
-    &::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.36);
-      z-index: 1;
-      pointer-events: none;
-    }
-
     .ImpactSection-bg {
       min-height: 960px;
     }
@@ -49,8 +40,7 @@
     }
 
     .ImpactSection-header {
-      max-width: 470px;
-      gap: var(--spacing-20);
+      gap: var(--spacing-24);
     }
 
     .ImpactSection-label {
@@ -58,13 +48,16 @@
     }
 
     .ImpactSection-title {
-      font-size: var(--font-size-72);
-      line-height: 1.05;
+      font-size: var(--font-size-80);
+      font-weight: 900;
+      line-height: 1.1;
+      white-space: pre-line;
     }
 
     .ImpactSection-subText {
-      font-size: var(--font-size-14);
-      line-height: 1.7;
+      font-size: var(--font-size-16);
+      line-height: 1.6;
+      white-space: pre-line;
     }
 
     .ImpactSection-metrics {
@@ -111,7 +104,7 @@
       margin-top: 0;
       font-family: var(--font-sans);
       font-size: var(--font-size-14);
-      line-height: 1.5;
+      line-height: 1.7;
       color: rgba(255, 255, 255, 0.8);
     }
   }

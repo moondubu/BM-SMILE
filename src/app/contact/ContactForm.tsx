@@ -1,6 +1,6 @@
 "use client"
 
-import { FormEvent, useState } from "react"
+import { FormEvent, type MouseEvent as ReactMouseEvent, useEffect, useRef, useState } from "react"
 
 type ContactFormProps = {
   privacyPolicy: string
@@ -12,6 +12,88 @@ export default function ContactForm({ privacyPolicy }: ContactFormProps) {
   const [content, setContent] = useState("")
   const [consent, setConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const policyScrollRef = useRef<HTMLDivElement | null>(null)
+  const [policyThumbHeight, setPolicyThumbHeight] = useState(40)
+  const [policyThumbTop, setPolicyThumbTop] = useState(0)
+  const [hasPolicyOverflow, setHasPolicyOverflow] = useState(false)
+  const isDraggingPolicyThumbRef = useRef(false)
+  const policyThumbDragStartYRef = useRef(0)
+  const policyThumbDragStartScrollTopRef = useRef(0)
+
+  const syncPolicyScrollbar = () => {
+    const scrollElement = policyScrollRef.current
+    if (scrollElement == null) return
+
+    const viewportHeight = scrollElement.clientHeight
+    const contentHeight = scrollElement.scrollHeight
+    const maxScrollTop = contentHeight - viewportHeight
+
+    if (maxScrollTop <= 0) {
+      setHasPolicyOverflow(false)
+      setPolicyThumbTop(0)
+      setPolicyThumbHeight(40)
+      return
+    }
+
+    const minThumbHeight = 40
+    const thumbHeight = Math.max((viewportHeight / contentHeight) * viewportHeight, minThumbHeight)
+    const thumbTop = (scrollElement.scrollTop / maxScrollTop) * (viewportHeight - thumbHeight)
+
+    setHasPolicyOverflow(true)
+    setPolicyThumbHeight(thumbHeight)
+    setPolicyThumbTop(thumbTop)
+  }
+
+  useEffect(() => {
+    syncPolicyScrollbar()
+    window.addEventListener("resize", syncPolicyScrollbar)
+    return () => {
+      window.removeEventListener("resize", syncPolicyScrollbar)
+    }
+  }, [privacyPolicy])
+
+  useEffect(() => {
+    const onWindowMouseMove = (event: MouseEvent) => {
+      if (!isDraggingPolicyThumbRef.current) return
+
+      const scrollElement = policyScrollRef.current
+      if (scrollElement == null) return
+
+      const viewportHeight = scrollElement.clientHeight
+      const contentHeight = scrollElement.scrollHeight
+      const maxScrollTop = contentHeight - viewportHeight
+      const trackMovableHeight = viewportHeight - policyThumbHeight
+
+      if (maxScrollTop <= 0 || trackMovableHeight <= 0) return
+
+      const deltaY = event.clientY - policyThumbDragStartYRef.current
+      const nextScrollTop =
+        policyThumbDragStartScrollTopRef.current + (deltaY / trackMovableHeight) * maxScrollTop
+
+      scrollElement.scrollTop = Math.min(maxScrollTop, Math.max(0, nextScrollTop))
+    }
+
+    const onWindowMouseUp = () => {
+      isDraggingPolicyThumbRef.current = false
+    }
+
+    window.addEventListener("mousemove", onWindowMouseMove)
+    window.addEventListener("mouseup", onWindowMouseUp)
+    return () => {
+      window.removeEventListener("mousemove", onWindowMouseMove)
+      window.removeEventListener("mouseup", onWindowMouseUp)
+    }
+  }, [policyThumbHeight])
+
+  const onPolicyThumbMouseDown = (event: ReactMouseEvent<HTMLSpanElement>) => {
+    const scrollElement = policyScrollRef.current
+    if (scrollElement == null) return
+
+    event.preventDefault()
+    isDraggingPolicyThumbRef.current = true
+    policyThumbDragStartYRef.current = event.clientY
+    policyThumbDragStartScrollTopRef.current = scrollElement.scrollTop
+  }
 
   const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -82,7 +164,18 @@ export default function ContactForm({ privacyPolicy }: ContactFormProps) {
       />
 
       <div className="ContactPage-policyBox" role="region" aria-label="개인정보처리방침">
-        <pre className="ContactPage-policyText">{privacyPolicy}</pre>
+        <div className="ContactPage-policyScroll" ref={policyScrollRef} onScroll={syncPolicyScrollbar}>
+          <pre className="ContactPage-policyText">{privacyPolicy}</pre>
+        </div>
+        {hasPolicyOverflow ? (
+          <div className="ContactPage-policyScrollbar" aria-hidden="true">
+            <span
+              className="ContactPage-policyScrollbarThumb"
+              onMouseDown={onPolicyThumbMouseDown}
+              style={{ height: `${policyThumbHeight}px`, transform: `translateY(${policyThumbTop}px)` }}
+            />
+          </div>
+        ) : null}
       </div>
 
       <div className="ContactPage-submitRow">

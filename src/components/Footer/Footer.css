@@ -1,45 +1,45 @@
 .Footer {
   background: var(--color-grey-100);
   font-family: var(--font-sans);
-  color: var(--color-black);
+  color: var(--color-grey-600);
 
   .Footer-inner {
     max-width: 1280px;
     margin: 0 auto;
-    padding: var(--spacing-64) 0;
+    padding: var(--spacing-40) 0;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 40px;
+    gap: var(--spacing-24);
   }
 
   .Footer-logo {
-    display: inline-block;
+    display: block;
+    width: 315px;
+    height: 32px;
 
     .Footer-logoImg {
       display: block;
-      height: auto;
-      max-height: 24px;
-      width: auto;
+      width: 100%;
+      height: 100%;
       object-fit: contain;
     }
   }
 
   .Footer-info {
-    font-size: var(--font-size-14);
-    line-height: 1.8;
-    color: var(--color-black);
-
-    p {
-      margin: 0;
-    }
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-4);
+    font-size: var(--font-size-13);
+    line-height: 1.6;
+    color: var(--color-grey-600);
   }
 
   .Footer-copyright {
     margin: 0;
-    font-size: 12px;
-    color: var(--color-black);
-    opacity: 0.5;
+    font-size: var(--font-size-14);
+    line-height: 1.7;
+    color: var(--color-grey-400);
   }
 }
 

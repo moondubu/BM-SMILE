@@ -7,6 +7,7 @@ type SlideCardProps = {
   imageAlt?: string
   caption?: string
   label?: string
+  hoverText?: string
   /** People 슬라이드: 오버레이 상단 번호 (01, 02, 03) */
   number?: string
   showActionIcon?: boolean
@@ -19,14 +20,16 @@ export default function SlideCard({
   imageAlt = "",
   caption,
   label,
+  hoverText,
   number,
   showActionIcon = false,
   actionHref,
   linkWholeCard = false,
 }: SlideCardProps) {
   const text = caption ?? label ?? ""
-  const hasOverlay =
-    (number != null && number !== "") || (text !== "")
+  const hoverBody = hoverText?.trim() ?? ""
+  const hasOverlay = (number != null && number !== "") || text !== "" || hoverBody !== ""
+  const hasHoverOverlay = hoverBody !== ""
   const href = actionHref ?? "#"
   const isExternal = href.startsWith("http://") || href.startsWith("https://")
 
@@ -34,13 +37,27 @@ export default function SlideCard({
     <div className={`SlideCard${linkWholeCard && actionHref != null ? " SlideCard--linked" : ""}`}>
       <img src={prefixPath(imageSrc)} alt={imageAlt} className="SlideCard-img" loading="lazy" decoding="async" />
       {hasOverlay && (
-        <div className="SlideCard-overlay">
-          {number != null && number !== "" && (
-            <span className="SlideCard-number">{number}</span>
-          )}
-          {text !== "" && (
-            <p className="SlideCard-caption">
-              {text.split("\n").map((line, i, lines) => (
+        <div className={`SlideCard-overlay${hasHoverOverlay ? " SlideCard-overlay--hoverable" : ""}`}>
+          {(number != null && number !== "") || text !== "" ? (
+            <div className="SlideCard-defaultText">
+              {number != null && number !== "" && (
+                <span className="SlideCard-number">{number}</span>
+              )}
+              {text !== "" && (
+                <p className="SlideCard-caption">
+                  {text.split("\n").map((line, i, lines) => (
+                    <Fragment key={i}>
+                      {line}
+                      {i < lines.length - 1 && <br />}
+                    </Fragment>
+                  ))}
+                </p>
+              )}
+            </div>
+          ) : null}
+          {hasHoverOverlay && (
+            <p className="SlideCard-hoverText">
+              {hoverBody.split("\n").map((line, i, lines) => (
                 <Fragment key={i}>
                   {line}
                   {i < lines.length - 1 && <br />}

@@ -22,7 +22,7 @@
   height: 100%;
   max-width: 1280px;
   margin: 0 auto;
-  padding: var(--spacing-128) 0;
+  padding: var(--spacing-96) 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -69,10 +69,6 @@
   color: var(--color-white);
 }
 
-.ImpactSection .ImpactSection-subText p {
-  margin: 0;
-}
-
 .ImpactSection .ImpactSection-cta {
   margin-top: var(--spacing-12);
   padding: var(--spacing-12) var(--spacing-24);
@@ -115,10 +111,6 @@
   font-size: var(--font-size-16);
   font-weight: 500;
   line-height: 1.6;
-}
-
-.ImpactSection .ImpactSection-metricsDescription p {
-  margin: 0;
 }
 
 .ImpactSection .ImpactSection-metricsGrid {
@@ -192,4 +184,10 @@
 
 .ImpactSection .ImpactSection-footer.ImpactSection-footer--center {
   text-align: center;
+}
+
+@media all and (min-width: 1921px) {
+  .ImpactSection .ImpactSection-inner {
+    padding: var(--spacing-128) 0;
+  }
 }

@@ -2,10 +2,6 @@
   padding-top: var(--spacing-160);
   padding-bottom: var(--spacing-160);
 
-  .SplitIntroSection-header {
-    margin-bottom: var(--spacing-32);
-  }
-
   .SplitIntroSection-imageWrap {
     aspect-ratio: 1280 / 640;
     height: auto;

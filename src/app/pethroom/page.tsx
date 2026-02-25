@@ -78,6 +78,9 @@ export default function PethroomPage() {
           className="PethroomBanner"
           imageSrc={banner.imageSrc}
           imageAlt={banner.imageAlt}
+          videoPoster={banner.videoPoster}
+          videoSrcHvc={banner.videoSrcHvc}
+          videoSrcH264={banner.videoSrcH264}
           title={banner.title}
           description={banner.description}
         />

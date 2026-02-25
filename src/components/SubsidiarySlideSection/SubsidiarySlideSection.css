@@ -73,16 +73,16 @@
   }
 
   .SlideCard .SlideCard-number {
-    font-size: var(--font-size-24);
-    font-weight: 700;
+    font-size: var(--font-size-18);
+    font-weight: 600;
     line-height: 1.5;
     text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
   }
 
   .SlideCard .SlideCard-caption {
-    font-size: var(--font-size-16);
-    font-weight: 500;
-    line-height: 1.6;
+    font-size: var(--font-size-18);
+    font-weight: 600;
+    line-height: 1.5;
     white-space: pre-line;
     text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
   }

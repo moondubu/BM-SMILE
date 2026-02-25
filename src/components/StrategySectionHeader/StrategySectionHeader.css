@@ -1,7 +1,8 @@
 .StrategySectionHeader {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-128);
+  justify-content: space-between;
+  height: 100%;
 
   .StrategySectionHeader-header {
     display: flex;

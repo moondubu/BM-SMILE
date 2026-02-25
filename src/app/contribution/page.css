@@ -1,9 +1,5 @@
 .ContributionPage {
   .ContributionImpact {
-    .ImpactSection-inner {
-      gap: var(--spacing-16);
-    }
-
     .ImpactSection-metric {
       flex: 1 1 0;
     }

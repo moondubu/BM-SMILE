@@ -39,7 +39,7 @@
   .SlideRow-slide--text {
     width: 380px;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     padding-right: var(--spacing-128);
     box-sizing: content-box;
   }

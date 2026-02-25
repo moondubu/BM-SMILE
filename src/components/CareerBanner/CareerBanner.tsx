@@ -19,7 +19,7 @@ export default function CareerBanner() {
         </>
       }
       ctaLabel="Career"
-      ctaHref="https://bmsmile.career.greetinghr.com/ko/apply"
+      ctaHref="/career"
     />
   )
 }

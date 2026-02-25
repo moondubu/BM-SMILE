@@ -1,0 +1,66 @@
+.CareerPage {
+  width: 100%;
+  padding-top: var(--career-header-height);
+}
+
+body.CareerPageActive {
+  overflow-y: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body.CareerPageActive::-webkit-scrollbar {
+  display: none;
+}
+
+body.CareerPageActive .Header {
+  background: var(--color-white);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+
+.CareerPage .CareerPage-embedBox {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
+  overflow: hidden;
+}
+
+.CareerPage .CareerPage-embedBox::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 10px;
+  height: 100%;
+  background: var(--color-white);
+  pointer-events: none;
+}
+
+.CareerPage .CareerPage-iframe {
+  width: 100%;
+  height: calc(100% + var(--career-embed-crop-top) + var(--career-embed-crop-bottom));
+  border: 0;
+  display: block;
+  transform: translateY(calc(var(--career-embed-crop-top) * -1));
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.CareerPage .CareerPage-iframe::-webkit-scrollbar {
+  display: none;
+}
+
+.CareerPage .CareerPage-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(245, 245, 245, 0.92);
+  color: var(--color-grey-600);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-16);
+  font-weight: 500;
+  line-height: 1.6;
+}

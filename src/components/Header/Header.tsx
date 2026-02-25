@@ -24,7 +24,7 @@ const NAV_ITEMS = [
       { label: "PETHROOM FRIENDS", href: "/pethroom-friends" },
     ],
   },
-  { label: "CAREER", href: "https://bmsmile.career.greetinghr.com/ko/apply", external: true },
+  { label: "CAREER", href: "/career" },
   { label: "SUBSIDIARY", href: "/subsidiary" },
   { label: "CONTACT", href: "/contact" },
 ] as const

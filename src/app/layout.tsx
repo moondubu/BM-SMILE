@@ -3,7 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Header from "@/components/Header/Header"
-import Footer from "@/components/Footer/Footer"
+import FooterSlot from "@/components/Footer/FooterSlot"
 
 const nanumSquareNeo = localFont({
   src: "../../public/fonts/NanumSquareNeo-Variable/woff2/NanumSquareNeo-Variable.woff2",
@@ -32,7 +32,7 @@ export default function RootLayout({
         <main className="main">
           {children}
         </main>
-        <Footer />
+        <FooterSlot />
       </body>
     </html>
   );

@@ -7,8 +7,17 @@
   display: inline-block;
   border-radius: 32px; /* Radius/radius-lg */
   overflow: hidden;
-  background: var(--color-grey-900);
   box-sizing: border-box;
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 31px;
+    pointer-events: none;
+    z-index: 3;
+  }
 
   .SlideCard-img {
     position: relative;
@@ -25,34 +34,66 @@
     left: 0;
     right: 0;
     bottom: 0;
-    padding: var(--spacing-24) var(--spacing-20);
+    padding: var(--spacing-32);
     background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, transparent 100%);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-8);
   }
 
+  .SlideCard-overlay--hoverable {
+    inset: 0;
+    justify-content: flex-end;
+    gap: var(--spacing-16);
+    background: transparent;
+    transition: background-color 0.24s ease;
+  }
+
+  .SlideCard-defaultText {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
+    transition: opacity 0.24s ease;
+  }
+
   .SlideCard-number {
     font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-24);
-    font-weight: 700;
+    font-size: var(--font-size-18);
+    font-weight: 600;
     line-height: 1.5;
     color: var(--color-white);
+    text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
   }
 
   .SlideCard-caption {
     font-family: var(--font-nanumSquareNeo);
-    font-size: var(--font-size-24);
-    font-weight: 700;
+    font-size: var(--font-size-18);
+    font-weight: 600;
     line-height: 1.5;
     color: var(--color-white);
+    text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+  }
+
+  .SlideCard-hoverText {
+    position: absolute;
+    left: var(--spacing-32);
+    right: var(--spacing-32);
+    bottom: var(--spacing-32);
+    font-family: var(--font-nanumSquareNeo);
+    font-size: var(--font-size-18);
+    font-weight: 600;
+    line-height: 1.5;
+    color: var(--color-white);
+    opacity: 0;
+    transition: opacity 0.24s ease;
+    pointer-events: none;
   }
 
   .SlideCard-actionIcon {
     position: absolute;
     right: var(--spacing-32);
     bottom: var(--spacing-32);
-    z-index: 2;
+    z-index: 4;
     width: var(--spacing-48);
     height: var(--spacing-48);
     border-radius: var(--spacing-16);
@@ -75,7 +116,7 @@
   .SlideCard-linkOverlay {
     position: absolute;
     inset: 0;
-    z-index: 2;
+    z-index: 4;
     display: block;
   }
 
@@ -83,5 +124,20 @@
     background: var(--color-white);
     border-color: var(--color-primary-blue);
     color: var(--color-primary-blue);
+  }
+
+  &:hover .SlideCard-overlay--hoverable,
+  &:focus-within .SlideCard-overlay--hoverable {
+    background: rgba(29, 79, 255, 0.9);
+  }
+
+  &:hover .SlideCard-overlay--hoverable .SlideCard-defaultText,
+  &:focus-within .SlideCard-overlay--hoverable .SlideCard-defaultText {
+    opacity: 0;
+  }
+
+  &:hover .SlideCard-overlay--hoverable .SlideCard-hoverText,
+  &:focus-within .SlideCard-overlay--hoverable .SlideCard-hoverText {
+    opacity: 1;
   }
 }

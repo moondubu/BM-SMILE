@@ -1,6 +1,6 @@
 .ContactPage {
   background: var(--color-white);
-  padding: 176px 0 var(--spacing-128);
+  padding: var(--spacing-96) 0 var(--spacing-128);
 
   .ContactPage-inner {
     width: 100%;
@@ -68,6 +68,7 @@
 
   .ContactPage-form {
     min-height: 0;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-8);
@@ -88,7 +89,9 @@
   }
 
   .ContactPage-textarea {
-    height: 264px;
+    flex: 1;
+    min-height: 0;
+    height: auto;
     resize: none;
   }
 
@@ -98,11 +101,54 @@
   }
 
   .ContactPage-policyBox {
-    height: 188px;
+    height: var(--spacing-160);
+    position: relative;
     border-radius: var(--spacing-16);
     background: var(--color-grey-100);
+    overflow: hidden;
+  }
+
+  .ContactPage-policyScroll {
+    width: calc(100% - var(--spacing-16));
+    height: calc(100% - var(--spacing-16));
+    margin: var(--spacing-8) var(--spacing-8) var(--spacing-8) 0;
     overflow-y: auto;
     padding: var(--spacing-16) var(--spacing-24);
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .ContactPage-policyScroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .ContactPage-policyScrollbar {
+    position: absolute;
+    top: var(--spacing-8);
+    right: var(--spacing-8);
+    bottom: var(--spacing-8);
+    width: 10px;
+    pointer-events: auto;
+  }
+
+  .ContactPage-policyScrollbarThumb {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    border-radius: 999px;
+    background: rgba(229, 229, 229, 1);
+    cursor: grab;
+    transition: background-color 0.2s ease;
+  }
+
+  .ContactPage-policyScrollbarThumb:hover {
+    background: rgba(200, 200, 200, 1);
+  }
+
+  .ContactPage-policyScrollbarThumb:active {
+    cursor: grabbing;
+    background: rgba(190, 190, 190, 1);
   }
 
   .ContactPage-policyText {
