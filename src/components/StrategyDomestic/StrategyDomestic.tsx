@@ -12,6 +12,8 @@ import "./StrategyDomestic.css"
 
 export default function StrategyDomestic() {
   const impactTitleLines = STRATEGY_DOMESTIC_IMPACT.title.split("\n")
+  const impactFirstLine = impactTitleLines[0]
+  const impactSecondLine = impactTitleLines[1]
 
   return (
     <section className="StrategyDomestic">
@@ -44,9 +46,9 @@ export default function StrategyDomestic() {
         label={STRATEGY_DOMESTIC_IMPACT.label}
         title={
           <>
-            {impactTitleLines[0]}
-            <br />
-            {impactTitleLines[1]}
+            {impactFirstLine}
+            {impactSecondLine ? <br /> : null}
+            {impactSecondLine ?? null}
           </>
         }
         subTextLines={[...STRATEGY_DOMESTIC_IMPACT.subTextLines]}

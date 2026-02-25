@@ -106,25 +106,25 @@ export const STRATEGY_DOMESTIC_ROADMAP = {
       id: "01",
       title: "고객 유입 & 락인",
       description:
-        "페스룸의 이미 검증된 고품질 제품과 콘텐츠 커뮤니티를 기반으로 강한 유입 구조를 형성하고 반복 구매 및 구독 락인 구조를 구축합니다.",
+        "이미 국내 1위 반려동물 IP인 ‘페스룸’을 기반으로 자체 마케팅 플랫폼인 ‘페스룸 프렌즈’의 고객 유입 및 성장을 유도합니다.",
     },
     {
       id: "02",
       title: "AI 기반 펫 데이터 구축",
       description:
-        "유입 고객의 소비/행동/라이프스타일 데이터를 통합하여 AI 기반 건강·케어·상담 데이터 시스템을 구축합니다.",
+        "페스룸 프렌즈를 통해 IoT 디바이스 & AI 기반 이상 징후 탐지 및 진단 독려, 신체 데이터 분석을 통해 반려동물 데이터를 축적합니다.",
     },
     {
       id: "03",
       title: "예측 중심 산업으로 전환",
       description:
-        "AI 데이터 인프라를 바탕으로 질병, 행동문제, 건강 변화 등을 사전 예측하고 솔루션을 제공하는 구조로 확장합니다.",
+        "동물병원 EMR 연계, AI 질병 예측 모델 구축, 데이터 기반 펫 보험 비즈니스 등으로 업태를 확장합니다.",
     },
     {
       id: "04",
       title: "반려동물 전 생애주기 통합",
       description:
-        "반려동물의 삶을 넘어 반려인의 전 생애 케어까지 확장하여 라이프 전체를 아우르는 종합 플랫폼으로 진화합니다.",
+        "장묘 및 임종 관리, 반려인 심리/정서 케어 등을 통해 요람에서 무덤까지 반려동물의 전 생애를 케어하는 수직계열화 플랫폼을 구축합니다.",
     },
   ] satisfies StrategyRoadmapItem[],
 } as const
@@ -132,9 +132,9 @@ export const STRATEGY_DOMESTIC_ROADMAP = {
 export const STRATEGY_DOMESTIC_IMPACT = {
   backgroundSrc: "/images/strategy/img_strategy_domestic_impact.png",
   label: "No.1 Pet IP",
-  title: "국내 1위 IP\n'페스룸'으로 통합합니다",
+  title: "국내 1위 IP ‘페스룸’으로 통합합니다",
   subTextLines: [
-    "비엠스마일은 국내 인지도 1위 반려동물 IP '페스룸'을 보유한 기업입니다.",
+    "비엠스마일은 국내 인지도 1위 반려동물 IP ‘페스룸’을 보유한 기업입니다.",
     "페스룸은 비엠스마일이 실현하고자 하는 수직계열화 전략의 핵심 기반으로써 작동합니다.",
   ],
 } as const

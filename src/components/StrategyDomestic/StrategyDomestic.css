@@ -35,15 +35,21 @@
 
     .RoadmapSection-label {
       text-transform: none;
+      font-weight: 600;
     }
 
     .RoadmapSection-title {
-      font-size: var(--font-size-56);
+      font-size: var(--font-size-48);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--color-grey-900);
     }
 
-    .RoadmapSection-itemTitle {
-      font-size: var(--font-size-18);
-      font-weight: 700;
+    .RoadmapSection-description {
+      color: var(--color-grey-900);
+      font-size: var(--font-size-16);
+      font-weight: 500;
+      line-height: 1.6;
     }
 
     .RoadmapSection-itemDescription {
@@ -53,18 +59,27 @@
 
   .StrategyDomestic-impactSection {
     .ImpactSection-header {
-      gap: var(--spacing-20);
+      gap: var(--spacing-16);
     }
 
     .ImpactSection-title {
-      font-size: var(--font-size-56);
-      line-height: 1.2;
+      font-size: var(--font-size-48);
+      font-weight: 700;
+      line-height: 1.3;
       white-space: pre-line;
     }
 
+    .ImpactSection-metricsGrid {
+      gap: var(--spacing-12);
+    }
+
+    .ImpactSection-metric {
+      gap: var(--spacing-12);
+    }
+
     .ImpactSection-metricValue {
-      font-size: var(--font-size-56);
-      line-height: 1.2;
+      font-size: var(--font-size-48);
+      line-height: 1.3;
     }
   }
 }
