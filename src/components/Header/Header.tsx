@@ -1,7 +1,8 @@
 "use client"
 
 import Link from "next/link"
-import { useState } from "react"
+import { usePathname } from "next/navigation"
+import { type MouseEvent, useState } from "react"
 import { prefixPath } from "@/utils/path"
 import "./Header.css"
 
@@ -32,8 +33,16 @@ const NAV_ITEMS = [
 const LANG_ITEMS = ["KR", "ENG", "CN", "JP"] as const
 
 export default function Header() {
+  const pathname = usePathname()
   const [openLang, setOpenLang] = useState(false)
   const [currentLang, setCurrentLang] = useState<string>("KR")
+
+  const handleCareerClick = (event: MouseEvent<HTMLAnchorElement>) => {
+    const isCareerPage = pathname === "/career" || pathname === "/career/"
+    if (!isCareerPage) return
+    event.preventDefault()
+    window.dispatchEvent(new CustomEvent("career:reset-iframe"))
+  }
 
   return (
     <header className="Header">
@@ -69,6 +78,10 @@ export default function Header() {
                     <a href={item.href} className="Header-navLink" target="_blank" rel="noopener noreferrer">
                       {item.label}
                     </a>
+                  ) : item.href === "/career" ? (
+                    <Link href={item.href} className="Header-navLink" onClick={handleCareerClick}>
+                      {item.label}
+                    </Link>
                   ) : (
                     <Link href={item.href} className="Header-navLink">
                       {item.label}

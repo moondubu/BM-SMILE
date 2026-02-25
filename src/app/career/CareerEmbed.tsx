@@ -6,6 +6,7 @@ const CAREER_URL = "https://bmsmile.career.greetinghr.com/ko/apply"
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
+  const [frameKey, setFrameKey] = useState(0)
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -30,9 +31,16 @@ export default function CareerEmbed() {
     syncShellHeights()
     window.addEventListener("resize", syncShellHeights)
 
+    const resetCareerIframe = () => {
+      setLoaded(false)
+      setFrameKey((prev) => prev + 1)
+    }
+    window.addEventListener("career:reset-iframe", resetCareerIframe)
+
     return () => {
       resizeObserver.disconnect()
       window.removeEventListener("resize", syncShellHeights)
+      window.removeEventListener("career:reset-iframe", resetCareerIframe)
       document.body.classList.remove("CareerPageActive")
       document.body.style.removeProperty("--career-header-height")
       document.body.style.removeProperty("--career-footer-height")
@@ -43,6 +51,7 @@ export default function CareerEmbed() {
     <section className="CareerPage">
       <div className="CareerPage-embedBox">
         <iframe
+          key={frameKey}
           src={CAREER_URL}
           title="BMSmile Career"
           className="CareerPage-iframe"
