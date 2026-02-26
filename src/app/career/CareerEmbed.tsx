@@ -17,6 +17,7 @@ export default function CareerEmbed() {
   const [modalOpen, setModalOpen] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
   const modalOpenRef = useRef(false)
+  const prevBodyOverflowRef = useRef("")
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -125,6 +126,21 @@ export default function CareerEmbed() {
       document.body.style.removeProperty("--career-header-height")
     }
   }, [])
+
+  useEffect(() => {
+    if (modalOpen) {
+      prevBodyOverflowRef.current = document.body.style.overflow
+      document.body.style.overflow = "hidden"
+      return () => {
+        document.body.style.overflow = prevBodyOverflowRef.current
+      }
+    }
+
+    document.body.style.overflow = prevBodyOverflowRef.current
+    return () => {
+      document.body.style.overflow = prevBodyOverflowRef.current
+    }
+  }, [modalOpen])
 
   return (
     <section className="CareerPage">
