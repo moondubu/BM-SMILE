@@ -20,7 +20,6 @@ export default function CareerEmbed() {
   const scrollLockYRef = useRef(0)
   const prevBodyOverflowRef = useRef("")
   const prevBodyPositionRef = useRef("")
-  const prevBodyTopRef = useRef("")
   const prevBodyWidthRef = useRef("")
 
   useEffect(() => {
@@ -135,7 +134,6 @@ export default function CareerEmbed() {
     const restoreScrollLock = () => {
       document.body.style.overflow = prevBodyOverflowRef.current
       document.body.style.position = prevBodyPositionRef.current
-      document.body.style.top = prevBodyTopRef.current
       document.body.style.width = prevBodyWidthRef.current
     }
 
@@ -143,12 +141,10 @@ export default function CareerEmbed() {
       scrollLockYRef.current = window.scrollY
       prevBodyOverflowRef.current = document.body.style.overflow
       prevBodyPositionRef.current = document.body.style.position
-      prevBodyTopRef.current = document.body.style.top
       prevBodyWidthRef.current = document.body.style.width
 
       document.body.style.overflow = "hidden"
       document.body.style.position = "fixed"
-      document.body.style.top = `-${scrollLockYRef.current}px`
       document.body.style.width = "100%"
       return restoreScrollLock
     }
