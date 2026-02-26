@@ -43,8 +43,8 @@ export default function CareerEmbed() {
 
     const requestEmbedHeightBurst = () => {
       requestEmbedHeight()
-      setTimeout(requestEmbedHeight, 120)
-      setTimeout(requestEmbedHeight, 300)
+      setTimeout(requestEmbedHeight, 60)
+      setTimeout(requestEmbedHeight, 180)
     }
 
     const handleWindowResize = () => {
@@ -72,7 +72,7 @@ export default function CareerEmbed() {
 
     const heartbeatTimer = window.setInterval(() => {
       requestEmbedHeight()
-    }, 1500)
+    }, 500)
 
     const resetCareerIframe = () => {
       setLoaded(false)
@@ -148,13 +148,13 @@ export default function CareerEmbed() {
           frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
           setTimeout(() => {
             frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
-          }, 120)
+          }, 60)
           setTimeout(() => {
             frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
-          }, 300)
+          }, 180)
           setTimeout(() => {
             frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
-          }, 1000)
+          }, 500)
         }}
         scrolling="no"
         loading="lazy"
