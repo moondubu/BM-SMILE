@@ -1,4 +1,5 @@
 .CareerPage {
+  position: relative;
   width: 100%;
   padding-top: var(--career-header-height);
 }
@@ -19,16 +20,9 @@ body.CareerPageActive .Header {
   backdrop-filter: none;
 }
 
-.CareerPage .CareerPage-embedBox {
-  position: relative;
-  width: 100%;
-  min-height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
-  overflow: visible;
-}
-
 .CareerPage .CareerPage-iframe {
   width: 100%;
-  min-height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
+  min-height: calc(100vh - var(--career-header-height));
   border: 0;
   display: block;
   scrollbar-width: none;
