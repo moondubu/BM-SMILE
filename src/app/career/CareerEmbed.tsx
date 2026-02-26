@@ -39,7 +39,6 @@ export default function CareerEmbed() {
 
     const handleWindowResize = () => {
       syncShellHeights()
-      setIframeHeight(null)
       requestEmbedHeight()
     }
     window.addEventListener("resize", handleWindowResize)
@@ -86,7 +85,6 @@ export default function CareerEmbed() {
         style={iframeHeight == null ? undefined : { height: `${iframeHeight}px` }}
         onLoad={() => {
           setLoaded(true)
-          setIframeHeight(null)
           const frameWindow = iframeRef.current?.contentWindow
           if (frameWindow == null) return
           frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
