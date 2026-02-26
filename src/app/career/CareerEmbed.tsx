@@ -37,11 +37,38 @@ export default function CareerEmbed() {
       frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
     }
 
+    const requestEmbedHeightBurst = () => {
+      requestEmbedHeight()
+      setTimeout(requestEmbedHeight, 120)
+      setTimeout(requestEmbedHeight, 300)
+    }
+
     const handleWindowResize = () => {
       syncShellHeights()
-      requestEmbedHeight()
+      requestEmbedHeightBurst()
     }
     window.addEventListener("resize", handleWindowResize)
+
+    const handleWindowFocus = () => {
+      requestEmbedHeightBurst()
+    }
+    window.addEventListener("focus", handleWindowFocus)
+
+    const handlePageShow = () => {
+      requestEmbedHeightBurst()
+    }
+    window.addEventListener("pageshow", handlePageShow)
+
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === "visible") {
+        requestEmbedHeightBurst()
+      }
+    }
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    const heartbeatTimer = window.setInterval(() => {
+      requestEmbedHeight()
+    }, 1500)
 
     const resetCareerIframe = () => {
       setLoaded(false)
@@ -66,7 +93,11 @@ export default function CareerEmbed() {
 
     return () => {
       resizeObserver.disconnect()
+      window.clearInterval(heartbeatTimer)
       window.removeEventListener("resize", handleWindowResize)
+      window.removeEventListener("focus", handleWindowFocus)
+      window.removeEventListener("pageshow", handlePageShow)
+      document.removeEventListener("visibilitychange", handleVisibilityChange)
       window.removeEventListener("career:reset-iframe", resetCareerIframe)
       window.removeEventListener("message", handleCareerMessage)
       document.body.classList.remove("CareerPageActive")
@@ -88,6 +119,9 @@ export default function CareerEmbed() {
           const frameWindow = iframeRef.current?.contentWindow
           if (frameWindow == null) return
           frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+          setTimeout(() => {
+            frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+          }, 120)
           setTimeout(() => {
             frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
           }, 300)
