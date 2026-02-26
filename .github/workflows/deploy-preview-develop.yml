@@ -1,8 +1,6 @@
-name: Deploy develop preview to Pages
+name: Deploy PR preview to Pages
 
 on:
-  push:
-    branches: ["develop"]
   pull_request:
     branches: ["main"]
     types: [opened, synchronize, reopened]
@@ -14,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: "pages-preview-develop"
+  group: "pages-preview-pr-${{ github.event.pull_request.number || github.run_id }}"
   cancel-in-progress: true
 
 jobs:
