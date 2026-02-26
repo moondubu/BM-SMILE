@@ -22,16 +22,15 @@ body.CareerPageActive .Header {
 .CareerPage .CareerPage-embedBox {
   position: relative;
   width: 100%;
-  height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
-  overflow: hidden;
+  min-height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
+  overflow: visible;
 }
 
 .CareerPage .CareerPage-iframe {
   width: 100%;
-  height: calc(100% + var(--career-embed-crop-top) + var(--career-embed-crop-bottom));
+  min-height: calc(100vh - var(--career-header-height) - var(--career-footer-height));
   border: 0;
   display: block;
-  transform: translateY(calc(var(--career-embed-crop-top) * -1));
   scrollbar-width: none;
   -ms-overflow-style: none;
 }
