@@ -1,8 +1,9 @@
 name: Deploy develop preview to Pages
 
 on:
-  push:
-    branches: ["develop"]
+  pull_request:
+    branches: ["main"]
+    types: [opened, synchronize, reopened]
   workflow_dispatch:
 
 permissions:
@@ -17,7 +18,7 @@ concurrency:
 jobs:
   deploy-preview:
     environment:
-      name: github-pages
+      name: github-pages-preview
     runs-on: ubuntu-latest
 
     steps:
