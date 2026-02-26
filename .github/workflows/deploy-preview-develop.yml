@@ -50,3 +50,9 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           preview: true
+
+      - name: Print preview URL
+        run: |
+          echo "Preview URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "## Preview URL" >> $GITHUB_STEP_SUMMARY
+          echo "${{ steps.deployment.outputs.page_url }}" >> $GITHUB_STEP_SUMMARY
