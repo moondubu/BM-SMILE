@@ -1,6 +1,8 @@
 name: Deploy develop preview to Pages
 
 on:
+  push:
+    branches: ["develop"]
   pull_request:
     branches: ["main"]
     types: [opened, synchronize, reopened]
