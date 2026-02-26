@@ -6,13 +6,17 @@ const CAREER_URL = "https://bmsmile.career.greetinghr.com/ko/apply?embed=1"
 const CAREER_ORIGIN = "https://bmsmile.career.greetinghr.com"
 const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
 const EMBED_HEIGHT_REQUEST_TYPE = "BM_GREETING_REQUEST_HEIGHT"
+const EMBED_MODAL_OPEN_TYPE = "BM_GREETING_MODAL_OPEN"
+const EMBED_MODAL_CLOSE_TYPE = "BM_GREETING_MODAL_CLOSE"
 const CAREER_MIN_HEIGHT = 200
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
   const [frameKey, setFrameKey] = useState(0)
   const [iframeHeight, setIframeHeight] = useState<number | null>(null)
+  const [modalOpen, setModalOpen] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
+  const modalOpenRef = useRef(false)
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -72,6 +76,8 @@ export default function CareerEmbed() {
 
     const resetCareerIframe = () => {
       setLoaded(false)
+      modalOpenRef.current = false
+      setModalOpen(false)
       setIframeHeight(null)
       setFrameKey((prev) => prev + 1)
     }
@@ -82,7 +88,22 @@ export default function CareerEmbed() {
       if (typeof event.data !== "object" || event.data === null) return
 
       const data = event.data as { type?: unknown; height?: unknown }
+
+      if (data.type === EMBED_MODAL_OPEN_TYPE) {
+        modalOpenRef.current = true
+        setModalOpen(true)
+        return
+      }
+
+      if (data.type === EMBED_MODAL_CLOSE_TYPE) {
+        modalOpenRef.current = false
+        setModalOpen(false)
+        requestEmbedHeightBurst()
+        return
+      }
+
       if (data.type !== EMBED_HEIGHT_MESSAGE_TYPE) return
+      if (modalOpenRef.current) return
       if (typeof data.height !== "number" || Number.isFinite(data.height) === false) return
       if (data.height < CAREER_MIN_HEIGHT) return
 
@@ -113,7 +134,13 @@ export default function CareerEmbed() {
         src={CAREER_URL}
         title="BMSmile Career"
         className="CareerPage-iframe"
-        style={iframeHeight == null ? undefined : { height: `${iframeHeight}px` }}
+        style={
+          modalOpen
+            ? { height: "calc(100vh - var(--career-header-height))", minHeight: "calc(100vh - var(--career-header-height))" }
+            : iframeHeight == null
+              ? undefined
+              : { height: `${iframeHeight}px` }
+        }
         onLoad={() => {
           setLoaded(true)
           const frameWindow = iframeRef.current?.contentWindow
