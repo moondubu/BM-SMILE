@@ -11,6 +11,7 @@ const EMBED_MODAL_CLOSE_TYPE = "BM_GREETING_MODAL_CLOSE"
 const EMBED_PRESERVE_SCROLL_TYPE = "BM_GREETING_PRESERVE_SCROLL"
 const EMBED_RESTORE_SCROLL_TYPE = "BM_GREETING_RESTORE_SCROLL"
 const CAREER_MIN_HEIGHT = 200
+const MODAL_SIGNAL_STABILIZE_MS = 120
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
@@ -20,6 +21,7 @@ export default function CareerEmbed() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
   const modalOpenRef = useRef(false)
   const prevBodyOverflowRef = useRef("")
+  const modalSignalTimerRef = useRef<number | null>(null)
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -85,6 +87,10 @@ export default function CareerEmbed() {
 
     const resetCareerIframe = () => {
       setLoaded(false)
+      if (modalSignalTimerRef.current != null) {
+        window.clearTimeout(modalSignalTimerRef.current)
+        modalSignalTimerRef.current = null
+      }
       modalOpenRef.current = false
       setModalOpen(false)
       setIframeHeight(null)
@@ -97,24 +103,47 @@ export default function CareerEmbed() {
       if (typeof event.data !== "object" || event.data === null) return
 
       const data = event.data as { type?: unknown; height?: unknown }
+      console.debug("[career/embed] message", data.type, data.height)
 
       if (data.type === EMBED_MODAL_OPEN_TYPE) {
-        postToEmbed(EMBED_PRESERVE_SCROLL_TYPE)
-        modalOpenRef.current = true
-        setModalOpen(true)
-        setTimeout(() => {
-          postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-        }, 20)
-        setTimeout(() => {
-          postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-        }, 120)
+        if (modalSignalTimerRef.current != null) {
+          window.clearTimeout(modalSignalTimerRef.current)
+        }
+        modalSignalTimerRef.current = window.setTimeout(() => {
+          modalSignalTimerRef.current = null
+          if (modalOpenRef.current) return
+          postToEmbed(EMBED_PRESERVE_SCROLL_TYPE)
+          modalOpenRef.current = true
+          setModalOpen(true)
+          setTimeout(() => {
+            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+          }, 20)
+          setTimeout(() => {
+            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+          }, 80)
+          setTimeout(() => {
+            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+          }, 180)
+          setTimeout(() => {
+            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+          }, 320)
+          console.debug("[career/embed] modal open applied")
+        }, MODAL_SIGNAL_STABILIZE_MS)
         return
       }
 
       if (data.type === EMBED_MODAL_CLOSE_TYPE) {
-        modalOpenRef.current = false
-        setModalOpen(false)
-        requestEmbedHeightBurst()
+        if (modalSignalTimerRef.current != null) {
+          window.clearTimeout(modalSignalTimerRef.current)
+        }
+        modalSignalTimerRef.current = window.setTimeout(() => {
+          modalSignalTimerRef.current = null
+          if (!modalOpenRef.current) return
+          modalOpenRef.current = false
+          setModalOpen(false)
+          requestEmbedHeightBurst()
+          console.debug("[career/embed] modal close applied")
+        }, MODAL_SIGNAL_STABILIZE_MS)
         return
       }
 
@@ -129,6 +158,9 @@ export default function CareerEmbed() {
     window.addEventListener("message", handleCareerMessage)
 
     return () => {
+      if (modalSignalTimerRef.current != null) {
+        window.clearTimeout(modalSignalTimerRef.current)
+      }
       resizeObserver.disconnect()
       window.clearInterval(heartbeatTimer)
       window.removeEventListener("resize", handleWindowResize)
