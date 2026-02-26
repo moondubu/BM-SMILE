@@ -8,10 +8,7 @@ const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
 const EMBED_HEIGHT_REQUEST_TYPE = "BM_GREETING_REQUEST_HEIGHT"
 const EMBED_MODAL_OPEN_TYPE = "BM_GREETING_MODAL_OPEN"
 const EMBED_MODAL_CLOSE_TYPE = "BM_GREETING_MODAL_CLOSE"
-const EMBED_PRESERVE_SCROLL_TYPE = "BM_GREETING_PRESERVE_SCROLL"
-const EMBED_RESTORE_SCROLL_TYPE = "BM_GREETING_RESTORE_SCROLL"
 const CAREER_MIN_HEIGHT = 200
-const MODAL_SIGNAL_STABILIZE_MS = 120
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
@@ -21,7 +18,8 @@ export default function CareerEmbed() {
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
   const modalOpenRef = useRef(false)
   const prevBodyOverflowRef = useRef("")
-  const modalSignalTimerRef = useRef<number | null>(null)
+  const prevBodyPositionRef = useRef("")
+  const prevBodyWidthRef = useRef("")
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -44,12 +42,6 @@ export default function CareerEmbed() {
       const frameWindow = iframeRef.current?.contentWindow
       if (frameWindow == null) return
       frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
-    }
-
-    const postToEmbed = (type: string) => {
-      const frameWindow = iframeRef.current?.contentWindow
-      if (frameWindow == null) return
-      frameWindow.postMessage({ type }, CAREER_ORIGIN)
     }
 
     const requestEmbedHeightBurst = () => {
@@ -83,10 +75,6 @@ export default function CareerEmbed() {
 
     const resetCareerIframe = () => {
       setLoaded(false)
-      if (modalSignalTimerRef.current != null) {
-        window.clearTimeout(modalSignalTimerRef.current)
-        modalSignalTimerRef.current = null
-      }
       modalOpenRef.current = false
       setModalOpen(false)
       setIframeHeight(null)
@@ -99,47 +87,19 @@ export default function CareerEmbed() {
       if (typeof event.data !== "object" || event.data === null) return
 
       const data = event.data as { type?: unknown; height?: unknown }
-      console.debug("[career/embed] message", data.type, data.height)
 
       if (data.type === EMBED_MODAL_OPEN_TYPE) {
-        if (modalSignalTimerRef.current != null) {
-          window.clearTimeout(modalSignalTimerRef.current)
-        }
-        modalSignalTimerRef.current = window.setTimeout(() => {
-          modalSignalTimerRef.current = null
-          if (modalOpenRef.current) return
-          postToEmbed(EMBED_PRESERVE_SCROLL_TYPE)
-          modalOpenRef.current = true
-          setModalOpen(true)
-          setTimeout(() => {
-            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-          }, 20)
-          setTimeout(() => {
-            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-          }, 80)
-          setTimeout(() => {
-            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-          }, 180)
-          setTimeout(() => {
-            postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
-          }, 320)
-          console.debug("[career/embed] modal open applied")
-        }, MODAL_SIGNAL_STABILIZE_MS)
+        if (modalOpenRef.current) return
+        modalOpenRef.current = true
+        setModalOpen(true)
         return
       }
 
       if (data.type === EMBED_MODAL_CLOSE_TYPE) {
-        if (modalSignalTimerRef.current != null) {
-          window.clearTimeout(modalSignalTimerRef.current)
-        }
-        modalSignalTimerRef.current = window.setTimeout(() => {
-          modalSignalTimerRef.current = null
-          if (!modalOpenRef.current) return
-          modalOpenRef.current = false
-          setModalOpen(false)
-          requestEmbedHeightBurst()
-          console.debug("[career/embed] modal close applied")
-        }, MODAL_SIGNAL_STABILIZE_MS)
+        if (!modalOpenRef.current) return
+        modalOpenRef.current = false
+        setModalOpen(false)
+        requestEmbedHeightBurst()
         return
       }
 
@@ -154,9 +114,6 @@ export default function CareerEmbed() {
     window.addEventListener("message", handleCareerMessage)
 
     return () => {
-      if (modalSignalTimerRef.current != null) {
-        window.clearTimeout(modalSignalTimerRef.current)
-      }
       resizeObserver.disconnect()
       window.removeEventListener("resize", handleWindowResize)
       window.removeEventListener("focus", handleWindowFocus)
@@ -172,16 +129,26 @@ export default function CareerEmbed() {
   useEffect(() => {
     if (modalOpen) {
       prevBodyOverflowRef.current = document.body.style.overflow
+      prevBodyPositionRef.current = document.body.style.position
+      prevBodyWidthRef.current = document.body.style.width
 
       document.body.style.overflow = "hidden"
+      document.body.style.position = "fixed"
+      document.body.style.width = "100%"
       return () => {
         document.body.style.overflow = prevBodyOverflowRef.current
+        document.body.style.position = prevBodyPositionRef.current
+        document.body.style.width = prevBodyWidthRef.current
       }
     }
 
     document.body.style.overflow = prevBodyOverflowRef.current
+    document.body.style.position = prevBodyPositionRef.current
+    document.body.style.width = prevBodyWidthRef.current
     return () => {
       document.body.style.overflow = prevBodyOverflowRef.current
+      document.body.style.position = prevBodyPositionRef.current
+      document.body.style.width = prevBodyWidthRef.current
     }
   }, [modalOpen])
 
