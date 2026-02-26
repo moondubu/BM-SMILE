@@ -17,13 +17,7 @@ export default function CareerEmbed() {
   const [modalOpen, setModalOpen] = useState(false)
   const iframeRef = useRef<HTMLIFrameElement | null>(null)
   const modalOpenRef = useRef(false)
-  const scrollLockYRef = useRef(0)
   const prevBodyOverflowRef = useRef("")
-  const prevBodyPositionRef = useRef("")
-  const prevBodyTopRef = useRef("")
-  const prevBodyLeftRef = useRef("")
-  const prevBodyRightRef = useRef("")
-  const prevBodyWidthRef = useRef("")
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -135,44 +129,17 @@ export default function CareerEmbed() {
 
   useEffect(() => {
     if (modalOpen) {
-      scrollLockYRef.current = window.scrollY
       prevBodyOverflowRef.current = document.body.style.overflow
-      prevBodyPositionRef.current = document.body.style.position
-      prevBodyTopRef.current = document.body.style.top
-      prevBodyLeftRef.current = document.body.style.left
-      prevBodyRightRef.current = document.body.style.right
-      prevBodyWidthRef.current = document.body.style.width
 
       document.body.style.overflow = "hidden"
-      document.body.style.position = "fixed"
-      document.body.style.top = `-${scrollLockYRef.current}px`
-      document.body.style.left = "0"
-      document.body.style.right = "0"
-      document.body.style.width = "100%"
       return () => {
         document.body.style.overflow = prevBodyOverflowRef.current
-        document.body.style.position = prevBodyPositionRef.current
-        document.body.style.top = prevBodyTopRef.current
-        document.body.style.left = prevBodyLeftRef.current
-        document.body.style.right = prevBodyRightRef.current
-        document.body.style.width = prevBodyWidthRef.current
       }
     }
 
     document.body.style.overflow = prevBodyOverflowRef.current
-    document.body.style.position = prevBodyPositionRef.current
-    document.body.style.top = prevBodyTopRef.current
-    document.body.style.left = prevBodyLeftRef.current
-    document.body.style.right = prevBodyRightRef.current
-    document.body.style.width = prevBodyWidthRef.current
-    window.scrollTo(0, scrollLockYRef.current)
     return () => {
       document.body.style.overflow = prevBodyOverflowRef.current
-      document.body.style.position = prevBodyPositionRef.current
-      document.body.style.top = prevBodyTopRef.current
-      document.body.style.left = prevBodyLeftRef.current
-      document.body.style.right = prevBodyRightRef.current
-      document.body.style.width = prevBodyWidthRef.current
     }
   }, [modalOpen])
 
@@ -184,13 +151,7 @@ export default function CareerEmbed() {
         src={CAREER_URL}
         title="BMSmile Career"
         className="CareerPage-iframe"
-        style={
-          modalOpen
-            ? { height: "calc(100vh - var(--career-header-height))", minHeight: "calc(100vh - var(--career-header-height))" }
-            : iframeHeight == null
-              ? undefined
-              : { height: `${iframeHeight}px` }
-        }
+        style={iframeHeight == null ? undefined : { height: `${iframeHeight}px` }}
         onLoad={() => {
           setLoaded(true)
           const frameWindow = iframeRef.current?.contentWindow
