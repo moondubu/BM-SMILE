@@ -1,16 +1,18 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 
 const CAREER_URL = "https://bmsmile.career.greetinghr.com/ko/apply?embed=1"
 const CAREER_ORIGIN = "https://bmsmile.career.greetinghr.com"
 const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
+const EMBED_HEIGHT_REQUEST_TYPE = "BM_GREETING_REQUEST_HEIGHT"
 const CAREER_MIN_HEIGHT = 200
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
   const [frameKey, setFrameKey] = useState(0)
   const [iframeHeight, setIframeHeight] = useState<number | null>(null)
+  const iframeRef = useRef<HTMLIFrameElement | null>(null)
 
   useEffect(() => {
     document.body.classList.add("CareerPageActive")
@@ -28,9 +30,17 @@ export default function CareerEmbed() {
 
     if (headerElement != null) resizeObserver.observe(headerElement)
     syncShellHeights()
+
+    const requestEmbedHeight = () => {
+      const frameWindow = iframeRef.current?.contentWindow
+      if (frameWindow == null) return
+      frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+    }
+
     const handleWindowResize = () => {
       syncShellHeights()
       setIframeHeight(null)
+      requestEmbedHeight()
     }
     window.addEventListener("resize", handleWindowResize)
 
@@ -68,6 +78,7 @@ export default function CareerEmbed() {
   return (
     <section className="CareerPage">
       <iframe
+        ref={iframeRef}
         key={frameKey}
         src={CAREER_URL}
         title="BMSmile Career"
@@ -76,6 +87,15 @@ export default function CareerEmbed() {
         onLoad={() => {
           setLoaded(true)
           setIframeHeight(null)
+          const frameWindow = iframeRef.current?.contentWindow
+          if (frameWindow == null) return
+          frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+          setTimeout(() => {
+            frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+          }, 300)
+          setTimeout(() => {
+            frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+          }, 1000)
         }}
         scrolling="no"
         loading="lazy"
