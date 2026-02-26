@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { type MouseEvent, useState } from "react"
+import { type MouseEvent, useEffect, useState } from "react"
 import { prefixPath } from "@/utils/path"
 import "./Header.css"
 
@@ -35,6 +35,7 @@ const LANG_ITEMS = ["KR", "ENG", "CN", "JP"] as const
 export default function Header() {
   const pathname = usePathname()
   const [openLang, setOpenLang] = useState(false)
+  const [openMobileMenu, setOpenMobileMenu] = useState(false)
   const [currentLang, setCurrentLang] = useState<string>("KR")
 
   const handleCareerClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -43,6 +44,18 @@ export default function Header() {
     event.preventDefault()
     window.dispatchEvent(new CustomEvent("career:reset-iframe"))
   }
+
+  useEffect(() => {
+    setOpenMobileMenu(false)
+    setOpenLang(false)
+  }, [pathname])
+
+  useEffect(() => {
+    document.body.classList.toggle("Header-menu-open", openMobileMenu)
+    return () => {
+      document.body.classList.remove("Header-menu-open")
+    }
+  }, [openMobileMenu])
 
   return (
     <header className="Header">
@@ -122,6 +135,75 @@ export default function Header() {
             </ul>
           )}
         </div>
+
+        <button
+          type="button"
+          className="Header-menuButton"
+          aria-expanded={openMobileMenu}
+          aria-label={openMobileMenu ? "Close menu" : "Open menu"}
+          onClick={() => setOpenMobileMenu((v) => !v)}
+        >
+          {openMobileMenu ? (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M6 6L18 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path d="M18 6L6 18" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          ) : (
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
+              <path d="M4 7H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path d="M4 12H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+              <path d="M4 17H20" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+          )}
+        </button>
+      </div>
+
+      <div className={`Header-mobileMenu${openMobileMenu ? " Header-mobileMenu--open" : ""}`}>
+        <nav className="Header-mobileNav" aria-label="Mobile navigation">
+          <ul className="Header-mobileList">
+            <li className="Header-mobileItem Header-mobileItem--group">
+              <p className="Header-mobileTitle">COMPANY</p>
+              <ul className="Header-mobileSubList">
+                {NAV_ITEMS[0].children.map((child) => (
+                  <li key={child.label}>
+                    <Link href={child.href} className="Header-mobileSubLink">
+                      {child.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            <li className="Header-mobileItem Header-mobileItem--group">
+              <p className="Header-mobileTitle">PET IP</p>
+              <ul className="Header-mobileSubList">
+                {NAV_ITEMS[1].children.map((child) => (
+                  <li key={child.label}>
+                    <Link href={child.href} className="Header-mobileSubLink">
+                      {child.label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+
+            <li className="Header-mobileItem">
+              <Link href="/career" className="Header-mobileTitleLink" onClick={handleCareerClick}>
+                CAREER
+              </Link>
+            </li>
+            <li className="Header-mobileItem">
+              <Link href="/subsidiary" className="Header-mobileTitleLink">
+                SUBSIDIARY
+              </Link>
+            </li>
+            <li className="Header-mobileItem">
+              <Link href="/contact" className="Header-mobileTitleLink">
+                CONTACT
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </div>
     </header>
   )

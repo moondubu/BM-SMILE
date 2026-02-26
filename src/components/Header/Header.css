@@ -54,7 +54,6 @@
       height: 80px;
       display: flex;
       align-items: center;
-
     }
 
     .Header-navItem--has-dropdown:hover .Header-dropdown {
@@ -68,7 +67,7 @@
     .Header-navLink {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: var(--spacing-4);
       font-weight: 800;
       font-size: var(--font-size-16);
       line-height: 1.5;
@@ -94,7 +93,6 @@
       backdrop-filter: blur(var(--blur-12));
       border: 1px solid var(--color-grey-200);
       border-radius: 8px;
-
       padding: var(--spacing-8) 0;
       list-style: none;
       margin: 0;
@@ -103,7 +101,7 @@
       z-index: 10;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -9px;
         left: 0;
@@ -111,7 +109,7 @@
         height: 10px;
       }
 
-      li+li {
+      li + li {
         border-top: 1px solid var(--color-grey-200);
       }
     }
@@ -179,7 +177,7 @@
       z-index: 10;
 
       &::before {
-        content: '';
+        content: "";
         position: absolute;
         top: -9px;
         left: 0;
@@ -187,7 +185,7 @@
         height: 10px;
       }
 
-      li+li {
+      li + li {
         border-top: 1px solid var(--color-grey-200);
       }
     }
@@ -215,5 +213,154 @@
         font-weight: 900;
       }
     }
+  }
+
+  .Header-menuButton {
+    display: none;
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: var(--color-grey-900);
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .Header-mobileMenu {
+    display: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  .Header {
+    .Header-inner {
+      padding: 0 var(--spacing-24);
+      gap: var(--spacing-24);
+    }
+
+    .Header-nav {
+      .Header-navList {
+        gap: var(--spacing-24);
+      }
+
+      .Header-navLink {
+        font-size: var(--font-size-14);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .Header {
+    .Header-inner {
+      height: 60px;
+      padding: 0 var(--spacing-20);
+      gap: var(--spacing-16);
+    }
+
+    .Header-logo {
+      .Header-logoImg {
+        height: 32px;
+      }
+    }
+
+    .Header-nav {
+      display: none;
+    }
+
+    .Header-lang {
+      margin-left: auto;
+      align-self: center;
+
+      .Header-langButton {
+        align-self: center;
+        font-size: var(--font-size-13);
+        color: var(--color-grey-600);
+      }
+
+      .Header-langDropdown {
+        top: calc(100% + 6px);
+      }
+    }
+
+    .Header-menuButton {
+      display: inline-flex;
+    }
+
+    .Header-mobileMenu {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.96);
+      -webkit-backdrop-filter: blur(var(--blur-12));
+      backdrop-filter: blur(var(--blur-12));
+      border-top: 1px solid var(--color-grey-200);
+      overflow-y: auto;
+      padding: var(--spacing-24) var(--spacing-20) var(--spacing-40);
+      display: none;
+
+      .Header-mobileNav {
+        width: 100%;
+      }
+
+      .Header-mobileList {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-24);
+      }
+
+      .Header-mobileItem {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-12);
+      }
+
+      .Header-mobileItem--group {
+        padding-bottom: var(--spacing-24);
+        border-bottom: 1px solid var(--color-grey-200);
+      }
+
+      .Header-mobileTitle {
+        font-size: var(--font-size-24);
+        line-height: 1.34;
+        font-weight: 800;
+        color: var(--color-black);
+      }
+
+      .Header-mobileTitleLink {
+        display: inline-flex;
+        font-size: var(--font-size-24);
+        line-height: 1.34;
+        font-weight: 800;
+        color: var(--color-black);
+      }
+
+      .Header-mobileSubList {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-8);
+      }
+
+      .Header-mobileSubLink {
+        display: inline-flex;
+        font-size: var(--font-size-16);
+        line-height: 1.5;
+        font-weight: 700;
+        color: var(--color-grey-600);
+      }
+    }
+
+    .Header-mobileMenu--open {
+      display: block;
+    }
+  }
+
+  body.Header-menu-open {
+    overflow: hidden;
   }
 }
