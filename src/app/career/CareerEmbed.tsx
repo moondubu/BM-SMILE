@@ -8,6 +8,8 @@ const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
 const EMBED_HEIGHT_REQUEST_TYPE = "BM_GREETING_REQUEST_HEIGHT"
 const EMBED_MODAL_OPEN_TYPE = "BM_GREETING_MODAL_OPEN"
 const EMBED_MODAL_CLOSE_TYPE = "BM_GREETING_MODAL_CLOSE"
+const EMBED_PRESERVE_SCROLL_TYPE = "BM_GREETING_PRESERVE_SCROLL"
+const EMBED_RESTORE_SCROLL_TYPE = "BM_GREETING_RESTORE_SCROLL"
 const CAREER_MIN_HEIGHT = 200
 
 export default function CareerEmbed() {
@@ -40,6 +42,12 @@ export default function CareerEmbed() {
       const frameWindow = iframeRef.current?.contentWindow
       if (frameWindow == null) return
       frameWindow.postMessage({ type: EMBED_HEIGHT_REQUEST_TYPE }, CAREER_ORIGIN)
+    }
+
+    const postToEmbed = (type: string) => {
+      const frameWindow = iframeRef.current?.contentWindow
+      if (frameWindow == null) return
+      frameWindow.postMessage({ type }, CAREER_ORIGIN)
     }
 
     const requestEmbedHeightBurst = () => {
@@ -91,8 +99,15 @@ export default function CareerEmbed() {
       const data = event.data as { type?: unknown; height?: unknown }
 
       if (data.type === EMBED_MODAL_OPEN_TYPE) {
+        postToEmbed(EMBED_PRESERVE_SCROLL_TYPE)
         modalOpenRef.current = true
         setModalOpen(true)
+        setTimeout(() => {
+          postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+        }, 20)
+        setTimeout(() => {
+          postToEmbed(EMBED_RESTORE_SCROLL_TYPE)
+        }, 120)
         return
       }
 
@@ -151,7 +166,13 @@ export default function CareerEmbed() {
         src={CAREER_URL}
         title="BMSmile Career"
         className="CareerPage-iframe"
-        style={iframeHeight == null ? undefined : { height: `${iframeHeight}px` }}
+        style={
+          modalOpen
+            ? { height: "calc(100vh - var(--career-header-height))", minHeight: "calc(100vh - var(--career-header-height))" }
+            : iframeHeight == null
+              ? undefined
+              : { height: `${iframeHeight}px` }
+        }
         onLoad={() => {
           setLoaded(true)
           const frameWindow = iframeRef.current?.contentWindow
