@@ -6,12 +6,6 @@
 
 body.CareerPageActive {
   overflow-y: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-body.CareerPageActive::-webkit-scrollbar {
-  display: none;
 }
 
 body.CareerPageActive .Header {
@@ -25,12 +19,6 @@ body.CareerPageActive .Header {
   min-height: calc(100vh - var(--career-header-height));
   border: 0;
   display: block;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.CareerPage .CareerPage-iframe::-webkit-scrollbar {
-  display: none;
 }
 
 .CareerPage .CareerPage-overlay {

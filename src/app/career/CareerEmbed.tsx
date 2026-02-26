@@ -6,7 +6,7 @@ const CAREER_URL = "https://bmsmile.career.greetinghr.com/ko/apply?embed=1"
 const CAREER_ORIGIN = "https://bmsmile.career.greetinghr.com"
 const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
 const CAREER_MIN_HEIGHT = 640
-const CAREER_MAX_HEIGHT = 12000
+const CAREER_MAX_HEIGHT = 20000
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
@@ -77,6 +77,7 @@ export default function CareerEmbed() {
           setLoaded(true)
           setIframeHeight(null)
         }}
+        scrolling="no"
         loading="lazy"
       />
 
