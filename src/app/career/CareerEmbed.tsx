@@ -81,10 +81,6 @@ export default function CareerEmbed() {
     }
     document.addEventListener("visibilitychange", handleVisibilityChange)
 
-    const heartbeatTimer = window.setInterval(() => {
-      requestEmbedHeight()
-    }, 500)
-
     const resetCareerIframe = () => {
       setLoaded(false)
       if (modalSignalTimerRef.current != null) {
@@ -162,7 +158,6 @@ export default function CareerEmbed() {
         window.clearTimeout(modalSignalTimerRef.current)
       }
       resizeObserver.disconnect()
-      window.clearInterval(heartbeatTimer)
       window.removeEventListener("resize", handleWindowResize)
       window.removeEventListener("focus", handleWindowFocus)
       window.removeEventListener("pageshow", handlePageShow)
