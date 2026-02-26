@@ -5,8 +5,7 @@ import { useEffect, useState } from "react"
 const CAREER_URL = "https://bmsmile.career.greetinghr.com/ko/apply?embed=1"
 const CAREER_ORIGIN = "https://bmsmile.career.greetinghr.com"
 const EMBED_HEIGHT_MESSAGE_TYPE = "BM_GREETING_EMBED_HEIGHT"
-const CAREER_MIN_HEIGHT = 640
-const CAREER_MAX_HEIGHT = 20000
+const CAREER_MIN_HEIGHT = 200
 
 export default function CareerEmbed() {
   const [loaded, setLoaded] = useState(false)
@@ -49,8 +48,9 @@ export default function CareerEmbed() {
       const data = event.data as { type?: unknown; height?: unknown }
       if (data.type !== EMBED_HEIGHT_MESSAGE_TYPE) return
       if (typeof data.height !== "number" || Number.isFinite(data.height) === false) return
+      if (data.height < CAREER_MIN_HEIGHT) return
 
-      const nextHeight = Math.min(Math.max(Math.ceil(data.height), CAREER_MIN_HEIGHT), CAREER_MAX_HEIGHT)
+      const nextHeight = Math.ceil(data.height)
       setIframeHeight((prev) => (prev === nextHeight ? prev : nextHeight))
     }
     window.addEventListener("message", handleCareerMessage)
