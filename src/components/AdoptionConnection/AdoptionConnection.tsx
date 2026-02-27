@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState, useCallback } from 'react'
+import { useRef, useEffect, useState } from 'react'
 import { prefixPath } from '@/utils/path'
 import './AdoptionConnection.css'
 
@@ -27,30 +27,30 @@ export default function AdoptionConnection() {
     const startX = useRef(0)
     const [isHovered, setIsHovered] = useState(false)
 
-    const animate = useCallback(() => {
-        if (!isDragging.current && !isHovered) {
-            // Speed: ~1 pixel per frame at 60fps
-            xRef.current -= 1.2
-
-            if (trackRef.current) {
-                const groupWidth = trackRef.current.scrollWidth / 2
-
-                // Wrap logic for seamless loop
-                if (Math.abs(xRef.current) >= groupWidth) {
-                    xRef.current = 0
-                }
-                trackRef.current.style.transform = `translate3d(${xRef.current}px, 0, 0)`
-            }
-        }
-        requestRef.current = requestAnimationFrame(animate)
-    }, [isHovered])
-
     useEffect(() => {
+        const animate = () => {
+            if (!isDragging.current && !isHovered) {
+                // Speed: ~1 pixel per frame at 60fps
+                xRef.current -= 1.2
+
+                if (trackRef.current) {
+                    const groupWidth = trackRef.current.scrollWidth / 2
+
+                    // Wrap logic for seamless loop
+                    if (Math.abs(xRef.current) >= groupWidth) {
+                        xRef.current = 0
+                    }
+                    trackRef.current.style.transform = `translate3d(${xRef.current}px, 0, 0)`
+                }
+            }
+            requestRef.current = requestAnimationFrame(animate)
+        }
+
         requestRef.current = requestAnimationFrame(animate)
         return () => {
             if (requestRef.current) cancelAnimationFrame(requestRef.current)
         }
-    }, [animate])
+    }, [isHovered])
 
     // Mouse Events
     const handleMouseDown = (e: React.MouseEvent) => {

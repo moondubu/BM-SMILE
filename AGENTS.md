@@ -9,3 +9,8 @@
 - Use only variables defined in `src/app/globals.css`.
 - When Figma values do not match existing spacing tokens, use the nearest spacing token.
 - Do not implement responsive styles until PC design implementation is finished.
+
+## Responsive Breakpoint Rules
+- For layouts with `max-width: 1280px`, tablet horizontal padding is `48px` from viewport width `1376px` and below.
+- Mobile horizontal padding is `16px` at viewport width `768px` and below.
+- Apply this tablet/mobile padding rule to footer and all other responsive sections unless a separate spec is explicitly provided.
