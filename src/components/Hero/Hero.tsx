@@ -6,6 +6,7 @@ type HeroProps = {
   videoPoster?: string
   videoSrcHvc?: string
   videoSrcH264?: string
+  mobileVideoPoster?: string
   mobileVideoSrcHvc?: string
   mobileVideoSrcH264?: string
   imageSrc?: string
@@ -22,6 +23,7 @@ export default function Hero({
   videoPoster,
   videoSrcHvc,
   videoSrcH264,
+  mobileVideoPoster,
   mobileVideoSrcHvc,
   mobileVideoSrcH264,
   imageSrc,
@@ -35,6 +37,7 @@ export default function Hero({
   const prefixedPoster = videoPoster ? prefixPath(videoPoster) : undefined
   const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
   const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
+  const prefixedMobilePoster = mobileVideoPoster ? prefixPath(mobileVideoPoster) : undefined
   const prefixedMobileHvc = mobileVideoSrcHvc ? prefixPath(mobileVideoSrcHvc) : undefined
   const prefixedMobileH264 = mobileVideoSrcH264 ? prefixPath(mobileVideoSrcH264) : undefined
   const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
@@ -53,10 +56,22 @@ export default function Hero({
             playsInline
             poster={prefixedPoster}
             preload="none"
-            className="Hero-media"
+            className="Hero-media Hero-media--desktop"
           >
-            {prefixedMobileHvc ? <source media="(max-width: 768px)" src={prefixedMobileHvc} type="video/mp4; codecs=hvc1" /> : null}
-            {prefixedMobileH264 ? <source media="(max-width: 768px)" src={prefixedMobileH264} type="video/mp4" /> : null}
+            <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />
+            <source src={prefixedH264} type="video/mp4" />
+          </video>
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            poster={prefixedMobilePoster ?? prefixedPoster}
+            preload="none"
+            className="Hero-media Hero-media--mobile"
+          >
+            {prefixedMobileHvc ? <source src={prefixedMobileHvc} type="video/mp4; codecs=hvc1" /> : null}
+            {prefixedMobileH264 ? <source src={prefixedMobileH264} type="video/mp4" /> : null}
             <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />
             <source src={prefixedH264} type="video/mp4" />
           </video>

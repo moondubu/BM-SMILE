@@ -4,8 +4,9 @@ export const MAIN_HERO_VIDEO = {
   poster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_thumbnail_1771996429202.jpg",
   hvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_hevc_1771996429202.mp4",
   h264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_h264_1771996429202.mp4",
-  mobileHvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_hevc_1771996429202.mp4",
-  mobileH264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_h264_1771996429202.mp4",
+  mobilePoster: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_mo_thumbnail_1772692185628.jpg",
+  mobileHvc: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_mo_hevc_1772692185628.mp4",
+  mobileH264: "https://d2dusau7i4u1ud.cloudfront.net/products/714/vedeo_main_hero_mo_h264_1772692185628.mp4",
 } as const
 
 export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [

@@ -21,10 +21,12 @@ export default function Home() {
   return (
     <>
       <Hero
+        className="MainHero"
         type="video"
         videoPoster={MAIN_HERO_VIDEO.poster}
         videoSrcHvc={MAIN_HERO_VIDEO.hvc}
         videoSrcH264={MAIN_HERO_VIDEO.h264}
+        mobileVideoPoster={MAIN_HERO_VIDEO.mobilePoster}
         mobileVideoSrcHvc={MAIN_HERO_VIDEO.mobileHvc}
         mobileVideoSrcH264={MAIN_HERO_VIDEO.mobileH264}
       />

@@ -58,6 +58,11 @@
 }
 
 @media (max-width: 768px) {
+  .MainHero.Hero {
+    height: 720px;
+    aspect-ratio: auto;
+  }
+
   .SectionNumber {
     font-size: var(--font-size-190);
   }
