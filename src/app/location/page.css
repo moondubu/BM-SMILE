@@ -138,6 +138,11 @@
     padding: 124px 0 var(--spacing-120);
 
     .LocationPage-inner {
+      padding-left: var(--spacing-0);
+      padding-right: var(--spacing-0);
+    }
+
+    .LocationPage-title {
       padding-left: var(--spacing-16);
       padding-right: var(--spacing-16);
     }
@@ -150,8 +155,11 @@
 
     .LocationPage-mapCard,
     .LocationPage-infoCard {
+      width: calc(100% - 32px);
       max-width: 100%;
       border-radius: var(--spacing-32);
+      margin-left: var(--spacing-16);
+      margin-right: var(--spacing-16);
     }
 
     .LocationPage-infoCard {
@@ -189,7 +197,7 @@
     }
 
     .LocationPage-tab {
-      padding: var(--spacing-12);
+      padding: var(--spacing-8) var(--spacing-12);
       font-family: var(--font-nanumSquareNeo);
       font-size: var(--font-size-16);
       font-weight: 600;
@@ -205,6 +213,8 @@
     .LocationPage-tabs--mobile {
       display: flex;
       width: 100%;
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
       overflow-x: auto;
       scrollbar-width: none;
     }
