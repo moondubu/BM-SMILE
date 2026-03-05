@@ -135,15 +135,14 @@
 
   .PethroomFriendsAiVet-mainCareer ul {
     margin: 0;
-    padding: 0;
-    list-style: none;
+    padding-left: var(--spacing-20);
+    list-style-type: disc;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-4);
   }
 
   .PethroomFriendsAiVet-mainCareer li {
-    font-family: var(--font-sans);
     font-size: var(--font-size-14);
     font-weight: 500;
     line-height: 1.7;
@@ -190,5 +189,13 @@
     font-weight: 500;
     line-height: 1.6;
     color: var(--color-grey-900);
+  }
+}
+
+@media (max-width: 1376px) {
+  .PethroomFriendsAiVet .PethroomFriendsAiVet-sideModels {
+    width: auto;
+    flex: 1 1 0;
+    min-width: 0;
   }
 }

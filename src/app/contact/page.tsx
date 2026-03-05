@@ -27,7 +27,7 @@ export default function ContactPage() {
         <div className="ContactPage-content">
           <article className="ContactPage-visualCard">
             <img
-              src={prefixPath("/images/subsidiary/img_subsidiaries_keypoint_01.png")}
+              src={prefixPath("/images/contact/img_contact_01.png")}
               alt=""
               className="ContactPage-visualImage"
               loading="lazy"

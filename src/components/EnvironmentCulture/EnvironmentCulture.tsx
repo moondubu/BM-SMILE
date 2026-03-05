@@ -39,8 +39,15 @@ export default function EnvironmentCulture() {
             함께 축하하는 문화
           </h2>
           <div className="EnvironmentCulture-description">
-            <p>매달 열리는 타운홀과 MVP 시상식, 유쾌한 사내 이벤트부터 화려한 송년회까지.</p>
-            <p>비엠스마일은 성취를 함께 축하하고 즐겁게 몰입하는 우리만의 에너지를 나눕니다.</p>
+            <p>
+              매달 열리는 타운홀과 MVP 시상식,
+              <br className="EnvironmentCulture-descriptionBreakMobile" />
+              유쾌한 사내 이벤트부터 화려한 송년회까지.
+              <br />
+              비엠스마일은 성취를 함께 축하하고 즐겁게 몰입하는
+              <br className="EnvironmentCulture-descriptionBreakMobile" />
+              우리만의 에너지를 나눕니다.
+            </p>
           </div>
         </header>
 

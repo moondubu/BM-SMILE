@@ -1,3 +1,4 @@
+import type { ReactNode } from "react"
 import "./RoadmapSection.css"
 
 type RoadmapItem = {
@@ -10,7 +11,7 @@ type RoadmapSectionProps = {
   className?: string
   label: string
   title: string
-  description?: string
+  description?: ReactNode
   items: readonly RoadmapItem[]
 }
 

@@ -10,9 +10,13 @@ export function PeopleCultureSection() {
           <p className="PeopleSection-label">Culture</p>
           <h2 className="PeopleSection-title">빠르게 성장하는 문화</h2>
           <p className="PeopleSection-description">
-            우리는 직급이나 연차보다 역할, 책임, 그리고 실행력을 기준으로 사람을 평가합니다.
+            우리는 직급이나 연차보다 역할, 책임,
+            <br className="PeopleCulture-descriptionBreakMobileOnly" />
+            그리고 실행력을 기준으로 사람을 평가합니다.
             <br />
-            개인의 성장이 곧 조직의 성장이라고 믿기 때문에, 빠르게 성장할 수 있는 환경을 의도적으로 설계했습니다.
+            개인의 성장이 곧 조직의 성장이라고 믿기 때문에,
+            <br className="PeopleCulture-descriptionBreakMobileOnly" />
+            빠르게 성장할 수 있는 환경을 의도적으로 설계했습니다.
           </p>
         </header>
 
@@ -86,18 +90,22 @@ export function PeopleSupportSection() {
         <div className="PeopleSupport-rows">
           <div className="PeopleSupport-row PeopleSupport-row--3">
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">교육 및 도서지원</p>
-              <h3 className="PeopleSupport-cardTitle">개인의 성장은 곧 모두의 성장</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">교육 및 도서지원</p>
+                <h3 className="PeopleSupport-cardTitle">개인의 성장은 곧 모두의 성장</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">임직원 업무관련 교육/수강 비용 지원</li>
                 <li className="PeopleSupport-item">업무 관련 도서구매 지원</li>
               </ul>
             </article>
 
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">근무시간 편의 지원</p>
-              <h3 className="PeopleSupport-cardTitle">신뢰에 기반한 자유로운 근무</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">근무시간 편의 지원</p>
+                <h3 className="PeopleSupport-cardTitle">신뢰에 기반한 자유로운 근무</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">자유로운 연차/반차/반반차 제도 운영</li>
                 <li className="PeopleSupport-item">여유로운 점심시간 (70분)</li>
                 <li className="PeopleSupport-item">자유로운 휴식</li>
@@ -105,9 +113,11 @@ export function PeopleSupportSection() {
             </article>
 
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">임직원 할인</p>
-              <h3 className="PeopleSupport-cardTitle">함께하는 이들에게 아낌없이</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">임직원 할인</p>
+                <h3 className="PeopleSupport-cardTitle">함께하는 이들에게 아낌없이</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">자사몰 임직원 할인 혜택 제공 (50~60%)</li>
                 <li className="PeopleSupport-item">피부과 제휴혜택 제공</li>
               </ul>
@@ -116,9 +126,11 @@ export function PeopleSupportSection() {
 
           <div className="PeopleSupport-row PeopleSupport-row--2">
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">근무환경 지원</p>
-              <h3 className="PeopleSupport-cardTitle">최상의 환경에서 최고를 목표로</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">근무환경 지원</p>
+                <h3 className="PeopleSupport-cardTitle">최상의 환경에서 최고를 목표로</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">업무에 필요한 사무기기 지원</li>
                 <li className="PeopleSupport-item">사무용품 및 필요 물품 지원</li>
                 <li className="PeopleSupport-item">듀얼 모니터 지원</li>
@@ -127,9 +139,11 @@ export function PeopleSupportSection() {
             </article>
 
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">경조사 지원</p>
-              <h3 className="PeopleSupport-cardTitle">기쁨도, 슬픔도 함께</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">경조사 지원</p>
+                <h3 className="PeopleSupport-cardTitle">기쁨도, 슬픔도 함께</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">경조휴무, 경조금, 경조화환 지원</li>
                 <li className="PeopleSupport-item">반려동물 경조사 지원</li>
                 <li className="PeopleSupport-item">생일 반차 지원</li>
@@ -139,9 +153,11 @@ export function PeopleSupportSection() {
 
           <div className="PeopleSupport-row PeopleSupport-row--3">
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">기념일 선물 및 포상</p>
-              <h3 className="PeopleSupport-cardTitle">열정과 성과에 보답하는</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">기념일 선물 및 포상</p>
+                <h3 className="PeopleSupport-cardTitle">열정과 성과에 보답하는</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">설/추석 명절 선물 &amp; 입사 웰컴 키트 지급</li>
                 <li className="PeopleSupport-item">창립기념일 휴일</li>
                 <li className="PeopleSupport-item">우수사원 포상</li>
@@ -150,18 +166,22 @@ export function PeopleSupportSection() {
             </article>
 
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">종합검진 지원</p>
-              <h3 className="PeopleSupport-cardTitle">건강은 항상 최우선으로</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">종합검진 지원</p>
+                <h3 className="PeopleSupport-cardTitle">건강은 항상 최우선으로</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">임직원 종합검진 비용 지원 (2년에 1번)</li>
                 <li className="PeopleSupport-item">검진당일 유급 반차 지원</li>
               </ul>
             </article>
 
             <article className="PeopleSupport-card">
-              <p className="PeopleSupport-cardHeading">조직활성화비 및 야근식대 지원</p>
-              <h3 className="PeopleSupport-cardTitle">공동체의 활력을 위해서</h3>
-              <ul className="PeopleSupport-list">
+              <div className="PeopleSupport-cardHead">
+                <p className="PeopleSupport-cardHeading">조직활성화비 및 야근식대 지원</p>
+                <h3 className="PeopleSupport-cardTitle">공동체의 활력을 위해서</h3>
+              </div>
+              <ul className="PeopleSupport-cardContents">
                 <li className="PeopleSupport-item">매월 부서별 조직활성화비 제공</li>
                 <li className="PeopleSupport-item">야근 식대 지원</li>
               </ul>
@@ -196,7 +216,11 @@ export function PeopleRecruitSection() {
           <div className="PeopleRecruit-stepWrap">
             <ol className="PeopleRecruit-steps">
               <li className="PeopleRecruit-step">
-                <span className="PeopleRecruit-stepBadge">서류전형</span>
+                <span className="PeopleRecruit-stepBadge">
+                  서류
+                  <br className="PeopleRecruit-stepBreakTablet" />
+                  전형
+                </span>
                 <span className="PeopleRecruit-arrow" aria-hidden />
               </li>
               <li className="PeopleRecruit-step">
@@ -204,11 +228,19 @@ export function PeopleRecruitSection() {
                 <span className="PeopleRecruit-arrow" aria-hidden />
               </li>
               <li className="PeopleRecruit-step">
-                <span className="PeopleRecruit-stepBadge">처우 협의</span>
+                <span className="PeopleRecruit-stepBadge">
+                  처우
+                  <br className="PeopleRecruit-stepBreakTablet" />
+                  협의
+                </span>
                 <span className="PeopleRecruit-arrow" aria-hidden />
               </li>
               <li className="PeopleRecruit-step">
-                <span className="PeopleRecruit-stepBadge">최종 합격</span>
+                <span className="PeopleRecruit-stepBadge">
+                  최종
+                  <br className="PeopleRecruit-stepBreakTablet" />
+                  합격
+                </span>
                 <span className="PeopleRecruit-arrow" aria-hidden />
               </li>
               <li className="PeopleRecruit-step">

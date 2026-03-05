@@ -45,7 +45,8 @@
   }
 
   .StrategySectionHeader-pillarCard {
-    flex: 0 0 auto;
+    flex: 1 1 0;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-16);
@@ -67,5 +68,57 @@
     line-height: 1.6;
     margin: 0;
     white-space: pre-line;
+  }
+}
+
+@media (max-width: 1376px) {
+  .StrategySectionHeader {
+    .StrategySectionHeader-title {
+      font-size: var(--font-size-64);
+    }
+
+    .StrategySectionHeader-pillarGrid {
+      gap: var(--spacing-32);
+    }
+
+    .StrategySectionHeader-pillarDescription {
+      white-space: normal;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .StrategySectionHeader {
+    gap: var(--spacing-96);
+
+    .StrategySectionHeader-header {
+      gap: var(--spacing-24);
+    }
+
+    .StrategySectionHeader-title {
+      font-size: 32px;
+    }
+
+    .StrategySectionHeader-description {
+      text-align: center;
+    }
+
+    .StrategySectionHeader-pillarGrid {
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-24);
+      width: 100%;
+    }
+
+    .StrategySectionHeader-pillarCard {
+      width: 100%;
+      max-width: 300px;
+      align-items: center;
+      text-align: center;
+    }
+
+    .StrategySectionHeader-pillarDescription {
+      white-space: pre-line;
+    }
   }
 }

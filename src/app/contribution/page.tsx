@@ -20,9 +20,16 @@ export default function ContributionPage() {
             <Hero
                 type="image"
                 imageSrc={CONTRIBUTION_HERO.imageSrc}
+                mobileImageSrc="/images/contribution/img_hero_contribution_mo.png"
                 tone="light"
                 title={CONTRIBUTION_HERO.title}
-                subtext={CONTRIBUTION_HERO.subtext}
+                subtext={
+                    <>
+                        비엠스마일은 구조동물들의
+                        <br className="ContributionHero-subtextBreakMobileOnly" />
+                        삶이 바뀌는 구조를 만들어왔습니다.
+                    </>
+                }
             />
 
             <ContributionWay />

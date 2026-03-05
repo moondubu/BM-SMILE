@@ -1,6 +1,6 @@
 .SectionCardGrid {
   background: var(--color-white);
-  padding: var(--spacing-128) 0 0;
+  padding: var(--spacing-120) 0 0;
 }
 
 .SectionCardGrid .SectionCardGrid-inner {
@@ -101,7 +101,7 @@
 }
 
 .SectionCardGrid .SectionCardGrid-card--overlay {
-  border-radius: var(--spacing-32);
+  border-radius: 32px;
   overflow: hidden;
   aspect-ratio: 1 / 1;
   display: flex;
@@ -133,4 +133,21 @@
 
 .SectionCardGrid .SectionCardGrid-card--plain .SectionCardGrid-cardText {
   align-items: center;
+}
+
+@media (max-width: 1376px) {
+  .SectionCardGrid .SectionCardGrid-inner {
+    max-width: 100%;
+    padding: 0 var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .SectionCardGrid {
+    padding-top: var(--spacing-0);
+  }
+
+  .SectionCardGrid .SectionCardGrid-inner {
+    padding: 0 var(--spacing-16);
+  }
 }

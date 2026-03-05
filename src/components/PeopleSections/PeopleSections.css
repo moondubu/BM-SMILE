@@ -53,6 +53,10 @@
   color: var(--color-white);
 }
 
+.PeopleCulture-descriptionBreakMobileOnly {
+  display: none;
+}
+
 .PeopleCulture-grid {
   margin-top: var(--spacing-96);
   display: grid;
@@ -99,7 +103,7 @@
 }
 
 .PeopleSupport {
-  background: var(--color-grey-100);
+  background: var(--color-white);
   padding: var(--spacing-96) 0;
 }
 
@@ -125,9 +129,15 @@
 
 .PeopleSupport-card {
   border-radius: var(--spacing-16);
-  background: var(--color-grey-200);
+  background: var(--color-grey-100);
   min-height: 227px;
   padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.PeopleSupport-cardHead {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-8);
@@ -149,10 +159,12 @@
   color: var(--color-grey-900);
 }
 
-.PeopleSupport-list {
+.PeopleSupport-cardContents {
+  margin: 0;
+  list-style-type: disc;
+  padding-left: var(--spacing-24);
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-4);
 }
 
 .PeopleSupport-item {
@@ -161,19 +173,6 @@
   font-weight: 500;
   line-height: 1.6;
   color: var(--color-grey-400);
-  padding-left: var(--spacing-16);
-  position: relative;
-}
-
-.PeopleSupport-item::before {
-  content: "";
-  width: var(--spacing-4);
-  height: var(--spacing-4);
-  border-radius: 50%;
-  background: var(--color-grey-400);
-  position: absolute;
-  left: var(--spacing-4);
-  top: var(--spacing-12);
 }
 
 .PeopleRecruit {
@@ -250,11 +249,16 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-family: var(--font-nanumSquareNeo);
   font-size: var(--font-size-24);
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-white);
+}
+
+.PeopleRecruit-stepBreakTablet {
+  display: none;
 }
 
 .PeopleRecruit-step:nth-child(1) .PeopleRecruit-stepBadge {
@@ -369,4 +373,225 @@
   font-size: var(--font-size-16);
   font-weight: 600;
   line-height: 1.5;
+}
+
+@media (max-width: 1376px) {
+  .PeopleSection-inner {
+    max-width: 100%;
+    padding-left: var(--spacing-48);
+    padding-right: var(--spacing-48);
+  }
+
+  .PeopleRecruit-step {
+    gap: var(--spacing-12);
+  }
+
+  .PeopleRecruit-stepBreakTablet {
+    display: block;
+  }
+
+  .PeopleRecruit-steps {
+    justify-content: flex-start;
+    gap: var(--spacing-12);
+  }
+
+  .PeopleRecruit-stepWrap {
+    max-width: 674px;
+  }
+
+  .PeopleRecruit-stepBadge {
+    width: 108px;
+    height: 108px;
+    font-size: var(--font-size-20);
+  }
+
+  .PeopleRecruit-arrow {
+    width: var(--spacing-8);
+    height: var(--spacing-12);
+  }
+
+  .PeopleRecruit-location {
+    border-radius: var(--spacing-32);
+    padding-right: var(--spacing-32);
+    gap: var(--spacing-32);
+  }
+
+  .PeopleRecruit-locationImage {
+    width: 300px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .PeopleRecruit-location {
+    flex-wrap: wrap;
+  }
+
+  .PeopleRecruit-locationImage,
+  .PeopleRecruit-locationText {
+    flex: 1 1 0;
+    min-width: 0;
+  }
+
+  .PeopleRecruit-locationImage {
+    width: auto;
+  }
+
+  .PeopleRecruit-locationCta {
+    flex-basis: 100%;
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .PeopleCulture {
+    padding: var(--spacing-96) 0;
+  }
+
+  .PeopleCulture .PeopleSection-inner {
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+  }
+
+  .PeopleCulture-grid {
+    margin-top: var(--spacing-96);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-64);
+  }
+
+  .PeopleCulture-card {
+    width: 100%;
+    gap: var(--spacing-32);
+  }
+
+  .PeopleCulture-textBox {
+    width: 100%;
+  }
+
+  .PeopleCulture-descriptionBreakMobileOnly {
+    display: block;
+  }
+
+  .PeopleSupport {
+    padding: var(--spacing-120) 0;
+  }
+
+  .PeopleSupport .PeopleSection-inner {
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+  }
+
+  .PeopleSupport-rows {
+    margin-top: var(--spacing-32);
+    gap: var(--spacing-8);
+  }
+
+  .PeopleSupport-row,
+  .PeopleSupport-row--2,
+  .PeopleSupport-row--3 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-8) var(--spacing-16);
+  }
+
+  .PeopleSupport-card {
+    width: 100%;
+    min-height: auto;
+  }
+
+  .PeopleSupport-item {
+    font-size: var(--font-size-14);
+  }
+
+  .PeopleRecruit {
+    min-height: auto;
+    padding: var(--spacing-96) 0;
+  }
+
+  .PeopleRecruit-inner {
+    min-height: auto;
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+  }
+
+  .PeopleRecruit-content {
+    margin-top: var(--spacing-48);
+    gap: var(--spacing-48);
+  }
+
+  .PeopleRecruit-stepWrap {
+    max-width: none;
+    gap: var(--spacing-32);
+  }
+
+  .PeopleRecruit-steps {
+    justify-content: space-between;
+    gap: var(--spacing-0);
+  }
+
+  .PeopleRecruit-step {
+    margin-left: min(0px, calc((100% - (80px * 5)) / 4));
+    gap: var(--spacing-0);
+  }
+
+  .PeopleRecruit-step:first-child {
+    margin-left: var(--spacing-0);
+  }
+
+  .PeopleRecruit-stepBadge {
+    width: 80px;
+    height: 80px;
+    padding: var(--spacing-12);
+    font-size: var(--font-size-16);
+    flex-shrink: 0;
+  }
+
+  .PeopleRecruit-arrow {
+    display: none;
+  }
+
+  .PeopleRecruit-noteList {
+    width: 100%;
+    padding-left: var(--spacing-24);
+  }
+
+  .PeopleRecruit-note {
+    font-size: var(--font-size-16);
+  }
+
+  .PeopleRecruit-location {
+    min-height: auto;
+    border-radius: var(--spacing-32);
+    padding: var(--spacing-20) var(--spacing-20) var(--spacing-32);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-24);
+  }
+
+  .PeopleRecruit-locationImage {
+    flex: none;
+    width: 100%;
+    height: 180px;
+    border-radius: var(--spacing-24);
+    overflow: hidden;
+  }
+
+  .PeopleRecruit-locationImageImg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .PeopleRecruit-locationText {
+    flex: none;
+    width: 100%;
+  }
+
+  .PeopleRecruit-locationCta {
+    flex-basis: auto;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: var(--spacing-8);
+    align-self: center;
+  }
 }

@@ -8,7 +8,6 @@ import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import { ENVIRONMENT_SLIDE_ITEMS } from "@/data/mainSections"
 import {
   ENVIRONMENT_HERO_VIDEO,
-  ENVIRONMENT_IMPACT_TEXT_LINES,
   ENVIRONMENT_OFFICE_PANEL,
   ENVIRONMENT_WORK_LIFE_ITEMS,
 } from "@/data/environmentSections"
@@ -45,7 +44,7 @@ export default function EnvironmentPage() {
       />
 
       <MediaSlide id="environment-office">
-        <SlideRow textPanel={ENV_OFFICE_TEXT_PANEL} items={ENVIRONMENT_SLIDE_ITEMS} />
+        <SlideRow mobileSlidesPerView={1.2} textPanel={ENV_OFFICE_TEXT_PANEL} items={ENVIRONMENT_SLIDE_ITEMS} />
       </MediaSlide>
 
       <SectionCardGrid
@@ -80,7 +79,19 @@ export default function EnvironmentPage() {
             with Pets
           </>
         }
-        subTextLines={ENVIRONMENT_IMPACT_TEXT_LINES}
+        subText={
+          <p className="EnvironmentImpact-subTextSingle">
+            비엠스마일의 오피스는 유기동물이 새로운 가족을 기다리는 따뜻한 정거장이 됩니다.
+            <br />
+            우리는 사내 임시 보호 활동을 상시 운영하며, 아이들이 차가운 철창 대신 사람의 손길 속에서{" "}
+            <br className="EnvironmentImpact-subTextBreakPcOnly" />
+            사회성을 기를 수 있도록 함께 돌봅니다.
+            <br className="EnvironmentImpact-subTextBreakMobileOnly" />
+            반려동물과 공존하는 특별한 일상은 비즈니스{" "}
+            <br className="EnvironmentImpact-subTextBreakPcOnly" />
+            그 이상의 가치를 실현하고자 하는 비엠스마일만의 진심 어린 행보입니다.
+          </p>
+        }
         headerAlign="left"
       />
 

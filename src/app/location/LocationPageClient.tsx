@@ -31,6 +31,25 @@ export default function LocationPageClient() {
         <h1 className="LocationPage-title">Location</h1>
 
         <div className="LocationPage-content">
+          <div className="LocationPage-tabs LocationPage-tabs--mobile" role="tablist" aria-label="Office location tabs">
+            {LOCATION_OFFICES.map((office) => {
+              const isActive = office.key === activeOffice.key
+
+              return (
+                <button
+                  key={`mobile-${office.key}`}
+                  type="button"
+                  role="tab"
+                  aria-selected={isActive}
+                  className={`LocationPage-tab ${isActive ? "LocationPage-tab--active" : ""}`}
+                  onClick={() => setActiveOfficeKey(office.key)}
+                >
+                  {office.tabLabel}
+                </button>
+              )
+            })}
+          </div>
+
           <article className="LocationPage-mapCard">
             <iframe
               key={activeOffice.key}
@@ -55,7 +74,7 @@ export default function LocationPageClient() {
 
             <p className="LocationPage-address">{activeOffice.address}</p>
 
-            <div className="LocationPage-tabs" role="tablist" aria-label="Office location tabs">
+            <div className="LocationPage-tabs LocationPage-tabs--desktop" role="tablist" aria-label="Office location tabs">
               {LOCATION_OFFICES.map((office) => {
                 const isActive = office.key === activeOffice.key
 

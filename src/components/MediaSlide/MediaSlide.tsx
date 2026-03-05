@@ -7,6 +7,7 @@ type MediaSlideProps = {
   videoSrcHvc?: string
   videoSrcH264?: string
   imageSrc?: string
+  mobileImageSrc?: string
   imageAlt?: string
   number?: string
   title?: React.ReactNode
@@ -22,6 +23,7 @@ export default function MediaSlide({
   videoSrcHvc,
   videoSrcH264,
   imageSrc,
+  mobileImageSrc,
   imageAlt,
   number,
   title,
@@ -46,6 +48,7 @@ export default function MediaSlide({
             videoSrcHvc={videoSrcHvc}
             videoSrcH264={videoSrcH264}
             imageSrc={imageSrc}
+            mobileImageSrc={mobileImageSrc}
             imageAlt={imageAlt}
             number={overlay ? undefined : number}
             title={overlay ? undefined : title}

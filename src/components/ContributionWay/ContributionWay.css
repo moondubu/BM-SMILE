@@ -7,3 +7,45 @@
     height: auto;
   }
 }
+
+@media (max-width: 1376px) {
+  .ContributionWay {
+    .SplitIntroSection-inner {
+      max-width: 100%;
+      padding: 0 var(--spacing-48);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ContributionWay {
+    padding-top: var(--spacing-120);
+    padding-bottom: var(--spacing-120);
+
+    .SplitIntroSection-inner {
+      padding: 0 var(--spacing-16);
+      gap: var(--spacing-32);
+    }
+
+    .SplitIntroSection-header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--spacing-16);
+    }
+
+    .SplitIntroSection-description br {
+      display: none;
+    }
+
+    .SplitIntroSection-imageWrap {
+      border-radius: 16px;
+      aspect-ratio: auto;
+      height: auto;
+    }
+
+    .SplitIntroSection-image {
+      height: auto;
+      object-fit: contain;
+    }
+  }
+}

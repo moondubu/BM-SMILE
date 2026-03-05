@@ -89,6 +89,10 @@
     gap: var(--spacing-4);
   }
 
+  .LocationPage-tabs--mobile {
+    display: none;
+  }
+
   .LocationPage-tab {
     border: 0;
     border-radius: 999px;
@@ -116,5 +120,107 @@
   .LocationPage-tab--active:hover {
     background: var(--color-primary-blue);
     color: var(--color-white);
+  }
+}
+
+@media (max-width: 1376px) {
+  .LocationPage {
+    .LocationPage-inner {
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .LocationPage {
+    background: var(--color-white);
+    padding: 124px 0 var(--spacing-120);
+
+    .LocationPage-inner {
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
+    }
+
+    .LocationPage-content {
+      margin-top: var(--spacing-16);
+      flex-direction: column;
+      gap: var(--spacing-8);
+    }
+
+    .LocationPage-mapCard,
+    .LocationPage-infoCard {
+      max-width: 100%;
+      border-radius: var(--spacing-32);
+    }
+
+    .LocationPage-infoCard {
+      aspect-ratio: auto;
+      height: fit-content;
+    }
+
+    .LocationPage-mapCard {
+      aspect-ratio: 1 / 1;
+      background: var(--color-grey-200);
+    }
+
+    .LocationPage-infoCard {
+      padding: var(--spacing-40);
+      gap: var(--spacing-16);
+    }
+
+    .LocationPage-officeTitle {
+      line-height: 1.5;
+    }
+
+    .LocationPage-description {
+      margin-top: 0;
+    }
+
+    .LocationPage-address {
+      margin-top: 0;
+      font-size: var(--font-size-14);
+      line-height: 1.7;
+    }
+
+    .LocationPage-tabs {
+      margin-top: 0;
+      gap: var(--spacing-8);
+    }
+
+    .LocationPage-tab {
+      padding: var(--spacing-12);
+      font-family: var(--font-nanumSquareNeo);
+      font-size: var(--font-size-16);
+      font-weight: 600;
+      line-height: 1.5;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .LocationPage-tabs--desktop {
+      display: none;
+    }
+
+    .LocationPage-tabs--mobile {
+      display: flex;
+      width: 100%;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+
+    .LocationPage-tabs--mobile::-webkit-scrollbar {
+      display: none;
+    }
+
+    .LocationPage-tab:hover {
+      background: var(--color-grey-200);
+      color: var(--color-grey-400);
+    }
+
+    .LocationPage-tab--active:hover {
+      background: var(--color-primary-blue);
+      color: var(--color-white);
+    }
   }
 }

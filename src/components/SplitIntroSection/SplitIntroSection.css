@@ -73,11 +73,62 @@
     right: var(--spacing-32);
     bottom: var(--spacing-32);
     z-index: 1;
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
     padding: var(--spacing-16) var(--spacing-24);
     font-family: var(--font-nanumSquareNeo);
     font-size: var(--font-size-16);
     font-weight: 600;
     line-height: 1.5;
     text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
+  }
+
+  .SplitIntroSection-cta:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+    color: var(--color-white);
+  }
+}
+
+@media (max-width: 1376px) {
+  .SplitIntroSection .SplitIntroSection-inner {
+    max-width: 100%;
+    padding-left: var(--spacing-48);
+    padding-right: var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .SplitIntroSection {
+    padding-top: var(--spacing-120);
+  }
+
+  .SplitIntroSection .SplitIntroSection-inner {
+    padding-left: var(--spacing-16);
+    padding-right: var(--spacing-16);
+  }
+
+  .SplitIntroSection .SplitIntroSection-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-16);
+  }
+
+  .SplitIntroSection .SplitIntroSection-title {
+    white-space: normal;
+  }
+
+  .SplitIntroSection .SplitIntroSection-imageWrap {
+    height: 480px;
+  }
+
+  .SplitIntroSection .SplitIntroSection-cta {
+    right: var(--spacing-16);
+    bottom: var(--spacing-16);
+  }
+
+  .SplitIntroSection .SplitIntroSection-description {
+    white-space: normal;
   }
 }

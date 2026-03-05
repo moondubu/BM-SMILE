@@ -6,7 +6,10 @@ type HeroProps = {
   videoPoster?: string
   videoSrcHvc?: string
   videoSrcH264?: string
+  mobileVideoSrcHvc?: string
+  mobileVideoSrcH264?: string
   imageSrc?: string
+  mobileImageSrc?: string
   imageAlt?: string
   title?: React.ReactNode
   subtext?: React.ReactNode
@@ -19,7 +22,10 @@ export default function Hero({
   videoPoster,
   videoSrcHvc,
   videoSrcH264,
+  mobileVideoSrcHvc,
+  mobileVideoSrcH264,
   imageSrc,
+  mobileImageSrc,
   imageAlt = "",
   title,
   subtext,
@@ -29,7 +35,10 @@ export default function Hero({
   const prefixedPoster = videoPoster ? prefixPath(videoPoster) : undefined
   const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
   const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
+  const prefixedMobileHvc = mobileVideoSrcHvc ? prefixPath(mobileVideoSrcHvc) : undefined
+  const prefixedMobileH264 = mobileVideoSrcH264 ? prefixPath(mobileVideoSrcH264) : undefined
   const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
+  const prefixedMobileImage = mobileImageSrc ? prefixPath(mobileImageSrc) : undefined
   const rootClass = ["Hero", tone === "dark" ? "Hero--dark" : "Hero--light", className].filter(Boolean).join(" ")
 
   return (
@@ -46,12 +55,23 @@ export default function Hero({
             preload="none"
             className="Hero-media"
           >
+            {prefixedMobileHvc ? <source media="(max-width: 768px)" src={prefixedMobileHvc} type="video/mp4; codecs=hvc1" /> : null}
+            {prefixedMobileH264 ? <source media="(max-width: 768px)" src={prefixedMobileH264} type="video/mp4" /> : null}
             <source src={prefixedHvc} type="video/mp4; codecs=hvc1" />
             <source src={prefixedH264} type="video/mp4" />
           </video>
         </>
       ) : (
-        prefixedImage ? <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" /> : null
+        prefixedImage ? (
+          prefixedMobileImage ? (
+            <picture>
+              <source media="(max-width: 768px)" srcSet={prefixedMobileImage} />
+              <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" />
+            </picture>
+          ) : (
+            <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" />
+          )
+        ) : null
       )}
 
       {(title || subtext) ? (

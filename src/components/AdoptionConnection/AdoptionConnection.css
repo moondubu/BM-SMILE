@@ -106,16 +106,15 @@
 }
 
 /* Responsive */
-@media (max-width: 1280px) {
+@media (max-width: 1376px) {
     .AdoptionConnection {
-        padding: var(--spacing-20) 0 0;
-
-        .AdoptionConnection-title {
-            font-size: 36px;
+        .AdoptionConnection-imageItem {
+            width: 300px;
         }
 
-        .AdoptionConnection-imageItem {
-            width: 260px;
+        .AdoptionConnection-header {
+            padding-left: var(--spacing-48);
+            padding-right: var(--spacing-48);
         }
     }
 }
@@ -124,24 +123,29 @@
     .AdoptionConnection {
         padding: var(--spacing-16) 0 0;
 
-        .AdoptionConnection-title {
-            font-size: 28px;
+        .AdoptionConnection-header {
+            margin-bottom: var(--spacing-32);
+            padding-left: var(--spacing-16);
+            padding-right: var(--spacing-16);
         }
 
-        .AdoptionConnection-imageItem {
-            width: 180px;
-            border-radius: 20px;
+        .AdoptionConnection-title {
+            margin: 0;
         }
 
         .AdoptionConnection-petName {
-            bottom: 20px;
-            left: 20px;
-            font-size: 14px;
+            bottom: 16px;
+            left: 16px;
+            font-size: var(--font-size-14);
         }
 
         .AdoptionConnection-marqueeGroup {
-            gap: 12px;
-            padding-right: 12px;
+            gap: var(--spacing-12);
+            padding-right: var(--spacing-12);
+        }
+
+        .AdoptionConnection-subtext p {
+            margin: 0;
         }
     }
 }

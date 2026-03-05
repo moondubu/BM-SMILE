@@ -26,6 +26,9 @@ export default function PageNavigation({ id, className, prev, next }: PageNaviga
             {prev.label}
           </Link>
           <Link href={prev.chipHref} className="PageNavigation-chip">
+            <span className="PageNavigation-chipArrow" aria-hidden="true">
+              {"<"}
+            </span>
             {prev.chipLabel}
           </Link>
         </div>
@@ -33,6 +36,9 @@ export default function PageNavigation({ id, className, prev, next }: PageNaviga
         <div className="PageNavigation-group">
           <Link href={next.chipHref} className="PageNavigation-chip">
             {next.chipLabel}
+            <span className="PageNavigation-chipArrow" aria-hidden="true">
+              {">"}
+            </span>
           </Link>
           <Link href={next.href} className="PageNavigation-direction">
             {next.label}

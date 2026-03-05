@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { prefixPath } from '@/utils/path'
 import './ContributionConnectProject.css'
 
@@ -10,6 +10,8 @@ const CONNECT_VIDEO_H264 = 'https://d2dusau7i4u1ud.cloudfront.net/products/714/v
 
 const getConnectImage = (index: number) =>
     prefixPath(`/images/contribution/img_contribution_connect_${String(index).padStart(2, '0')}.png`)
+const getConnectMobileImage = (index: number) =>
+    prefixPath(`/images/contribution/img_contribution_connect_${String(index).padStart(2, '0')}_mo.png`)
 const getConnectThumbImage = (index: number) =>
     prefixPath(`/images/contribution/img_contribution_connect_${String(index).padStart(2, '0')}_thumb.png`)
 const getConnectTopImage = (index: number) =>
@@ -25,12 +27,33 @@ const PROJECT_ITEMS = [
 const JOURNEY_ITEMS = Array.from({ length: 12 }, (_, index) => ({
     alt: `따듯한 여정의 순간 ${index + 1}`,
     image: getConnectImage(index + 1),
+    mobileImage: index === 3 ? getConnectMobileImage(index + 1) : undefined,
     thumb: getConnectThumbImage(index + 1),
 }))
 
 export default function ContributionConnectProject() {
     const [activeJourneyIndex, setActiveJourneyIndex] = useState<number | null>(null)
+    const [zoomScale, setZoomScale] = useState(1)
+    const [zoomOffset, setZoomOffset] = useState({ x: 0, y: 0 })
     const isLightboxOpen = activeJourneyIndex !== null
+    const panelRef = useRef<HTMLDivElement | null>(null)
+    const pinchDistanceRef = useRef(0)
+    const pinchScaleRef = useRef(1)
+    const dragRef = useRef({ x: 0, y: 0 })
+    const draggingRef = useRef(false)
+    const tapRef = useRef(0)
+
+    const clampOffset = (nextX: number, nextY: number, scale: number) => {
+        const panel = panelRef.current
+        if (!panel || scale <= 1) return { x: 0, y: 0 }
+        const rect = panel.getBoundingClientRect()
+        const maxX = ((scale - 1) * rect.width) / 2
+        const maxY = ((scale - 1) * rect.height) / 2
+        return {
+            x: Math.max(-maxX, Math.min(maxX, nextX)),
+            y: Math.max(-maxY, Math.min(maxY, nextY)),
+        }
+    }
 
     useEffect(() => {
         if (!isLightboxOpen) return
@@ -42,6 +65,12 @@ export default function ContributionConnectProject() {
             document.body.style.overflow = previousOverflow
         }
     }, [isLightboxOpen])
+
+    useEffect(() => {
+        setZoomScale(1)
+        setZoomOffset({ x: 0, y: 0 })
+        draggingRef.current = false
+    }, [activeJourneyIndex])
 
     const closeLightbox = () => setActiveJourneyIndex(null)
 
@@ -55,6 +84,70 @@ export default function ContributionConnectProject() {
         if (activeJourneyIndex === null) return
         const nextIndex = (activeJourneyIndex + 1) % JOURNEY_ITEMS.length
         setActiveJourneyIndex(nextIndex)
+    }
+
+    const getDistance = (touches: TouchList) => {
+        const a = touches[0]
+        const b = touches[1]
+        const dx = a.clientX - b.clientX
+        const dy = a.clientY - b.clientY
+        return Math.hypot(dx, dy)
+    }
+
+    const handleLightboxTouchStart = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (event.touches.length === 2) {
+            pinchDistanceRef.current = getDistance(event.touches)
+            pinchScaleRef.current = zoomScale
+            draggingRef.current = false
+            return
+        }
+
+        if (event.touches.length === 1 && zoomScale > 1) {
+            const touch = event.touches[0]
+            dragRef.current = { x: touch.clientX - zoomOffset.x, y: touch.clientY - zoomOffset.y }
+            draggingRef.current = true
+        }
+    }
+
+    const handleLightboxTouchMove = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (event.touches.length === 2) {
+            const distance = getDistance(event.touches)
+            if (pinchDistanceRef.current <= 0) return
+            const nextScale = Math.max(1, Math.min(3, pinchScaleRef.current * (distance / pinchDistanceRef.current)))
+            setZoomScale(nextScale)
+            if (nextScale <= 1) {
+                setZoomOffset({ x: 0, y: 0 })
+            } else {
+                setZoomOffset((prev) => clampOffset(prev.x, prev.y, nextScale))
+            }
+            return
+        }
+
+        if (event.touches.length === 1 && draggingRef.current && zoomScale > 1) {
+            const touch = event.touches[0]
+            const rawX = touch.clientX - dragRef.current.x
+            const rawY = touch.clientY - dragRef.current.y
+            setZoomOffset(clampOffset(rawX, rawY, zoomScale))
+        }
+    }
+
+    const handleLightboxTouchEnd = (event: React.TouchEvent<HTMLDivElement>) => {
+        if (event.touches.length === 0) {
+            draggingRef.current = false
+        }
+
+        if (event.changedTouches.length !== 1 || event.touches.length > 0) return
+        const now = Date.now()
+        if (now - tapRef.current < 300) {
+            if (zoomScale > 1) {
+                setZoomScale(1)
+                setZoomOffset({ x: 0, y: 0 })
+            } else {
+                setZoomScale(2)
+                setZoomOffset({ x: 0, y: 0 })
+            }
+        }
+        tapRef.current = now
     }
 
     return (
@@ -129,12 +222,34 @@ export default function ContributionConnectProject() {
                 >
                     <div
                         className="ContributionConnectProject-lightboxPanel"
+                        ref={panelRef}
                         onClick={(event) => event.stopPropagation()}
+                        onTouchStart={handleLightboxTouchStart}
+                        onTouchMove={handleLightboxTouchMove}
+                        onTouchEnd={handleLightboxTouchEnd}
                     >
-                        <img
-                            src={JOURNEY_ITEMS[activeJourneyIndex].image}
-                            alt={JOURNEY_ITEMS[activeJourneyIndex].alt}
-                        />
+                        {JOURNEY_ITEMS[activeJourneyIndex].mobileImage ? (
+                            <picture>
+                                <source media="(max-width: 768px)" srcSet={JOURNEY_ITEMS[activeJourneyIndex].mobileImage} />
+                                <img
+                                    className="ContributionConnectProject-lightboxImage"
+                                    src={JOURNEY_ITEMS[activeJourneyIndex].image}
+                                    alt={JOURNEY_ITEMS[activeJourneyIndex].alt}
+                                    style={{
+                                        transform: `translate(${zoomOffset.x}px, ${zoomOffset.y}px) scale(${zoomScale})`,
+                                    }}
+                                />
+                            </picture>
+                        ) : (
+                            <img
+                                className="ContributionConnectProject-lightboxImage"
+                                src={JOURNEY_ITEMS[activeJourneyIndex].image}
+                                alt={JOURNEY_ITEMS[activeJourneyIndex].alt}
+                                style={{
+                                    transform: `translate(${zoomOffset.x}px, ${zoomOffset.y}px) scale(${zoomScale})`,
+                                }}
+                            />
+                        )}
 
                         <button
                             type="button"

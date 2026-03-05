@@ -17,6 +17,8 @@ type SubsidiarySlideSectionProps = {
 
 const SPACE_BETWEEN = 24
 const SLIDE_OFFSET = 48
+const SPACE_BETWEEN_MOBILE = 12
+const SLIDE_OFFSET_MOBILE = 16
 
 export default function SubsidiarySlideSection({
   className,
@@ -42,6 +44,18 @@ export default function SubsidiarySlideSection({
           spaceBetween={SPACE_BETWEEN}
           slidesOffsetBefore={SLIDE_OFFSET}
           slidesOffsetAfter={SLIDE_OFFSET}
+          breakpoints={{
+            0: {
+              spaceBetween: SPACE_BETWEEN_MOBILE,
+              slidesOffsetBefore: SLIDE_OFFSET_MOBILE,
+              slidesOffsetAfter: SLIDE_OFFSET_MOBILE,
+            },
+            769: {
+              spaceBetween: SPACE_BETWEEN,
+              slidesOffsetBefore: SLIDE_OFFSET,
+              slidesOffsetAfter: SLIDE_OFFSET,
+            },
+          }}
           speed={400}
           resistanceRatio={0.85}
           grabCursor

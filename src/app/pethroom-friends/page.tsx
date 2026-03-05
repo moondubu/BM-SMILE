@@ -19,9 +19,16 @@ export default function PethroomFriendsPage() {
         className="PethroomFriendsHero"
         type="image"
         imageSrc="/images/friends/img_friends_hero.png"
+        mobileImageSrc="/images/friends/img_friends_hero_mo.png"
         tone="dark"
-        title={`NO.1\nPlatform`}
-        subtext="버티컬 숏폼 콘텐츠, 리워드, 케어 서비스를 하나의 앱으로"
+        title={`Pethroom\nFriends`}
+        subtext={
+          <>
+            버티컬 숏폼 콘텐츠, 리워드,
+            <br className="PethroomFriendsHero-subtextBreakMobileOnly" />
+            케어 서비스를 하나의 앱으로
+          </>
+        }
       />
 
       <SplitIntroSection
@@ -30,6 +37,7 @@ export default function PethroomFriendsPage() {
         title="페스룸 프렌즈"
         description="페스룸 프렌즈는 반려동물 보호자를 위한 버티컬 숏폼 콘텐츠, 리워드, 케어 서비스를 하나의 앱으로 통합한 플랫폼입니다. 단순한 앱 서비스가 아닌, 사용자 행동과 반려동물 데이터를 축적·연결해 국내 수직계열화 전략의 핵심 플랫폼 역할을 수행합니다."
         imageSrc="/images/friends/img_friends_overview.png"
+        mobileImageSrc="/images/friends/img_friends_overview_mo.png"
         imageAlt="페스룸 프렌즈"
         ctaLabel="페스룸 프렌즈 더 알아보기"
         ctaHref="https://friends.pethroom.com/"
@@ -38,8 +46,20 @@ export default function PethroomFriendsPage() {
       <SectionCardGrid
         className="PethroomFriendsFlow"
         label="01"
-        title={"국내 최초 반려동물\n숏폼 & 리워드 플랫폼"}
-        description="반려동물 보호자를 위한 펫 버티컬 숏폼 콘텐츠를 중심으로, 시청·참여·미션을 통해 리워드를 제공하는 펫 특화 콘텐츠 플랫폼입니다."
+        title={
+          <>
+            국내 최초 반려동물
+            <br />
+            숏폼 & 리워드 플랫폼
+          </>
+        }
+        description={
+          <>
+            반려동물 보호자를 위한 펫 버티컬 숏폼 콘텐츠를 중심으로,
+            <br className="PethroomFriendsFlow-descriptionBreakMobileOnly" />
+            시청·참여·미션을 통해 리워드를 제공하는 펫 특화 콘텐츠 플랫폼입니다.
+          </>
+        }
         items={[
           {
             key: "watch",

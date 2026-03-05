@@ -5,6 +5,7 @@ import "./SectionCardGrid.css"
 export type SectionCardGridItem = {
   key: string
   imageSrc: string
+  mobileImageSrc?: string
   imageAlt: string
   label?: ReactNode
   title?: ReactNode
@@ -45,7 +46,14 @@ export default function SectionCardGrid({
         <div className="SectionCardGrid-grid">
           {items.map((item) => (
             <article key={item.key} className={cardClassName}>
-              <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
+              {item.mobileImageSrc ? (
+                <picture>
+                  <source media="(max-width: 768px)" srcSet={prefixPath(item.mobileImageSrc)} />
+                  <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
+                </picture>
+              ) : (
+                <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
+              )}
               {(item.label || item.title || item.description) ? (
                 <div className="SectionCardGrid-cardText">
                   {item.label ? <p className="SectionCardGrid-cardLabel">{item.label}</p> : null}

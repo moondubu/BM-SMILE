@@ -6,12 +6,6 @@
       aspect-ratio: 1920 / 960;
     }
 
-    .Hero-title {
-      font-size: var(--font-size-128);
-      line-height: 1.1;
-      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
-    }
-
     .Hero-subtext {
       margin-top: var(--spacing-24);
       font-size: var(--font-size-18);
@@ -58,6 +52,10 @@
       font-size: var(--font-size-16);
       line-height: 1.6;
       white-space: pre-line;
+    }
+
+    .PethroomImpact-subTextBreakMobileOnly {
+      display: none;
     }
 
     .ImpactSection-metrics {
@@ -167,8 +165,8 @@
       right: var(--spacing-20);
       bottom: var(--spacing-20);
       width: auto;
-      height: var(--spacing-48);
-      border-radius: 9999;
+      height: 48px;
+      border-radius: 999px;
       padding: 0 var(--spacing-24);
       gap: var(--spacing-8);
       font-size: var(--font-size-16);
@@ -201,22 +199,22 @@
 
     .SectionCardGrid-card:nth-child(1).SectionCardGrid-card--overlay {
       width: 460px;
-      height: 600px;
+      aspect-ratio: 460 / 600;
     }
 
     .SectionCardGrid-card:nth-child(2).SectionCardGrid-card--overlay {
       width: 800px;
-      height: 600px;
+      aspect-ratio: 800 / 600;
     }
 
     .SectionCardGrid-card:nth-child(3).SectionCardGrid-card--overlay {
       width: 760px;
-      height: 380px;
+      aspect-ratio: 760 / 380;
     }
 
     .SectionCardGrid-card:nth-child(4).SectionCardGrid-card--overlay {
       width: 500px;
-      height: 380px;
+      aspect-ratio: 500 / 380;
     }
 
     .SectionCardGrid-cardText {
@@ -227,9 +225,335 @@
       height: 100%;
       object-fit: cover;
     }
+
+    .SectionCardGrid-card--overlay .SectionCardGrid-cardImage {
+      position: static;
+      inset: auto;
+      display: block;
+    }
   }
 
   .PethroomUniverse {
-    padding-bottom: var(--spacing-128) 0 0;
+    padding-bottom: var(--spacing-128);
+  }
+
+  .PethroomImpactAwardsMobile {
+    display: none;
+  }
+}
+
+@media (max-width: 1376px) {
+  .PethroomPage {
+    .PethroomScaleSection .PethroomScaleSection-inner {
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+
+    .MediaSlide--pethroom-best-seller .SectionTextPanel {
+      padding-top: var(--spacing-64);
+      padding-bottom: var(--spacing-0);
+    }
+
+    .PethroomArchive {
+      .SectionCardGrid-grid {
+        gap: var(--spacing-20);
+      }
+
+      .SectionCardGrid-card:nth-child(1).SectionCardGrid-card--overlay {
+        width: calc((100% - var(--spacing-20)) * 460 / 1260);
+      }
+
+      .SectionCardGrid-card:nth-child(2).SectionCardGrid-card--overlay {
+        width: calc((100% - var(--spacing-20)) * 800 / 1260);
+      }
+
+      .SectionCardGrid-card:nth-child(3).SectionCardGrid-card--overlay {
+        width: calc((100% - var(--spacing-20)) * 760 / 1260);
+      }
+
+      .SectionCardGrid-card:nth-child(4).SectionCardGrid-card--overlay {
+        width: calc((100% - var(--spacing-20)) * 500 / 1260);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .PethroomPage {
+    .PethroomHero {
+      .Hero {
+        height: auto;
+        aspect-ratio: 402 / 960;
+      }
+
+      .Hero-overlay {
+        padding-top: 0;
+        padding-bottom: var(--spacing-160);
+      }
+
+      .Hero-content {
+        padding: 0 var(--spacing-16);
+      }
+
+      .Hero-subtext {
+        margin-top: var(--spacing-24);
+        font-size: var(--font-size-18);
+      }
+    }
+
+    .PethroomOverview {
+      .SplitIntroSection-title {
+        white-space: normal;
+      }
+    }
+
+    .PethroomScaleSection {
+      padding: var(--spacing-120) 0 0;
+
+      .PethroomScaleSection-inner {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .PethroomScaleSection-statGrid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .PethroomScaleSection-strengthGrid {
+        grid-template-columns: 1fr;
+      }
+
+      .PethroomScaleSection-strengthCard {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: var(--spacing-16);
+      }
+    }
+
+    .PethroomBannerSection {
+      padding: var(--spacing-48) var(--spacing-16) 0;
+
+      .PethroomBannerSection-inner {
+        height: 480px;
+      }
+
+      .PethroomBannerSection-title {
+        font-size: var(--font-size-24);
+        line-height: 1.5;
+      }
+    }
+
+    .PethroomImpact {
+      margin-top: var(--spacing-48);
+
+      .ImpactSection-bg {
+        min-height: 720px;
+      }
+
+      .ImpactSection-bg img {
+        min-height: 720px;
+        height: 720px;
+      }
+
+      .ImpactSection-inner {
+        min-height: 720px;
+        padding-top: var(--spacing-120);
+        padding-bottom: var(--spacing-120);
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+        justify-content: center;
+      }
+
+      .ImpactSection-title {
+        font-size: var(--font-size-72);
+      }
+
+      .ImpactSection-subText {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-16);
+        white-space: normal;
+      }
+
+      .ImpactSection-header {
+        align-items: center;
+        text-align: center;
+      }
+
+      .PethroomImpact-subTextBreakMobileOnly {
+        display: inline;
+      }
+
+      .ImpactSection-metrics {
+        display: none;
+      }
+    }
+
+    .PethroomImpactAwardsMobile {
+      display: block;
+      padding-top: var(--spacing-96);
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
+    }
+
+    .PethroomImpactAwardsMobile-inner {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-64);
+    }
+
+    .PethroomImpactAwardsMobile-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-12);
+      text-align: center;
+      color: var(--color-grey-900);
+    }
+
+    .PethroomImpactAwardsMobile-title {
+      margin: 0;
+      font-family: var(--font-nanumSquareNeo);
+      font-size: var(--font-size-24);
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    .PethroomImpactAwardsMobile-description {
+      font-family: var(--font-sans);
+      font-size: var(--font-size-16);
+      font-weight: 500;
+      line-height: 1.6;
+      color: var(--color-grey-900);
+      text-align: center;
+    }
+
+    .PethroomImpactAwardsMobile-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: var(--spacing-32) var(--spacing-12);
+    }
+
+    .PethroomImpactAwardsMobile-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--spacing-12);
+    }
+
+    .PethroomImpactAwardsMobile-logoWrap {
+      width: 160px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .PethroomImpactAwardsMobile-logo {
+      max-width: 160px;
+      max-height: 48px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .PethroomImpactAwardsMobile-text {
+      margin: 0;
+      color: var(--color-grey-400);
+      text-align: center;
+      font-family: var(--font-sans);
+      font-size: var(--font-size-13);
+      font-weight: 500;
+      line-height: 1.6;
+      white-space: pre-line;
+    }
+
+    .MediaSlide--pethroom-best-seller {
+      .SectionTextPanel {
+        padding-top: var(--spacing-120);
+        padding-bottom: var(--spacing-0);
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .SectionTextPanel-body br {
+        display: none;
+      }
+
+      .SlideRow-mobile {
+        padding-bottom: var(--spacing-120);
+      }
+
+      .SlideRow-swiper--mobile {
+        padding-top: var(--spacing-0);
+      }
+
+      .SlideCard .SlideCard-overlay {
+        padding: var(--spacing-20) 0 0 var(--spacing-20);
+      }
+
+      .SlideCard .SlideCard-caption {
+        font-size: var(--font-size-24);
+      }
+
+      .SlideCard .SlideCard-actionIcon {
+        right: var(--spacing-16);
+        bottom: var(--spacing-16);
+        height: 40px;
+        padding: 0 var(--spacing-20);
+        font-size: var(--font-size-14);
+      }
+    }
+
+    .PethroomArchive {
+      .SectionCardGrid-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      .SectionCardGrid-card--overlay {
+        width: 100%;
+        height: auto;
+        border-radius: 0;
+        aspect-ratio: auto;
+      }
+
+      .SectionCardGrid-card:nth-child(1).SectionCardGrid-card--overlay,
+      .SectionCardGrid-card:nth-child(2).SectionCardGrid-card--overlay,
+      .SectionCardGrid-card:nth-child(3).SectionCardGrid-card--overlay,
+      .SectionCardGrid-card:nth-child(4).SectionCardGrid-card--overlay {
+        width: 100%;
+        height: auto;
+        aspect-ratio: auto;
+      }
+
+      .SectionCardGrid-cardImage {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        position: static;
+        inset: auto;
+      }
+
+      .SectionCardGrid-card picture {
+        display: block;
+        line-height: 0;
+      }
+    }
+
+    .PethroomUniverse {
+      padding-top: var(--spacing-120);
+      padding-bottom: var(--spacing-0);
+
+      .PethroomUniverseSection-header {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .PethroomUniverseSection-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 }

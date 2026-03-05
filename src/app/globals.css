@@ -19,6 +19,7 @@
   --font-sans: "Pretendard", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
   --font-nanumSquareNeo: "NanumSquareNeo", sans-serif;
   --blur-12: 12px;
+  --spacing-0: 0px;
   --spacing-4: 4px;
   --spacing-8: 8px;
   --spacing-12: 12px;
@@ -32,8 +33,10 @@
   --spacing-64: 64px;
   --spacing-80: 80px;
   --spacing-96: 96px;
+  --spacing-120: 120px;
   --spacing-128: 128px;
   --spacing-160: 160px;
+  --spacing-200: 200px;
   --spacing-256: 256px;
   /* Font size (12 ~ 128) */
   --font-size-12: 12px;
@@ -52,7 +55,9 @@
   --font-size-72: 72px;
   --font-size-80: 80px;
   --font-size-96: 96px;
+  --font-size-120: 120px;
   --font-size-128: 128px;
+  --font-size-190: 190px;
   --font-size-256: 256px;
   --career-header-height: 80px;
 }
@@ -68,7 +73,7 @@
   color: inherit;
 }
 
-li {
+ul {
   list-style: none;
 }
 
@@ -201,6 +206,47 @@ section {
   background: transparent;
   color: var(--color-primary-blue);
   border-color: var(--color-primary-blue);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --spacing-0: 0px;
+    --spacing-4: 4px;
+    --spacing-8: 8px;
+    --spacing-12: 12px;
+    --spacing-16: 16px;
+    --spacing-20: 18px;
+    --spacing-24: 20px;
+    --spacing-32: 24px;
+    --spacing-40: 28px;
+    --spacing-48: 32px;
+    --spacing-64: 40px;
+    --spacing-96: 56px;
+    --spacing-120: 64px;
+    --spacing-160: 80px;
+    --spacing-200: 96px;
+
+    --font-size-12: 11px;
+    --font-size-13: 12px;
+    --font-size-14: 13px;
+    --font-size-16: 14px;
+    --font-size-18: 16px;
+    --font-size-20: 17px;
+    --font-size-24: 18px;
+    --font-size-28: 19px;
+    --font-size-32: 20px;
+    --font-size-40: 24px;
+    --font-size-48: 28px;
+    --font-size-56: 32px;
+    --font-size-64: 36px;
+    --font-size-72: 40px;
+    --font-size-80: 44px;
+    --font-size-96: 48px;
+    --font-size-120: 56px;
+    --font-size-128: 60px;
+    --font-size-190: 90px;
+    --font-size-256: 112px;
+  }
 }
 
 @media all and (min-width: 3840px) {

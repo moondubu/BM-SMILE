@@ -6,6 +6,7 @@ type MediaProps = {
   videoSrcHvc?: string
   videoSrcH264?: string
   imageSrc?: string
+  mobileImageSrc?: string
   imageAlt?: string
   title?: React.ReactNode
   number?: string
@@ -18,6 +19,7 @@ export default function Media({
   videoSrcHvc,
   videoSrcH264,
   imageSrc,
+  mobileImageSrc,
   imageAlt = "",
   title,
   number = "",
@@ -30,17 +32,23 @@ export default function Media({
   const prefixedHvc = videoSrcHvc ? prefixPath(videoSrcHvc) : undefined
   const prefixedH264 = videoSrcH264 ? prefixPath(videoSrcH264) : undefined
   const prefixedImage = imageSrc ? prefixPath(imageSrc) : undefined
+  const prefixedMobileImage = mobileImageSrc ? prefixPath(mobileImageSrc) : undefined
 
   if (isImage && prefixedImage) {
     return (
       <div className="Media">
-        <img
-          src={prefixedImage}
-          alt={imageAlt}
-          loading="lazy"
-          decoding="async"
-          style={style}
-        />
+        <picture>
+          {prefixedMobileImage != null && (
+            <source media="(max-width: 768px)" srcSet={prefixedMobileImage} />
+          )}
+          <img
+            src={prefixedImage}
+            alt={imageAlt}
+            loading="lazy"
+            decoding="async"
+            style={style}
+          />
+        </picture>
         <div className="Media-text-overlay SectionHead">
           {number != null && number !== "" && (
             <span className="SectionNumber">{number}</span>

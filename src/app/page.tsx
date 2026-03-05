@@ -25,6 +25,8 @@ export default function Home() {
         videoPoster={MAIN_HERO_VIDEO.poster}
         videoSrcHvc={MAIN_HERO_VIDEO.hvc}
         videoSrcH264={MAIN_HERO_VIDEO.h264}
+        mobileVideoSrcHvc={MAIN_HERO_VIDEO.mobileHvc}
+        mobileVideoSrcH264={MAIN_HERO_VIDEO.mobileH264}
       />
 
       <Slogan />
@@ -45,6 +47,7 @@ export default function Home() {
         mediaAspectRatio={MAIN_ENVIRONMENT_SECTION.mediaAspectRatio}
       >
         <SlideRow
+          mobileSlidesPerView={1.2}
           textPanel={{
             label: MAIN_ENVIRONMENT_SECTION.panelLabel,
             title: (
@@ -65,6 +68,7 @@ export default function Home() {
       <MediaSlide
         id={MAIN_IP_SECTION.id}
         imageSrc={MAIN_IP_SECTION.imageSrc}
+        mobileImageSrc={MAIN_IP_SECTION.mobileImageSrc}
         imageAlt={MAIN_IP_SECTION.imageAlt}
         number={MAIN_IP_SECTION.number}
         title={
@@ -94,7 +98,25 @@ export default function Home() {
                 {MAIN_IP_SECTION.panelTitleLine2}
               </>
             }
-            body={MAIN_IP_SECTION.panelBody}
+            body={(
+              <p className="SectionTextPanel-body IpBody">
+                페스룸은 국내에서 가장 빠르고 안정적으로
+                <br className="IpBodyBreak" />
+                성장해 온 반려동물 중심 IP입니다.
+                <br />
+                <br />
+                연 매출 500억 원을 돌파하며,
+                <br className="IpBodyBreak" />
+                자사몰·오픈마켓·글로벌 커머스 전 채널에서
+                <br />
+                제품 경쟁력과 콘텐츠 브랜딩 역량을 확장하고 있습니다.
+                <br />
+                <br />
+                제품 개발, 콘텐츠, 커머스를 연결하는 통합 구조를 기반으로
+                <br className="IpBodyBreak" />
+                지속 가능한 성장을 이어가고 있습니다.
+              </p>
+            )}
             ctaLabel={MAIN_IP_SECTION.panelCtaLabel}
             ctaHref={MAIN_IP_SECTION.panelCtaHref}
           />

@@ -172,24 +172,28 @@ export const PETHROOM_ARCHIVE_ITEMS = [
   {
     key: "archive-01",
     imageSrc: "/images/pethroom/img_pethroom_desgin_01.png",
+    mobileImageSrc: "/images/pethroom/img_pethroom_desgin_01_mo.png",
     imageAlt: "페스룸 디자인 아카이브 1",
     title: "브랜드 아이덴티티",
   },
   {
     key: "archive-02",
     imageSrc: "/images/pethroom/img_pethroom_desgin_02.png",
+    mobileImageSrc: "/images/pethroom/img_pethroom_desgin_02_mo.png",
     imageAlt: "페스룸 디자인 아카이브 2",
     title: "패키지 디자인",
   },
   {
     key: "archive-03",
     imageSrc: "/images/pethroom/img_pethroom_desgin_03.png",
+    mobileImageSrc: "/images/pethroom/img_pethroom_desgin_03_mo.png",
     imageAlt: "페스룸 디자인 아카이브 3",
     title: "비주얼 시스템",
   },
   {
     key: "archive-04",
     imageSrc: "/images/pethroom/img_pethroom_desgin_04.png",
+    mobileImageSrc: "/images/pethroom/img_pethroom_desgin_04_mo.png",
     imageAlt: "페스룸 디자인 아카이브 4",
     title: "콘텐츠 디자인",
   },

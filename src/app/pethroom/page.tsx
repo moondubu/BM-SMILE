@@ -19,6 +19,7 @@ import {
   PETHROOM_STRENGTH_ITEMS,
   PETHROOM_UNIVERSE,
 } from "@/data/pethroomSections"
+import { prefixPath } from "@/utils/path"
 import { Fragment } from "react"
 import "./page.css"
 
@@ -41,6 +42,13 @@ const PETHROOM_BESTSELLER_TEXT_PANEL: SlideRowTextPanel = {
 const buildPethroomProductLink = (productNo: number) =>
   `https://pethroom.com/product/detail.html?product_no=${productNo}&cate_no=111&display_group=1`
 
+const PETHROOM_IMPACT_MOBILE_LOGOS = [
+  "/images/pethroom/img_pethroom_award_01_mo.png",
+  "/images/pethroom/img_pethroom_award_02_mo.png",
+  "/images/pethroom/img_pethroom_award_03_mo.png",
+  "/images/pethroom/img_pethroom_award_04_mo.png",
+] as const
+
 export default function PethroomPage() {
   return (
     <div className="PethroomPage">
@@ -48,6 +56,7 @@ export default function PethroomPage() {
         className="PethroomHero"
         type="image"
         imageSrc={PETHROOM_HERO.imageSrc}
+        mobileImageSrc="/images/pethroom/img_pethroom_hero_mo.png"
         tone="dark"
         title={PETHROOM_HERO.title}
         subtext={PETHROOM_HERO.subtext}
@@ -59,6 +68,7 @@ export default function PethroomPage() {
         title={PETHROOM_OVERVIEW.title}
         description={PETHROOM_OVERVIEW.description}
         imageSrc={PETHROOM_OVERVIEW.imageSrc}
+        mobileImageSrc="/images/pethroom/img_pethroom_oveview_01_mo.png"
         imageAlt={PETHROOM_OVERVIEW.imageAlt}
         ctaLabel={PETHROOM_OVERVIEW.ctaLabel}
         ctaHref={PETHROOM_OVERVIEW.ctaHref}
@@ -92,11 +102,66 @@ export default function PethroomPage() {
         backgroundAlt={PETHROOM_IMPACT.backgroundAlt}
         label={PETHROOM_IMPACT.label}
         title={PETHROOM_IMPACT.title}
-        subTextLines={PETHROOM_IMPACT.subTextLines}
+        subText={
+          <>
+            페스룸은 펫 휴머나이제이션을 기반으로,
+            <br />
+            사람이 아닌 반려동물의 시선과 인지 특성에서
+            <br className="PethroomImpact-subTextBreakMobileOnly" />
+            출발해 제품을 설계합니다.
+            <br />
+            <br className="PethroomImpact-subTextBreakMobileOnly" />
+            반려동물의 색각 특성을 고려한
+            <br className="PethroomImpact-subTextBreakMobileOnly" />
+            블루 & 옐로우 컬러 시스템을 적용해
+            <br />
+            기능성과 직관성을 동시에 만족하는
+            <br className="PethroomImpact-subTextBreakMobileOnly" />
+            제품 경험을 제공합니다.
+          </>
+        }
         metricsCaption={PETHROOM_IMPACT.metricsCaption}
         metricsDescriptionLines={PETHROOM_IMPACT.metricsDescriptionLines}
         metrics={[...PETHROOM_IMPACT.metrics]}
       />
+
+      <section className="PethroomImpactAwardsMobile">
+        <div className="PethroomImpactAwardsMobile-inner">
+          <header className="PethroomImpactAwardsMobile-header">
+            <h3 className="PethroomImpactAwardsMobile-title">
+              “{PETHROOM_IMPACT.metricsCaption}”
+            </h3>
+            <div className="PethroomImpactAwardsMobile-description">
+              {PETHROOM_IMPACT.metricsDescriptionLines.map((line) => (
+                <p key={line}>{line}</p>
+              ))}
+            </div>
+          </header>
+
+          <div className="PethroomImpactAwardsMobile-grid">
+            {PETHROOM_IMPACT.metrics.map((item, index) => (
+              <article key={item.label} className="PethroomImpactAwardsMobile-item">
+                <div className="PethroomImpactAwardsMobile-logoWrap">
+                  {PETHROOM_IMPACT_MOBILE_LOGOS[index] ? (
+                    <img
+                      src={prefixPath(PETHROOM_IMPACT_MOBILE_LOGOS[index])}
+                      alt={item.logoAlt ?? item.label}
+                      className="PethroomImpactAwardsMobile-logo"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  ) : null}
+                </div>
+                <p className="PethroomImpactAwardsMobile-text">
+                  {item.label}
+                  {"\n"}
+                  {item.subText ?? ""}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <MediaSlide id={PETHROOM_BESTSELLER_SECTION.id}>
         <SlideRow

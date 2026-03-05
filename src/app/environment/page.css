@@ -1,16 +1,6 @@
 .EnvironmentPage {
   background: var(--color-white);
 
-  .Hero-title {
-    line-height: 1.1;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-  }
-
-  .Hero-subtext {
-    line-height: 1.6;
-    text-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
-  }
-
   .MediaSlide--environment-office {
     .SlideRow {
       background: var(--color-white);
@@ -18,11 +8,6 @@
 
       .SlideRow-swiper {
         padding: var(--spacing-128) 0 0;
-      }
-
-      .SectionTextPanel {
-        gap: var(--spacing-16);
-        padding: var(--spacing-48) 0;
       }
 
       .SectionTextPanel-label {
@@ -64,11 +49,23 @@
   }
 
   .EnvironmentImpact .ImpactSection-header {
+    height: 100%;
     gap: var(--spacing-20);
   }
 
+  .EnvironmentImpact-subTextSingle {
+    margin: 0;
+  }
+
+  .EnvironmentImpact-subTextBreakMobileOnly {
+    display: none;
+  }
+
+  .EnvironmentImpact-subTextBreakPcOnly {
+    display: block;
+  }
+
   .EnvironmentWorkLife .SectionCardGrid-inner {
-    max-width: 1280px;
     gap: var(--spacing-32);
   }
 
@@ -78,7 +75,7 @@
   }
 
   .EnvironmentWorkLife .SectionCardGrid-card--overlay {
-    border-radius: var(--spacing-24);
+    border-radius: 24px;
     padding: 0;
   }
 
@@ -112,22 +109,112 @@
     display: none;
   }
 
-  .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardLabel {
-    font-size: var(--font-size-16);
-  }
-
   .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardTitle {
-    font-size: var(--font-size-18);
     line-height: 1.3;
-  }
-
-  .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardDescription {
-    font-size: var(--font-size-16);
-    line-height: 1.6;
   }
 
   .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardImage {
     height: 100%;
     object-fit: cover;
+  }
+}
+
+@media (max-width: 1376px) {
+  .EnvironmentPage {
+    .EnvironmentImpact .ImpactSection-inner {
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay {
+      border-radius: 16px;
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardTitle {
+      font-size: var(--font-size-20);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardLabel,
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardDescription {
+      font-size: var(--font-size-12);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .EnvironmentPage {
+    .EnvironmentImpact-subTextBreakMobileOnly {
+      display: block;
+    }
+
+    .EnvironmentImpact-subTextBreakPcOnly {
+      display: none;
+    }
+    .MediaSlide--environment-office .SlideRow .SlideRow-swiper {
+      padding: 0;
+    }
+
+    .EnvironmentImpact .ImpactSection-bg {
+      min-height: 480px;
+    }
+
+    .EnvironmentImpact .ImpactSection-bg img {
+      width: 100%;
+      min-height: 480px;
+      object-fit: cover;
+      object-position: 45% center;
+    }
+
+    .EnvironmentImpact .ImpactSection-inner {
+      min-height: 480px;
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
+    }
+
+    .EnvironmentImpact .ImpactSection-subText {
+      margin-top: auto;
+    }
+
+    .EnvironmentImpact .ImpactSection-subText p {
+      margin: 0;
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-inner {
+      gap: var(--spacing-32);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-grid {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-8);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card:nth-child(1).SectionCardGrid-card--overlay {
+      grid-column: auto;
+      grid-row: auto;
+      aspect-ratio: 1 / 1;
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card:nth-child(2).SectionCardGrid-card--overlay,
+    .EnvironmentWorkLife .SectionCardGrid-card:nth-child(3).SectionCardGrid-card--overlay {
+      grid-column: auto;
+      grid-row: auto;
+      aspect-ratio: 2 / 1;
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardText {
+      left: var(--spacing-16);
+      right: var(--spacing-16);
+      bottom: var(--spacing-16);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardTitle {
+      font-size: var(--font-size-32);
+    }
+
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardLabel,
+    .EnvironmentWorkLife .SectionCardGrid-card--overlay .SectionCardGrid-cardDescription {
+      font-size: var(--font-size-16);
+    }
+
   }
 }

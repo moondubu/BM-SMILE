@@ -6,11 +6,18 @@
 .ImpactSection .ImpactSection-bg {
   position: relative;
   z-index: 1;
+  min-height: 720px;
+}
+
+.ImpactSection .ImpactSection-bg picture {
+  display: block;
 }
 
 .ImpactSection .ImpactSection-bg img {
   width: 100%;
+  min-height: 720px;
   height: auto;
+  object-fit: cover;
   display: block;
 }
 
@@ -21,6 +28,7 @@
   width: 100%;
   height: 100%;
   max-width: 1280px;
+  min-height: 720px;
   margin: 0 auto;
   padding: var(--spacing-96) 0;
   display: flex;
@@ -76,6 +84,10 @@
   font-size: var(--font-size-16);
   font-weight: 600;
   line-height: 1.5;
+}
+
+.ImpactSection .ImpactSection-ctaIcon {
+  flex-shrink: 0;
 }
 
 .ImpactSection .ImpactSection-metrics {
@@ -184,6 +196,28 @@
 
 .ImpactSection .ImpactSection-footer.ImpactSection-footer--center {
   text-align: center;
+}
+
+@media (max-width: 1376px) {
+  .ImpactSection .ImpactSection-inner {
+    max-width: 100%;
+    padding-left: var(--spacing-48);
+    padding-right: var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .ImpactSection .ImpactSection-bg {
+    min-height: 560px;
+  }
+
+  .ImpactSection .ImpactSection-bg img {
+    min-height: 560px;
+  }
+
+  .ImpactSection .ImpactSection-inner {
+    min-height: 560px;
+  }
 }
 
 @media all and (min-width: 1921px) {

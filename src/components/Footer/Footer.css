@@ -46,7 +46,8 @@
 @media (max-width: 1376px) {
   .Footer {
     .Footer-inner {
-      padding: var(--spacing-40) var(--spacing-48);
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
     }
   }
 }
@@ -54,21 +55,13 @@
 @media (max-width: 768px) {
   .Footer {
     .Footer-inner {
-      padding: var(--spacing-48) var(--spacing-16);
-      gap: var(--spacing-20);
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
     }
 
     .Footer-logo {
       width: 237px;
       height: 24px;
-    }
-
-    .Footer-info {
-      font-size: var(--font-size-12);
-    }
-
-    .Footer-copyright {
-      font-size: var(--font-size-13);
     }
   }
 }

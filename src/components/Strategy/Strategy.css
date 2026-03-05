@@ -128,3 +128,44 @@
 .Strategy-ctaIcon {
   flex-shrink: 0;
 }
+
+@media (max-width: 1376px) {
+  .Strategy-inner {
+    padding: var(--spacing-120) var(--spacing-48);
+  }
+
+  .Strategy-head {
+    margin-bottom: var(--spacing-48);
+  }
+
+  .Strategy-head.SectionHead {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .Strategy .SectionNumber {
+    font-size: var(--font-size-120);
+    line-height: 1;
+  }
+
+  .Strategy-columns {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-64);
+    margin-top: var(--spacing-160);
+  }
+}
+
+@media (max-width: 768px) {
+  .Strategy-inner {
+    padding: var(--spacing-120) var(--spacing-16);
+  }
+
+  .Strategy-ctaWrap {
+    margin-top: var(--spacing-40);
+  }
+
+  .Strategy-cta {
+    padding: var(--spacing-16) var(--spacing-24);
+  }
+}

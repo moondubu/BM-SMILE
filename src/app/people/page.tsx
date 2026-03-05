@@ -17,6 +17,7 @@ const PEOPLE_TEAM_TEXT_PANEL: SlideRowTextPanel = {
   title: (
     <>
       {PEOPLE_TEAM_PANEL.titleLine1}
+      {" "}
       <br />
       {PEOPLE_TEAM_PANEL.titleLine2}
     </>
@@ -47,6 +48,7 @@ export default function PeoplePage() {
       <ImpactSection
         className="PeopleVision-impact"
         backgroundSrc={PEOPLE_VISION.backgroundSrc}
+        backgroundMobileSrc="/images/people/img_people_impact_mo.png"
         label={PEOPLE_VISION.label}
         title={`${PEOPLE_VISION.titleLine1} ${PEOPLE_VISION.titleLine2}`}
         subTextLines={PEOPLE_VISION.description}

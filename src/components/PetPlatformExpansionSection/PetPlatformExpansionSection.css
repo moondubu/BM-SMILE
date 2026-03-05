@@ -69,8 +69,10 @@
 
   .PetPlatformExpansionSection-featureList {
     width: 272px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     gap: var(--spacing-64);
     position: relative;
     padding-left: var(--spacing-32);
@@ -125,5 +127,85 @@
     line-height: 1.6;
     color: var(--color-grey-900);
     white-space: pre-line;
+  }
+}
+
+@media (max-width: 1376px) {
+  .PetPlatformExpansionSection {
+    .PetPlatformExpansionSection-inner {
+      max-width: 100%;
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+
+    .PetPlatformExpansionSection-contents {
+      gap: var(--spacing-48);
+    }
+
+    .PetPlatformExpansionSection-visual {
+      width: 50%;
+      min-width: 300px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .PetPlatformExpansionSection {
+    padding: var(--spacing-120) 0;
+
+    .PetPlatformExpansionSection-inner {
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
+      gap: var(--spacing-64);
+    }
+
+    .PetPlatformExpansionSection-header {
+      gap: var(--spacing-12);
+    }
+
+    .PetPlatformExpansionSection-title {
+      font-size: var(--font-size-24);
+    }
+
+    .PetPlatformExpansionSection-description {
+      text-align: center;
+      white-space: normal;
+    }
+
+    .PetPlatformExpansionSection-contents {
+      flex-direction: column;
+      gap: var(--spacing-64);
+    }
+
+    .PetPlatformExpansionSection-visual {
+      width: 100%;
+      max-width: 360px;
+    }
+
+    .PetPlatformExpansionSection-featureList {
+      width: 100%;
+      max-width: 236px;
+      gap: var(--spacing-24);
+    }
+
+    .PetPlatformExpansionSection-featureItem {
+      min-height: auto;
+      gap: var(--spacing-8);
+    }
+
+    .PetPlatformExpansionSection-featureItem::before {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .PetPlatformExpansionSection-featureItem:not(:last-child)::after {
+      left: calc(var(--spacing-32) * -1 + var(--spacing-12) / 2);
+      top: calc(50% + var(--spacing-12) / 2);
+      height: calc(100% + var(--spacing-24));
+    }
+
+    .PetPlatformExpansionSection-featureItem:nth-last-child(2)::after {
+      height: calc(100% + var(--spacing-24) - var(--spacing-12));
+    }
   }
 }

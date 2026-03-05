@@ -3,7 +3,6 @@
 .SlideCard {
   position: relative;
   flex-shrink: 0;
-  /* width·height 모두 안에 이미지 크기에 따라 결정 */
   display: inline-block;
   border-radius: 32px; /* Radius/radius-lg */
   overflow: hidden;
@@ -23,9 +22,11 @@
     position: relative;
     z-index: 0;
     display: block;
-    width: auto;
-    height: auto;
-    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    object-fit: cover;
+    object-position: center;
   }
 
   .SlideCard-overlay {
@@ -94,8 +95,8 @@
     right: var(--spacing-32);
     bottom: var(--spacing-32);
     z-index: 4;
-    width: var(--spacing-48);
-    height: var(--spacing-48);
+    width: 48px;
+    height: 48px;
     border-radius: var(--spacing-16);
     border: 1px solid transparent;
     background: var(--color-primary-blue);
@@ -125,19 +126,49 @@
     border-color: var(--color-primary-blue);
     color: var(--color-primary-blue);
   }
+}
 
-  &:hover .SlideCard-overlay--hoverable,
-  &:focus-within .SlideCard-overlay--hoverable {
-    background: rgba(29, 79, 255, 0.9);
+@media (min-width: 1377px) {
+  .SlideCard {
+    &:hover .SlideCard-overlay--hoverable,
+    &:focus-within .SlideCard-overlay--hoverable {
+      background: rgba(29, 79, 255, 0.9);
+    }
+
+    &:hover .SlideCard-overlay--hoverable .SlideCard-defaultText,
+    &:focus-within .SlideCard-overlay--hoverable .SlideCard-defaultText {
+      opacity: 0;
+    }
+
+    &:hover .SlideCard-overlay--hoverable .SlideCard-hoverText,
+    &:focus-within .SlideCard-overlay--hoverable .SlideCard-hoverText {
+      opacity: 1;
+    }
   }
+}
 
-  &:hover .SlideCard-overlay--hoverable .SlideCard-defaultText,
-  &:focus-within .SlideCard-overlay--hoverable .SlideCard-defaultText {
-    opacity: 0;
+@media (max-width: 1376px) {
+  .SlideCard.SlideCard--active {
+    .SlideCard-overlay--hoverable {
+      background: rgba(29, 79, 255, 0.9);
+    }
+
+    .SlideCard-overlay--hoverable .SlideCard-defaultText {
+      opacity: 0;
+    }
+
+    .SlideCard-overlay--hoverable .SlideCard-hoverText {
+      opacity: 1;
+    }
   }
+}
 
-  &:hover .SlideCard-overlay--hoverable .SlideCard-hoverText,
-  &:focus-within .SlideCard-overlay--hoverable .SlideCard-hoverText {
-    opacity: 1;
+@media (max-width: 768px) {
+  .SlideCard {
+    border-radius: 24px;
+
+    &::after {
+      border-radius: 24px;
+    }
   }
 }

@@ -129,3 +129,67 @@
     padding-bottom: var(--spacing-160);
   }
 }
+
+@media (max-width: 1376px) {
+  .SubsidiaryPage {
+    .SubsidiaryIpExpansion .SectionCardGrid-inner {
+      max-width: 100%;
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .SubsidiaryPage {
+    .SubsidiaryHero {
+      .Hero {
+        height: auto;
+        aspect-ratio: 402 / 720;
+      }
+
+      .Hero-overlay {
+        padding-top: var(--spacing-0);
+        padding-bottom: var(--spacing-0);
+      }
+    }
+
+    .SubsidiaryCore,
+    .SubsidiaryVirtualIp {
+      padding-top: var(--spacing-120);
+    }
+
+    .SubsidiaryHumanIp {
+      padding-top: var(--spacing-120);
+      padding-bottom: var(--spacing-120);
+    }
+
+    .SubsidiaryIpExpansion {
+      padding-top: var(--spacing-120);
+
+      .SectionCardGrid-inner {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .SectionCardGrid-header {
+        align-items: flex-start;
+        text-align: left;
+      }
+
+      .SectionCardGrid-description {
+        white-space: normal;
+      }
+
+      .SectionCardGrid-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--spacing-8);
+      }
+
+      .SectionCardGrid-card--plain {
+        aspect-ratio: 370 / 220;
+        padding: var(--spacing-32);
+      }
+    }
+  }
+}

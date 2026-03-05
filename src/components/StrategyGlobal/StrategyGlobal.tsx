@@ -106,7 +106,13 @@ export default function StrategyGlobal() {
         className="StrategyGlobal-roadmapSection"
         label={STRATEGY_GLOBAL_ROADMAP.label}
         title={STRATEGY_GLOBAL_ROADMAP.title}
-        description={STRATEGY_GLOBAL_ROADMAP.description}
+        description={
+          <>
+            압도적인 뉴미디어 활용 역량을 보유한 비엠스마일 팀을 기반으로,
+            <br className="RoadmapSection-descriptionBreakMobileOnly" />
+            누구보다 빠르게 글로벌 반려동물 시장의 뉴미디어화를 선도합니다.
+          </>
+        }
         items={STRATEGY_GLOBAL_ROADMAP.items}
       />
 
@@ -117,7 +123,7 @@ export default function StrategyGlobal() {
             <h2 className="StrategyGlobal-diffTitle">차별화된 성공 구조</h2>
             <p className="StrategyGlobal-diffDescription">
               기존 FMCG 조직 구조와 차별화된 비엠스마일의 성공 경험 기반의
-              {"\n"}
+              <br className="StrategyGlobal-breakHideMobile" />
               뉴미디어 전략을 통해 폭발적 확산을 이루어냅니다.
             </p>
           </header>
@@ -125,7 +131,11 @@ export default function StrategyGlobal() {
           <div className="StrategyGlobal-diffCompare">
             <article className="StrategyGlobal-diffColumn">
               <h3 className="StrategyGlobal-diffColumnTitle">Legacy Giants</h3>
-              <p className="StrategyGlobal-diffColumnSubtitle">구조상의 한계로 인한 정체 및 전통적 성장</p>
+              <p className="StrategyGlobal-diffColumnSubtitle">
+                구조상의 한계로 인한
+                <br className="StrategyGlobal-breakMobileOnly" />
+                정체 및 전통적 성장
+              </p>
               <div className="StrategyGlobal-diffGrid">
                 {DIFFERENTIATION_LEGACY_CARDS.map((card) => (
                   <div key={card.title} className="StrategyGlobal-diffCard">
@@ -140,7 +150,11 @@ export default function StrategyGlobal() {
 
             <article className="StrategyGlobal-diffColumn StrategyGlobal-diffColumn--highlight">
               <h3 className="StrategyGlobal-diffColumnTitle">BM Smile</h3>
-              <p className="StrategyGlobal-diffColumnSubtitle">뉴미디어 마케팅 기반의 빠른 실행 및 폭발적 성장</p>
+              <p className="StrategyGlobal-diffColumnSubtitle">
+                뉴미디어 마케팅 기반의
+                <br className="StrategyGlobal-breakMobileOnly" />
+                빠른 실행 및 폭발적 성장
+              </p>
               <div className="StrategyGlobal-diffGrid">
                 {DIFFERENTIATION_BMSMILE_CARDS.map((card) => (
                   <div key={card.title} className="StrategyGlobal-diffCard StrategyGlobal-diffCard--dark">

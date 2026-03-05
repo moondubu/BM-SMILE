@@ -88,9 +88,65 @@
   color: var(--color-grey-900);
 }
 
+.GrowthOverview .GrowthOverview-visual {
+  width: 100%;
+}
+
 .GrowthOverview .GrowthOverview-visual img {
   width: 100%;
   height: auto;
   display: block;
   border-radius: 0 0 var(--spacing-32) 0;
+}
+
+@media (max-width: 1376px) {
+  .GrowthOverview .GrowthOverview-inner {
+    max-width: 100%;
+    padding: 0 var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .GrowthOverview {
+    padding: var(--spacing-120) 0;
+  }
+
+  .GrowthOverview .GrowthOverview-inner {
+    padding: 0 var(--spacing-16);
+  }
+
+  .GrowthOverview .GrowthOverview-header {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-16);
+  }
+
+  .GrowthOverview .GrowthOverview-body br {
+    display: none;
+  }
+
+  .GrowthOverview .GrowthOverview-content {
+    margin-top: var(--spacing-64);
+    position: relative;
+    display: block;
+  }
+
+  .GrowthOverview .GrowthOverview-statList {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: none;
+    padding-bottom: var(--spacing-16);
+    gap: var(--spacing-24);
+  }
+
+  .GrowthOverview .GrowthOverview-visual {
+    position: relative;
+    margin-top: -240px;
+    width: 100%;
+  }
+
+  .GrowthOverview .GrowthOverview-visual img {
+    height: auto;
+    object-position: top;
+  }
 }

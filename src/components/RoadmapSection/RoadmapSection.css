@@ -44,6 +44,10 @@
     white-space: pre-line;
   }
 
+  .RoadmapSection-descriptionBreakMobileOnly {
+    display: block;
+  }
+
   .RoadmapSection-list {
     width: 100%;
     display: flex;
@@ -150,5 +154,122 @@
     margin: 0;
     white-space: pre-line;
     font-family: var(--font-sans);
+  }
+}
+
+@media (max-width: 1376px) {
+  .RoadmapSection {
+    .RoadmapSection-inner {
+      max-width: 100%;
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+
+    .RoadmapSection-textBox {
+      padding-right: var(--spacing-0);
+    }
+
+    .RoadmapSection-itemTitle,
+    .RoadmapSection-itemDescription {
+      padding-right: var(--spacing-20);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .RoadmapSection {
+    .RoadmapSection-descriptionBreakMobileOnly {
+      display: none;
+    }
+
+    .RoadmapSection-inner {
+      padding: var(--spacing-160) var(--spacing-16);
+    }
+
+    .RoadmapSection-header {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    .RoadmapSection-list {
+      flex-direction: column;
+      gap: var(--spacing-0);
+    }
+
+    .RoadmapSection-item {
+      flex-direction: row;
+      align-items: stretch;
+      min-height: 140px;
+      gap: 20px;
+    }
+
+    .RoadmapSection-numBox {
+      height: auto;
+      width: 74px;
+      justify-content: flex-end;
+      align-items: flex-start;
+      flex-shrink: 0;
+    }
+
+    .RoadmapSection-num {
+      font-size: var(--font-size-96);
+    }
+
+    .RoadmapSection-markerBox {
+      height: auto;
+      width: 16px;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .RoadmapSection-dot {
+      width: 16px;
+      height: 16px;
+    }
+
+    .RoadmapSection-line {
+      left: 50%;
+      right: auto;
+      top: 16px;
+      bottom: auto;
+      width: 1px;
+      height: calc(100% - 16px);
+      transform: translateX(-50%);
+    }
+
+    .RoadmapSection-item:last-child .RoadmapSection-line {
+      background: var(--color-grey-900);
+      width: 1px;
+      height: calc(100% - 16px);
+      top: 16px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .RoadmapSection-item:last-child .RoadmapSection-line::before {
+      content: none;
+    }
+
+    .RoadmapSection-item:last-child .RoadmapSection-line::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: auto;
+      right: auto;
+      bottom: -4px;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 10px solid var(--color-grey-900);
+    }
+
+    .RoadmapSection-textBox {
+      gap: var(--spacing-12);
+      flex: 1;
+      min-width: 0;
+    }
   }
 }

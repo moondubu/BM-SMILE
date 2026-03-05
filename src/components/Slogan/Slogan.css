@@ -1,10 +1,27 @@
 /* 슬로건 (히어로 내 슬로건 영역) - 네스팅 */
 
 .Slogan {
+  background: var(--color-white);
   padding: var(--spacing-128) var(--spacing-48);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 
   & img {
     width: 100%;
     height: auto;
+    display: block;
+  }
+}
+
+@media (max-width: 1376px) {
+  .Slogan {
+    padding: var(--spacing-120) var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .Slogan {
+    padding: var(--spacing-64) var(--spacing-16);
   }
 }

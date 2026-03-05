@@ -3,6 +3,12 @@ import { prefixPath } from "@/utils/path"
 import Link from "next/link"
 import "./ImpactSection.css"
 
+const CTA_ICON = (
+  <svg className="ImpactSection-ctaIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+    <path d="M5 15L15 5M15 5H6M15 5V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+  </svg>
+)
+
 export type ImpactSectionMetric = {
   label: string
   value: string
@@ -14,9 +20,11 @@ export type ImpactSectionMetric = {
 type ImpactSectionProps = {
   className?: string
   backgroundSrc: string
+  backgroundMobileSrc?: string
   backgroundAlt?: string
   label: string
   title: ReactNode
+  subText?: ReactNode
   subTextLines?: readonly string[]
   headerAlign?: "left" | "center"
   metrics?: ImpactSectionMetric[]
@@ -30,9 +38,11 @@ type ImpactSectionProps = {
 export default function ImpactSection({
   className,
   backgroundSrc,
+  backgroundMobileSrc,
   backgroundAlt = "",
   label,
   title,
+  subText,
   subTextLines,
   headerAlign = "left",
   metrics,
@@ -64,14 +74,23 @@ export default function ImpactSection({
   return (
     <section className={sectionClassName}>
       <div className="ImpactSection-bg">
-        <img src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
+        {backgroundMobileSrc ? (
+          <picture>
+            <source media="(max-width: 768px)" srcSet={prefixPath(backgroundMobileSrc)} />
+            <img src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
+          </picture>
+        ) : (
+          <img src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
+        )}
       </div>
 
       <div className="ImpactSection-inner">
         <header className={headerClassName}>
           <span className="ImpactSection-label">{label}</span>
           <h2 className="ImpactSection-title">{title}</h2>
-          {subTextLines?.length ? (
+          {subText ? (
+            <div className="ImpactSection-subText">{subText}</div>
+          ) : subTextLines?.length ? (
             <div className="ImpactSection-subText">
               {subTextLines.map((line) => (
                 <p key={line}>{line}</p>
@@ -81,6 +100,7 @@ export default function ImpactSection({
           {ctaLabel && ctaHref ? (
             <Link href={ctaHref} className="ImpactSection-cta CtaButton CtaButton--onDark">
               {ctaLabel}
+              {CTA_ICON}
             </Link>
           ) : null}
         </header>

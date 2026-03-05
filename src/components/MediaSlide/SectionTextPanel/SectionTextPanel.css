@@ -52,3 +52,24 @@
 .SectionTextPanel-ctaIcon {
   flex-shrink: 0;
 }
+
+@media (max-width: 768px) {
+  .SectionTextPanel-label {
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  .SectionTextPanel-title {
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .SectionTextPanel-title br {
+    display: none;
+  }
+
+  .SectionTextPanel-body {
+    font-weight: 500;
+    line-height: 1.6;
+  }
+}

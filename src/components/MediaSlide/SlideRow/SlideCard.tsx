@@ -1,5 +1,7 @@
+"use client"
+
 import { prefixPath } from "@/utils/path"
-import { Fragment } from "react"
+import { Fragment, type MouseEvent } from "react"
 import "./SlideCard.css"
 
 type SlideCardProps = {
@@ -13,6 +15,8 @@ type SlideCardProps = {
   showActionIcon?: boolean
   actionHref?: string
   linkWholeCard?: boolean
+  isActive?: boolean
+  onToggleActive?: () => void
 }
 
 export default function SlideCard({
@@ -25,6 +29,8 @@ export default function SlideCard({
   showActionIcon = false,
   actionHref,
   linkWholeCard = false,
+  isActive = false,
+  onToggleActive,
 }: SlideCardProps) {
   const text = caption ?? label ?? ""
   const hoverBody = hoverText?.trim() ?? ""
@@ -32,9 +38,21 @@ export default function SlideCard({
   const hasHoverOverlay = hoverBody !== ""
   const href = actionHref ?? "#"
   const isExternal = href.startsWith("http://") || href.startsWith("https://")
+  const canClickActivate = hasHoverOverlay && !(linkWholeCard && actionHref != null)
+
+  const handleCardClick = (event: MouseEvent<HTMLDivElement>) => {
+    if (!canClickActivate) return
+    if (typeof window === "undefined" || !window.matchMedia("(max-width: 1376px)").matches) return
+    const target = event.target as HTMLElement
+    if (target.closest("a")) return
+    onToggleActive?.()
+  }
 
   return (
-    <div className={`SlideCard${linkWholeCard && actionHref != null ? " SlideCard--linked" : ""}`}>
+    <div
+      className={`SlideCard${linkWholeCard && actionHref != null ? " SlideCard--linked" : ""}${isActive ? " SlideCard--active" : ""}`}
+      onClick={handleCardClick}
+    >
       <img src={prefixPath(imageSrc)} alt={imageAlt} className="SlideCard-img" loading="lazy" decoding="async" />
       {hasOverlay && (
         <div className={`SlideCard-overlay${hasHoverOverlay ? " SlideCard-overlay--hoverable" : ""}`}>

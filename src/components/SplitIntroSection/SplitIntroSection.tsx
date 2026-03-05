@@ -7,6 +7,7 @@ type SplitIntroSectionProps = {
   title: string
   description: string
   imageSrc: string
+  mobileImageSrc?: string
   imageAlt: string
   ctaLabel?: string
   ctaHref?: string
@@ -18,6 +19,7 @@ export default function SplitIntroSection({
   title,
   description,
   imageSrc,
+  mobileImageSrc,
   imageAlt,
   ctaLabel,
   ctaHref,
@@ -36,13 +38,26 @@ export default function SplitIntroSection({
         </header>
 
         <div className="SplitIntroSection-imageWrap">
-          <img
-            src={prefixPath(imageSrc)}
-            alt={imageAlt}
-            className="SplitIntroSection-image"
-            loading="lazy"
-            decoding="async"
-          />
+          {mobileImageSrc ? (
+            <picture>
+              <source media="(max-width: 768px)" srcSet={prefixPath(mobileImageSrc)} />
+              <img
+                src={prefixPath(imageSrc)}
+                alt={imageAlt}
+                className="SplitIntroSection-image"
+                loading="lazy"
+                decoding="async"
+              />
+            </picture>
+          ) : (
+            <img
+              src={prefixPath(imageSrc)}
+              alt={imageAlt}
+              className="SplitIntroSection-image"
+              loading="lazy"
+              decoding="async"
+            />
+          )}
           {ctaLabel ? (
             <a
               href={ctaHref ?? "#"}

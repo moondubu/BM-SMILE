@@ -54,6 +54,10 @@
   margin: 0;
 }
 
+.EnvironmentCulture .EnvironmentCulture-description .EnvironmentCulture-descriptionBreakMobile {
+  display: none;
+}
+
 .EnvironmentCulture .EnvironmentCulture-grid {
   width: 100%;
   display: grid;
@@ -98,4 +102,31 @@
   font-weight: 500;
   line-height: 1.6;
   color: var(--color-grey-600);
+}
+
+@media (max-width: 1376px) {
+  .EnvironmentCulture .EnvironmentCulture-inner {
+    max-width: 100%;
+    padding-left: var(--spacing-48);
+    padding-right: var(--spacing-48);
+  }
+}
+
+@media (max-width: 768px) {
+  .EnvironmentCulture .EnvironmentCulture-inner {
+    padding: var(--spacing-120) var(--spacing-16);
+  }
+
+  .EnvironmentCulture .EnvironmentCulture-description .EnvironmentCulture-descriptionBreakMobile {
+    display: block;
+  }
+
+  .EnvironmentCulture .EnvironmentCulture-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--spacing-64);
+  }
+
+  .EnvironmentCulture .EnvironmentCulture-card {
+    gap: var(--spacing-16);
+  }
 }

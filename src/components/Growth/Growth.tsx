@@ -24,7 +24,7 @@ export default function Growth() {
                         <div className="Growth-textContent">
                             <span className="Growth-subTitle">Our Growth</span>
                             <h3 className="Growth-title">
-                                최단기간 최고성장을 이루고
+                                지표로 증명하는 성장
                             </h3>
                             <p className="Growth-desc">
                                 AI 기반 뉴미디어 전략과 통합 구조를 결합해 <br />
@@ -82,7 +82,9 @@ export default function Growth() {
                                     <p className="Growth-globalStatValue">11개국</p>
                                 </div>
                                 <p className="Growth-globalStatList">
-                                    한국·중국·일본·태국·대만·홍콩·인도·필리핀·미국·인도네시아·싱가포르
+                                    한국·중국·일본·태국·대만·홍콩·
+                                    <br className="Growth-globalStatBreak" />
+                                    인도·필리핀·미국·인도네시아·싱가포르
                                 </p>
                             </div>
                             <div className="Growth-globalStatItem">
@@ -96,6 +98,15 @@ export default function Growth() {
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="Growth-ctaMobileWrap">
+                    <Link href="/growth" className="Growth-cta Growth-cta--mobile CtaButton CtaButton--onLight">
+                        성장 자세히 보기
+                        <svg className="Growth-ctaIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
+                            <path d="M5 15L15 5M15 5H6M15 5V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                    </Link>
                 </div>
 
             </div>

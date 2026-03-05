@@ -218,3 +218,72 @@
     cursor: pointer;
   }
 }
+
+@media (max-width: 1376px) {
+  .ContactPage {
+    .ContactPage-inner {
+      max-width: 100%;
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+
+    .ContactPage-consent {
+      flex-wrap: wrap;
+      row-gap: var(--spacing-8);
+    }
+
+    .ContactPage-consentTitle,
+    .ContactPage-consentDescription {
+      white-space: normal;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .ContactPage {
+    padding-top: var(--spacing-120);
+    padding-bottom: var(--spacing-120);
+
+    .ContactPage-inner {
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
+    }
+
+    .ContactPage-content {
+      grid-template-columns: minmax(0, 1fr);
+      gap: var(--spacing-8);
+    }
+
+    .ContactPage-visualCard {
+      height: 185px;
+      aspect-ratio: auto;
+      border-radius: var(--spacing-24);
+      padding: var(--spacing-20) var(--spacing-24);
+    }
+
+    .ContactPage-visualImage,
+    .ContactPage-visualCard::after {
+      border-radius: var(--spacing-24);
+    }
+
+    .ContactPage-textarea {
+      flex: none;
+      height: 154px;
+    }
+
+    .ContactPage-policyBox {
+      height: 154px;
+    }
+
+    .ContactPage-submitRow {
+      flex-direction: column;
+      align-items: stretch;
+      gap: var(--spacing-12);
+    }
+
+    .ContactPage-submitButton {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}

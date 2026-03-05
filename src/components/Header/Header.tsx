@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { type MouseEvent, useEffect, useState } from "react"
+import { type MouseEvent, useEffect, useRef, useState } from "react"
 import { prefixPath } from "@/utils/path"
 import "./Header.css"
 
@@ -34,8 +34,24 @@ const LANG_ITEMS = ["KR", "ENG", "CN", "JP"] as const
 
 export default function Header() {
   const pathname = usePathname()
+  return <HeaderView key={pathname} pathname={pathname} />
+}
+
+type HeaderViewProps = {
+  pathname: string
+}
+
+function HeaderView({ pathname }: HeaderViewProps) {
+  const navRef = useRef<HTMLElement>(null)
+  const langRef = useRef<HTMLDivElement>(null)
   const [openLang, setOpenLang] = useState(false)
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
+  const [openNavDropdown, setOpenNavDropdown] = useState<string | null>(null)
+  const [openMobileGroups, setOpenMobileGroups] = useState<Record<string, boolean>>(() =>
+    Object.fromEntries(
+      NAV_ITEMS.filter((item) => "children" in item).map((item) => [item.label, true]),
+    ),
+  )
   const [currentLang, setCurrentLang] = useState<string>("KR")
 
   const handleCareerClick = (event: MouseEvent<HTMLAnchorElement>) => {
@@ -45,10 +61,19 @@ export default function Header() {
     window.dispatchEvent(new CustomEvent("career:reset-iframe"))
   }
 
-  useEffect(() => {
+  const handleMobileMenuClose = () => {
     setOpenMobileMenu(false)
     setOpenLang(false)
-  }, [pathname])
+  }
+  const handleNavDropdownToggle = (label: string) => {
+    setOpenNavDropdown((prev) => (prev === label ? null : label))
+  }
+  const handleMobileGroupToggle = (label: string) => {
+    setOpenMobileGroups((prev) => ({
+      ...prev,
+      [label]: !prev[label],
+    }))
+  }
 
   useEffect(() => {
     document.body.classList.toggle("Header-menu-open", openMobileMenu)
@@ -57,20 +82,59 @@ export default function Header() {
     }
   }, [openMobileMenu])
 
+  useEffect(() => {
+    const handlePointerDown = (event: MouseEvent | globalThis.MouseEvent) => {
+      const target = event.target as Node | null
+      if (!target) return
+
+      if (navRef.current && !navRef.current.contains(target)) {
+        setOpenNavDropdown(null)
+      }
+
+      if (langRef.current && !langRef.current.contains(target)) {
+        setOpenLang(false)
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown)
+    return () => {
+      document.removeEventListener("mousedown", handlePointerDown)
+    }
+  }, [])
+
   return (
-    <header className="Header">
+    <header className={`Header${openMobileMenu ? " Header--menu-open" : ""}`}>
       <div className="Header-inner">
         <Link href="/" className="Header-logo">
           <img src={prefixPath("/images/common/img_logo.png")} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
         </Link>
 
-        <nav className="Header-nav">
+        <nav className="Header-nav" ref={navRef}>
           <ul className="Header-navList">
             {NAV_ITEMS.map((item) => (
-              <li key={item.label} className={"children" in item ? "Header-navItem Header-navItem--has-dropdown" : "Header-navItem"}>
+              <li
+                key={item.label}
+                className={
+                  "children" in item
+                    ? `Header-navItem Header-navItem--has-dropdown${openNavDropdown === item.label ? " Header-navItem--open" : ""}`
+                    : "Header-navItem"
+                }
+              >
                 {"children" in item ? (
                   <>
-                    <span className="Header-navLink">
+                    <span
+                      className="Header-navLink"
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={openNavDropdown === item.label}
+                      onClick={() => handleNavDropdownToggle(item.label)}
+                      onKeyDown={(event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                          event.preventDefault()
+                          handleNavDropdownToggle(item.label)
+                        }
+                      }}
+                    >
                       {item.label}
                       <svg className="Header-navCaret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
                         <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -79,7 +143,13 @@ export default function Header() {
                     <ul className="Header-dropdown">
                       {item.children.map((child) => (
                         <li key={child.label}>
-                          <Link href={child.href} className="Header-dropdownLink">
+                          <Link
+                            href={child.href}
+                            className="Header-dropdownLink"
+                            onClick={() => {
+                              setOpenNavDropdown(null)
+                            }}
+                          >
                             {child.label}
                           </Link>
                         </li>
@@ -106,7 +176,7 @@ export default function Header() {
           </ul>
         </nav>
 
-        <div className="Header-lang">
+        <div className="Header-lang" ref={langRef}>
           <button
             type="button"
             className="Header-langButton"
@@ -126,7 +196,10 @@ export default function Header() {
                   <button
                     type="button"
                     className={`Header-langOption${currentLang === lang ? " Header-langOption--active" : ""}`}
-                    onClick={() => { setCurrentLang(lang); setOpenLang(false) }}
+                    onClick={() => {
+                      setCurrentLang(lang)
+                      setOpenLang(false)
+                    }}
                   >
                     {lang}
                   </button>
@@ -161,47 +234,56 @@ export default function Header() {
       <div className={`Header-mobileMenu${openMobileMenu ? " Header-mobileMenu--open" : ""}`}>
         <nav className="Header-mobileNav" aria-label="Mobile navigation">
           <ul className="Header-mobileList">
-            <li className="Header-mobileItem Header-mobileItem--group">
-              <p className="Header-mobileTitle">COMPANY</p>
-              <ul className="Header-mobileSubList">
-                {NAV_ITEMS[0].children.map((child) => (
-                  <li key={child.label}>
-                    <Link href={child.href} className="Header-mobileSubLink">
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li className="Header-mobileItem Header-mobileItem--group">
-              <p className="Header-mobileTitle">PET IP</p>
-              <ul className="Header-mobileSubList">
-                {NAV_ITEMS[1].children.map((child) => (
-                  <li key={child.label}>
-                    <Link href={child.href} className="Header-mobileSubLink">
-                      {child.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </li>
-
-            <li className="Header-mobileItem">
-              <Link href="/career" className="Header-mobileTitleLink" onClick={handleCareerClick}>
-                CAREER
-              </Link>
-            </li>
-            <li className="Header-mobileItem">
-              <Link href="/subsidiary" className="Header-mobileTitleLink">
-                SUBSIDIARY
-              </Link>
-            </li>
-            <li className="Header-mobileItem">
-              <Link href="/contact" className="Header-mobileTitleLink">
-                CONTACT
-              </Link>
-            </li>
+            {NAV_ITEMS.map((item) => (
+              <li key={`mobile-${item.label}`} className="Header-mobileItem">
+                {"children" in item ? (
+                  <>
+                    <button
+                      type="button"
+                      className="Header-mobileGroupHeader"
+                      aria-expanded={openMobileGroups[item.label]}
+                      onClick={() => handleMobileGroupToggle(item.label)}
+                    >
+                      <p className="Header-mobileTitle">{item.label}</p>
+                      <svg
+                        className={`Header-mobileGroupCaret${openMobileGroups[item.label] ? " Header-mobileGroupCaret--open" : ""}`}
+                        width="24"
+                        height="24"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        aria-hidden
+                      >
+                        <path d="M7 14L12 9L17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </button>
+                    <ul className={`Header-mobileSubList${openMobileGroups[item.label] ? " Header-mobileSubList--open" : ""}`}>
+                      {item.children.map((child) => (
+                        <li key={`mobile-${item.label}-${child.label}`}>
+                          <Link href={child.href} className="Header-mobileSubLink" onClick={handleMobileMenuClose}>
+                            {child.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </>
+                ) : item.href === "/career" ? (
+                  <Link
+                    href={item.href}
+                    className="Header-mobileTitleLink"
+                    onClick={(event) => {
+                      handleMobileMenuClose()
+                      handleCareerClick(event)
+                    }}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <Link href={item.href} className="Header-mobileTitleLink" onClick={handleMobileMenuClose}>
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            ))}
           </ul>
         </nav>
       </div>

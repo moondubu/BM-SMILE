@@ -1,42 +1,16 @@
 .PethroomFriendsPage {
   background: var(--color-white);
 
-  .PethroomFriendsHero {
-    .Hero {
-      aspect-ratio: 1920 / 960;
-    }
-
-    .Hero-title {
-      line-height: 1.1;
-      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
-    }
-
-    .Hero-subtext {
-      margin-top: var(--spacing-24);
-      line-height: 1.6;
-      text-shadow: 0 0 var(--spacing-8) rgba(0, 0, 0, 0.25);
-    }
+  .PethroomFriendsHero-subtextBreakMobileOnly {
+    display: none;
   }
 
-  .PethroomFriendsOverview {
-    padding-top: var(--spacing-128);
-
-    .SplitIntroSection-inner {
-      max-width: 1280px;
-    }
-
-    .SplitIntroSection-imageWrap {
-      border-radius: var(--spacing-32);
-    }
+  .PethroomFriendsFlow-descriptionBreakMobileOnly {
+    display: none;
   }
 
   .PethroomFriendsFlow {
     padding: var(--spacing-128) 0 var(--spacing-16);
-
-    .SectionCardGrid-inner {
-      max-width: 1280px;
-      gap: var(--spacing-64);
-    }
 
     .SectionCardGrid-header {
       align-items: center;
@@ -90,8 +64,270 @@
       white-space: pre-line;
     }
   }
+}
 
-  .PethroomFriendsExpansion {
-    padding-top: var(--spacing-128);
+@media (max-width: 1376px) {
+  .PethroomFriendsPage {
+    .PethroomFriendsFlow {
+      .SectionCardGrid-grid {
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        gap: var(--spacing-16);
+      }
+
+      .SectionCardGrid-cardImage {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 240 / 520;
+      }
+    }
+
+    .PethroomFriendsIot .MediaSlide--pethroom-friends-iot .SlideRow-slide--card {
+      width: 360px;
+    }
+
+    .PethroomFriendsIot .PethroomFriendsIot-dashboard,
+    .PethroomFriendsIot .PethroomFriendsIot-report,
+    .PethroomFriendsAiVet .PethroomFriendsAiVet-top,
+    .PethroomFriendsAiVet .PethroomFriendsAiVet-models {
+      max-width: 100%;
+      padding-left: var(--spacing-48);
+      padding-right: var(--spacing-48);
+    }
+  }
+}
+
+@media (max-width: 1376px) and (min-width: 769px) {
+  .PethroomFriendsPage {
+    .PethroomFriendsFlow {
+      .SectionCardGrid-cardTitle {
+        font-size: var(--font-size-16);
+      }
+
+      .SectionCardGrid-cardDescription {
+        font-size: 12px;
+        white-space: normal;
+      }
+
+      .SectionCardGrid-card--plain .SectionCardGrid-cardText {
+        height: 90px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .PethroomFriendsPage {
+    .PethroomFriendsHero-subtextBreakMobileOnly {
+      display: inline;
+    }
+
+    .PethroomFriendsFlow-descriptionBreakMobileOnly {
+      display: inline;
+    }
+
+    .PethroomFriendsHero {
+      .Hero {
+        height: auto;
+        aspect-ratio: 402 / 960;
+      }
+    }
+
+    .PethroomFriendsFlow {
+      padding-top: var(--spacing-120);
+      padding-bottom: var(--spacing-0);
+
+      .SectionCardGrid-inner {
+        padding-left: var(--spacing-0);
+        padding-right: var(--spacing-0);
+      }
+
+      .SectionCardGrid-header {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .SectionCardGrid-title,
+      .SectionCardGrid-description {
+        white-space: normal;
+      }
+
+      .SectionCardGrid-grid {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        gap: var(--spacing-16);
+        overflow-x: auto;
+        overflow-y: visible;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+        padding-bottom: var(--spacing-120);
+      }
+
+      .SectionCardGrid-grid::-webkit-scrollbar {
+        display: none;
+      }
+
+      .SectionCardGrid-card--plain {
+        flex: 0 0 200px;
+        width: 200px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-16);
+      }
+
+      .SectionCardGrid-cardImage {
+        width: 200px;
+        height: 433px;
+        border-radius: var(--spacing-24);
+        flex-shrink: 0;
+      }
+
+      .SectionCardGrid-cardText {
+        order: -1;
+        gap: var(--spacing-8);
+      }
+    }
+
+    .PethroomFriendsIot {
+      .MediaSlide--pethroom-friends-iot .SlideRow-slide--card {
+        width: 300px;
+      }
+
+      .MediaSlide--pethroom-friends-iot .SlideRow .SlideRow-mobile {
+        padding-bottom: var(--spacing-0);
+      }
+
+      .MediaSlide--pethroom-friends-iot .SlideRow .SlideRow-swiper {
+        padding: var(--spacing-0);
+      }
+
+      .MediaSlide--pethroom-friends-iot .SectionTextPanel {
+        padding-top: var(--spacing-0);
+      }
+
+      .MediaSlide--pethroom-friends-iot .SectionTextPanel-title br {
+        display: block;
+      }
+
+      .PethroomFriendsIot-dashboard,
+      .PethroomFriendsIot-report {
+        padding-top: var(--spacing-120);
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .PethroomFriendsIot-dashboard {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-24);
+      }
+
+      .PethroomFriendsIot-dashboardImage {
+        order: 2;
+        width: 100%;
+        height: auto;
+      }
+
+      .PethroomFriendsIot-dashboardText {
+        order: 1;
+        width: 100%;
+      }
+
+      .PethroomFriendsIot-reportText {
+        order: 1;
+        position: static;
+      }
+
+      .PethroomFriendsIot-report {
+        display: flex;
+        flex-direction: column;
+        gap: var(--spacing-32);
+      }
+
+      .PethroomFriendsIot-reportImage {
+        order: 2;
+      }
+    }
+
+    .PethroomFriendsAiVet {
+      padding-top: var(--spacing-120);
+
+      .PethroomFriendsAiVet-top,
+      .PethroomFriendsAiVet-models {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
+      .PethroomFriendsAiVet-top {
+        flex-direction: column;
+        gap: var(--spacing-32);
+      }
+
+      .PethroomFriendsAiVet-header {
+        order: 1;
+        width: 100%;
+        padding-top: var(--spacing-0);
+      }
+
+      .PethroomFriendsAiVet-visual {
+        order: 2;
+        width: 100%;
+        gap: var(--spacing-12);
+      }
+
+      .PethroomFriendsAiVet-visual img {
+        width: calc((100% - var(--spacing-12)) / 2);
+        height: auto;
+      }
+
+      .PethroomFriendsAiVet-models {
+        padding-top: var(--spacing-120);
+      }
+
+      .PethroomFriendsAiVet-modelGrid {
+        flex-direction: column;
+        gap: var(--spacing-12);
+      }
+
+      .PethroomFriendsAiVet-mainModel {
+        gap: var(--spacing-16);
+        padding: var(--spacing-20);
+      }
+
+      .PethroomFriendsAiVet-mainProfile {
+        gap: var(--spacing-16);
+      }
+
+      .PethroomFriendsAiVet-mainCareer {
+        gap: var(--spacing-4);
+        padding: 0;
+      }
+
+      .PethroomFriendsAiVet-mainCareer li {
+        font-size: var(--font-size-13);
+        line-height: 1.4;
+      }
+
+      .PethroomFriendsAiVet-mainCareer ul {
+        padding-left: var(--spacing-12);
+      }
+
+      .PethroomFriendsAiVet-sideModels {
+        width: 100%;
+        gap: var(--spacing-12);
+      }
+
+      .PethroomFriendsAiVet-sideModel {
+        height: auto;
+        padding: var(--spacing-20);
+        gap: var(--spacing-16);
+      }
+    }
+
+    .PethroomFriendsExpansion {
+      padding-top: var(--spacing-120);
+    }
   }
 }

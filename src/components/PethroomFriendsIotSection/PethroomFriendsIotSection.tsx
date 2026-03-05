@@ -85,7 +85,9 @@ export default function PethroomFriendsIotSection() {
           <h3 className="PethroomFriendsIot-dashboardTitle">건강지표 대시보드</h3>
           <p className="PethroomFriendsIot-dashboardDescription">
             반려동물의 건강 상태를 한눈에,
+            <br className="PethroomFriendsIot-dashboardDescriptionBreakMobileOnly" />
             체중, 체온, 음수량, 배변 등
+            <br className="PethroomFriendsIot-dashboardDescriptionBreakMobileOnly" />
             실시간 지표로 더 스마트한 케어
           </p>
         </div>
