@@ -163,7 +163,7 @@ export const PETHROOM_BESTSELLER_PRODUCTS = [
 export const PETHROOM_BESTSELLER_SECTION = {
   id: "pethroom-best-seller",
   label: "Best Seller",
-  title: "페스룸\n베스트셀러",
+  title: "페스룸 \n베스트셀러",
   description:
     "페스룸의 디자인 철학을 바탕으로\n많은 반려인들에게 사랑받은\n베스트셀러 제품들을 소개합니다.",
 } as const
