@@ -43,6 +43,7 @@ export default function ContributionPage() {
             <ImpactSection
                 className="ContributionImpact"
                 backgroundSrc={CONTRIBUTION_IMPACT.backgroundSrc}
+                backgroundMobileSrc="/images/contribution/img_contribution_impact_01_mo.png"
                 label={CONTRIBUTION_IMPACT.label}
                 title={CONTRIBUTION_IMPACT.title}
                 subTextLines={[...CONTRIBUTION_IMPACT.subTextLines]}
