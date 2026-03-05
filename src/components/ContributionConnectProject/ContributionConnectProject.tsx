@@ -27,7 +27,7 @@ const PROJECT_ITEMS = [
 const JOURNEY_ITEMS = Array.from({ length: 12 }, (_, index) => ({
     alt: `따듯한 여정의 순간 ${index + 1}`,
     image: getConnectImage(index + 1),
-    mobileImage: index === 3 ? getConnectMobileImage(index + 1) : undefined,
+    mobileImage: [3, 4, 7].includes(index) ? getConnectMobileImage(index + 1) : undefined,
     thumb: getConnectThumbImage(index + 1),
 }))
 
