@@ -86,7 +86,7 @@ export default function ContributionConnectProject() {
         setActiveJourneyIndex(nextIndex)
     }
 
-    const getDistance = (touches: TouchList) => {
+    const getDistance = (touches: TouchList | React.TouchList) => {
         const a = touches[0]
         const b = touches[1]
         const dx = a.clientX - b.clientX
