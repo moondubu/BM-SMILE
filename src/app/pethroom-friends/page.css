@@ -1,6 +1,10 @@
 .PethroomFriendsPage {
   background: var(--color-white);
 
+  .PethroomFriendsIot .MediaSlide--pethroom-friends-iot .SlideCard-number {
+    text-shadow: none;
+  }
+
   .PethroomFriendsHero-subtextBreakMobileOnly {
     display: none;
   }
