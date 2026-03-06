@@ -125,14 +125,17 @@ export const SUBSIDIARY_HUMAN_IP = {
       caption:
         "Youtube 780K+ · Instagram 608K+\n패션·뷰티·라이프스타일 전반으로 확장된 플랫폼형 크리에이터 IP입니다.",
       actionHref: "https://www.instagram.com/minyoung_aori/?utm_source=ig_web_button_share_sheet",
+      actionIcon: "instagram",
     },
     {
       imageSrc: "/images/subsidiary/img_subsidiaries_human_ip_02.png",
+      imageSrcMobile: "/images/subsidiary/img_subsidiaries_human_ip_02_mo.png",
       imageAlt: "Imvely / 임지현",
       number: "Imvely / 임지현",
       caption:
         "Instagram 673K+\n패션과 뷰티를 기반으로 비즈니스를 확장해온 사업가형 인플루언서입니다.",
       actionHref: "https://www.instagram.com/imvely_jihyun?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==",
+      actionIcon: "instagram",
     },
   ] satisfies SlideRowItem[],
 } as const

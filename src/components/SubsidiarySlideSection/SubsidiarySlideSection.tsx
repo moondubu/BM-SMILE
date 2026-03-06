@@ -65,11 +65,13 @@ export default function SubsidiarySlideSection({
             <SwiperSlide key={`${item.imageSrc}-${item.number ?? item.caption ?? ""}`} className="SubsidiarySlideSection-slide">
               <SlideCard
                 imageSrc={item.imageSrc}
+                imageSrcMobile={item.imageSrcMobile}
                 imageAlt={item.imageAlt}
                 number={item.number}
                 caption={item.caption}
                 showActionIcon
                 actionHref={item.actionHref}
+                actionIcon={item.actionIcon}
                 linkWholeCard
               />
             </SwiperSlide>

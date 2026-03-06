@@ -20,6 +20,7 @@ export type SlideRowTextPanel = {
 
 export type SlideRowItem = {
   imageSrc: string
+  imageSrcMobile?: string
   imageAlt?: string
   caption?: string
   label?: string
@@ -28,6 +29,7 @@ export type SlideRowItem = {
   number?: string
   showActionIcon?: boolean
   actionHref?: string
+  actionIcon?: "arrow" | "instagram"
 }
 
 type SlideRowProps = {
@@ -84,6 +86,7 @@ export default function SlideRow({
             <SwiperSlide key={i} className="SlideRow-slide SlideRow-slide--card">
               <SlideCard
                 imageSrc={item.imageSrc}
+                imageSrcMobile={item.imageSrcMobile}
                 imageAlt={item.imageAlt}
                 caption={item.caption}
                 label={item.label}
@@ -91,6 +94,7 @@ export default function SlideRow({
                 number={item.number}
                 showActionIcon={item.showActionIcon}
                 actionHref={item.actionHref}
+                actionIcon={item.actionIcon}
                 linkWholeCard={linkWholeCard}
                 isActive={activeDesktopIndex === i}
                 onToggleActive={() => {
@@ -124,6 +128,7 @@ export default function SlideRow({
             <SwiperSlide key={`mobile-${i}`} className="SlideRow-slide SlideRow-slide--card">
               <SlideCard
                 imageSrc={item.imageSrc}
+                imageSrcMobile={item.imageSrcMobile}
                 imageAlt={item.imageAlt}
                 caption={item.caption}
                 label={item.label}
@@ -131,6 +136,7 @@ export default function SlideRow({
                 number={item.number}
                 showActionIcon={item.showActionIcon}
                 actionHref={item.actionHref}
+                actionIcon={item.actionIcon}
                 linkWholeCard={linkWholeCard}
                 isActive={activeMobileIndex === i}
                 onToggleActive={() => {
