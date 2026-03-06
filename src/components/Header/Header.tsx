@@ -53,6 +53,7 @@ function HeaderView({ pathname }: HeaderViewProps) {
     ),
   )
   const [currentLang, setCurrentLang] = useState<string>("KR")
+  const logoSrc = openMobileMenu ? "/images/common/img_logo_wt.png" : "/images/common/img_logo.png"
 
   const handleCareerClick = (event: MouseEvent<HTMLAnchorElement>) => {
     const isCareerPage = pathname === "/career" || pathname === "/career/"
@@ -106,7 +107,7 @@ function HeaderView({ pathname }: HeaderViewProps) {
     <header className={`Header${openMobileMenu ? " Header--menu-open" : ""}`}>
       <div className="Header-inner">
         <Link href="/" className="Header-logo">
-          <img src={prefixPath("/images/common/img_logo.png")} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
+          <img src={prefixPath(logoSrc)} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
         </Link>
 
         <nav className="Header-nav" ref={navRef}>
