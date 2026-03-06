@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import localFont from "next/font/local";
+import { Agentation } from "agentation";
 import "./globals.css";
 
 import Header from "@/components/Header/Header"
@@ -33,6 +34,7 @@ export default function RootLayout({
         <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet" />
       </head>
       <body>
+        {process.env.NODE_ENV === "development" ? <Agentation /> : null}
         <Header />
         <main className="main">
           {children}

@@ -165,7 +165,7 @@
       right: var(--spacing-20);
       bottom: var(--spacing-20);
       width: auto;
-      height: 48px;
+      height: 58px;
       border-radius: 999px;
       padding: 0 var(--spacing-24);
       gap: var(--spacing-8);
@@ -499,13 +499,22 @@
       .SlideCard .SlideCard-actionIcon {
         right: var(--spacing-16);
         bottom: var(--spacing-16);
-        height: 40px;
-        padding: 0 var(--spacing-20);
+        padding: 0 var(--spacing-16);
         font-size: var(--font-size-14);
       }
     }
 
     .PethroomArchive {
+      .SectionCardGrid-inner {
+        padding-left: var(--spacing-0);
+        padding-right: var(--spacing-0);
+      }
+
+      .SectionCardGrid-header {
+        padding-left: var(--spacing-16);
+        padding-right: var(--spacing-16);
+      }
+
       .SectionCardGrid-grid {
         display: grid;
         grid-template-columns: 1fr;

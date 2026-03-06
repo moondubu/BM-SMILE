@@ -168,6 +168,7 @@
     border-radius: 24px;
 
     &::after {
+      inset: 0;
       border-radius: 24px;
     }
   }
