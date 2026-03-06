@@ -208,6 +208,11 @@ section {
   border-color: var(--color-primary-blue);
 }
 
+body .LocationPage,
+body .ContactPage {
+  padding-top: 176px;
+}
+
 @media (max-width: 1024px) {
   body .LocationPage,
   body .ContactPage {
