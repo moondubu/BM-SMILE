@@ -135,7 +135,7 @@
 @media (max-width: 1024px) {
   .LocationPage {
     background: var(--color-white);
-    padding: 124px 0 var(--spacing-120);
+    padding-bottom: var(--spacing-120);
 
     .LocationPage-inner {
       padding-left: var(--spacing-0);

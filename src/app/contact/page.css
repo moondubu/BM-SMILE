@@ -239,9 +239,8 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .ContactPage {
-    padding-top: var(--spacing-120);
     padding-bottom: var(--spacing-120);
 
     .ContactPage-inner {
