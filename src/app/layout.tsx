@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     description: "BMSmile 공식 홈페이지",
     images: [
       {
-        url: `${basePath}/images/common/og_img.png`,
+        url: "https://moondubu.github.io/BM-SMILE/images/common/og_img.png",
       },
     ],
   },
