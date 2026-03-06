@@ -283,6 +283,8 @@
   .Header {
     .Header-inner {
       height: 60px;
+      padding-left: var(--spacing-16);
+      padding-right: var(--spacing-16);
     }
 
     .Header-logo {
