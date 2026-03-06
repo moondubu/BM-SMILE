@@ -32,11 +32,13 @@ const JOURNEY_ITEMS = Array.from({ length: 12 }, (_, index) => ({
 }))
 
 export default function ContributionConnectProject() {
+    const sectionRef = useRef<HTMLElement | null>(null)
     const [activeJourneyIndex, setActiveJourneyIndex] = useState<number | null>(null)
     const [zoomScale, setZoomScale] = useState(1)
     const [zoomOffset, setZoomOffset] = useState({ x: 0, y: 0 })
     const isLightboxOpen = activeJourneyIndex !== null
     const panelRef = useRef<HTMLDivElement | null>(null)
+    const hasPreloadedRef = useRef(false)
     const pinchDistanceRef = useRef(0)
     const pinchScaleRef = useRef(1)
     const dragRef = useRef({ x: 0, y: 0 })
@@ -54,6 +56,37 @@ export default function ContributionConnectProject() {
             y: Math.max(-maxY, Math.min(maxY, nextY)),
         }
     }
+
+    useEffect(() => {
+        const section = sectionRef.current
+        if (!section || hasPreloadedRef.current) return
+
+        const preloadImages = () => {
+            if (hasPreloadedRef.current) return
+            hasPreloadedRef.current = true
+            JOURNEY_ITEMS.forEach((item) => {
+                const desktopImage = new Image()
+                desktopImage.src = item.image
+                if (item.mobileImage) {
+                    const mobileImage = new Image()
+                    mobileImage.src = item.mobileImage
+                }
+            })
+        }
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                if (entries.some((entry) => entry.isIntersecting)) {
+                    preloadImages()
+                    observer.disconnect()
+                }
+            },
+            { rootMargin: "300px 0px" },
+        )
+
+        observer.observe(section)
+        return () => observer.disconnect()
+    }, [])
 
     useEffect(() => {
         if (!isLightboxOpen) return
@@ -151,7 +184,7 @@ export default function ContributionConnectProject() {
     }
 
     return (
-        <section className="ContributionConnectProject">
+        <section className="ContributionConnectProject" ref={sectionRef}>
             <div className="ContributionConnectProject-inner">
                 <div className="ContributionConnectProject-top">
                     <header className="ContributionConnectProject-header">
