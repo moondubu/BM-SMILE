@@ -16,6 +16,7 @@ const nanumSquareNeo = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://moondubu.github.io"),
   title: "BMSmile | 홈",
   description: "BMSmile 공식 홈페이지",
   icons: {
