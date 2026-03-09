@@ -20,6 +20,7 @@ export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [
   { imageSrc: "/images/main/img_evm_conference_02.png", imageAlt: "Conference", caption: "Conference" },
   { imageSrc: "/images/main/img_evm_meetingroom_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
   { imageSrc: "/images/main/img_evm_canteen_01.png", imageAlt: "Canteen", caption: "Canteen" },
+  { imageSrc: "/images/main/img_evm_canteen_02.png", imageAlt: "Canteen", caption: "Canteen" },
 ]
 
 export const MAIN_ENVIRONMENT_SECTION = {
