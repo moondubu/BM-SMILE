@@ -10,16 +10,16 @@ export const MAIN_HERO_VIDEO = {
 } as const
 
 export const ENVIRONMENT_SLIDE_ITEMS: SlideRowItem[] = [
+  { imageSrc: "/images/main/img_evm_elevator_01.png", imageAlt: "Elevator", caption: "Elevator" },
   { imageSrc: "/images/main/img_evm_lobby_01.png", imageAlt: "Lobby", caption: "Lobby" },
   { imageSrc: "/images/main/img_evm_lounge_01.png", imageAlt: "Lounge", caption: "Lounge" },
   { imageSrc: "/images/main/img_evm_lounge_02.png", imageAlt: "Lounge", caption: "Lounge" },
-  { imageSrc: "/images/main/img_evm_lounge_03.png", imageAlt: "Lounge", caption: "Lounge" },
   { imageSrc: "/images/main/img_evm_office_01.png", imageAlt: "Office", caption: "Office" },
   { imageSrc: "/images/main/img_evm_toilet_01.png", imageAlt: "Toilet", caption: "Toilet" },
   { imageSrc: "/images/main/img_evm_conference_01.png", imageAlt: "Conference", caption: "Conference" },
   { imageSrc: "/images/main/img_evm_conference_02.png", imageAlt: "Conference", caption: "Conference" },
-  { imageSrc: "/images/main/img_evm_mettingroom_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
-  { imageSrc: "/images/main/img_evm_mettingroom_02.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
+  { imageSrc: "/images/main/img_evm_meetingroom_01.png", imageAlt: "Meeting Room", caption: "Meeting Room" },
+  { imageSrc: "/images/main/img_evm_canteen_01.png", imageAlt: "Canteen", caption: "Canteen" },
 ]
 
 export const MAIN_ENVIRONMENT_SECTION = {
