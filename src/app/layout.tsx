@@ -6,8 +6,6 @@ import "./globals.css";
 import Header from "@/components/Header/Header"
 import FooterSlot from "@/components/Footer/FooterSlot"
 
-const basePath = process.env.NODE_ENV === "production" ? "/BM-SMILE" : ""
-
 const nanumSquareNeo = localFont({
   src: "../../public/fonts/NanumSquareNeo-Variable/woff2/NanumSquareNeo-Variable.woff2",
   variable: "--font-nanumSquareNeo",
@@ -16,24 +14,23 @@ const nanumSquareNeo = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://moondubu.github.io"),
   title: "BMSmile | 홈",
   description: "BMSmile 공식 홈페이지",
   icons: {
     icon: [
-      { url: `${basePath}/images/common/favicon/favicon.ico` },
-      { url: `${basePath}/images/common/favicon/favicon.svg`, type: "image/svg+xml" },
-      { url: `${basePath}/images/common/favicon/favicon-96x96.png`, sizes: "96x96", type: "image/png" },
+      { url: "/images/common/favicon/favicon.ico" },
+      { url: "/images/common/favicon/favicon.svg", type: "image/svg+xml" },
+      { url: "/images/common/favicon/favicon-96x96.png", sizes: "96x96", type: "image/png" },
     ],
-    apple: `${basePath}/images/common/favicon/apple-touch-icon.png`,
+    apple: "/images/common/favicon/apple-touch-icon.png",
   },
-  manifest: `${basePath}/images/common/favicon/site.webmanifest`,
+  manifest: "/images/common/favicon/site.webmanifest",
   openGraph: {
     title: "BMSmile | 홈",
     description: "BMSmile 공식 홈페이지",
     images: [
       {
-        url: "https://moondubu.github.io/BM-SMILE/images/common/og_img.png",
+        url: "/images/common/og_img.png",
       },
     ],
   },
