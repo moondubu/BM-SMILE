@@ -1,5 +1,6 @@
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
+import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import PageNavigation from "@/components/PageNavigation/PageNavigation"
 import PethroomBannerSection from "@/components/PethroomBannerSection/PethroomBannerSection"
 import PethroomScaleSection from "@/components/PethroomScaleSection/PethroomScaleSection"
@@ -20,7 +21,6 @@ import {
   PETHROOM_UNIVERSE,
 } from "@/data/pethroomSections"
 import { prefixPath } from "@/utils/path"
-import { Fragment } from "react"
 import "./page.css"
 
 export const metadata = {
@@ -30,12 +30,7 @@ export const metadata = {
 
 const PETHROOM_BESTSELLER_TEXT_PANEL: SlideRowTextPanel = {
   label: PETHROOM_BESTSELLER_SECTION.label,
-  title: PETHROOM_BESTSELLER_SECTION.title.split("\n").map((line, index, lines) => (
-    <Fragment key={line}>
-      {line}
-      {index < lines.length - 1 ? <br /> : null}
-    </Fragment>
-  )),
+  title: buildSectionTitle(PETHROOM_BESTSELLER_SECTION.title),
   body: PETHROOM_BESTSELLER_SECTION.description,
 }
 

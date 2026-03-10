@@ -10,6 +10,19 @@ export type SectionTextPanelProps = {
   ctaHref?: string
 }
 
+const normalizeTitleLines = (lines: readonly string[]) =>
+  lines.flatMap((line) => line.split("\n")).filter((line) => line !== "")
+
+export function buildSectionTitle(...rawLines: readonly string[]) {
+  const lines = normalizeTitleLines(rawLines)
+
+  return lines.map((line, index) => (
+    <Fragment key={`${index}-${line}`}>
+      <span className="SectionTextPanel-titleLine">{line}</span>
+    </Fragment>
+  ))
+}
+
 const CTA_ICON = (
   <svg className="SectionTextPanel-ctaIcon" width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden>
     <path d="M5 15L15 5M15 5H6M15 5V14" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />

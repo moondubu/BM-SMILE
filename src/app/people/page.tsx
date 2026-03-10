@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
+import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
 import CareerBanner from "@/components/CareerBanner/CareerBanner"
 import PageNavigation from "@/components/PageNavigation/PageNavigation"
@@ -14,14 +15,7 @@ import "./page.css"
 
 const PEOPLE_TEAM_TEXT_PANEL: SlideRowTextPanel = {
   label: PEOPLE_TEAM_PANEL.label,
-  title: (
-    <>
-      {PEOPLE_TEAM_PANEL.titleLine1}
-      {" "}
-      <br />
-      {PEOPLE_TEAM_PANEL.titleLine2}
-    </>
-  ),
+  title: buildSectionTitle(PEOPLE_TEAM_PANEL.titleLine1, PEOPLE_TEAM_PANEL.titleLine2),
   body: PEOPLE_TEAM_PANEL.body.join("\n"),
 }
 
