@@ -3,7 +3,7 @@ import Hero from "@/components/Hero/Hero"
 import Slogan from "@/components/Slogan/Slogan"
 import MediaSlide from "@/components/MediaSlide/MediaSlide"
 import { SlideRow } from "@/components/MediaSlide"
-import SectionTextPanel from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
+import SectionTextPanel, { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import Friends from "@/components/Friends/Friends"
 import Strategy from "@/components/Strategy/Strategy"
 import Growth from "@/components/Growth/Growth"
@@ -52,13 +52,7 @@ export default function Home() {
           mobileSlidesPerView={1.2}
           textPanel={{
             label: MAIN_ENVIRONMENT_SECTION.panelLabel,
-            title: (
-              <>
-                {MAIN_ENVIRONMENT_SECTION.panelTitleLine1}
-                <br />
-                {MAIN_ENVIRONMENT_SECTION.panelTitleLine2}
-              </>
-            ),
+            title: buildSectionTitle(MAIN_ENVIRONMENT_SECTION.panelTitleLine1, MAIN_ENVIRONMENT_SECTION.panelTitleLine2),
             body: MAIN_ENVIRONMENT_SECTION.panelBody,
             ctaLabel: MAIN_ENVIRONMENT_SECTION.panelCtaLabel,
             ctaHref: MAIN_ENVIRONMENT_SECTION.panelCtaHref,
@@ -93,13 +87,7 @@ export default function Home() {
           </div>
           <SectionTextPanel
             label={MAIN_IP_SECTION.panelLabel}
-            title={
-              <>
-                {MAIN_IP_SECTION.panelTitleLine1}
-                <br />
-                {MAIN_IP_SECTION.panelTitleLine2}
-              </>
-            }
+            title={buildSectionTitle(MAIN_IP_SECTION.panelTitleLine1, MAIN_IP_SECTION.panelTitleLine2)}
             body={(
               <p className="SectionTextPanel-body IpBody">
                 페스룸은 국내에서 가장 빠르고 안정적으로
@@ -144,13 +132,7 @@ export default function Home() {
         <SlideRow
           textPanel={{
             label: MAIN_PEOPLE_SECTION.panelLabel,
-            title: (
-              <>
-                {MAIN_PEOPLE_SECTION.panelTitleLine1}
-                <br />
-                {MAIN_PEOPLE_SECTION.panelTitleLine2}
-              </>
-            ),
+            title: buildSectionTitle(MAIN_PEOPLE_SECTION.panelTitleLine1, MAIN_PEOPLE_SECTION.panelTitleLine2),
             body: MAIN_PEOPLE_SECTION.panelBody,
             ctaLabel: MAIN_PEOPLE_SECTION.panelCtaLabel,
             ctaHref: MAIN_PEOPLE_SECTION.panelCtaHref,
@@ -179,13 +161,7 @@ export default function Home() {
         <SlideRow
           textPanel={{
             label: MAIN_CONTRIBUTION_SECTION.panelLabel,
-            title: (
-              <>
-                {MAIN_CONTRIBUTION_SECTION.panelTitleLine1}
-                <br />
-                {MAIN_CONTRIBUTION_SECTION.panelTitleLine2}
-              </>
-            ),
+            title: buildSectionTitle(MAIN_CONTRIBUTION_SECTION.panelTitleLine1, MAIN_CONTRIBUTION_SECTION.panelTitleLine2),
             body: MAIN_CONTRIBUTION_SECTION.panelBody,
             ctaLabel: MAIN_CONTRIBUTION_SECTION.panelCtaLabel,
             ctaHref: MAIN_CONTRIBUTION_SECTION.panelCtaHref,

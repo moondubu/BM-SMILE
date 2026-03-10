@@ -211,8 +211,12 @@
         padding-top: var(--spacing-0);
       }
 
-      .MediaSlide--pethroom-friends-iot .SectionTextPanel-title br {
+      .MediaSlide--pethroom-friends-iot .SectionTextPanel-titleLine {
         display: block;
+      }
+
+      .MediaSlide--pethroom-friends-iot .SectionTextPanel-titleLine + .SectionTextPanel-titleLine::before {
+        content: none;
       }
 
       .PethroomFriendsIot-dashboard,

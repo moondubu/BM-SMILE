@@ -1,4 +1,5 @@
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
+import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import { prefixPath } from "@/utils/path"
 import "./PethroomFriendsIotSection.css"
 
@@ -32,13 +33,7 @@ const IOT_DEVICES = [
 
 const IOT_TEXT_PANEL: SlideRowTextPanel = {
   label: "02",
-  title: (
-    <>
-      IoT 디바이스
-      <br />
-      연동 케어 리포트
-    </>
-  ),
+  title: buildSectionTitle("IoT 디바이스", "연동 케어 리포트"),
   body: (
     <div className="PethroomFriendsIot-panelBody">
       <p className="PethroomFriendsIot-panelBodyMain">

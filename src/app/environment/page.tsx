@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero/Hero"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
+import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import SectionCardGrid from "@/components/SectionCardGrid/SectionCardGrid"
 import EnvironmentCulture from "@/components/EnvironmentCulture/EnvironmentCulture"
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
@@ -15,13 +16,7 @@ import "./page.css"
 
 const ENV_OFFICE_TEXT_PANEL: SlideRowTextPanel = {
   label: ENVIRONMENT_OFFICE_PANEL.label,
-  title: (
-    <>
-      {ENVIRONMENT_OFFICE_PANEL.titleLine1}
-      <br />
-      {ENVIRONMENT_OFFICE_PANEL.titleLine2}
-    </>
-  ),
+  title: buildSectionTitle(ENVIRONMENT_OFFICE_PANEL.titleLine1, ENVIRONMENT_OFFICE_PANEL.titleLine2),
   body: ENVIRONMENT_OFFICE_PANEL.body,
 }
 
