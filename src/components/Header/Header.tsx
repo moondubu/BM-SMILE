@@ -30,7 +30,12 @@ const NAV_ITEMS = [
   { label: "CONTACT", href: "/contact" },
 ] as const
 
-const LANG_ITEMS = ["KR", "ENG", "CN", "JP"] as const
+const LANG_ITEMS = [
+  { label: "KR", enabled: true },
+  { label: "ENG", enabled: false },
+  { label: "CN", enabled: false },
+  { label: "JP", enabled: false },
+] as const
 
 export default function Header() {
   const pathname = usePathname()
@@ -192,17 +197,22 @@ function HeaderView({ pathname }: HeaderViewProps) {
           </button>
           {openLang && (
             <ul className="Header-langDropdown" role="listbox">
-              {LANG_ITEMS.map((lang) => (
-                <li key={lang} role="option" aria-selected={currentLang === lang}>
+              {LANG_ITEMS.map((langItem) => (
+                <li key={langItem.label} role="option" aria-selected={currentLang === langItem.label}>
                   <button
                     type="button"
-                    className={`Header-langOption${currentLang === lang ? " Header-langOption--active" : ""}`}
+                    className={`Header-langOption${currentLang === langItem.label ? " Header-langOption--active" : ""}${!langItem.enabled ? " Header-langOption--disabled" : ""}`}
+                    disabled={!langItem.enabled}
+                    aria-disabled={!langItem.enabled}
                     onClick={() => {
-                      setCurrentLang(lang)
+                      if (!langItem.enabled) {
+                        return
+                      }
+                      setCurrentLang(langItem.label)
                       setOpenLang(false)
                     }}
                   >
-                    {lang}
+                    {langItem.label}
                   </button>
                 </li>
               ))}

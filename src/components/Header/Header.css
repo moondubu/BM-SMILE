@@ -157,11 +157,11 @@
       font-weight: 800;
       font-size: var(--font-size-14);
       line-height: 1.5;
-      color: var(--color-grey-400);
+      color: var(--color-black);
       cursor: pointer;
 
       &:hover {
-        color: var(--color-black);
+        color: var(--color-primary-blue);
       }
     }
 
@@ -216,9 +216,23 @@
         background: var(--color-grey-100);
       }
 
-      &--active {
+      &.Header-langOption--active {
         color: var(--color-primary-blue);
         font-weight: 900;
+      }
+
+      &.Header-langOption--disabled,
+      &:disabled {
+        color: #aaa;
+        background: none;
+        opacity: 1;
+        font-weight: 700;
+        pointer-events: none;
+
+        &:hover {
+          color: #aaa;
+          background: none;
+        }
       }
     }
   }
