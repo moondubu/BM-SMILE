@@ -1,170 +1,37 @@
-name: Amplify Release Deploy
+name: Deploy to AWS Amplify on Tag
 
 on:
   push:
     tags:
-      - "v*"
-
-permissions:
-  id-token: write
-  contents: read
+      - "v*" # v로 시작하는 태그가 푸시될 때만 작동
 
 jobs:
-  deploy-release:
-    runs-on: [self-hosted, infinishow-office]
+  deploy:
+    runs-on: infinishow-office
     env:
-      AWS_REGION: ${{ vars.AWS_REGION || 'ap-northeast-2' }}
       AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
-      AMPLIFY_BRANCH: ${{ vars.AMPLIFY_BRANCH || 'main' }}
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Validate tag format (vYYYY.MM.DD.N)
-        env:
-          TAG_NAME: ${{ github.ref_name }}
-        run: |
-          if [[ ! "$TAG_NAME" =~ ^v[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.[0-9]{1}$ ]]; then
-            echo "Invalid tag format: $TAG_NAME"
-            echo "Expected format: vYYYY.MM.DD.N (example: v2026.03.10.1)"
-            exit 1
-          fi
+      - name: Checkout code
+        uses: actions/checkout@v3
 
       - name: Validate required configuration
-        env:
-          AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
         run: |
-          if [ -z "$AWS_ROLE_TO_ASSUME" ]; then
-            echo "Missing secret: AWS_ROLE_TO_ASSUME"
-            exit 1
-          fi
           if [ -z "$AMPLIFY_APP_ID" ]; then
             echo "Missing variable: AMPLIFY_APP_ID"
             exit 1
           fi
 
-      - name: Verify tag points to release branch HEAD
-        run: |
-          git fetch origin "$AMPLIFY_BRANCH" --tags --force
-          MAIN_SHA="$(git rev-parse "origin/$AMPLIFY_BRANCH")"
-          TAG_SHA="$(git rev-list -n 1 "$GITHUB_REF")"
-          echo "origin/$AMPLIFY_BRANCH: $MAIN_SHA"
-          echo "tag commit : $TAG_SHA"
-          if [ "$MAIN_SHA" != "$TAG_SHA" ]; then
-            echo "Tag must point to the latest origin/$AMPLIFY_BRANCH commit."
-            exit 1
-          fi
-
-      - name: Configure AWS credentials (OIDC)
-        uses: aws-actions/configure-aws-credentials@v4
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v2
         with:
-          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
-          aws-region: ${{ env.AWS_REGION }}
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ap-northeast-2
 
-      - name: Ensure AWS CLI is installed (official installer)
-        shell: bash
+      - name: Trigger Amplify Build
         run: |
-          set -euo pipefail
-
-          if command -v aws >/dev/null 2>&1; then
-            aws --version
-            exit 0
-          fi
-
-          if ! command -v curl >/dev/null 2>&1; then
-            echo "curl is required to install AWS CLI."
-            exit 1
-          fi
-
-          if ! command -v unzip >/dev/null 2>&1; then
-            echo "unzip is required to install AWS CLI."
-            exit 1
-          fi
-
-          OS="$(uname -s)"
-          ARCH="$(uname -m)"
-
-          if [ "$OS" != "Linux" ]; then
-            echo "Automatic AWS CLI installation is only configured for Linux self-hosted runners."
-            echo "Current OS: $OS"
-            exit 1
-          fi
-
-          case "$ARCH" in
-            x86_64)
-              AWSCLI_ARCH="x86_64"
-              ;;
-            aarch64|arm64)
-              AWSCLI_ARCH="aarch64"
-              ;;
-            *)
-              echo "Unsupported Linux architecture: $ARCH"
-              exit 1
-              ;;
-          esac
-
-          TMP_DIR="$(mktemp -d)"
-          trap 'rm -rf "$TMP_DIR"' EXIT
-
-          curl -fsSL "https://awscli.amazonaws.com/awscli-exe-linux-${AWSCLI_ARCH}.zip" -o "$TMP_DIR/awscliv2.zip"
-          unzip -q "$TMP_DIR/awscliv2.zip" -d "$TMP_DIR"
-
-          INSTALL_BIN_DIR="$HOME/.local/bin"
-          INSTALL_DIR="$HOME/.local/aws-cli"
-          mkdir -p "$INSTALL_BIN_DIR"
-
-          "$TMP_DIR/aws/install" --bin-dir "$INSTALL_BIN_DIR" --install-dir "$INSTALL_DIR" --update
-          echo "$INSTALL_BIN_DIR" >> "$GITHUB_PATH"
-          "$INSTALL_BIN_DIR/aws" --version
-
-      - name: Start Amplify release job
-        id: start
-        run: |
-          JOB_ID="$(aws amplify start-job \
+          aws amplify start-job \
             --app-id "$AMPLIFY_APP_ID" \
-            --branch-name "$AMPLIFY_BRANCH" \
-            --job-type RELEASE \
-            --job-reason "Triggered by tag $GITHUB_REF_NAME ($GITHUB_SHA)" \
-            --query 'jobSummary.jobId' \
-            --output text)"
-          if [ -z "$JOB_ID" ] || [ "$JOB_ID" = "None" ]; then
-            echo "Failed to start Amplify release job."
-            exit 1
-          fi
-          echo "Started Amplify job: $JOB_ID"
-          echo "job_id=$JOB_ID" >> "$GITHUB_OUTPUT"
-
-      - name: Poll Amplify release job status
-        run: |
-          JOB_ID="${{ steps.start.outputs.job_id }}"
-          for attempt in $(seq 1 120); do
-            STATUS="$(aws amplify get-job \
-              --app-id "$AMPLIFY_APP_ID" \
-              --branch-name "$AMPLIFY_BRANCH" \
-              --job-id "$JOB_ID" \
-              --query 'job.summary.status' \
-              --output text)"
-            echo "Attempt $attempt/120 - status: $STATUS"
-            case "$STATUS" in
-              SUCCEED)
-                echo "Amplify deployment succeeded."
-                exit 0
-                ;;
-              FAILED|CANCELLED)
-                echo "Amplify deployment failed with status: $STATUS"
-                exit 1
-                ;;
-              CREATED|PENDING|PROVISIONING|RUNNING|CANCELLING)
-                sleep 15
-                ;;
-              *)
-                echo "Unexpected job status: $STATUS"
-                sleep 15
-                ;;
-            esac
-          done
-          echo "Amplify deployment polling timed out."
-          exit 1
+            --branch-name main \
+            --job-type RELEASE

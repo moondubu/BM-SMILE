@@ -113,17 +113,14 @@ npm run dev
 ## GitHub Actions (Amplify 운영 배포)
 
 - `.github/workflows/amplify-release-deploy.yml`
-  - `vYYYY.MM.DD.N` 형식의 Git 태그 push 시 AWS Amplify `RELEASE` Job 실행
-  - 태그 형식 검증 + 태그 커밋이 `origin/$AMPLIFY_BRANCH` HEAD와 일치하는지 검증 (기본 `main`)
-  - AWS CLI는 서드파티 액션 대신 AWS 공식 설치 파일(`awscli.amazonaws.com`)로 직접 설치(이미 설치된 경우 재사용)
-  - AWS OIDC 인증 후 Amplify 배포 상태를 polling하여 실패 시 워크플로 실패 처리
+  - `v*` 형식의 Git 태그 push 시 AWS Amplify `RELEASE` Job 실행
+  - `infinishow-office` 러너에서 액세스 키 기반 인증 후 Amplify Release Job 트리거
 
 필수 GitHub Secret/Variable:
 
-- Secret: `AWS_ROLE_TO_ASSUME`
+- Secret: `AWS_ACCESS_KEY_ID`
+- Secret: `AWS_SECRET_ACCESS_KEY`
 - Variable: `AMPLIFY_APP_ID`
-- Variable: `AMPLIFY_BRANCH` (기본값 `main`)
-- Variable: `AWS_REGION` (기본값 `ap-northeast-2`)
 
 운영 배포 트리거용 태그 푸시 예시:
 
