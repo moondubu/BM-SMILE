@@ -35,7 +35,7 @@ export async function POST(request: Request) {
 
     const result = await resend.emails.send({
       from: process.env.RESEND_FROM ?? "onboarding@resend.dev",
-      to: process.env.CONTACT_TO ?? "tmdgns0806@artshare.kr",
+      to: process.env.CONTACT_TO ?? "contact@bmsmile.com",
       replyTo: senderEmail,
       subject: `[Contact] ${senderSubject}`,
       text: `발신자 이메일: ${senderEmail}\n\n${senderContent}`,
