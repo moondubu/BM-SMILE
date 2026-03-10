@@ -6,6 +6,8 @@ import "./globals.css";
 import Header from "@/components/Header/Header"
 import FooterSlot from "@/components/Footer/FooterSlot"
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://bm-hp-dev.itsmile.net"
+
 const nanumSquareNeo = localFont({
   src: "../../public/fonts/NanumSquareNeo-Variable/woff2/NanumSquareNeo-Variable.woff2",
   variable: "--font-nanumSquareNeo",
@@ -14,6 +16,7 @@ const nanumSquareNeo = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: "BMSmile | 홈",
   description: "BMSmile 공식 홈페이지",
   icons: {
