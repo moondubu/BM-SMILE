@@ -22,3 +22,6 @@
 - Before finalizing responsive edits, verify whether the requested value means:
   1. token-based responsive value
   2. fixed pixel value
+
+## Documentation Update Rule
+- Whenever any code/configuration/content/route/API behavior is changed, update `README.md` in the same task so the documentation always matches the current project state.

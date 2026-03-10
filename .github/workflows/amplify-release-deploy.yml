@@ -1,0 +1,117 @@
+name: Amplify Release Deploy
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy-release:
+    runs-on: [self-hosted, infinishow-office]
+    env:
+      AWS_REGION: ${{ vars.AWS_REGION || 'ap-northeast-2' }}
+      AMPLIFY_APP_ID: ${{ vars.AMPLIFY_APP_ID }}
+      AMPLIFY_BRANCH: ${{ vars.AMPLIFY_BRANCH || 'main' }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate tag format (vYYYY.MM.DD.N)
+        env:
+          TAG_NAME: ${{ github.ref_name }}
+        run: |
+          if [[ ! "$TAG_NAME" =~ ^v[0-9]{4}\.[0-9]{2}\.[0-9]{2}\.[0-9]{1}$ ]]; then
+            echo "Invalid tag format: $TAG_NAME"
+            echo "Expected format: vYYYY.MM.DD.N (example: v2026.03.10.1)"
+            exit 1
+          fi
+
+      - name: Validate required configuration
+        env:
+          AWS_ROLE_TO_ASSUME: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+        run: |
+          if [ -z "$AWS_ROLE_TO_ASSUME" ]; then
+            echo "Missing secret: AWS_ROLE_TO_ASSUME"
+            exit 1
+          fi
+          if [ -z "$AMPLIFY_APP_ID" ]; then
+            echo "Missing variable: AMPLIFY_APP_ID"
+            exit 1
+          fi
+
+      - name: Verify tag points to release branch HEAD
+        run: |
+          git fetch origin "$AMPLIFY_BRANCH" --tags --force
+          MAIN_SHA="$(git rev-parse "origin/$AMPLIFY_BRANCH")"
+          TAG_SHA="$(git rev-list -n 1 "$GITHUB_REF")"
+          echo "origin/$AMPLIFY_BRANCH: $MAIN_SHA"
+          echo "tag commit : $TAG_SHA"
+          if [ "$MAIN_SHA" != "$TAG_SHA" ]; then
+            echo "Tag must point to the latest origin/$AMPLIFY_BRANCH commit."
+            exit 1
+          fi
+
+      - name: Configure AWS credentials (OIDC)
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: ${{ secrets.AWS_ROLE_TO_ASSUME }}
+          aws-region: ${{ env.AWS_REGION }}
+
+      - name: Set up AWS CLI
+        uses: aws-actions/setup-aws-cli@v2
+
+      - name: Start Amplify release job
+        id: start
+        run: |
+          JOB_ID="$(aws amplify start-job \
+            --app-id "$AMPLIFY_APP_ID" \
+            --branch-name "$AMPLIFY_BRANCH" \
+            --job-type RELEASE \
+            --job-reason "Triggered by tag $GITHUB_REF_NAME ($GITHUB_SHA)" \
+            --query 'jobSummary.jobId' \
+            --output text)"
+          if [ -z "$JOB_ID" ] || [ "$JOB_ID" = "None" ]; then
+            echo "Failed to start Amplify release job."
+            exit 1
+          fi
+          echo "Started Amplify job: $JOB_ID"
+          echo "job_id=$JOB_ID" >> "$GITHUB_OUTPUT"
+
+      - name: Poll Amplify release job status
+        run: |
+          JOB_ID="${{ steps.start.outputs.job_id }}"
+          for attempt in $(seq 1 120); do
+            STATUS="$(aws amplify get-job \
+              --app-id "$AMPLIFY_APP_ID" \
+              --branch-name "$AMPLIFY_BRANCH" \
+              --job-id "$JOB_ID" \
+              --query 'job.summary.status' \
+              --output text)"
+            echo "Attempt $attempt/120 - status: $STATUS"
+            case "$STATUS" in
+              SUCCEED)
+                echo "Amplify deployment succeeded."
+                exit 0
+                ;;
+              FAILED|CANCELLED)
+                echo "Amplify deployment failed with status: $STATUS"
+                exit 1
+                ;;
+              CREATED|PENDING|PROVISIONING|RUNNING|CANCELLING)
+                sleep 15
+                ;;
+              *)
+                echo "Unexpected job status: $STATUS"
+                sleep 15
+                ;;
+            esac
+          done
+          echo "Amplify deployment polling timed out."
+          exit 1
