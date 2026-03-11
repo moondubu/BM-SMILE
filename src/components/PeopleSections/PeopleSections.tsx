@@ -11,10 +11,12 @@ export function PeopleCultureSection() {
           <h2 className="PeopleSection-title">빠르게 성장하는 문화</h2>
           <p className="PeopleSection-description">
             우리는 직급이나 연차보다 역할, 책임,
+            {" "}
             <br className="PeopleCulture-descriptionBreakMobileOnly" />
             그리고 실행력을 기준으로 사람을 평가합니다.
             <br />
             개인의 성장이 곧 조직의 성장이라고 믿기 때문에,
+            {" "}
             <br className="PeopleCulture-descriptionBreakMobileOnly" />
             빠르게 성장할 수 있는 환경을 의도적으로 설계했습니다.
           </p>

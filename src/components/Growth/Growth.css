@@ -88,6 +88,10 @@
             margin: 0;
         }
 
+        .Growth-titleBreak {
+            display: none;
+        }
+
         .Growth-desc {
             font-family: var(--font-sans);
             font-size: var(--font-size-16);
@@ -321,6 +325,10 @@
         }
 
         .Growth-textContent {
+            .Growth-titleBreak {
+                display: block;
+            }
+
             .Growth-desc {
                 br {
                     display: none;

@@ -24,7 +24,7 @@ export default function Growth() {
                         <div className="Growth-textContent">
                             <span className="Growth-subTitle">Our Growth</span>
                             <h3 className="Growth-title">
-                                지표로 증명하는 성장
+                                최단기간<br className="Growth-titleBreak" /> 최고성장을 이루고
                             </h3>
                             <p className="Growth-desc">
                                 AI 기반 뉴미디어 전략과 통합 구조를 결합해 <br />
