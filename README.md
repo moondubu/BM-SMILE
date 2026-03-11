@@ -89,32 +89,11 @@ npm run dev
 - 최종 runner 이미지는 실행에 필요한 산출물(`.next`, `public`, `next.config.ts`, `node_modules`)만 포함합니다.
 - 기본 컨테이너 포트는 `3000`입니다.
 
-## GitHub Actions (GHCR)
-
-아래 워크플로가 추가되어 있습니다.
-
-- 공통 실행 환경: self-hosted 러너 `infinishow-office`
-
-- `.github/workflows/ghcr-latest.yml`
-  - `main` 브랜치에 push(merge)되면 GHCR에 `:latest` 태그 이미지를 빌드/푸시
-- `.github/workflows/ghcr-release-tag.yml`
-  - `vYYYY.MM.DD.N` 형식의 Git 태그가 push되면 동일 태그로 운영용 이미지를 빌드/푸시
-  - 태그 형식 검증 실패 시 워크플로가 실패합니다.
-
-이미지명은 기본적으로 아래 형식을 사용합니다.
-
-`ghcr.io/<owner>/<repo>`
-
-예시:
-
-- `ghcr.io/bmsmile/bmsmile-homepage:latest`
-- `ghcr.io/bmsmile/bmsmile-homepage:v2026.03.10.1`
-
 ## GitHub Actions (Amplify 운영 배포)
 
 - `.github/workflows/amplify-release-deploy.yml`
   - `v*` 형식의 Git 태그 push 시 AWS Amplify `RELEASE` Job 실행
-  - `infinishow-office` 러너에서 액세스 키 기반 인증 후 Amplify Release Job 트리거
+  - `ubuntu-latest` 러너에서 액세스 키 기반 인증 후 Amplify Release Job 트리거
 
 필수 GitHub Secret/Variable:
 
