@@ -102,15 +102,18 @@ export default function PethroomPage() {
             페스룸은 펫 휴머나이제이션을 기반으로,
             <br />
             사람이 아닌 반려동물의 시선과 인지 특성에서
+            {" "}
             <br className="PethroomImpact-subTextBreakMobileOnly" />
             출발해 제품을 설계합니다.
             <br />
             <br className="PethroomImpact-subTextBreakMobileOnly" />
             반려동물의 색각 특성을 고려한
+            {" "}
             <br className="PethroomImpact-subTextBreakMobileOnly" />
             블루 & 옐로우 컬러 시스템을 적용해
             <br />
             기능성과 직관성을 동시에 만족하는
+            {" "}
             <br className="PethroomImpact-subTextBreakMobileOnly" />
             제품 경험을 제공합니다.
           </>

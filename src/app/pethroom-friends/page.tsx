@@ -56,6 +56,7 @@ export default function PethroomFriendsPage() {
         description={
           <>
             반려동물 보호자를 위한 펫 버티컬 숏폼 콘텐츠를 중심으로,
+            {" "}
             <br className="PethroomFriendsFlow-descriptionBreakMobileOnly" />
             시청·참여·미션을 통해 리워드를 제공하는 펫 특화 콘텐츠 플랫폼입니다.
           </>
