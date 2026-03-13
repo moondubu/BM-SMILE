@@ -28,6 +28,8 @@ const CULTURE_ITEMS = [
 ]
 
 export default function EnvironmentCulture() {
+  const [firstItem, ...otherItems] = CULTURE_ITEMS
+
   return (
     <section className="EnvironmentCulture">
       <div className="EnvironmentCulture-inner">
@@ -51,16 +53,46 @@ export default function EnvironmentCulture() {
           </div>
         </header>
 
-        <div className="EnvironmentCulture-grid">
-          {CULTURE_ITEMS.map((item) => (
-            <article key={item.title} className="EnvironmentCulture-card">
-              <img src={item.imageSrc} alt={item.imageAlt} className="EnvironmentCulture-cardImage" />
-              <div className="EnvironmentCulture-cardText">
-                <h3 className="EnvironmentCulture-cardTitle">{item.title}</h3>
-                <p className="EnvironmentCulture-cardDescription">{item.description}</p>
+        <div className="EnvironmentCulture-contents">
+          {/* Top Large Card with Video Support */}
+          <article className="EnvironmentCulture-largeCard">
+            <div className="EnvironmentCulture-mediaContainer">
+              <video
+                className="EnvironmentCulture-video"
+                autoPlay
+                muted
+                loop
+                playsInline
+                poster="https://d2dusau7i4u1ud.cloudfront.net/products/714/video_env_culture_thumbnail_1773384667539.jpg"
+              >
+                <source src="https://d2dusau7i4u1ud.cloudfront.net/products/714/video_env_culture_hevc_1773384667539.mp4" type="video/mp4; codecs=hvc1" />
+                <source src="https://d2dusau7i4u1ud.cloudfront.net/products/714/video_env_culture_h264_1773384667539.mp4" type="video/mp4" />
+              </video>
+              <div className="EnvironmentCulture-mediaOverlay" />
+            </div>
+            <div className="EnvironmentCulture-largeCardText">
+              <h3 className="EnvironmentCulture-largeCardTitle">{firstItem.title}</h3>
+              <div className="EnvironmentCulture-largeCardDescription">
+                <p>한 해의 발자취를 돌아보며, 최고급 디너, 이벤트,</p>
+                <p>축하 공연이 함께하는 일 년 중 가장 화려한 하루를 보냅니다.</p>
               </div>
-            </article>
-          ))}
+            </div>
+          </article>
+
+          {/* Bottom 2-column Grid */}
+          <div className="EnvironmentCulture-grid">
+            {otherItems.map((item) => (
+              <article key={item.title} className="EnvironmentCulture-card">
+                <div className="EnvironmentCulture-cardImageWrapper">
+                  <img src={item.imageSrc} alt={item.imageAlt} className="EnvironmentCulture-cardImage" />
+                </div>
+                <div className="EnvironmentCulture-cardText">
+                  <h3 className="EnvironmentCulture-cardTitle">{item.title}</h3>
+                  <p className="EnvironmentCulture-cardDescription">{item.description}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
