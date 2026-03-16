@@ -99,24 +99,31 @@ export default function ContributionConnectProject() {
         }
     }, [isLightboxOpen])
 
-    useEffect(() => {
+    const closeLightbox = () => {
+        setActiveJourneyIndex(null)
         setZoomScale(1)
         setZoomOffset({ x: 0, y: 0 })
         draggingRef.current = false
-    }, [activeJourneyIndex])
+    }
 
-    const closeLightbox = () => setActiveJourneyIndex(null)
-
-    const showPrev = () => {
+    const showPrev = (event: React.MouseEvent) => {
+        event.stopPropagation()
         if (activeJourneyIndex === null) return
         const prevIndex = (activeJourneyIndex - 1 + JOURNEY_ITEMS.length) % JOURNEY_ITEMS.length
         setActiveJourneyIndex(prevIndex)
+        setZoomScale(1)
+        setZoomOffset({ x: 0, y: 0 })
+        draggingRef.current = false
     }
 
-    const showNext = () => {
+    const showNext = (event: React.MouseEvent) => {
+        event.stopPropagation()
         if (activeJourneyIndex === null) return
         const nextIndex = (activeJourneyIndex + 1) % JOURNEY_ITEMS.length
         setActiveJourneyIndex(nextIndex)
+        setZoomScale(1)
+        setZoomOffset({ x: 0, y: 0 })
+        draggingRef.current = false
     }
 
     const getDistance = (touches: TouchList | React.TouchList) => {
@@ -229,7 +236,12 @@ export default function ContributionConnectProject() {
                                 <button
                                     type="button"
                                     className="ContributionConnectProject-journeyButton"
-                                    onClick={() => setActiveJourneyIndex(index)}
+                                    onClick={() => {
+                                        setActiveJourneyIndex(index)
+                                        setZoomScale(1)
+                                        setZoomOffset({ x: 0, y: 0 })
+                                        draggingRef.current = false
+                                    }}
                                     aria-label={`${item.alt} 크게 보기`}
                                 >
                                     <img src={item.thumb} alt={item.alt} />
