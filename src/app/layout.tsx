@@ -18,7 +18,7 @@ const nanumSquareNeo = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: "BMSmile | 홈",
-  description: "BMSmile 공식 홈페이지",
+  description: "AI기반 글로벌 펫테크 기업",
   icons: {
     icon: [
       { url: "/images/common/favicon/favicon.ico" },
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   manifest: "/images/common/favicon/site.webmanifest",
   openGraph: {
     title: "BMSmile | 홈",
-    description: "BMSmile 공식 홈페이지",
+    description: "AI기반 글로벌 펫테크 기업",
     images: [
       {
         url: "/images/common/og_img.png",
