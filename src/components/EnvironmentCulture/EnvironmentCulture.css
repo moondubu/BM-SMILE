@@ -114,7 +114,6 @@
   font-size: var(--font-size-24);
   font-weight: 800;
   line-height: 1.5;
-  color: inherit; /* Inherit from parent (white on desktop) */
   letter-spacing: -0.03em;
 }
 
@@ -123,7 +122,6 @@
   font-size: var(--font-size-16);
   font-weight: 500;
   line-height: 1.6;
-  color: inherit; /* Inherit from parent (white on desktop) */
   white-space: pre-line;
 }
 
@@ -240,8 +238,6 @@
     position: static; /* Remove absolute positioning */
     padding: 0;
     color: var(--color-grey-900); /* Reset color */
-    display: flex;
-    flex-direction: column;
     gap: var(--spacing-8);
   }
 
