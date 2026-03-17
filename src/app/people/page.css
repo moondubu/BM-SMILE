@@ -48,6 +48,9 @@
     .SlideCard-overlay {
       padding: var(--spacing-32);
       gap: var(--spacing-16);
+    }
+
+    .SlideCard-overlay:not(.SlideCard-overlay--hoverable) {
       background: linear-gradient(180deg, rgba(0, 0, 0, 0) 50%, rgba(0, 0, 0, 0.5) 100%);
     }
 
