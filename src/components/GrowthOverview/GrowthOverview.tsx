@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./GrowthOverview.css"
 
 const GROWTH_STATS = [
@@ -38,7 +39,7 @@ export default function GrowthOverview() {
           </div>
 
           <div className="GrowthOverview-visual">
-            <img src={prefixPath("/images/main/img_main_growth_graph.png")} alt="Growth Performance Graph" />
+            <AppImage src={prefixPath("/images/main/img_main_growth_graph.png")} alt="Growth Performance Graph" />
           </div>
         </div>
       </div>

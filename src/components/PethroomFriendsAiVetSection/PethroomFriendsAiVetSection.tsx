@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./PethroomFriendsAiVetSection.css"
 
 export default function PethroomFriendsAiVetSection() {
@@ -6,8 +7,8 @@ export default function PethroomFriendsAiVetSection() {
     <section className="PethroomFriendsAiVet">
       <div className="PethroomFriendsAiVet-top">
         <div className="PethroomFriendsAiVet-visual">
-          <img src={prefixPath("/images/friends/img_friends_aivet_01.png")} alt="AI 상담 인터페이스 예시 1" />
-          <img src={prefixPath("/images/friends/img_friends_aivet_02.png")} alt="AI 상담 인터페이스 예시 2" />
+          <AppImage src={prefixPath("/images/friends/img_friends_aivet_01.png")} alt="AI 상담 인터페이스 예시 1" />
+          <AppImage src={prefixPath("/images/friends/img_friends_aivet_02.png")} alt="AI 상담 인터페이스 예시 2" />
         </div>
         <div className="PethroomFriendsAiVet-header">
           <p className="PethroomFriendsAiVet-label">03</p>
@@ -25,7 +26,7 @@ export default function PethroomFriendsAiVetSection() {
         <div className="PethroomFriendsAiVet-modelGrid">
           <article className="PethroomFriendsAiVet-mainModel">
             <div className="PethroomFriendsAiVet-mainProfile">
-              <img src={prefixPath("/images/friends/img_friends_aivet_03.png")} alt="수의사 윤샘" />
+              <AppImage src={prefixPath("/images/friends/img_friends_aivet_03.png")} alt="수의사 윤샘" />
               <div className="PethroomFriendsAiVet-mainProfileText">
                 <h4>수의사 윤샘</h4>
                 <p>건강·증상 종합 상담 AI</p>
@@ -51,7 +52,7 @@ export default function PethroomFriendsAiVetSection() {
 
           <div className="PethroomFriendsAiVet-sideModels">
             <article className="PethroomFriendsAiVet-sideModel">
-              <img src={prefixPath("/images/friends/img_friends_aivet_04.png")} alt="알렉스" />
+              <AppImage src={prefixPath("/images/friends/img_friends_aivet_04.png")} alt="알렉스" />
               <div>
                 <h4>알렉스</h4>
                 <p>강아지 행동 & 일상 고민 AI</p>
@@ -59,7 +60,7 @@ export default function PethroomFriendsAiVetSection() {
             </article>
 
             <article className="PethroomFriendsAiVet-sideModel">
-              <img src={prefixPath("/images/friends/img_friends_aivet_05.png")} alt="보스" />
+              <AppImage src={prefixPath("/images/friends/img_friends_aivet_05.png")} alt="보스" />
               <div>
                 <h4>보스</h4>
                 <p>고양이 행동 & 일상 고민 AI</p>

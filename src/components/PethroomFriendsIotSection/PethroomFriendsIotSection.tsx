@@ -1,5 +1,6 @@
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./PethroomFriendsIotSection.css"
 
@@ -71,7 +72,7 @@ export default function PethroomFriendsIotSection() {
       </MediaSlide>
 
       <div className="PethroomFriendsIot-dashboard">
-        <img
+        <AppImage
           src={prefixPath("/images/friends/img_friends_dashboard_01.png")}
           alt="건강지표 대시보드"
           className="PethroomFriendsIot-dashboardImage"
@@ -89,7 +90,7 @@ export default function PethroomFriendsIotSection() {
       </div>
 
       <div className="PethroomFriendsIot-report">
-        <img
+        <AppImage
           src={prefixPath("/images/friends/img_friends_dashboard_02.png")}
           alt="반려동물 케어 리포트 예시"
           className="PethroomFriendsIot-reportImage"

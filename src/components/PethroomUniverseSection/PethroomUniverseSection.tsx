@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./PethroomUniverseSection.css"
 
 type PethroomUniverseImage = {
@@ -34,7 +35,7 @@ export default function PethroomUniverseSection({
       <div className="PethroomUniverseSection-grid">
         {items.map((item, index) => (
           <div key={`${item.imageSrc}-${index}`} className="PethroomUniverseSection-item">
-            <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="PethroomUniverseSection-image" loading="lazy" decoding="async" />
+            <AppImage src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="PethroomUniverseSection-image" loading="lazy" decoding="async" />
           </div>
         ))}
       </div>

@@ -1,4 +1,5 @@
 import "./StrategyPetPlatform.css"
+import AppImage from "@/components/AppImage/AppImage"
 import PetPlatformExpansionSection from "@/components/PetPlatformExpansionSection/PetPlatformExpansionSection"
 import { prefixPath } from "@/utils/path"
 
@@ -26,7 +27,7 @@ export default function StrategyPetPlatform() {
           </div>
 
           <div className="StrategyPetPlatform-topVisual">
-            <img src={prefixPath("/images/strategy/img_strategy_petplatform_phones.png")} alt="" aria-hidden="true" />
+            <AppImage src={prefixPath("/images/strategy/img_strategy_petplatform_phones.png")} alt="" aria-hidden="true" />
           </div>
         </div>
       </div>

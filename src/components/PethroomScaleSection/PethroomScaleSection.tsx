@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./PethroomScaleSection.css"
 
@@ -56,7 +57,7 @@ export default function PethroomScaleSection({
         <div className="PethroomScaleSection-strengthGrid">
           {strengthItems.map((item) => (
             <article key={item.key} className="PethroomScaleSection-strengthCard">
-              <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="PethroomScaleSection-strengthIcon" loading="lazy" decoding="async" />
+              <AppImage src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="PethroomScaleSection-strengthIcon" loading="lazy" decoding="async" />
               <div className="PethroomScaleSection-strengthText">
                 <h3 className="PethroomScaleSection-strengthTitle">{item.title}</h3>
                 <p className="PethroomScaleSection-strengthDescription">{item.description}</p>

@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./SectionCardGrid.css"
 
@@ -47,12 +48,14 @@ export default function SectionCardGrid({
           {items.map((item) => (
             <article key={item.key} className={cardClassName}>
               {item.mobileImageSrc ? (
-                <picture>
-                  <source media="(max-width: 768px)" srcSet={prefixPath(item.mobileImageSrc)} />
-                  <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
-                </picture>
+                <AppImage
+                  src={prefixPath(item.imageSrc)}
+                  mobileSrc={prefixPath(item.mobileImageSrc)}
+                  alt={item.imageAlt}
+                  className="SectionCardGrid-cardImage"
+                />
               ) : (
-                <img src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
+                <AppImage src={prefixPath(item.imageSrc)} alt={item.imageAlt} className="SectionCardGrid-cardImage" />
               )}
               {(item.label || item.title || item.description) ? (
                 <div className="SectionCardGrid-cardText">

@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import ContactForm from "./ContactForm"
 import "./page.css"
 
@@ -26,7 +27,7 @@ export default function ContactPage() {
 
         <div className="ContactPage-content">
           <article className="ContactPage-visualCard">
-            <img
+            <AppImage
               src={prefixPath("/images/contact/img_contact_01.png")}
               alt=""
               className="ContactPage-visualImage"

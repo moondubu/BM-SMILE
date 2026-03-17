@@ -49,13 +49,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const enableAgentation = process.env.NODE_ENV === "development" && process.env.NEXT_PUBLIC_ENABLE_AGENTATION === "true"
+
   return (
     <html lang="ko" className={nanumSquareNeo.variable}>
       <head>
         <link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" rel="stylesheet" />
       </head>
       <body>
-        {process.env.NODE_ENV === "development" ? <Agentation /> : null}
+        {enableAgentation ? <Agentation /> : null}
         <Header />
         <main className="main">
           {children}

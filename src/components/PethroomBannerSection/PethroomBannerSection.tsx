@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./PethroomBannerSection.css"
 
 type PethroomBannerSectionProps = {
@@ -46,7 +47,7 @@ export default function PethroomBannerSection({
             <source src={prefixedH264} type="video/mp4" />
           </video>
         ) : prefixedImage ? (
-          <img
+          <AppImage
             src={prefixedImage}
             alt={imageAlt}
             className="PethroomBannerSection-media"

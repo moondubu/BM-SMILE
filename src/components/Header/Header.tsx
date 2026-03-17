@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
+import AppImage from "@/components/AppImage/AppImage"
 import { type MouseEvent, useEffect, useRef, useState } from "react"
 import { prefixPath } from "@/utils/path"
 import "./Header.css"
@@ -112,7 +113,7 @@ function HeaderView({ pathname }: HeaderViewProps) {
     <header className={`Header${openMobileMenu ? " Header--menu-open" : ""}`}>
       <div className="Header-inner">
         <Link href="/" className="Header-logo">
-          <img src={prefixPath(logoSrc)} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
+          <AppImage src={prefixPath(logoSrc)} alt="BMSmile" className="Header-logoImg" fetchPriority="high" />
         </Link>
 
         <nav className="Header-nav" ref={navRef}>

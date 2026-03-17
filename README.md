@@ -33,6 +33,7 @@ Next.js App Router 기반으로 구성되어 있으며, SEO를 고려한 SSR 배
 ```text
 src/app           # 라우트, 레이아웃, 페이지별 CSS, API route
 src/components    # 페이지 조합 컴포넌트
+src/components/AppImage  # next/image 기반 공통 이미지 helper 및 자산 크기 맵
 src/data          # 섹션/콘텐츠 데이터 상수
 public/images     # 정적 이미지 자산
 public/fonts      # 로컬 폰트 자산
@@ -56,6 +57,7 @@ RESEND_FROM=onboarding@resend.dev
 CONTACT_TO=contact@example.com
 # 선택
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
+NEXT_PUBLIC_ENABLE_AGENTATION=false
 ```
 
 3. 개발 서버 실행
@@ -75,6 +77,7 @@ npm run dev
 - `RESEND_FROM`: 문의 메일 발신자 주소 (미설정 시 `onboarding@resend.dev`)
 - `CONTACT_TO`: 문의 메일 수신자 주소 (미설정 시 `contact@bmsmile.com`)
 - `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`: Location 페이지 Google Maps Embed API 키 (선택)
+- `NEXT_PUBLIC_ENABLE_AGENTATION`: 개발 환경에서 Agentation 오버레이 활성화 여부 (`true`일 때만 렌더링)
 
 ## 스크립트
 
@@ -126,6 +129,7 @@ git push origin v2026.03.10.1
 - `/api/contact`는 `RESEND_API_KEY`가 없으면 500 응답을 반환합니다.
 - SEO 메타데이터는 App Router `metadata`를 통해 서버 응답 HTML에 포함됩니다.
 - `next.config.ts`에서 `images.unoptimized`, `trailingSlash`는 유지합니다.
+- 정적 이미지 렌더링은 `src/components/AppImage` helper와 자동 생성된 크기 맵을 사용해 `next/image` 규칙을 따릅니다.
 - `src/middleware.ts`에서 레거시 URL 301 리다이렉트를 처리하며 `/company/*`는 기본적으로 `/strategy/`로 이동하고 `/company/location.html`만 예외적으로 `/location/`으로 이동합니다. 또한 `/career/culture.html`, `/culture/life.html`은 `/environment/`로 이동합니다.
 
 ## 정적 배포 관련 참고

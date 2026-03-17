@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./EnvironmentCulture.css"
 
 const CULTURE_IMAGE_01 = prefixPath("/images/environment/img_environment_culture_01.png")
@@ -85,7 +86,7 @@ export default function EnvironmentCulture() {
             {otherItems.map((item) => (
               <article key={item.title} className="EnvironmentCulture-card">
                 <div className="EnvironmentCulture-cardImageWrapper">
-                  <img src={item.imageSrc} alt={item.imageAlt} className="EnvironmentCulture-cardImage" />
+                  <AppImage src={item.imageSrc} alt={item.imageAlt} className="EnvironmentCulture-cardImage" />
                 </div>
                 <div className="EnvironmentCulture-cardText">
                   <h3 className="EnvironmentCulture-cardTitle">{item.title}</h3>
