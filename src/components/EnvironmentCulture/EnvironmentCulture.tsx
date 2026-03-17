@@ -9,19 +9,20 @@ const CULTURE_ITEMS = [
   {
     title: "Year-end party",
     description:
-      "한 해의 발자취를 돌아보며, 최고급 디너, 이벤트, 축하 공연이 함께하는 일 년 중 가장 화려한 하루를 보냅니다.",
+      "한 해 동안 함께 만든 성과와 여정을 돌아보는 밤.\n최고급 디너와 다양한 이벤트, 축하 공연이 어우러져\n팀 모두가 함께하는 일 년 중 가장 특별한 순간을 만듭니다.",
     imageSrc: CULTURE_IMAGE_01,
     imageAlt: "연말 파티 현장",
+    performanceInfo: "Performance by John Park / Hosted by Lee Hye-sung",
   },
   {
     title: "Monthly Townhall",
-    description: "매달 라운지에 모여 비전을 공유하고, 이벤트, 이달의 MVP 시상 등 서로의 성과를 축하합니다.",
+    description: "매달 라운지에 모여 비전을 공유하고, 이벤트,\n이달의 MVP 시상식 등 서로의 성과를 축하합니다.",
     imageSrc: CULTURE_IMAGE_02,
     imageAlt: "월간 타운홀 현장",
   },
   {
     title: "MVP Awards",
-    description: "이달의 탁월한 성과를 낸 팀과 개인을 위한 MVP 시상식. 전 직원의 박수와 함께 자긍심을 높입니다.",
+    description: "이달의 탁월한 성과를 낸 팀과 개인을 위한 MVP 시상식.\n전 직원의 박수와 함께 자긍심을 높입니다.",
     imageSrc: CULTURE_IMAGE_03,
     imageAlt: "MVP 어워즈 무대",
   },
@@ -72,10 +73,10 @@ export default function EnvironmentCulture() {
             </div>
             <div className="EnvironmentCulture-largeCardText">
               <h3 className="EnvironmentCulture-largeCardTitle">{firstItem.title}</h3>
-              <div className="EnvironmentCulture-largeCardDescription">
-                <p>한 해의 발자취를 돌아보며, 최고급 디너, 이벤트,</p>
-                <p>축하 공연이 함께하는 일 년 중 가장 화려한 하루를 보냅니다.</p>
-              </div>
+              <p className="EnvironmentCulture-largeCardDescription">{firstItem.description}</p>
+              {firstItem.performanceInfo && (
+                <p className="EnvironmentCulture-performanceInfo">{firstItem.performanceInfo}</p>
+              )}
             </div>
           </article>
 
