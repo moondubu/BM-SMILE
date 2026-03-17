@@ -126,6 +126,7 @@ git push origin v2026.03.10.1
 - `/api/contact`는 `RESEND_API_KEY`가 없으면 500 응답을 반환합니다.
 - SEO 메타데이터는 App Router `metadata`를 통해 서버 응답 HTML에 포함됩니다.
 - `next.config.ts`에서 `images.unoptimized`, `trailingSlash`는 유지합니다.
+- `src/middleware.ts`에서 레거시 URL 301 리다이렉트를 처리하며 `/company/*`는 기본적으로 `/strategy/`로 이동하고 `/company/location.html`만 예외적으로 `/location/`으로 이동합니다. 또한 `/career/culture.html`, `/culture/life.html`은 `/environment/`로 이동합니다.
 
 ## 정적 배포 관련 참고
 
