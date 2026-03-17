@@ -6,14 +6,13 @@ import "./StrategyGlobal.css"
 const TEAM_CARDS = [
   {
     title: "CEO - Warren",
-    description:
-      "에이피알(APR)을 창업하여 메디큐브,\n에이프릴스킨 등의 다수 브랜드를 성공시키며\n조 단위 기업으로 키워낸 핵심 인물",
+    description: "다수 브랜드를 각 산업에서\n가장 빠르게 성장시킨 인물",
     emphasized: true,
   },
   {
     title: "Core Team",
     description:
-      "글로벌 SNS 숏폼 마케팅 실전 경험과\nK-뷰티 성공 공식을 실제로 검증한 팀이\n빠른 실행력 혁신, 스케일업을 이끌고 있습니다.",
+      "글로벌 SNS·숏폼 마케팅 실전 경험과\nK-뷰티 성공 공식을 실제로 경험한 팀이\n빠른 실행과 확산, 스케일업을 이끌고 있습니다.",
     emphasized: false,
   },
 ] as const
@@ -88,14 +87,14 @@ export default function StrategyGlobal() {
               <h3 className="StrategyGlobal-teamSummaryTitle">
                 압도적 뉴미디어
                 {"\n"}
-                활용 역량을 &apos;탑재한 팀&apos;
+                활용 역량을 ‘탑재한 팀’
               </h3>
               <p className="StrategyGlobal-teamSummaryDescription">
-                비엠스마일은 시도하는 팀이 아니라,
+                비엠스마일은 ‘시도하는 팀’이 아니라,
                 {"\n"}
-                글로벌 활용 공식을 이미
+                글로벌 필승 공식을 이미
                 {"\n"}
-                &apos;경험해본 팀&apos;이기에 가능합니다.
+                ‘경험해본 팀’이기에 가능합니다.
               </p>
             </article>
           </div>
