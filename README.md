@@ -57,7 +57,6 @@ RESEND_FROM=onboarding@resend.dev
 CONTACT_TO=contact@example.com
 # 선택
 NEXT_PUBLIC_GOOGLE_MAPS_API_KEY=
-NEXT_PUBLIC_ENABLE_AGENTATION=false
 ```
 
 3. 개발 서버 실행
@@ -77,7 +76,6 @@ npm run dev
 - `RESEND_FROM`: 문의 메일 발신자 주소 (미설정 시 `onboarding@resend.dev`)
 - `CONTACT_TO`: 문의 메일 수신자 주소 (미설정 시 `contact@bmsmile.com`)
 - `NEXT_PUBLIC_GOOGLE_MAPS_API_KEY`: Location 페이지 Google Maps Embed API 키 (선택)
-- `NEXT_PUBLIC_ENABLE_AGENTATION`: 개발 환경에서 Agentation 오버레이 활성화 여부 (`true`일 때만 렌더링)
 
 ## 스크립트
 
