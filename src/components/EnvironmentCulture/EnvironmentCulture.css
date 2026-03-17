@@ -124,10 +124,16 @@
   font-weight: 500;
   line-height: 1.6;
   color: inherit; /* Inherit from parent (white on desktop) */
+  white-space: pre-line;
 }
 
-.EnvironmentCulture .EnvironmentCulture-largeCardDescription p {
-  margin: 0;
+.EnvironmentCulture .EnvironmentCulture-performanceInfo {
+  margin-top: var(--spacing-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-14);
+  font-weight: 500;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Grid (Bottom) */
@@ -184,6 +190,7 @@
   font-weight: 500;
   line-height: 1.6;
   color: var(--color-grey-600);
+  white-space: pre-line;
 }
 
 /* Tablet Layout */
@@ -203,6 +210,10 @@
 
   .EnvironmentCulture .EnvironmentCulture-description .EnvironmentCulture-descriptionBreakMobile {
     display: block;
+  }
+
+  .EnvironmentCulture .EnvironmentCulture-contents {
+    gap: var(--spacing-64);
   }
 
   /* Large Card Re-layout for Mobile (No Overlay) */
@@ -236,10 +247,14 @@
     color: var(--color-grey-600); /* Reset color */
   }
 
+  .EnvironmentCulture .EnvironmentCulture-performanceInfo {
+    color: var(--color-grey-500); /* Mobile reset color */
+  }
+
   /* Grid Re-layout */
   .EnvironmentCulture .EnvironmentCulture-grid {
     grid-template-columns: 1fr;
-    gap: var(--spacing-40);
+    gap: var(--spacing-64);
   }
 
   .EnvironmentCulture .EnvironmentCulture-cardImageWrapper {

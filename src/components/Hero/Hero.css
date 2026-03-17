@@ -82,12 +82,24 @@
 
 @media (max-width: 1376px) {
   .Hero {
-    height: 720px;
     aspect-ratio: auto;
+    height: 720px;
+  }
+
+  .MainHero.Hero {
+    margin-top: 80px;
+    height: auto;
+    aspect-ratio: 1920 / 960;
   }
 }
 
 @media (max-width: 768px) {
+  .MainHero.Hero {
+    margin-top: 0;
+    height: 720px;
+    aspect-ratio: auto;
+  }
+
   .Hero {
     .Hero-media--desktop {
       display: none;
