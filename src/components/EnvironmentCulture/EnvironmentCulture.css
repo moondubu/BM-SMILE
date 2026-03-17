@@ -128,7 +128,6 @@
 }
 
 .EnvironmentCulture .EnvironmentCulture-performanceInfo {
-  margin-top: var(--spacing-4);
   font-family: var(--font-sans);
   font-size: var(--font-size-14);
   font-weight: 500;
@@ -241,6 +240,9 @@
     position: static; /* Remove absolute positioning */
     padding: 0;
     color: var(--color-grey-900); /* Reset color */
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-8);
   }
 
   .EnvironmentCulture .EnvironmentCulture-largeCardDescription {
@@ -248,7 +250,7 @@
   }
 
   .EnvironmentCulture .EnvironmentCulture-performanceInfo {
-    color: var(--color-grey-500); /* Mobile reset color */
+    color: var(--color-grey-400); /* Mobile reset color to grey-400 */
   }
 
   /* Grid Re-layout */
