@@ -39,6 +39,10 @@ public/fonts      # 로컬 폰트 자산
 docs              # 프로젝트 문서
 ```
 
+## 구현 메모
+
+- `/people`의 BM Smile Team 슬라이드는 공통 `SlideCard` hover 인터랙션을 그대로 사용하며, 페이지 전용 오버레이 스타일은 hoverable 카드 상태를 덮어쓰지 않도록 분리합니다.
+
 ## 실행 방법
 
 1. 의존성 설치
