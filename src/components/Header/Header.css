@@ -56,6 +56,12 @@
       align-items: center;
     }
 
+    .Header-navGroupTrigger {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-4);
+    }
+
     .Header-navItem--has-dropdown:hover .Header-dropdown {
       display: block;
     }
@@ -82,6 +88,17 @@
       color: var(--color-black);
       text-decoration: none;
       white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .Header-navToggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: none;
+      background: transparent;
+      color: var(--color-black);
       cursor: pointer;
     }
 
@@ -356,16 +373,6 @@
         gap: var(--spacing-12);
         width: 100%;
         padding: var(--spacing-12) 0;
-        border: none;
-        background: transparent;
-        color: inherit;
-        font-family: var(--font-nanumSquareNeo);
-        cursor: pointer;
-
-        &:hover {
-          background: transparent;
-          color: inherit;
-        }
       }
 
       .Header-mobileGroupCaret {
@@ -388,6 +395,19 @@
       .Header-mobileTitleLink {
         display: inline-flex;
         padding: var(--spacing-12) 0;
+      }
+
+      .Header-mobileGroupToggle {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 24px;
+        height: 24px;
+        padding: 0;
+        border: none;
+        background: transparent;
+        color: inherit;
+        cursor: pointer;
       }
 
       .Header-mobileSubList {

@@ -10,6 +10,7 @@ import "./Header.css"
 const NAV_ITEMS = [
   {
     label: "COMPANY",
+    href: "/company",
     children: [
       { label: "ENVIRONMENT", href: "/environment" },
       { label: "PEOPLE", href: "/people" },
@@ -21,6 +22,7 @@ const NAV_ITEMS = [
   },
   {
     label: "PET IP",
+    href: "/pet-ip",
     children: [
       { label: "PETHROOM", href: "/pethroom" },
       { label: "PETHROOM FRIENDS", href: "/pethroom-friends" },
@@ -129,24 +131,28 @@ function HeaderView({ pathname }: HeaderViewProps) {
               >
                 {"children" in item ? (
                   <>
-                    <span
-                      className="Header-navLink"
-                      role="button"
-                      tabIndex={0}
-                      aria-expanded={openNavDropdown === item.label}
-                      onClick={() => handleNavDropdownToggle(item.label)}
-                      onKeyDown={(event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                          event.preventDefault()
-                          handleNavDropdownToggle(item.label)
-                        }
-                      }}
-                    >
-                      {item.label}
-                      <svg className="Header-navCaret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
-                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
+                    <div className="Header-navGroupTrigger">
+                      <Link
+                        href={item.href}
+                        className="Header-navLink"
+                        onClick={() => {
+                          setOpenNavDropdown(null)
+                        }}
+                      >
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="Header-navToggle"
+                        aria-label={`${item.label} submenu toggle`}
+                        aria-expanded={openNavDropdown === item.label}
+                        onClick={() => handleNavDropdownToggle(item.label)}
+                      >
+                        <svg className="Header-navCaret" width="10" height="6" viewBox="0 0 10 6" fill="none" aria-hidden>
+                          <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
                     <ul className="Header-dropdown">
                       {item.children.map((child) => (
                         <li key={child.label}>
@@ -250,24 +256,29 @@ function HeaderView({ pathname }: HeaderViewProps) {
               <li key={`mobile-${item.label}`} className="Header-mobileItem">
                 {"children" in item ? (
                   <>
-                    <button
-                      type="button"
-                      className="Header-mobileGroupHeader"
-                      aria-expanded={openMobileGroups[item.label]}
-                      onClick={() => handleMobileGroupToggle(item.label)}
-                    >
-                      <p className="Header-mobileTitle">{item.label}</p>
-                      <svg
-                        className={`Header-mobileGroupCaret${openMobileGroups[item.label] ? " Header-mobileGroupCaret--open" : ""}`}
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        aria-hidden
+                    <div className="Header-mobileGroupHeader">
+                      <Link href={item.href} className="Header-mobileTitleLink" onClick={handleMobileMenuClose}>
+                        {item.label}
+                      </Link>
+                      <button
+                        type="button"
+                        className="Header-mobileGroupToggle"
+                        aria-label={`${item.label} submenu toggle`}
+                        aria-expanded={openMobileGroups[item.label]}
+                        onClick={() => handleMobileGroupToggle(item.label)}
                       >
-                        <path d="M7 14L12 9L17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </button>
+                        <svg
+                          className={`Header-mobileGroupCaret${openMobileGroups[item.label] ? " Header-mobileGroupCaret--open" : ""}`}
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          aria-hidden
+                        >
+                          <path d="M7 14L12 9L17 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                        </svg>
+                      </button>
+                    </div>
                     <ul className={`Header-mobileSubList${openMobileGroups[item.label] ? " Header-mobileSubList--open" : ""}`}>
                       {item.children.map((child) => (
                         <li key={`mobile-${item.label}-${child.label}`}>
