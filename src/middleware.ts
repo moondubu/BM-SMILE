@@ -22,8 +22,8 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(url, 301)
   }
 
-  // 2. company 레거시 경로는 location만 예외로 두고 strategy로 통합
-  if (pathname.startsWith("/company/")) {
+  // 2. company 레거시 경로는 SEO 랜딩 /company/ 를 제외하고 strategy로 통합
+  if (pathname.startsWith("/company/") && pathname !== "/company/") {
     const url = new URL("/strategy/", request.url)
     url.search = ""
     return NextResponse.redirect(url, 301)
