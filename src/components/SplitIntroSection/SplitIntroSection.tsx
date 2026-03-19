@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./SplitIntroSection.css"
 
 type SplitIntroSectionProps = {
@@ -39,18 +40,16 @@ export default function SplitIntroSection({
 
         <div className="SplitIntroSection-imageWrap">
           {mobileImageSrc ? (
-            <picture>
-              <source media="(max-width: 768px)" srcSet={prefixPath(mobileImageSrc)} />
-              <img
-                src={prefixPath(imageSrc)}
-                alt={imageAlt}
-                className="SplitIntroSection-image"
-                loading="lazy"
-                decoding="async"
-              />
-            </picture>
+            <AppImage
+              src={prefixPath(imageSrc)}
+              mobileSrc={prefixPath(mobileImageSrc)}
+              alt={imageAlt}
+              className="SplitIntroSection-image"
+              loading="lazy"
+              decoding="async"
+            />
           ) : (
-            <img
+            <AppImage
               src={prefixPath(imageSrc)}
               alt={imageAlt}
               className="SplitIntroSection-image"

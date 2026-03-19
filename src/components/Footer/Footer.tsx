@@ -1,4 +1,5 @@
 import Link from "next/link"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./Footer.css"
 
@@ -15,7 +16,7 @@ export default function Footer() {
     <footer className="Footer">
       <div className="Footer-inner">
         <Link href="/" className="Footer-logo">
-          <img src={prefixPath("/images/common/img_footer_logo.png")} alt="Business Makes the earth Smile" className="Footer-logoImg" loading="lazy" decoding="async" />
+          <AppImage src={prefixPath("/images/common/img_footer_logo.png")} alt="Business Makes the earth Smile" className="Footer-logoImg" loading="lazy" decoding="async" />
         </Link>
         <div className="Footer-info">
           <p>Corporate Name / {COMPANY.name}</p>

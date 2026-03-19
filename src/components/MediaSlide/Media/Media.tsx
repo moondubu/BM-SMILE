@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./Media.css"
 
 type MediaProps = {
@@ -37,18 +38,14 @@ export default function Media({
   if (isImage && prefixedImage) {
     return (
       <div className="Media">
-        <picture>
-          {prefixedMobileImage != null && (
-            <source media="(max-width: 768px)" srcSet={prefixedMobileImage} />
-          )}
-          <img
-            src={prefixedImage}
-            alt={imageAlt}
-            loading="lazy"
-            decoding="async"
-            style={style}
-          />
-        </picture>
+        <AppImage
+          src={prefixedImage}
+          mobileSrc={prefixedMobileImage}
+          alt={imageAlt}
+          loading="lazy"
+          decoding="async"
+          style={style}
+        />
         <div className="Media-text-overlay SectionHead">
           {number != null && number !== "" && (
             <span className="SectionNumber">{number}</span>

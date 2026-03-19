@@ -1,4 +1,5 @@
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
+import AppImage from "@/components/AppImage/AppImage"
 import { MediaSlide, SlideRow, type SlideRowTextPanel } from "@/components/MediaSlide"
 import { buildSectionTitle } from "@/components/MediaSlide/SectionTextPanel/SectionTextPanel"
 import PageNavigation from "@/components/PageNavigation/PageNavigation"
@@ -141,7 +142,7 @@ export default function PethroomPage() {
               <article key={item.label} className="PethroomImpactAwardsMobile-item">
                 <div className="PethroomImpactAwardsMobile-logoWrap">
                   {PETHROOM_IMPACT_MOBILE_LOGOS[index] ? (
-                    <img
+                    <AppImage
                       src={prefixPath(PETHROOM_IMPACT_MOBILE_LOGOS[index])}
                       alt={item.logoAlt ?? item.label}
                       className="PethroomImpactAwardsMobile-logo"

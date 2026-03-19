@@ -1,6 +1,7 @@
 'use client'
 
 import { prefixPath } from '@/utils/path'
+import AppImage from '@/components/AppImage/AppImage'
 import './Contribution1004.css'
 
 export default function Contribution1004() {
@@ -8,13 +9,11 @@ export default function Contribution1004() {
         <section className="Contribution1004">
             <div className="Contribution1004-darkBlock">
                 <div className="Contribution1004-bg">
-                    <picture>
-                        <source media="(max-width: 768px)" srcSet={prefixPath("/images/contribution/img_contribution_1004_01_mo.png")} />
-                        <img
-                            src={prefixPath("/images/contribution/img_contribution_1004_01.png")}
-                            alt="PETHROOM 1004 Project Background"
-                        />
-                    </picture>
+                    <AppImage
+                        src={prefixPath("/images/contribution/img_contribution_1004_01.png")}
+                        mobileSrc={prefixPath("/images/contribution/img_contribution_1004_01_mo.png")}
+                        alt="PETHROOM 1004 Project Background"
+                    />
                 </div>
                 <div className="Contribution1004-inner">
                     <div className="Contribution1004-content">

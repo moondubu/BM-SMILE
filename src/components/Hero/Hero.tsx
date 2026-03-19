@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./Hero.css"
 
 type HeroProps = {
@@ -79,12 +80,15 @@ export default function Hero({
       ) : (
         prefixedImage ? (
           prefixedMobileImage ? (
-            <picture>
-              <source media="(max-width: 768px)" srcSet={prefixedMobileImage} />
-              <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" />
-            </picture>
+            <AppImage
+              src={prefixedImage}
+              mobileSrc={prefixedMobileImage}
+              alt={imageAlt}
+              className="Hero-media"
+              fetchPriority="high"
+            />
           ) : (
-            <img src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" />
+            <AppImage src={prefixedImage} alt={imageAlt} className="Hero-media" fetchPriority="high" />
           )
         ) : null
       )}

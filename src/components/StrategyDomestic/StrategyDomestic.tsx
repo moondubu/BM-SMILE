@@ -1,4 +1,5 @@
 import ImpactSection from "@/components/ImpactSection/ImpactSection"
+import AppImage from "@/components/AppImage/AppImage"
 import RoadmapSection from "@/components/RoadmapSection/RoadmapSection"
 import StrategySectionHeader from "@/components/StrategySectionHeader/StrategySectionHeader"
 import {
@@ -19,7 +20,7 @@ export default function StrategyDomestic() {
     <section className="StrategyDomestic">
       <div className="StrategyDomestic-darkBlock">
         <div className="StrategyDomestic-bg">
-          <img src={prefixPath(STRATEGY_DOMESTIC_HEADER.backgroundSrc)} alt="" aria-hidden="true" />
+          <AppImage src={prefixPath(STRATEGY_DOMESTIC_HEADER.backgroundSrc)} alt="" aria-hidden="true" />
         </div>
 
         <div className="StrategyDomestic-inner">

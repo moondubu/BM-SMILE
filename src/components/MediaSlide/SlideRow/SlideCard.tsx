@@ -1,6 +1,7 @@
 "use client"
 
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import { Fragment, type MouseEvent } from "react"
 import "./SlideCard.css"
 
@@ -57,12 +58,14 @@ export default function SlideCard({
       className={`SlideCard${linkWholeCard && actionHref != null ? " SlideCard--linked" : ""}${isActive ? " SlideCard--active" : ""}`}
       onClick={handleCardClick}
     >
-      <picture>
-        {imageSrcMobile != null && imageSrcMobile !== "" ? (
-          <source media="(max-width: 768px)" srcSet={prefixPath(imageSrcMobile)} />
-        ) : null}
-        <img src={prefixPath(imageSrc)} alt={imageAlt} className="SlideCard-img" loading="lazy" decoding="async" />
-      </picture>
+      <AppImage
+        src={prefixPath(imageSrc)}
+        mobileSrc={imageSrcMobile != null && imageSrcMobile !== "" ? prefixPath(imageSrcMobile) : undefined}
+        alt={imageAlt}
+        className="SlideCard-img"
+        loading="lazy"
+        decoding="async"
+      />
       {hasOverlay && (
         <div className={`SlideCard-overlay${hasHoverOverlay ? " SlideCard-overlay--hoverable" : ""}`}>
           {(number != null && number !== "") || text !== "" ? (

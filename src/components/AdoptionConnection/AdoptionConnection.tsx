@@ -1,6 +1,7 @@
 'use client'
 
 import { useRef, useEffect, useState } from 'react'
+import AppImage from '@/components/AppImage/AppImage'
 import { prefixPath } from '@/utils/path'
 import './AdoptionConnection.css'
 
@@ -149,7 +150,7 @@ export default function AdoptionConnection() {
                             {PET_DATA.map((item, idx) => (
                                 <div key={`pet-1-${idx}`} className="AdoptionConnection-imageItem">
                                     <div className="AdoptionConnection-imageWrapper">
-                                        <img src={item.src} alt={item.name} draggable="false" />
+                                        <AppImage src={item.src} alt={item.name} draggable="false" />
                                         <span className="AdoptionConnection-petName">{item.name}</span>
                                     </div>
                                 </div>
@@ -160,7 +161,7 @@ export default function AdoptionConnection() {
                             {PET_DATA.map((item, idx) => (
                                 <div key={`pet-2-${idx}`} className="AdoptionConnection-imageItem">
                                     <div className="AdoptionConnection-imageWrapper">
-                                        <img src={item.src} alt="" draggable="false" />
+                                        <AppImage src={item.src} alt="" draggable="false" />
                                         <span className="AdoptionConnection-petName">{item.name}</span>
                                     </div>
                                 </div>

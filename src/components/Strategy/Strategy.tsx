@@ -1,4 +1,5 @@
 import Link from "next/link"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./Strategy.css"
 
@@ -6,7 +7,7 @@ export default function Strategy() {
   return (
     <section className="Strategy">
       <div className="Strategy-bg">
-        <img
+        <AppImage
           src={prefixPath("/images/main/img_main_strategy_bg.png")}
           alt=""
           className="Strategy-bgImg"

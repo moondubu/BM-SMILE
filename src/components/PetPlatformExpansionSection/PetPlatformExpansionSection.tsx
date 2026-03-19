@@ -1,4 +1,5 @@
 import { prefixPath } from "@/utils/path"
+import AppImage from "@/components/AppImage/AppImage"
 import "./PetPlatformExpansionSection.css"
 
 type PetPlatformExpansionItem = {
@@ -38,7 +39,7 @@ export default function PetPlatformExpansionSection({
 
         <div className="PetPlatformExpansionSection-contents">
           <div className="PetPlatformExpansionSection-visual">
-            <img src={prefixPath(imageSrc)} alt={imageAlt} className="PetPlatformExpansionSection-visualImage" />
+            <AppImage src={prefixPath(imageSrc)} alt={imageAlt} className="PetPlatformExpansionSection-visualImage" />
           </div>
 
           <div className="PetPlatformExpansionSection-featureList">

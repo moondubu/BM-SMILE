@@ -1,4 +1,5 @@
 import type { ReactNode } from "react"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import Link from "next/link"
 import "./ImpactSection.css"
@@ -75,12 +76,14 @@ export default function ImpactSection({
     <section className={sectionClassName}>
       <div className="ImpactSection-bg">
         {backgroundMobileSrc ? (
-          <picture>
-            <source media="(max-width: 768px)" srcSet={prefixPath(backgroundMobileSrc)} />
-            <img src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
-          </picture>
+          <AppImage
+            src={prefixPath(backgroundSrc)}
+            mobileSrc={prefixPath(backgroundMobileSrc)}
+            alt={backgroundAlt}
+            aria-hidden={backgroundAlt ? undefined : "true"}
+          />
         ) : (
-          <img src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
+          <AppImage src={prefixPath(backgroundSrc)} alt={backgroundAlt} aria-hidden={backgroundAlt ? undefined : "true"} />
         )}
       </div>
 
@@ -131,7 +134,7 @@ export default function ImpactSection({
                     .join(" ")}
                 >
                   {item.logoSrc ? (
-                    <img
+                    <AppImage
                       src={prefixPath(item.logoSrc)}
                       alt={item.logoAlt ?? item.label}
                       className="ImpactSection-metricLogo"

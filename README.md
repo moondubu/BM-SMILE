@@ -35,6 +35,7 @@ Next.js App Router 기반으로 구성되어 있으며, SEO를 고려한 SSR 배
 ```text
 src/app           # 라우트, 레이아웃, 페이지별 CSS, API route
 src/components    # 페이지 조합 컴포넌트
+src/components/AppImage  # next/image 기반 공통 이미지 helper 및 자산 크기 맵
 src/data          # 섹션/콘텐츠 데이터 상수
 public/images     # 정적 이미지 자산
 public/fonts      # 로컬 폰트 자산
@@ -133,6 +134,8 @@ git push origin v2026.03.10.1
 - SEO 메타데이터는 App Router `metadata`를 통해 서버 응답 HTML에 포함됩니다.
 - `/company`, `/pet-ip`는 검색엔진 노출용 그룹 랜딩 HTML을 유지하면서, 각 `page.tsx`의 인라인 `<style>`과 클라이언트 redirect 컴포넌트로 `main.main`을 숨기고 첫 번째 하위 메뉴로 이동합니다.
 - `next.config.ts`에서 `images.unoptimized`, `trailingSlash`는 유지합니다.
+- 정적 이미지 렌더링은 `src/components/AppImage` helper와 자동 생성된 크기 맵을 사용해 `next/image` 규칙을 따릅니다.
+- `src/middleware.ts`에서 레거시 URL 301 리다이렉트를 처리하며 `/company/*`는 기본적으로 `/strategy/`로 이동하고 `/company/location.html`만 예외적으로 `/location/`으로 이동합니다. 또한 `/career/culture.html`, `/culture/life.html`은 `/environment/`로 이동합니다.
 - `src/middleware.ts`에서 레거시 URL 301 리다이렉트를 처리하며 `/company/*`는 `/company/` SEO 랜딩과 `/company/location.html`을 제외하고 기본적으로 `/strategy/`로 이동합니다. 또한 `/career/culture.html`, `/culture/life.html`은 `/environment/`로 이동합니다.
 
 ## 정적 배포 관련 참고

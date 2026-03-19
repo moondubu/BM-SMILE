@@ -1,4 +1,5 @@
 import Link from "next/link"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./Growth.css"
 
@@ -55,14 +56,14 @@ export default function Growth() {
                         </div>
                     </div>
                     <div className="Growth-localVisual">
-                        <img src={prefixPath("/images/main/img_main_growth_graph.png")} alt="Growth Graph" />
+                        <AppImage src={prefixPath("/images/main/img_main_growth_graph.png")} alt="Growth Graph" />
                     </div>
                 </div>
 
                 {/* Global Expansion Section */}
                 <div className="Growth-global">
                     <div className="Growth-globalBg">
-                        <img src={prefixPath("/images/main/img_main_growth_bg.png")} alt="" aria-hidden />
+                        <AppImage src={prefixPath("/images/main/img_main_growth_bg.png")} alt="" aria-hidden />
                     </div>
 
                     <div className="Growth-globalInner">

@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import AppImage from '@/components/AppImage/AppImage'
 import { prefixPath } from '@/utils/path'
 import './ContributionConnectProject.css'
 
@@ -221,7 +222,7 @@ export default function ContributionConnectProject() {
 
                         {PROJECT_ITEMS.map((item) => (
                             <article key={item.title} className="ContributionConnectProject-card">
-                                <img src={item.image} alt={item.title} />
+                                <AppImage src={item.image} alt={item.title} />
                                 <p>{item.title}</p>
                             </article>
                         ))}
@@ -244,7 +245,7 @@ export default function ContributionConnectProject() {
                                     }}
                                     aria-label={`${item.alt} 크게 보기`}
                                 >
-                                    <img src={item.thumb} alt={item.alt} />
+                                    <AppImage src={item.thumb} alt={item.alt} />
                                 </button>
                             </figure>
                         ))}
@@ -274,19 +275,17 @@ export default function ContributionConnectProject() {
                         onTouchEnd={handleLightboxTouchEnd}
                     >
                         {JOURNEY_ITEMS[activeJourneyIndex].mobileImage ? (
-                            <picture>
-                                <source media="(max-width: 768px)" srcSet={JOURNEY_ITEMS[activeJourneyIndex].mobileImage} />
-                                <img
-                                    className="ContributionConnectProject-lightboxImage"
-                                    src={JOURNEY_ITEMS[activeJourneyIndex].image}
-                                    alt={JOURNEY_ITEMS[activeJourneyIndex].alt}
-                                    style={{
-                                        transform: `translate(${zoomOffset.x}px, ${zoomOffset.y}px) scale(${zoomScale})`,
-                                    }}
-                                />
-                            </picture>
+                            <AppImage
+                                className="ContributionConnectProject-lightboxImage"
+                                src={JOURNEY_ITEMS[activeJourneyIndex].image}
+                                mobileSrc={JOURNEY_ITEMS[activeJourneyIndex].mobileImage}
+                                alt={JOURNEY_ITEMS[activeJourneyIndex].alt}
+                                style={{
+                                    transform: `translate(${zoomOffset.x}px, ${zoomOffset.y}px) scale(${zoomScale})`,
+                                }}
+                            />
                         ) : (
-                            <img
+                            <AppImage
                                 className="ContributionConnectProject-lightboxImage"
                                 src={JOURNEY_ITEMS[activeJourneyIndex].image}
                                 alt={JOURNEY_ITEMS[activeJourneyIndex].alt}

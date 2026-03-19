@@ -1,4 +1,5 @@
 import Link from "next/link"
+import AppImage from "@/components/AppImage/AppImage"
 import { prefixPath } from "@/utils/path"
 import "./PeopleSections.css"
 
@@ -199,7 +200,7 @@ export function PeopleRecruitSection() {
   return (
     <section className="PeopleRecruit">
       <div className="PeopleRecruit-bg" aria-hidden>
-        <img
+        <AppImage
           className="PeopleRecruit-bgImage"
           src={prefixPath("/images/people/img_people_process_01.png")}
           alt=""
@@ -257,7 +258,7 @@ export function PeopleRecruitSection() {
 
           <article className="PeopleRecruit-location">
             <div className="PeopleRecruit-locationImage">
-              <img
+              <AppImage
                 className="PeopleRecruit-locationImageImg"
                 src={prefixPath("/images/people/img_people_process_02.png")}
                 alt=""
