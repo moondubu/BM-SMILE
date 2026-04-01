@@ -99,6 +99,10 @@ npm run dev
 
 ## GitHub Actions (Amplify 운영 배포)
 
+- `.github/workflows/deploy.yml`
+  - `main` 브랜치 `push`/`pull_request`, 수동 실행 시 `npm ci` 후 `npm run build`를 수행하는 빌드 체크 워크플로입니다.
+  - GitHub-hosted `ubuntu-latest` 러너를 사용해 자체 러너 상태와 무관하게 기본 빌드 검증이 실행됩니다.
+
 - `.github/workflows/amplify-release-deploy.yml`
   - `v*` 형식의 Git 태그 push 시 AWS Amplify `RELEASE` Job 실행
   - `ubuntu-latest` 러너에서 액세스 키 기반 인증 후 Amplify Release Job 트리거
